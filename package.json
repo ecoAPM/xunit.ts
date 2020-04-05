@@ -1,0 +1,12 @@
+{
+  "name": "tscunit",
+  "version": "0.0.1-dev",
+  "description": "A unit testing framework for TypeScript, following xUnit patterns",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.7.7"
+  }
+}
