@@ -2,11 +2,23 @@
   "name": "tscunit",
   "version": "0.0.1-dev",
   "description": "A unit testing framework for TypeScript, following xUnit patterns",
-  "main": "index.js",
-  "scripts": {},
-  "author": "",
+  "main": "tscunit.js",
+  "author": "ecoAPM LLC",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^13.7.7"
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.7.7",
+    "chai": "^4.2.0",
+    "colors": "^1.4.0",
+    "mocha": "^7.1.1",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc test/ && tscunit"
+  },
+  "bin": {
+    "tscunit": "dist/.bin/tscunit.js"
   }
 }
