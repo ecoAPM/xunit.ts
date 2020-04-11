@@ -1,11 +1,9 @@
 import { Test, TestSuite } from "../tscunit";
 import TestName from "../src/TestName";
 
-export default class TestNamingTests extends TestSuite
-{
+export default class TestNamingTests extends TestSuite {
     @Test()
-    public CanConvertTitleCaseToWords()
-    {
+    public CanConvertTitleCaseToWords() {
         //arrange
         const title_case = 'TheseAreWords';
 
