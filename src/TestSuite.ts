@@ -1,6 +1,5 @@
 import { assert } from 'chai';
 import TestInfo from './TestInfo';
-import TestName from './TestName';
 
 export default abstract class TestSuite {
     public assert = assert;
@@ -13,7 +12,7 @@ export default abstract class TestSuite {
         this.tests[name] = info;
     }
 
-    setTests(tests: Record<string, TestInfo>) {
+    public setTests(tests: Record<string, TestInfo>) {
         this.tests = tests;
     }
 
