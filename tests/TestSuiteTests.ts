@@ -1,4 +1,4 @@
-import { Test, TestSuite } from "../tscunit";
+import { Test, TestSuite } from "../xunit";
 
 export default class TestSuiteTests extends TestSuite {
     @Test()

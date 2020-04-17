@@ -10,8 +10,8 @@
     "emitDecoratorMetadata": true
   },
   "files": [
-    "tscunit.ts",
-    ".bin/tscunit.ts"
+    "xunit.ts",
+    ".bin/xunit.ts"
   ],
   "include": ["tests/**/*.ts"]
 }

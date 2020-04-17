@@ -1,8 +1,8 @@
 {
-  "name": "tscunit",
-  "version": "0.0.1-dev",
+  "name": "xunit.ts",
+  "version": "0.2.0-dev",
   "description": "A unit testing framework for TypeScript, following xUnit patterns",
-  "main": "tscunit.js",
+  "main": "xunit.ts",
   "author": "ecoAPM LLC",
   "license": "MIT",
   "devDependencies": {
@@ -12,13 +12,14 @@
     "chai": "^4.2.0",
     "colors": "^1.4.0",
     "mocha": "^7.1.1",
+    "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   },
   "scripts": {
     "build": "tsc",
-    "test": "tsc test/ && tscunit"
+    "test": "ts-node .bin/xunit.ts"
   },
   "bin": {
-    "tscunit": "dist/.bin/tscunit.js"
+    "xunit": ".bin/xunit.ts"
   }
 }

@@ -1,4 +1,4 @@
-import { Test, TestSuite } from "../tscunit";
+import { Test, TestSuite } from "../xunit";
 import TestName from "../src/TestName";
 
 export default class TestNamingTests extends TestSuite {

@@ -1,4 +1,4 @@
-import { TestSuite } from "../tscunit";
+import { TestSuite } from "../xunit";
 import TestInfo from "./TestInfo";
 import { AssertionError } from "assert";
 import colors from "colors";
