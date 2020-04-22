@@ -5,7 +5,7 @@ import { TestResult } from "../src/TestResult";
 export default class TestSuiteResultsTests extends TestSuite {
 
     @Test()
-    public CanGetPassedTests()
+    public async CanGetPassedTests()
     {
         //arrange
         const results = new TestSuiteResults(new class X extends TestSuite{});
@@ -24,7 +24,7 @@ export default class TestSuiteResultsTests extends TestSuite {
     }
 
     @Test()
-    public CanGetAllTests()
+    public async CanGetAllTests()
     {
         //arrange
         const results = new TestSuiteResults(new class X extends TestSuite{});

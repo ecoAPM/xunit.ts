@@ -12,7 +12,7 @@ export default class TestRunner {
         this.reporter = reporter;
     }
 
-    public runTest(name: string, info: TestInfo, suite: TestSuite): TestResult {
+    public async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
         this.reporter.testStarted(suite, name);
         if (info.value == null) {
             this.reporter.testIncomplete(suite, name, 0);
@@ -20,7 +20,7 @@ export default class TestRunner {
         }
 
         try {
-            info.value.call(suite);
+            await info.value.call(suite);
             this.reporter.testPassed(suite, name, 0);
             return TestResult.Passed;
 

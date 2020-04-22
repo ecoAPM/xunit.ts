@@ -8,7 +8,7 @@ import { TestResult } from "../src/TestResult";
 
 export default class ConsoleReporterTests extends TestSuite {
     @Test()
-    public OutputsOnRunStarted() {
+    public async OutputsOnRunStarted() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -21,7 +21,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsSuiteNameOnStart() {
+    public async OutputsSuiteNameOnStart() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -34,7 +34,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsTestNameOnStart() {
+    public async OutputsTestNameOnStart() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -48,7 +48,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsQuestionMarkOnImcomplete() {
+    public async OutputsQuestionMarkOnImcomplete() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -62,7 +62,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsCheckmarkOnPass() {
+    public async OutputsCheckmarkOnPass() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -76,7 +76,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsXOnFailure() {
+    public async OutputsXOnFailure() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -90,7 +90,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsStackOnError() {
+    public async OutputsStackOnError() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -104,7 +104,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsAssertionDiff() {
+    public async OutputsAssertionDiff() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -123,7 +123,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsOnSuiteCompleted() {
+    public async OutputsOnSuiteCompleted() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -136,7 +136,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsWhenNoTestsRun() {
+    public async OutputsWhenNoTestsRun() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
@@ -149,7 +149,7 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    public OutputsResultTotals() {
+    public async OutputsResultTotals() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));

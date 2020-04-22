@@ -1,2 +1,2 @@
-type TestInfo = TypedPropertyDescriptor<() => void>;
+type TestInfo = TypedPropertyDescriptor<() => Promise<void>>;
 export default TestInfo;

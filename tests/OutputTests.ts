@@ -6,7 +6,7 @@ import Output from "../src/Output";
 export default class OutputTests extends TestSuite {
 
     @Test()
-    public CanWriteToTerminal() {
+    public async CanWriteToTerminal() {
         //arrange
         const stdout = Mockito.mock<WriteStream>();
         const output = new Output(Mockito.instance(stdout));
@@ -19,7 +19,7 @@ export default class OutputTests extends TestSuite {
     }
 
     @Test()
-    public CanWriteNewLine() {
+    public async CanWriteNewLine() {
         //arrange
         const stdout = Mockito.mock<WriteStream>();
         const output = new Output(Mockito.instance(stdout));
@@ -33,7 +33,7 @@ export default class OutputTests extends TestSuite {
     }
 
     @Test()
-    public CanOverwriteLine() {
+    public async CanOverwriteLine() {
         //arrange
         const stdout = Mockito.mock<WriteStream>();
         const output = new Output(Mockito.instance(stdout));
@@ -46,7 +46,7 @@ export default class OutputTests extends TestSuite {
     }
 
     @Test()
-    public DoesNotTryToOverwriteNonTerminal() {
+    public async DoesNotTryToOverwriteNonTerminal() {
         //arrange
         const stdout = Mockito.mock<WriteStream>();
         Mockito.when(stdout.isTTY).thenReturn(false);
