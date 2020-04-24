@@ -54,7 +54,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testIncomplete(new class X extends TestSuite { }, 'unit test name', 0);
+        reporter.testIncomplete(new class X extends TestSuite { }, 'unit test name');
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
@@ -68,7 +68,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testPassed(new class X extends TestSuite { }, 'unit test name', 0);
+        reporter.testPassed(new class X extends TestSuite { }, 'unit test name');
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
@@ -82,7 +82,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'));
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
@@ -96,7 +96,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'));
 
         //assert
         const [stack] = Mockito.capture(out.writeLine).first();
@@ -111,7 +111,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const assert = new AssertionError({ expected: '123', actual: '234' });
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', assert, 0);
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', assert);
 
         //assert
         const [expected] = Mockito.capture(out.writeLine).first();
@@ -129,7 +129,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.suiteCompleted(new class X extends TestSuite { }, new TestSuiteResults(new class X extends TestSuite { }), 0);
+        reporter.suiteCompleted(new class X extends TestSuite { }, new TestSuiteResults());
 
         //assert
         Mockito.verify(out.writeLine()).once();
@@ -142,7 +142,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.runCompleted([], 0);
+        reporter.runCompleted([]);
 
         //assert
         Mockito.verify(out.writeLine('No tests found!')).once();
@@ -158,7 +158,7 @@ export default class ConsoleReporterTests extends TestSuite {
         Mockito.when(out.writeLine(Mockito.anyString())).
             thenCall((line: string) => console += line + '\n')
         
-        const results = new TestSuiteResults(new class X extends TestSuite { });
+        const results = new TestSuiteResults();
         results.addResult('test1', TestResult.Passed);
         results.addResult('test2', TestResult.Passed);
         results.addResult('test3', TestResult.Passed);
@@ -167,7 +167,7 @@ export default class ConsoleReporterTests extends TestSuite {
         results.addResult('test6', TestResult.Incomplete);
 
         //act
-        reporter.runCompleted([results], 0);
+        reporter.runCompleted([results]);
 
         //assert
         this.assert.include(console, 'Passed');

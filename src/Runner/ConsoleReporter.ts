@@ -23,11 +23,11 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.write(`  ${colors.white('⋯')} ${test_name}`);
     }
 
-    testPassed(suite: TestSuite, test_name: string, duration: number): void {
+    testPassed(suite: TestSuite, test_name: string): void {
         this.out.overwrite(`  ${colors.green('✓')}\n`);
     }
 
-    testFailed(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+    testFailed(suite: TestSuite, test_name: string, error: Error): void {
         this.out.overwrite(`  ${colors.red('✘')}\n`);
         if (error instanceof AssertionError) {
             this.out.writeLine(`      Expected: ${colors.green(error.expected)}`);
@@ -38,15 +38,15 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.writeLine();
     }
 
-    testIncomplete(suite: TestSuite, test_name: string, duration: number): void {
+    testIncomplete(suite: TestSuite, test_name: string): void {
         this.out.overwrite(`  ${colors.yellow('?')} ${test_name}\n`);
     }
 
-    suiteCompleted(suite: TestSuite, results: TestSuiteResults, duration: number): void {
+    suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
         this.out.writeLine();
     }
 
-    runCompleted(results: TestSuiteResults[], duration: number): void {
+    runCompleted(results: TestSuiteResults[]): void {
         if (!results.length) {
             this.out.writeLine('No tests found!');
             return;

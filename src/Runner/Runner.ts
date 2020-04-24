@@ -16,7 +16,7 @@ export default class Runner {
             const result = await this.runner.runSuite(suite);
             results.push(result);
         }
-        this.reporter.runCompleted(results, 0);
+        this.reporter.runCompleted(results);
         return results;
     }
 }

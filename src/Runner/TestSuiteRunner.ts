@@ -12,14 +12,14 @@ export default class TestSuiteRunner {
         this.reporter.suiteStarted(suite);
         const tests = suite.getTests();
         const results = await this.runTests(suite, tests);
-        this.reporter.suiteCompleted(suite, results, 0);
+        this.reporter.suiteCompleted(suite, results);
         return results;
     }
 
     async runTests(suite: TestSuite, tests: Record<string, TestInfo>): Promise<TestSuiteResults> {
-        const results = new TestSuiteResults(suite);
+        const results = new TestSuiteResults();
         if (tests == null || Object.keys(tests).length == 0) {
-            this.reporter.testIncomplete(suite, '(no tests found)', 0);
+            this.reporter.testIncomplete(suite, '(no tests found)');
             return results;
         }
 

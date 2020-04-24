@@ -33,7 +33,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
         await runner.runSuite(new class X extends TestSuite {});
 
         //assert
-        Mockito.verify(reporter.suiteCompleted(Mockito.anything(), Mockito.anything(), Mockito.anything())).once();
+        Mockito.verify(reporter.suiteCompleted(Mockito.anything(), Mockito.anything())).once();
     }
 
     @Test()
@@ -48,7 +48,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
         await runner.runTests(new class X extends TestSuite {}, {});
 
         //assert
-        Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anything(), Mockito.anything())).once();
+        Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anything())).once();
     }
 
     @Test()

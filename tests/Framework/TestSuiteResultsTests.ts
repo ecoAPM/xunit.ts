@@ -8,7 +8,7 @@ export default class TestSuiteResultsTests extends TestSuite {
     async CanGetPassedTests()
     {
         //arrange
-        const results = new TestSuiteResults(new class X extends TestSuite{});
+        const results = new TestSuiteResults();
         results.addResult('test1', TestResult.Passed);
         results.addResult('test2', TestResult.Passed);
         results.addResult('test3', TestResult.Passed);
@@ -27,7 +27,7 @@ export default class TestSuiteResultsTests extends TestSuite {
     async CanGetAllTests()
     {
         //arrange
-        const results = new TestSuiteResults(new class X extends TestSuite{});
+        const results = new TestSuiteResults();
         results.addResult('test1', TestResult.Passed);
         results.addResult('test2', TestResult.Passed);
         results.addResult('test3', TestResult.Passed);

@@ -1,11 +1,8 @@
-import TestSuite from './TestSuite';
 import { TestResult } from './TestResult';
 
 export default class TestSuiteResults {
 
     private results: Record<string, TestResult> = {};
-
-    constructor(private suite: TestSuite) { }
 
     addResult(name: string, result: TestResult): void {
         this.results[name] = result;

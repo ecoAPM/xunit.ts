@@ -10,17 +10,17 @@ export default class TestRunner {
     async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
         this.reporter.testStarted(suite, name);
         if (info.value == null) {
-            this.reporter.testIncomplete(suite, name, 0);
+            this.reporter.testIncomplete(suite, name);
             return TestResult.Incomplete;
         }
 
         try {
             await info.value.call(suite);
-            this.reporter.testPassed(suite, name, 0);
+            this.reporter.testPassed(suite, name);
             return TestResult.Passed;
 
         } catch (error) {
-            this.reporter.testFailed(suite, name, error, 0);
+            this.reporter.testFailed(suite, name, error);
             return TestResult.Failed;
         }
     }

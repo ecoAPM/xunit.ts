@@ -38,7 +38,7 @@ export default class RunnerTests extends TestSuite {
         await runner.runAll('tests');
 
         //assert
-        Mockito.verify(reporter.runCompleted(Mockito.anything(), Mockito.anything()));
+        Mockito.verify(reporter.runCompleted(Mockito.anything()));
     }
 
     @Test()
@@ -50,7 +50,7 @@ export default class RunnerTests extends TestSuite {
         Mockito.when(loader.loadTestSuites(Mockito.anyString())).thenResolve([test_suite_stub, test_suite_stub]);
 
         const suite_runner = Mockito.mock<TestSuiteRunner>();
-        Mockito.when(suite_runner.runSuite(Mockito.anything())).thenResolve(new TestSuiteResults(test_suite_stub));
+        Mockito.when(suite_runner.runSuite(Mockito.anything())).thenResolve(new TestSuiteResults());
 
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), Mockito.instance(reporter));
