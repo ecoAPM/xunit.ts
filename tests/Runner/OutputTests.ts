@@ -29,7 +29,7 @@ export default class OutputTests extends TestSuite {
 
         //assert
         const received = Mockito.capture(stdout.write).first();
-        this.assert.include(received, '\n');
+        this.assert.contains('\n', received);
     }
 
     @Test()

@@ -1,12 +1,12 @@
-import { assert } from 'chai';
 import TestInfo from './TestInfo';
+import AssertionLibrary from '../Assertions';
 
 export default abstract class TestSuite {
-    assert = assert;
+    assert = new AssertionLibrary();
 
     private tests: Record<string, TestInfo> = {};
 
-    addTest(name: string, info: TestInfo): void {
+    addTest(name: string, info: TestInfo) {
         if (this.tests == null)
             this.tests = {};
         this.tests[name] = info;

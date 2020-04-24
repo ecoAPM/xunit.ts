@@ -12,7 +12,7 @@ export default class TestSuiteTests extends TestSuite {
         const tests = suite.getTests();
 
         //assert
-        this.assert.lengthOf(Object.keys(tests), 2);
+        this.assert.count(2, Object.keys(tests));
     }
 
     @Test()
@@ -26,7 +26,7 @@ export default class TestSuiteTests extends TestSuite {
         const tests_to_run = suite.getTests();
 
         //assert
-        this.assert.lengthOf(Object.keys(tests_to_run), 2);
+        this.assert.count(2, Object.keys(tests_to_run));
     }
 
     @Test()

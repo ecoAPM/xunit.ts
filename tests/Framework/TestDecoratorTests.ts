@@ -11,7 +11,7 @@ export default class TestDecoratorTests extends TestSuite {
         test_decorator(suite, 'UnitTestName', {});
 
         //assert
-        this.assert.include(Object.keys(suite.getTests()), 'UnitTestName');
+        this.assert.contains('UnitTestName', Object.keys(suite.getTests()));
     }
 
     @Test()
@@ -24,7 +24,7 @@ export default class TestDecoratorTests extends TestSuite {
         test_decorator(suite, 'UnitTestName', {});
 
         //assert
-        this.assert.include(Object.keys(suite.getTests()), 'Unit Test Name');
+        this.assert.contains('Unit Test Name', Object.keys(suite.getTests()));
 
     }
 }

@@ -44,7 +44,7 @@ export default class ConsoleReporterTests extends TestSuite {
 
         //assert
         const [output] = Mockito.capture(out.write).first();
-        this.assert.include(output, 'unit test name');
+        this.assert.stringContains('unit test name', output);
     }
 
     @Test()
@@ -58,7 +58,7 @@ export default class ConsoleReporterTests extends TestSuite {
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
-        this.assert.include(result, '?');
+        this.assert.stringContains('?', result);
     }
 
     @Test()
@@ -72,7 +72,7 @@ export default class ConsoleReporterTests extends TestSuite {
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
-        this.assert.include(result, '✓');
+        this.assert.stringContains('✓', result);
     }
 
     @Test()
@@ -86,7 +86,7 @@ export default class ConsoleReporterTests extends TestSuite {
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
-        this.assert.include(result, '✘');
+        this.assert.stringContains('✘', result);
     }
 
     @Test()
@@ -99,8 +99,8 @@ export default class ConsoleReporterTests extends TestSuite {
         reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'));
 
         //assert
-        const [stack] = Mockito.capture(out.writeLine).first();
-        this.assert.include(stack, 'unhandled exception');
+        const stack = Mockito.capture(out.writeLine).first();
+        this.assert.stringContains('unhandled exception', stack[0] as string);
     }
 
     @Test()
@@ -114,12 +114,12 @@ export default class ConsoleReporterTests extends TestSuite {
         reporter.testFailed(new class X extends TestSuite { }, 'unit test name', assert);
 
         //assert
-        const [expected] = Mockito.capture(out.writeLine).first();
-        const [actual] = Mockito.capture(out.writeLine).second();
-        this.assert.include(expected, 'Expected:');
-        this.assert.include(expected, '123');
-        this.assert.include(actual, 'Actual:');
-        this.assert.include(actual, '234');
+        const expected = Mockito.capture(out.writeLine).first();
+        const actual = Mockito.capture(out.writeLine).second();
+        this.assert.stringContains('Expected:', expected[0] as string);
+        this.assert.stringContains('123', expected[0] as string);
+        this.assert.stringContains('Actual:', actual[0] as string);
+        this.assert.stringContains('234', actual[0] as string);
     }
 
     @Test()
@@ -170,13 +170,13 @@ export default class ConsoleReporterTests extends TestSuite {
         reporter.runCompleted([results]);
 
         //assert
-        this.assert.include(console, 'Passed');
-        this.assert.include(console, '3');
-        this.assert.include(console, 'Failed');
-        this.assert.include(console, '2');
-        this.assert.include(console, 'Incomplete');
-        this.assert.include(console, '1');
-        this.assert.include(console, 'Total');
-        this.assert.include(console, '6');
+        this.assert.stringContains('Passed', console);
+        this.assert.stringContains('3', console);
+        this.assert.stringContains('Failed', console);
+        this.assert.stringContains('2', console);
+        this.assert.stringContains('Incomplete', console);
+        this.assert.stringContains('1', console);
+        this.assert.stringContains('Total', console);
+        this.assert.stringContains('6', console);
     }
 }

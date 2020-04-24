@@ -15,7 +15,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const is_node_modules = TestSuiteLoader.isFromNodeModules(dir);
 
         //assert
-        this.assert.isTrue(is_node_modules);
+        this.assert.true(is_node_modules);
     }
 
     @Test()
@@ -27,7 +27,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const is_node_modules = TestSuiteLoader.isFromNodeModules(dir);
 
         //assert
-        this.assert.isFalse(is_node_modules);
+        this.assert.false(is_node_modules);
     }
 
     @Test()
@@ -65,7 +65,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const suite = await TestSuiteLoader.loadTestSuite(module);
 
         //assert
-        this.assert.instanceOf(suite, TestSuite);
+        this.assert.instanceOf(TestSuite, suite);
     }
 
     @Test()
@@ -77,7 +77,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const suite = await TestSuiteLoader.loadTestSuite(module);
 
         //assert
-        this.assert.isNull(suite);
+        this.assert.null(suite);
     }
 
     @Test()
@@ -94,7 +94,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const suites = await loader.loadTestSuites('tests');
 
         //assert
-        this.assert.lengthOf(suites, 1);
+        this.assert.count(1, suites);
         this.assert.equal('TestSuiteLoaderTests', suites[0].constructor.name);
     }
 }

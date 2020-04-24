@@ -59,6 +59,6 @@ export default class RunnerTests extends TestSuite {
         const results = await runner.runAll('tests');
 
         //assert
-        this.assert.lengthOf(results, 2);
+        this.assert.count(2, results);
     }
 }

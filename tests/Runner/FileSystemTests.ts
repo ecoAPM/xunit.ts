@@ -13,8 +13,8 @@ export default class FileSystemTests extends TestSuite {
         const files = await file_system.getFiles('tests');
 
         //assert
-        this.assert.include(files, `tests${path.sep}Runner${path.sep}FileSystemTests.ts`);
-        this.assert.include(files, `tests${path.sep}Framework${path.sep}TestSuiteTests.ts`);
+        this.assert.contains(`tests${path.sep}Runner${path.sep}FileSystemTests.ts`, files);
+        this.assert.contains(`tests${path.sep}Framework${path.sep}TestSuiteTests.ts`, files);
     }
 
     @Test()
@@ -26,6 +26,6 @@ export default class FileSystemTests extends TestSuite {
         const files = await file_system.getFiles('nonexistent');
 
         //assert
-        this.assert.isEmpty(files);
+        this.assert.empty(files);
     }
 }
