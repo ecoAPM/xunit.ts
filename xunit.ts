@@ -1,5 +1,5 @@
-import Test from './src/Test';
-import TestSuite from './src/TestSuite';
+import Test from './src/Framework/Test';
+import TestSuite from './src/Framework/TestSuite';
 
 export {
     Test,

@@ -1,6 +1,6 @@
-import TestSuite from './TestSuite';
+import TestSuite from '../Framework/TestSuite';
 import { AssertionError } from 'assert';
-import TestSuiteResults from './TestSuiteResults';
+import TestSuiteResults from '../Framework/TestSuiteResults';
 
 export default interface ResultReporter {
     runStarted(): void;

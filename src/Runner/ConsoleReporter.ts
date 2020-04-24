@@ -1,11 +1,11 @@
 import ResultReporter from "./ResultReporter";
-import TestSuite from "./TestSuite";
+import TestSuite from "../Framework/TestSuite";
 import Output from "./Output";
-import TestName from "./TestName";
+import TestName from "../Framework/TestName";
 import colors from "colors";
 import { AssertionError } from "assert";
-import TestSuiteResults from "./TestSuiteResults";
-import { TestResult } from "./TestResult";
+import TestSuiteResults from "../Framework/TestSuiteResults";
+import { TestResult } from "../Framework/TestResult";
 
 export default class ConsoleReporter implements ResultReporter {
 

@@ -1,10 +1,10 @@
 import { Test, TestSuite } from "../xunit";
 import Mockito from 'ts-mockito';
-import Output from "../src/Output";
-import ConsoleReporter from "../src/ConsoleReporter";
+import Output from "../src/Runner/Output";
+import ConsoleReporter from "../src/Runner/ConsoleReporter";
 import { AssertionError } from "assert";
-import TestSuiteResults from "../src/TestSuiteResults";
-import { TestResult } from "../src/TestResult";
+import TestSuiteResults from "../src/Framework/TestSuiteResults";
+import { TestResult } from "../src/Framework/TestResult";
 
 export default class ConsoleReporterTests extends TestSuite {
     @Test()

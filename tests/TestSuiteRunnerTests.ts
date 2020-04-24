@@ -1,9 +1,9 @@
 import { TestSuite, Test } from "../xunit";
-import TestSuiteRunner from "../src/TestSuiteRunner";
-import TestRunner from "../src/TestRunner";
+import TestSuiteRunner from "../src/Runner/TestSuiteRunner";
+import TestRunner from "../src/Runner/TestRunner";
 import Mockito from "ts-mockito";
-import ResultReporter from "../src/ResultReporter";
-import { TestResult } from "../src/TestResult";
+import ResultReporter from "../src/Runner/ResultReporter";
+import { TestResult } from "../src/Framework/TestResult";
 
 export default class TestSuiteRunnerTests extends TestSuite {
     @Test()

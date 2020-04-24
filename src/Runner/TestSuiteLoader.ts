@@ -1,4 +1,4 @@
-import TestSuite from './TestSuite';
+import TestSuite from '../Framework/TestSuite';
 import FileSystem from './FileSystem';
 import path from 'path';
 
@@ -36,8 +36,8 @@ export default class TestSuiteLoader {
 
     public static getModulePath(current_dir: string, test_dir: string, file: string): string {
         const root = TestSuiteLoader.isFromNodeModules(path.resolve(current_dir))
-            ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
-            : '..';
+            ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
+            : `..${path.sep}..`;
         const module_name = file.replace(/\.[tj]s$/, '');
         return `${root}${path.sep}${test_dir}${path.sep}${module_name}`;
     }

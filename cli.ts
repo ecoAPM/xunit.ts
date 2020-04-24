@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import Factory from './src/Factory';
-import TestSuiteResults from './src/TestSuiteResults';
+import TestSuiteResults from './src/Framework/TestSuiteResults';
 
 Factory.Runner().runAll(process.argv[2] || 'tests')
     .then((results: TestSuiteResults[]) => {

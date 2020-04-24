@@ -1,10 +1,10 @@
-import FileSystem from './FileSystem';
-import ConsoleReporter from './ConsoleReporter';
-import Output from './Output';
-import TestSuiteLoader from './TestSuiteLoader';
-import TestSuiteRunner from './TestSuiteRunner';
-import TestRunner from './TestRunner';
-import Runner from './Runner';
+import FileSystem from './Runner/FileSystem';
+import ConsoleReporter from './Runner/ConsoleReporter';
+import Output from './Runner/Output';
+import TestSuiteLoader from './Runner/TestSuiteLoader';
+import TestSuiteRunner from './Runner/TestSuiteRunner';
+import TestRunner from './Runner/TestRunner';
+import Runner from './Runner/Runner';
 
 export default class Factory {
     public static Runner(): Runner {

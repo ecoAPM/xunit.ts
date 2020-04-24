@@ -1,7 +1,7 @@
 import { Test, TestSuite } from "../xunit";
-import TestSuiteLoader from "../src/TestSuiteLoader";
+import TestSuiteLoader from "../src/Runner/TestSuiteLoader";
 import Mockito from "ts-mockito";
-import FileSystem from "../src/FileSystem";
+import FileSystem from "../src/Runner/FileSystem";
 import path from 'path';
 
 export default class TestSuiteLoaderTests extends TestSuite {
@@ -41,7 +41,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const module_path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
 
         //assert
-        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}tests${path.sep}test`, module_path);
+        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}tests${path.sep}test`, module_path);
     }
 
     @Test()
@@ -55,7 +55,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const module_path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
 
         //assert
-        this.assert.equal(`..${path.sep}tests${path.sep}test`, module_path);
+        this.assert.equal(`..${path.sep}..${path.sep}tests${path.sep}test`, module_path);
     }
 
     @Test()
@@ -74,7 +74,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     @Test()
     public async NonTestSuiteReturnsNull() {
         //arrange
-        const dir = 'src';
+        const dir = 'src/Runner';
         const module = 'TestSuiteLoader';
 
         //act
@@ -88,7 +88,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     public async CanLoadTestSuitesFiltersNonTests() {
         //arrange
         const file_system = Mockito.mock<FileSystem>();
-        Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve(['TestSuiteLoaderTests', '../src/TestSuiteRunner']);
+        Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve(['TestSuiteLoaderTests', '../src/Runner/TestSuiteRunner']);
         const loader = new TestSuiteLoader(Mockito.instance(file_system));
 
         //act

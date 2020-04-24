@@ -1,8 +1,7 @@
-import TestInfo from './TestInfo';
-import TestSuite from './TestSuite';
-import { TestResult } from './TestResult';
+import TestInfo from '../Framework/TestInfo';
+import TestSuite from '../Framework/TestSuite';
+import { TestResult } from '../Framework/TestResult';
 import ResultReporter from './ResultReporter';
-import { AssertionError } from 'assert';
 
 export default class TestRunner {
 

@@ -1,5 +1,5 @@
 import { Test, TestSuite } from "../xunit";
-import FileSystem from "../src/FileSystem";
+import FileSystem from "../src/Runner/FileSystem";
 
 export default class FileSystemTests extends TestSuite {
 

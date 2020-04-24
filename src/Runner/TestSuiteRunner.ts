@@ -1,7 +1,7 @@
 import ResultReporter from './ResultReporter';
-import TestSuite from './TestSuite';
-import TestSuiteResults from './TestSuiteResults';
-import TestInfo from './TestInfo';
+import TestSuite from '../Framework/TestSuite';
+import TestSuiteResults from '../Framework/TestSuiteResults';
+import TestInfo from '../Framework/TestInfo';
 import TestRunner from './TestRunner';
 
 export default class TestSuiteRunner {
