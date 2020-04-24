@@ -40,7 +40,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const module_path = TestSuiteLoader.getModulePath(current_dir, filename);
 
         //assert
-        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}test`, module_path);
+        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}test`, module_path);
     }
 
     @Test()

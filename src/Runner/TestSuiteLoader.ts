@@ -32,7 +32,7 @@ export default class TestSuiteLoader {
 
     static getModulePath(current_dir: string, file: string) {
         const root = TestSuiteLoader.isFromNodeModules(path.resolve(current_dir))
-            ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
+            ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
             : `..${path.sep}..`;
         const module_name = file.replace(/\.[tj]s$/, '');
         return `${root}${path.sep}${module_name}`;
