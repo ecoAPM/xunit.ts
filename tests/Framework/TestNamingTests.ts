@@ -1,5 +1,5 @@
-import { Test, TestSuite } from "../xunit";
-import TestName from "../src/Framework/TestName";
+import { Test, TestSuite } from "../../xunit";
+import TestName from "../../src/Framework/TestName";
 
 export default class TestNamingTests extends TestSuite {
     @Test()

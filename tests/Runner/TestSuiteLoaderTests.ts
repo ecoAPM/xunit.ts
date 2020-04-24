@@ -1,7 +1,7 @@
-import { Test, TestSuite } from "../xunit";
-import TestSuiteLoader from "../src/Runner/TestSuiteLoader";
+import { Test, TestSuite } from "../../xunit";
+import TestSuiteLoader from "../../src/Runner/TestSuiteLoader";
 import Mockito from "ts-mockito";
-import FileSystem from "../src/Runner/FileSystem";
+import FileSystem from "../../src/Runner/FileSystem";
 import path from 'path';
 
 export default class TestSuiteLoaderTests extends TestSuite {
@@ -34,38 +34,35 @@ export default class TestSuiteLoaderTests extends TestSuite {
     public async CanGetJSModulePathFromNodeModules() {
         //arrange
         const current_dir = 'node_modules';
-        const dir = 'tests';
         const filename = 'test.js';
 
         //act
-        const module_path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
+        const module_path = TestSuiteLoader.getModulePath(current_dir, filename);
 
         //assert
-        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}tests${path.sep}test`, module_path);
+        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}test`, module_path);
     }
 
     @Test()
     public async CanGetTSModulePathFromSource() {
         //arrange
         const current_dir = '.';
-        const dir = 'tests';
         const filename = 'test.ts';
 
         //act
-        const module_path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
+        const module_path = TestSuiteLoader.getModulePath(current_dir, filename);
 
         //assert
-        this.assert.equal(`..${path.sep}..${path.sep}tests${path.sep}test`, module_path);
+        this.assert.equal(`..${path.sep}..${path.sep}test`, module_path);
     }
 
     @Test()
     public async CanLoadTestSuite() {
         //arrange
-        const dir = 'tests';
-        const module = 'TestSuiteLoaderTests';
+        const module = `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`;
 
         //act
-        const suite = await TestSuiteLoader.loadTestSuite(dir, module);
+        const suite = await TestSuiteLoader.loadTestSuite(module);
 
         //assert
         this.assert.instanceOf(suite, TestSuite);
@@ -74,11 +71,10 @@ export default class TestSuiteLoaderTests extends TestSuite {
     @Test()
     public async NonTestSuiteReturnsNull() {
         //arrange
-        const dir = 'src/Runner';
-        const module = 'TestSuiteLoader';
+        const module = `src${path.sep}Runner${path.sep}TestSuiteLoader`;
 
         //act
-        const suite = await TestSuiteLoader.loadTestSuite(dir, module);
+        const suite = await TestSuiteLoader.loadTestSuite(module);
 
         //assert
         this.assert.isNull(suite);
@@ -88,7 +84,10 @@ export default class TestSuiteLoaderTests extends TestSuite {
     public async CanLoadTestSuitesFiltersNonTests() {
         //arrange
         const file_system = Mockito.mock<FileSystem>();
-        Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve(['TestSuiteLoaderTests', '../src/Runner/TestSuiteRunner']);
+        Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve([
+            `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`,
+            `src${path.sep}Runner${path.sep}TestSuiteRunner`
+        ]);
         const loader = new TestSuiteLoader(Mockito.instance(file_system));
 
         //act
