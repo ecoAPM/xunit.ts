@@ -5,13 +5,9 @@ import ResultReporter from './ResultReporter';
 
 export default class TestRunner {
 
-    private reporter: ResultReporter;
+    constructor(private reporter: ResultReporter) { }
 
-    public constructor(reporter: ResultReporter) {
-        this.reporter = reporter;
-    }
-
-    public async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
+    async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
         this.reporter.testStarted(suite, name);
         if (info.value == null) {
             this.reporter.testIncomplete(suite, name, 0);

@@ -5,7 +5,7 @@ import path from 'path';
 export default class FileSystemTests extends TestSuite {
 
     @Test()
-    public async CanRecursivelyGetFiles() {
+    async CanRecursivelyGetFiles() {
         //arrange
         const file_system = new FileSystem();
 
@@ -18,7 +18,7 @@ export default class FileSystemTests extends TestSuite {
     }
 
     @Test()
-    public async FilesAreEmptyWhenInvalidDirectory() {
+    async FilesAreEmptyWhenInvalidDirectory() {
         //arrange
         const file_system = new FileSystem();
 

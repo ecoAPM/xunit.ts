@@ -9,29 +9,25 @@ import { TestResult } from "../Framework/TestResult";
 
 export default class ConsoleReporter implements ResultReporter {
 
-    private out: Output;
+    constructor(private out: Output) { }
 
-    public constructor(output: Output) {
-        this.out = output;
-    }
-
-    public runStarted(): void {
+    runStarted(): void {
         this.out.writeLine();
     }
 
-    public suiteStarted(suite: TestSuite): void {
+    suiteStarted(suite: TestSuite): void {
         this.out.writeLine(`${TestName.toSentenceCase(suite.constructor.name)}`);
     }
 
-    public testStarted(suite: TestSuite, test_name: string): void {
+    testStarted(suite: TestSuite, test_name: string): void {
         this.out.write(`  ${colors.white('⋯')} ${test_name}`);
     }
 
-    public testPassed(suite: TestSuite, test_name: string, duration: number): void {
+    testPassed(suite: TestSuite, test_name: string, duration: number): void {
         this.out.overwrite(`  ${colors.green('✓')}\n`);
     }
 
-    public testFailed(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+    testFailed(suite: TestSuite, test_name: string, error: Error, duration: number): void {
         this.out.overwrite(`  ${colors.red('✘')}\n`);
         if (error instanceof AssertionError) {
             this.out.writeLine(`      Expected: ${colors.green(error.expected)}`);
@@ -42,15 +38,15 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.writeLine();
     }
 
-    public testIncomplete(suite: TestSuite, test_name: string, duration: number): void {
+    testIncomplete(suite: TestSuite, test_name: string, duration: number): void {
         this.out.overwrite(`  ${colors.yellow('?')} ${test_name}\n`);
     }
 
-    public suiteCompleted(suite: TestSuite, results: TestSuiteResults, duration: number): void {
+    suiteCompleted(suite: TestSuite, results: TestSuiteResults, duration: number): void {
         this.out.writeLine();
     }
 
-    public runCompleted(results: TestSuiteResults[], duration: number): void {
+    runCompleted(results: TestSuiteResults[], duration: number): void {
         if (!results.length) {
             this.out.writeLine('No tests found!');
             return;

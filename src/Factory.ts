@@ -7,7 +7,7 @@ import TestRunner from './Runner/TestRunner';
 import Runner from './Runner/Runner';
 
 export default class Factory {
-    public static Runner(): Runner {
+    static Runner(): Runner {
         const file_system = new FileSystem();
         const loader = new TestSuiteLoader(file_system);
 

@@ -7,7 +7,7 @@ import path from 'path';
 export default class TestSuiteLoaderTests extends TestSuite {
 
     @Test()
-    public async IsFromNodeModulesWhenDirContainsNodeModules() {
+    async IsFromNodeModulesWhenDirContainsNodeModules() {
         //arrange
         const dir = '/a/b/node_modules/x';
 
@@ -19,7 +19,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    public async IsNotFromNodeModulesWhenDirDoesNotContainNodeModules() {
+    async IsNotFromNodeModulesWhenDirDoesNotContainNodeModules() {
         //arrange
         const dir = '/a/b/c';
 
@@ -31,7 +31,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    public async CanGetJSModulePathFromNodeModules() {
+    async CanGetJSModulePathFromNodeModules() {
         //arrange
         const current_dir = 'node_modules';
         const filename = 'test.js';
@@ -44,7 +44,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    public async CanGetTSModulePathFromSource() {
+    async CanGetTSModulePathFromSource() {
         //arrange
         const current_dir = '.';
         const filename = 'test.ts';
@@ -57,7 +57,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    public async CanLoadTestSuite() {
+    async CanLoadTestSuite() {
         //arrange
         const module = `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`;
 
@@ -69,7 +69,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    public async NonTestSuiteReturnsNull() {
+    async NonTestSuiteReturnsNull() {
         //arrange
         const module = `src${path.sep}Runner${path.sep}TestSuiteLoader`;
 
@@ -81,7 +81,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    public async CanLoadTestSuitesFiltersNonTests() {
+    async CanLoadTestSuitesFiltersNonTests() {
         //arrange
         const file_system = Mockito.mock<FileSystem>();
         Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve([

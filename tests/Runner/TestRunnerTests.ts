@@ -6,7 +6,7 @@ import { TestResult } from "../../src/Framework/TestResult";
 
 export default class TestRunnerTests extends TestSuite {
     @Test()
-    public async ReturnsTestPassed() {
+    async ReturnsTestPassed() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));
@@ -19,7 +19,7 @@ export default class TestRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReturnsTestFailed() {
+    async ReturnsTestFailed() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));
@@ -32,7 +32,7 @@ export default class TestRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReturnsTestIncomplete() {
+    async ReturnsTestIncomplete() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));
@@ -45,7 +45,7 @@ export default class TestRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsTestStarted() {
+    async ReportsTestStarted() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));
@@ -58,7 +58,7 @@ export default class TestRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsTestPassed() {
+    async ReportsTestPassed() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));
@@ -71,7 +71,7 @@ export default class TestRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsTestFailed() {
+    async ReportsTestFailed() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));
@@ -84,7 +84,7 @@ export default class TestRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsTestIncomplete() {
+    async ReportsTestIncomplete() {
         //arrange
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestRunner(Mockito.instance(reporter));

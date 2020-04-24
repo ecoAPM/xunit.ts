@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 
 export default class TestSuiteTests extends TestSuite {
     @Test()
-    public async CanAddTestsToRun() {
+    async CanAddTestsToRun() {
         //arrange
         const suite = new class X extends TestSuite { };
 
@@ -16,7 +16,7 @@ export default class TestSuiteTests extends TestSuite {
     }
 
     @Test()
-    public async CanSetTestsToRun() {
+    async CanSetTestsToRun() {
         //arrange
         const suite = new class X extends TestSuite { };
         const tests = { "new test 1": {}, "new test 2": {} };
@@ -30,7 +30,7 @@ export default class TestSuiteTests extends TestSuite {
     }
 
     @Test()
-    public async HasAssertionsBuiltIn() {
+    async HasAssertionsBuiltIn() {
         //arrange
         const suite = new class X extends TestSuite { };
 

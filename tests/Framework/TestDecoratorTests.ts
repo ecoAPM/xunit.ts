@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 
 export default class TestDecoratorTests extends TestSuite {
     @Test()
-    public async TestIsAddedToSuite() {
+    async TestIsAddedToSuite() {
         //arrange
         const suite = new class X extends TestSuite { };
         const test_decorator = Test('UnitTestName');
@@ -15,7 +15,7 @@ export default class TestDecoratorTests extends TestSuite {
     }
 
     @Test()
-    public async TakesSentenceCaseByDefault() {
+    async TakesSentenceCaseByDefault() {
         //arrange
         const suite = new class X extends TestSuite { };
         const test_decorator = Test();

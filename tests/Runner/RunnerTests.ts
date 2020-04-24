@@ -8,7 +8,7 @@ import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 
 export default class RunnerTests extends TestSuite {
     @Test()
-    public async ReportsRunStarted() {
+    async ReportsRunStarted() {
         //arrange
         const loader = Mockito.mock<TestSuiteLoader>();
         Mockito.when(loader.loadTestSuites(Mockito.anyString())).thenResolve([]);
@@ -25,7 +25,7 @@ export default class RunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsRunCompleted() {
+    async ReportsRunCompleted() {
         //arrange
         const loader = Mockito.mock<TestSuiteLoader>();
         Mockito.when(loader.loadTestSuites(Mockito.anyString())).thenResolve([]);
@@ -42,7 +42,7 @@ export default class RunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReturnsTestSuiteResults() {
+    async ReturnsTestSuiteResults() {
         //arrange
         const test_suite_stub = new class X extends TestSuite { };
 

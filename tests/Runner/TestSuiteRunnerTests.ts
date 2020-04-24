@@ -7,7 +7,7 @@ import { TestResult } from "../../src/Framework/TestResult";
 
 export default class TestSuiteRunnerTests extends TestSuite {
     @Test()
-    public async ReportsSuiteStarted()
+    async ReportsSuiteStarted()
     {
         //arrange
         const test_runner = Mockito.mock<TestRunner>();
@@ -22,7 +22,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsSuiteCompleted()
+    async ReportsSuiteCompleted()
     {
         //arrange
         const test_runner = Mockito.mock<TestRunner>();
@@ -37,7 +37,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReportsIncompleteIfNoTests()
+    async ReportsIncompleteIfNoTests()
     {
         //arrange
         const test_runner = Mockito.mock<TestRunner>();
@@ -52,7 +52,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
     }
 
     @Test()
-    public async ReturnsResultsFromTestRunner()
+    async ReturnsResultsFromTestRunner()
     {
         //arrange
         const test_runner = Mockito.mock<TestRunner>();
