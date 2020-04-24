@@ -2,6 +2,7 @@ import { Test, TestSuite } from "../xunit";
 import TestSuiteLoader from "../src/TestSuiteLoader";
 import Mockito from "ts-mockito";
 import FileSystem from "../src/FileSystem";
+import path from 'path';
 
 export default class TestSuiteLoaderTests extends TestSuite {
 
@@ -37,10 +38,10 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const filename = 'test.js';
 
         //act
-        const path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
+        const module_path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
 
         //assert
-        this.assert.equal('../../../../../tests/test', path);
+        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}tests${path.sep}test`, module_path);
     }
 
     @Test()
@@ -51,10 +52,10 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const filename = 'test.ts';
 
         //act
-        const path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
+        const module_path = TestSuiteLoader.getModulePath(current_dir, dir, filename);
 
         //assert
-        this.assert.equal('../tests/test', path);
+        this.assert.equal(`..${path.sep}tests${path.sep}test`, module_path);
     }
 
     @Test()
