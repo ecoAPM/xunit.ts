@@ -4,15 +4,15 @@ export default class TestSuiteResults {
 
     private results: Record<string, TestResult> = {};
 
-    addResult(name: string, result: TestResult): void {
+    addResult(name: string, result: TestResult) {
         this.results[name] = result;
     }
 
-    total(): number {
+    total() {
         return Object.values(this.results).length;
     }
 
-    count(result: TestResult): number {
+    count(result: TestResult) {
         return Object.values(this.results).filter((r) => r === result).length;
     }
 }

@@ -4,25 +4,25 @@ export default class Output {
 
     constructor(private out: WriteStream) { }
 
-    write(data: string): void {
+    write(data: string) {
         this.out.write(data);
     }
 
-    writeLine(data: string = ""): void {
+    writeLine(data: string = "") {
         this.out.write(data + "\n");
     }
 
-    overwrite(data: string): void {
+    overwrite(data: string) {
         this.deleteLine();
         this.write(data);
     }
 
-    overwriteLine(data: string): void {
+    overwriteLine(data: string) {
         this.deleteLine();
         this.writeLine(data);
     }
 
-    deleteLine(): void {
+    deleteLine() {
         if (this.out.isTTY)
             this.out.cursorTo(0);
     }

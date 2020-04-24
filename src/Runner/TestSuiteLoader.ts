@@ -6,7 +6,7 @@ export default class TestSuiteLoader {
 
     constructor(private file_system: FileSystem) { }
 
-    async loadTestSuites(dir: string): Promise<TestSuite[]> {
+    async loadTestSuites(dir: string) {
         const files = await this.file_system.getFiles(dir);
         const suites = [];
         for (let x = 0; x < files.length; x++) {
@@ -18,7 +18,7 @@ export default class TestSuiteLoader {
         return suites;
     }
 
-    static async loadTestSuite(file: string): Promise<TestSuite | null> {
+    static async loadTestSuite(file: string) {
         const module_path = TestSuiteLoader.getModulePath(__dirname, file);
         const test_class = await import(module_path);
         if (!(test_class.default.prototype instanceof TestSuite))
@@ -30,7 +30,7 @@ export default class TestSuiteLoader {
         return suite;
     }
 
-    static getModulePath(current_dir: string, file: string): string {
+    static getModulePath(current_dir: string, file: string) {
         const root = TestSuiteLoader.isFromNodeModules(path.resolve(current_dir))
             ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
             : `..${path.sep}..`;
@@ -38,7 +38,7 @@ export default class TestSuiteLoader {
         return `${root}${path.sep}${module_name}`;
     }
 
-    static isFromNodeModules(dir: string): boolean {
+    static isFromNodeModules(dir: string) {
         return dir.indexOf('node_modules') !== -1;
     }
 }

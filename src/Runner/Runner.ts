@@ -7,7 +7,7 @@ export default class Runner {
 
     constructor(private loader: TestSuiteLoader, private runner: TestSuiteRunner, private reporter: ResultReporter) { }
 
-    async runAll(dir: string): Promise<TestSuiteResults[]> {
+    async runAll(dir: string) {
         this.reporter.runStarted();
         const results: TestSuiteResults[] = [];
         const suites = await this.loader.loadTestSuites(dir);

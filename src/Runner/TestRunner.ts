@@ -7,7 +7,7 @@ export default class TestRunner {
 
     constructor(private reporter: ResultReporter) { }
 
-    async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
+    async runTest(name: string, info: TestInfo, suite: TestSuite) {
         this.reporter.testStarted(suite, name);
         if (info.value == null) {
             this.reporter.testIncomplete(suite, name);

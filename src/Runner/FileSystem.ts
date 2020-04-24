@@ -4,9 +4,9 @@ import util from "util";
 
 export default class FileSystem {
 
-    private exists: (dir: string) => Promise<boolean> = util.promisify(fs.exists);
-    private find: (dir: string) => Promise<string[]> = util.promisify(fs.readdir);
-    private stats: (dir: string) => Promise<fs.Stats> = util.promisify(fs.lstat);
+    private exists = util.promisify(fs.exists);
+    private find = util.promisify(fs.readdir);
+    private stats = util.promisify(fs.lstat);
 
     async getFiles(dir: string): Promise<string[]> {
         if (!await this.exists(dir))

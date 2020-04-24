@@ -11,23 +11,23 @@ export default class ConsoleReporter implements ResultReporter {
 
     constructor(private out: Output) { }
 
-    runStarted(): void {
+    runStarted() {
         this.out.writeLine();
     }
 
-    suiteStarted(suite: TestSuite): void {
+    suiteStarted(suite: TestSuite) {
         this.out.writeLine(`${TestName.toSentenceCase(suite.constructor.name)}`);
     }
 
-    testStarted(suite: TestSuite, test_name: string): void {
+    testStarted(suite: TestSuite, test_name: string) {
         this.out.write(`  ${colors.white('⋯')} ${test_name}`);
     }
 
-    testPassed(suite: TestSuite, test_name: string): void {
+    testPassed(suite: TestSuite, test_name: string) {
         this.out.overwrite(`  ${colors.green('✓')}\n`);
     }
 
-    testFailed(suite: TestSuite, test_name: string, error: Error): void {
+    testFailed(suite: TestSuite, test_name: string, error: Error) {
         this.out.overwrite(`  ${colors.red('✘')}\n`);
         if (error instanceof AssertionError) {
             this.out.writeLine(`      Expected: ${colors.green(error.expected)}`);
@@ -38,25 +38,25 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.writeLine();
     }
 
-    testIncomplete(suite: TestSuite, test_name: string): void {
+    testIncomplete(suite: TestSuite, test_name: string) {
         this.out.overwrite(`  ${colors.yellow('?')} ${test_name}\n`);
     }
 
-    suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
+    suiteCompleted(suite: TestSuite, results: TestSuiteResults) {
         this.out.writeLine();
     }
 
-    runCompleted(results: TestSuiteResults[]): void {
+    runCompleted(results: TestSuiteResults[]) {
         if (!results.length) {
             this.out.writeLine('No tests found!');
             return;
         }
 
-        const sum = (result_type?: TestResult): number => results
+        const sum = (result_type?: TestResult) => results
             .map((suite_result) => result_type !== undefined ? suite_result.count(result_type) : suite_result.total())
             .reduce((acc, current) => acc + current);
 
-        const result = (result_type?: TestResult, color: (string: string) => string = colors.white): string => {
+        const result = (result_type?: TestResult, color: (string: string) => string = colors.white) => {
             const count = sum(result_type).toString();
             const pad = sum().toString().length;
             return color(count.padStart(pad));

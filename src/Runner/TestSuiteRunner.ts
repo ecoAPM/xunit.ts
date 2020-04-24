@@ -8,7 +8,7 @@ export default class TestSuiteRunner {
 
     constructor(private runner: TestRunner, private reporter: ResultReporter) { }
 
-    async runSuite(suite: TestSuite): Promise<TestSuiteResults> {
+    async runSuite(suite: TestSuite) {
         this.reporter.suiteStarted(suite);
         const tests = suite.getTests();
         const results = await this.runTests(suite, tests);
@@ -16,7 +16,7 @@ export default class TestSuiteRunner {
         return results;
     }
 
-    async runTests(suite: TestSuite, tests: Record<string, TestInfo>): Promise<TestSuiteResults> {
+    async runTests(suite: TestSuite, tests: Record<string, TestInfo>) {
         const results = new TestSuiteResults();
         if (tests == null || Object.keys(tests).length == 0) {
             this.reporter.testIncomplete(suite, '(no tests found)');
