@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import Factory from './src/Factory';
-import TestSuiteResults from './src/Framework/TestSuiteResults';
+import Runner from './src/Runner/Runner';
 
 Factory.Runner().runAll(process.argv[2] || 'tests')
-    .then((results: TestSuiteResults[]) => {
-        process.exit(results.length ? 0 : 1);
+    .then((results) => {
+        process.exit(Runner.allTestsPassed(results) ? 0 : 1);
     })
     .catch((error: Error) => {
         process.stderr.write(`An unhandled ${error.name} occurred: ${error.message}\n`);
