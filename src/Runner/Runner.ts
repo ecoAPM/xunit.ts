@@ -2,6 +2,7 @@ import TestSuiteLoader from './TestSuiteLoader';
 import TestSuiteRunner from './TestSuiteRunner';
 import ResultReporter from "./ResultReporter";
 import TestSuiteResults from "../Framework/TestSuiteResults";
+import { TestResult } from '../Framework/TestResult';
 
 export default class Runner {
 
@@ -18,5 +19,9 @@ export default class Runner {
         }
         this.reporter.runCompleted(results);
         return results;
+    }
+
+    static allTestsPassed(results: TestSuiteResults[]) {
+        return results.filter((result) => result.count(TestResult.Passed) < result.total()).length == 0;
     }
 }

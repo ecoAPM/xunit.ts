@@ -5,6 +5,7 @@ import Mockito from 'ts-mockito';
 import TestSuiteRunner from "../../src/Runner/TestSuiteRunner";
 import ResultReporter from "../../src/Runner/ResultReporter";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
+import { TestResult } from "../../src/Framework/TestResult";
 
 export default class RunnerTests extends TestSuite {
     @Test()
@@ -12,7 +13,7 @@ export default class RunnerTests extends TestSuite {
         //arrange
         const loader = Mockito.mock<TestSuiteLoader>();
         Mockito.when(loader.loadTestSuites(Mockito.anyString())).thenResolve([]);
-        
+
         const suite_runner = Mockito.mock<TestSuiteRunner>();
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), Mockito.instance(reporter));
@@ -29,7 +30,7 @@ export default class RunnerTests extends TestSuite {
         //arrange
         const loader = Mockito.mock<TestSuiteLoader>();
         Mockito.when(loader.loadTestSuites(Mockito.anyString())).thenResolve([]);
-        
+
         const suite_runner = Mockito.mock<TestSuiteRunner>();
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), Mockito.instance(reporter));
@@ -60,5 +61,32 @@ export default class RunnerTests extends TestSuite {
 
         //assert
         this.assert.count(2, results);
+    }
+
+    @Test()
+    async AllTestsPassedWhenNoResultsHaveLessPassedThanTotal() {
+        //arrange
+        const results = new TestSuiteResults();
+        results.addResult('test1', TestResult.Passed);
+
+        //act
+        const all_passed = Runner.allTestsPassed([results]);
+
+        //assert
+        this.assert.true(all_passed);
+    }
+
+    @Test()
+    async AllTestsDidNotPassWhenSomeResultsHaveLessPassedThanTotal() {
+        //arrange
+        const results = new TestSuiteResults();
+        results.addResult('test1', TestResult.Passed);
+        results.addResult('test2', TestResult.Failed);
+
+        //act
+        const all_passed = Runner.allTestsPassed([results]);
+
+        //assert
+        this.assert.false(all_passed);
     }
 }
