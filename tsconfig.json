@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "module": "CommonJS",
     "outDir": "./dist/",
     "strict": true,
     "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
   "files": [
     "xunit.ts",
-    ".bin/xunit.ts"
+    "cli.ts"
   ],
-  "include": ["tests/**/*.ts"]
+  "include": [
+    "tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

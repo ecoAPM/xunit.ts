@@ -1,7 +1,7 @@
 {
   "name": "xunit.ts",
   "version": "0.2.0-dev",
-  "description": "A unit testing framework for TypeScript, following xUnit patterns",
+  "description": "A unit testing framework for TypeScript, following standard xUnit patterns",
   "main": "xunit.ts",
   "author": "ecoAPM LLC",
   "license": "MIT",
@@ -18,9 +18,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "ts-node .bin/xunit.ts"
+    "test": "ts-node cli.ts"
   },
   "bin": {
-    "xunit": ".bin/xunit.ts"
+    "xunit": "./cli.ts"
   }
 }
