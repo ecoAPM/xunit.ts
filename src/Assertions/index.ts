@@ -23,7 +23,7 @@ import instance_of from './InstanceOf';
 import throws from './Throws';
 import does_not_throw from './DoesNotThrow';
 
-export default class AssertionLibrary {
+export default new class AssertionLibrary {
     true = is_true;
     false = is_false;
 

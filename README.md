@@ -69,7 +69,9 @@ My Test Suite
 
 ## Assertions
 
-`xunit.ts` has a built-in assertion library, or you can use your favorite third-party one: `xunit.ts` supports anything that uses Node.js' `AssertionError` to indicate failure.
+`xunit.ts` has a built-in assertion library, or you can use your favorite third-party one: anything that uses Node.js' `AssertionError` is supported.
+
+If you prefer, you can `import { Assert } from 'xunit.ts` and call e.g. `Assert.true(expression);` instead of `this.assert.true(expression);` for any included assertion.
 
 ### Basic
 

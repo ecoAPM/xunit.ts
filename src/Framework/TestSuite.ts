@@ -2,7 +2,7 @@ import TestInfo from './TestInfo';
 import AssertionLibrary from '../Assertions';
 
 export default abstract class TestSuite {
-    assert = new AssertionLibrary();
+    assert = AssertionLibrary;
 
     private tests: Record<string, TestInfo> = {};
 
