@@ -20,6 +20,9 @@ import string_not_contains from './StringNotContains';
 
 import instance_of from './InstanceOf';
 
+import throws from './Throws';
+import does_not_throw from './DoesNotThrow';
+
 export default class AssertionLibrary {
     true = is_true;
     false = is_false;
@@ -42,4 +45,7 @@ export default class AssertionLibrary {
     stringDoesNotContain = string_not_contains;
 
     instanceOf = instance_of;
+
+    throws = throws;
+    doesNotThrow = does_not_throw;
 }
