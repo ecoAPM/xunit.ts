@@ -12,6 +12,7 @@ export default class ConsoleReporter implements ResultReporter {
     constructor(private out: Output) { }
 
     runStarted() {
+        this.out.writeLine('Starting xunit.ts...');
         this.out.writeLine();
     }
 
@@ -71,5 +72,6 @@ export default class ConsoleReporter implements ResultReporter {
             this.out.writeLine(`Incomplete: ${result(TestResult.Incomplete, colors.yellow)}`);
 
         this.out.writeLine(`     Total: ${result(undefined, sum() === sum(TestResult.Passed) ? colors.green : undefined)}`);
+        this.out.writeLine();
     }
 }
