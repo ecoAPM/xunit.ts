@@ -31,7 +31,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    async CanGetJSModulePathFromNodeModules() {
+    async CanGetModulePathFromNodeModules() {
         //arrange
         const current_dir = 'node_modules';
         const filename = 'test.js';
@@ -44,7 +44,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    async CanGetTSModulePathFromSource() {
+    async CanGetModulePathFromSource() {
         //arrange
         const current_dir = '.';
         const filename = 'test.ts';
@@ -81,12 +81,13 @@ export default class TestSuiteLoaderTests extends TestSuite {
     }
 
     @Test()
-    async CanLoadTestSuitesFiltersNonTests() {
+    async LoadTestSuitesFiltersNonTests() {
         //arrange
         const file_system = Mockito.mock<FileSystem>();
         Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve([
-            `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`,
-            `src${path.sep}Runner${path.sep}TestSuiteRunner`
+            `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests.ts`,
+            `tests${path.sep}Runner${path.sep}data.csv`,
+            `src${path.sep}Runner${path.sep}TestSuiteRunner.ts`
         ]);
         const loader = new TestSuiteLoader(Mockito.instance(file_system));
 

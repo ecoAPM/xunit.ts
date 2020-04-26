@@ -7,7 +7,8 @@ export default class TestSuiteLoader {
     constructor(private file_system: FileSystem) { }
 
     async loadTestSuites(dir: string) {
-        const files = await this.file_system.getFiles(dir);
+        const files = (await this.file_system.getFiles(dir))
+            .filter((file) => FileSystem.extension(file) == FileSystem.extension(__filename));
         const suites = [];
         for (let x = 0; x < files.length; x++) {
             const file = files[x];
@@ -34,7 +35,10 @@ export default class TestSuiteLoader {
         const root = TestSuiteLoader.isFromNodeModules(path.resolve(current_dir))
             ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
             : `..${path.sep}..`;
-        const module_name = file.replace(/\.[tj]s$/, '');
+        const extension = FileSystem.extension(file);
+        const module_name = extension.length > 0
+            ? file.substr(0, file.length - extension.length - 1)
+            : file;
         return `${root}${path.sep}${module_name}`;
     }
 
