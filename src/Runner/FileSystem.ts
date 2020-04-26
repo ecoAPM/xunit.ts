@@ -24,4 +24,11 @@ export default class FileSystem {
 
         return files;
     }
+
+    static extension(file: string) {
+        const match = file.match(/\.(\w+)$/);
+        return match != null && match.length > 1
+            ? match[1]
+            : '';
+    }
 }

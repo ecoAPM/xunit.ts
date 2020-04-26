@@ -28,4 +28,28 @@ export default class FileSystemTests extends TestSuite {
         //assert
         this.assert.empty(files);
     }
+
+    @Test()
+    async CanGetExtensionFromFilename() {
+        //arrange
+        const filename = 'test.txt';
+
+        //act
+        const extension = FileSystem.extension(filename);
+
+        //assert
+        this.assert.equal('txt', extension);
+    }
+
+    @Test()
+    async ExtensionIsEmptyForFilesWithoutExtension() {
+        //arrange
+        const filename = 'test_file';
+
+        //act
+        const extension = FileSystem.extension(filename);
+
+        //assert
+        this.assert.equal('', extension);
+    }
 }
