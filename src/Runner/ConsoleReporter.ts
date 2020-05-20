@@ -31,8 +31,9 @@ export default class ConsoleReporter implements ResultReporter {
     testFailed(suite: TestSuite, test_name: string, error: Error) {
         this.out.overwrite(`  ${colors.red('✘')}\n`);
         if (error instanceof AssertionError) {
-            this.out.writeLine(`      Expected: ${colors.green(error.expected)}`);
-            this.out.writeLine(`        Actual: ${colors.red(error.actual)}`);
+            this.out.writeLine(`      ${error.message}`);
+            this.out.writeLine(`        Expected: ${colors.green(error.expected)}`);
+            this.out.writeLine(`          Actual: ${colors.red(error.actual)}`);
         } else {
             this.out.writeLine(`  ${error.stack}`);
         }
