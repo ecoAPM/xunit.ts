@@ -1,9 +1,8 @@
 import { AssertionError } from "assert";
+import equal from 'lodash.isequal';
 
 export default function Equal(expected: any, actual: any, message?: string) {
-    if(actual == expected
-        || (Array.isArray(actual) && Array.isArray(expected) && actual.length == expected.length
-            && expected.filter((value: any, index: number) => value == expected[index]).length == expected.length))
+    if(equal(actual, expected))
         return;
 
     throw new AssertionError({
