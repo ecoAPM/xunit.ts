@@ -1,6 +1,6 @@
 import { AssertionError } from "assert";
 
-export default function NotEmpty(value: any[], message?: string) {
+export default function NotEmpty(value: any, message?: string) {
     if(value.length > 0)
         return;
 
