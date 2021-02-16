@@ -6,8 +6,21 @@ export default class StringNotContainsTests extends TestSuite {
     @Test()
     async ReturnsWhenTrue() {
         //arrange
-        const haystack = 'this is a string';
         const needle = 'banana';
+        const haystack = 'this is a string';
+
+        //act
+        StringNotContains(needle, haystack);
+
+        //assert
+        this.assert.true(true);
+    }
+
+    @Test()
+    async TrueWhenHaystackIsNull() {
+        //arrange
+        const needle = 'banana';
+        const haystack = null;
 
         //act
         StringNotContains(needle, haystack);
@@ -19,8 +32,8 @@ export default class StringNotContainsTests extends TestSuite {
     @Test()
     async ThrowsWhenFalse() {
         //arrange
-        const haystack = 'this is a string';
         const needle = 'this';
+        const haystack = 'this is a string';
 
         try {
             //act
