@@ -6,8 +6,8 @@ export default class StringContainsTests extends TestSuite {
     @Test()
     async ReturnsWhenTrue() {
         //arrange
-        const haystack = 'this is a string';
         const needle = 'this';
+        const haystack = 'this is a string';
 
         //act
         StringContains(needle, haystack);
@@ -19,8 +19,26 @@ export default class StringContainsTests extends TestSuite {
     @Test()
     async ThrowsWhenFalse() {
         //arrange
-        const haystack = 'this is a string';
         const needle = 'banana';
+        const haystack = 'this is a string';
+
+        try {
+            //act
+            StringContains(needle, haystack);
+
+        }
+        catch (exception) {
+
+            //assert
+            this.assert.instanceOf(AssertionError, exception);
+        }
+    }
+
+    @Test()
+    async FalseWhenHaystackIsNull() {
+        //arrange
+        const needle = 'banana';
+        const haystack = null;
 
         try {
             //act

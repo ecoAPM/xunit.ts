@@ -1,7 +1,7 @@
 import { AssertionError } from "assert";
 
-export default function StringContains(needle: string, haystack: string, message?: string) {
-    if(haystack.indexOf(needle) != -1)
+export default function StringContains(needle: string, haystack: string|null, message?: string) {
+    if(haystack != null && haystack.indexOf(needle) != -1)
         return;
 
     throw new AssertionError({
