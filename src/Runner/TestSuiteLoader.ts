@@ -34,7 +34,7 @@ export default class TestSuiteLoader {
     static getModulePath(current_dir: string, file: string) {
         const root = TestSuiteLoader.isFromNodeModules(path.resolve(current_dir))
             ? `..${path.sep}..${path.sep}..${path.sep}..${path.sep}..`
-            : `..${path.sep}..`;
+            : `..${path.sep}..${path.sep}..`;
         const extension = FileSystem.extension(file);
         const module_name = extension.length > 0
             ? file.substr(0, file.length - extension.length - 1)
