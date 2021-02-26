@@ -53,13 +53,13 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const module_path = TestSuiteLoader.getModulePath(current_dir, filename);
 
         //assert
-        this.assert.equal(`..${path.sep}..${path.sep}test`, module_path);
+        this.assert.equal(`..${path.sep}..${path.sep}..${path.sep}test`, module_path);
     }
 
     @Test()
     async CanLoadTestSuite() {
         //arrange
-        const module = `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`;
+        const module = `dist${path.sep}tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`;
 
         //act
         const suite = await TestSuiteLoader.loadTestSuite(module);
@@ -71,7 +71,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     @Test()
     async NonTestSuiteReturnsNull() {
         //arrange
-        const module = `src${path.sep}Runner${path.sep}TestSuiteLoader`;
+        const module = `dist${path.sep}src${path.sep}Runner${path.sep}TestSuiteLoader`;
 
         //act
         const suite = await TestSuiteLoader.loadTestSuite(module);
@@ -85,9 +85,9 @@ export default class TestSuiteLoaderTests extends TestSuite {
         //arrange
         const file_system = Mockito.mock<FileSystem>();
         Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve([
-            `tests${path.sep}Runner${path.sep}TestSuiteLoaderTests.ts`,
-            `tests${path.sep}Runner${path.sep}data.csv`,
-            `src${path.sep}Runner${path.sep}TestSuiteRunner.ts`
+            `dist${path.sep}tests${path.sep}Runner${path.sep}TestSuiteLoaderTests.js`,
+            `dist${path.sep}tests${path.sep}Runner${path.sep}data.csv`,
+            `dist${path.sep}src${path.sep}Runner${path.sep}TestSuiteRunner.js`
         ]);
         const loader = new TestSuiteLoader(Mockito.instance(file_system));
 
