@@ -42,6 +42,18 @@ export default class FileSystemTests extends TestSuite {
     }
 
     @Test()
+    async CanGetExtensionForFilenameWithMultiplePeriods() {
+        //arrange
+        const filename = 'test_file.final.v2.txt';
+
+        //act
+        const extension = FileSystem.extension(filename);
+
+        //assert
+        this.assert.equal('txt', extension);
+    }
+
+    @Test()
     async ExtensionIsEmptyForFilesWithoutExtension() {
         //arrange
         const filename = 'test_file';
