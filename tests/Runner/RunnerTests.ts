@@ -89,4 +89,16 @@ export default class RunnerTests extends TestSuite {
         //assert
         this.assert.false(all_passed);
     }
+
+    @Test()
+    async AllTestsDidNotPassWhenNoTestsRun() {
+        //arrange
+        const results = new TestSuiteResults();
+
+        //act
+        const all_passed = Runner.allTestsPassed([results]);
+
+        //assert
+        this.assert.false(all_passed);
+    }
 }
