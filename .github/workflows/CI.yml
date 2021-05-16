@@ -13,7 +13,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: 16.x
     
     - name: Install dependencies
       run: yarn
@@ -23,3 +23,23 @@ jobs:
     
     - name: Run tests
       run: yarn test
+
+    - name: Install compiler test dependencies
+      run: yarn
+      working-directory: compiler-tests
+
+    - name: Run typescript tests
+      run: yarn typescript
+      working-directory: compiler-tests
+
+    - name: Run parcel tests
+      run: yarn parcel
+      working-directory: compiler-tests
+
+    - name: Run rollup tests
+      run: yarn rollup
+      working-directory: compiler-tests
+
+    - name: Run vite tests
+      run: yarn vite
+      working-directory: compiler-tests
