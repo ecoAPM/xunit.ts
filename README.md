@@ -10,7 +10,9 @@
 or
 `yarn add --dev xunit.ts`
 
-### Configure your project
+If you are building your tests using `webpack`, you'll need to alias `xunit.ts` to `xunit` due to how `ts-loader` works. Any references to `xunit.ts` should be also replaced with `xunit`. This is not necessary for any other compiler/bundler.
+
+### Configure your test project
 At a minimum, your `tsconfig.json` will require the following:
 ```json
 {
@@ -21,6 +23,8 @@ At a minimum, your `tsconfig.json` will require the following:
     }
 }
 ```
+
+If you're using `webpack` or `vite`, you'll need to set `xunit.ts` as an `external` in your build config file for the tests to be detected.
 
 ### Create your first test
 `MyTestSuite.ts`
@@ -36,7 +40,7 @@ export default class MyTestSuite extends TestSuite {
 ```
 
 ### Run your tests
-You'll need to compile your TypeScript tests into JavaScript using `tsc` or a bundler such as `webpack`, `rollup`, or `parcel`.
+You'll need to compile your TypeScript tests into JavaScript using `tsc` or a bundler such as `webpack`, `rollup`, `parcel`, `vite`, etc. (these are the supported ones, feel free to add your favorite to the `compiler-tests` directory!)
 
 Then run:
 `npm run xunit compiled_tests_dir`
