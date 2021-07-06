@@ -108,7 +108,7 @@ export default class ConsoleReporterTests extends TestSuite {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
-        const assert = new AssertionError({message: 'failed because reasons', expected: '123', actual: '234' });
+        const assert = new AssertionError({message: 'failed because reasons', expected: 123, actual: 234 });
 
         //act
         reporter.testFailed(new class X extends TestSuite { }, 'unit test name', assert);
