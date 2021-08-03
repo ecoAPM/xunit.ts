@@ -11,6 +11,10 @@
 
 ## Quick Start
 
+### Requirements
+
+- Node.js 16 (older versions may work, but only the latest LTS is actively supported)
+
 ### Installation
 `npm install --dev xunit.ts`
 or
