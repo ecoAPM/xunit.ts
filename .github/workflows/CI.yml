@@ -3,7 +3,6 @@ on: push
 
 jobs:
   Build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -24,6 +23,31 @@ jobs:
     - name: Run tests
       run: yarn test
 
+    - name: Archive build
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: dist
+
+  Compiler-Tests:
+    needs: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+    
+    - name: Install dependencies
+      run: yarn
+    
+    - name: Build
+      run: yarn build
+    
     - name: Install compiler test dependencies
       run: yarn
       working-directory: compiler-tests
@@ -43,3 +67,34 @@ jobs:
     - name: Run vite tests
       run: yarn vite
       working-directory: compiler-tests
+
+  Code-Quality:
+    needs: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+
+    - name: Install c8
+      run: yarn global add c8
+    
+    - name: Install dependencies
+      run: yarn
+    
+    - name: Build
+      run: yarn build
+
+    - name: Get code coverage
+      run: c8 -r lcov yarn test
+      
+    - name: SonarCloud Analysis
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

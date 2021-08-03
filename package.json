@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "tsc && node dist/cli.js dist/tests"
+    "test": "node dist/cli.js dist/tests"
   },
   "bin": {
     "xunit": "dist/cli.js"
