@@ -23,12 +23,6 @@ jobs:
     - name: Run tests
       run: yarn test
 
-    - name: Archive build
-      uses: actions/upload-artifact@v2
-      with:
-        name: dist
-        path: dist
-
   Compiler-Tests:
     needs: Build
     runs-on: ubuntu-latest
