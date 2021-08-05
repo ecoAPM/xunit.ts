@@ -5,22 +5,22 @@ import ResultReporter from './ResultReporter';
 
 export default class TestRunner {
 
-    constructor(private reporter: ResultReporter) { }
+    constructor(private reporters: ResultReporter[]) { }
 
     async runTest(name: string, info: TestInfo, suite: TestSuite) {
-        this.reporter.testStarted(suite, name);
+        this.reporters.forEach(r => r.testStarted(suite, name));
         if (info.value == null) {
-            this.reporter.testIncomplete(suite, name);
+            this.reporters.forEach(r => r.testIncomplete(suite, name));
             return TestResult.Incomplete;
         }
 
         try {
             await info.value.call(suite);
-            this.reporter.testPassed(suite, name);
+            this.reporters.forEach(r => r.testPassed(suite, name));
             return TestResult.Passed;
 
         } catch (error) {
-            this.reporter.testFailed(suite, name, error);
+            this.reporters.forEach(r => r.testFailed(suite, name, error));
             return TestResult.Failed;
         }
     }
