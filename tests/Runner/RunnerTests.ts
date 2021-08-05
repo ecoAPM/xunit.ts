@@ -16,7 +16,7 @@ export default class RunnerTests extends TestSuite {
 
         const suite_runner = Mockito.mock<TestSuiteRunner>();
         const reporter = Mockito.mock<ResultReporter>();
-        const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), Mockito.instance(reporter));
+        const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), [Mockito.instance(reporter)]);
 
         //act
         await runner.runAll('tests');
@@ -33,7 +33,7 @@ export default class RunnerTests extends TestSuite {
 
         const suite_runner = Mockito.mock<TestSuiteRunner>();
         const reporter = Mockito.mock<ResultReporter>();
-        const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), Mockito.instance(reporter));
+        const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), [Mockito.instance(reporter)]);
 
         //act
         await runner.runAll('tests');
@@ -54,7 +54,7 @@ export default class RunnerTests extends TestSuite {
         Mockito.when(suite_runner.runSuite(Mockito.anything())).thenResolve(new TestSuiteResults());
 
         const reporter = Mockito.mock<ResultReporter>();
-        const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), Mockito.instance(reporter));
+        const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), [Mockito.instance(reporter)]);
 
         //act
         const results = await runner.runAll('tests');

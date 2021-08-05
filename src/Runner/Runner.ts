@@ -6,10 +6,10 @@ import { TestResult } from '../Framework/TestResult';
 
 export default class Runner {
 
-    constructor(private loader: TestSuiteLoader, private runner: TestSuiteRunner, private reporter: ResultReporter) { }
+    constructor(private loader: TestSuiteLoader, private runner: TestSuiteRunner, private reporters: ResultReporter[]) { }
 
     async runAll(dir: string): Promise<TestSuiteResults[]> {
-        this.reporter.runStarted();
+        this.reporters.forEach(r => r.runStarted());
         const results: TestSuiteResults[] = [];
         const suites = await this.loader.loadTestSuites(dir);
         for (let x = 0; x < suites.length; x++) {
@@ -17,7 +17,7 @@ export default class Runner {
             const result = await this.runner.runSuite(suite);
             results.push(result);
         }
-        this.reporter.runCompleted(results);
+        this.reporters.forEach(r => r.runCompleted(results));
         return results;
     }
 
