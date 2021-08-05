@@ -83,7 +83,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new AssertionError({}), 0);
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
@@ -97,7 +97,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
+        reporter.testErrored(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
 
         //assert
         const stack = Mockito.capture(out.writeLine).first();
@@ -191,21 +191,27 @@ export default class ConsoleReporterTests extends TestSuite {
         results.addResult('test1', new TestResult(ResultType.Passed, 0));
         results.addResult('test2', new TestResult(ResultType.Passed, 0));
         results.addResult('test3', new TestResult(ResultType.Passed, 0));
-        results.addResult('test4', new TestResult(ResultType.Failed, 0));
+        results.addResult('test4', new TestResult(ResultType.Passed, 0));
         results.addResult('test5', new TestResult(ResultType.Failed, 0));
-        results.addResult('test6', new TestResult(ResultType.Incomplete, 0));
+        results.addResult('test6', new TestResult(ResultType.Failed, 0));
+        results.addResult('test7', new TestResult(ResultType.Failed, 0));
+        results.addResult('test8', new TestResult(ResultType.Error, 0));
+        results.addResult('test9', new TestResult(ResultType.Error, 0));
+        results.addResult('test0', new TestResult(ResultType.Incomplete, 0));
 
         //act
         reporter.runCompleted([results]);
 
         //assert
         this.assert.stringContains('Passed', console);
-        this.assert.stringContains('3', console);
+        this.assert.stringContains('4', console);
         this.assert.stringContains('Failed', console);
+        this.assert.stringContains('3', console);
+        this.assert.stringContains('Error', console);
         this.assert.stringContains('2', console);
         this.assert.stringContains('Incomplete', console);
         this.assert.stringContains('1', console);
         this.assert.stringContains('Total', console);
-        this.assert.stringContains('6', console);
+        this.assert.stringContains('10', console);
     }
 }

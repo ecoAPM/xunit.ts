@@ -30,16 +30,19 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.overwrite(`  ${colors.green('✓')}\n`);
     }
 
-    testFailed(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+    testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): void {
         this.out.write(` (${Math.round(duration)} ms)`);
         this.out.overwrite(`  ${colors.red('✘')}\n`);
-        if (error instanceof AssertionError) {
-            this.out.writeLine(`      ${error.message}`);
-            this.out.writeLine(`        Expected: ${colors.green(String(error.expected))}`);
-            this.out.writeLine(`          Actual: ${colors.red(String(error.actual))}`);
-        } else {
-            this.out.writeLine(`  ${error.stack}`);
-        }
+        this.out.writeLine(`      ${error.message}`);
+        this.out.writeLine(`        Expected: ${colors.green(String(error.expected))}`);
+        this.out.writeLine(`          Actual: ${colors.red(String(error.actual))}`);
+        this.out.writeLine();
+    }
+
+    testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+        this.out.write(` (${Math.round(duration)} ms)`);
+        this.out.overwrite(`  ${colors.red('✘')}\n`);
+        this.out.writeLine(`  ${error.stack}`);
         this.out.writeLine();
     }
 
@@ -76,6 +79,9 @@ export default class ConsoleReporter implements ResultReporter {
 
         if (sum(ResultType.Failed))
             this.out.writeLine(`    Failed: ${result(ResultType.Failed, colors.red)}`);
+
+        if (sum(ResultType.Error))
+            this.out.writeLine(`     Error: ${result(ResultType.Error, colors.red)}`);
 
         if (sum(ResultType.Incomplete))
             this.out.writeLine(`Incomplete: ${result(ResultType.Incomplete, colors.yellow)}`);

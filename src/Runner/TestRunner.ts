@@ -3,6 +3,7 @@ import TestSuite from '../Framework/TestSuite';
 import { ResultType } from '../Framework/ResultType';
 import ResultReporter from './ResultReporter';
 import TestResult from "../Framework/TestResult";
+import {AssertionError} from "assert";
 
 export default class TestRunner {
 
@@ -24,8 +25,13 @@ export default class TestRunner {
 
         } catch (error) {
             const duration = TestRunner.msSince(start);
-            this.reporters.forEach(r => r.testFailed(suite, name, error, duration));
-            return new TestResult(ResultType.Failed, duration);
+            if (error instanceof AssertionError) {
+                this.reporters.forEach(r => r.testFailed(suite, name, error, duration));
+                return new TestResult(ResultType.Failed, duration);
+            }
+
+            this.reporters.forEach(r => r.testErrored(suite, name, error, duration));
+            return new TestResult(ResultType.Error, duration);
         }
     }
 
