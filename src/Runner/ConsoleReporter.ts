@@ -3,13 +3,14 @@ import TestSuite from "../Framework/TestSuite";
 import Output from "./Output";
 import TestName from "../Framework/TestName";
 import colors from "colors";
-import { AssertionError } from "assert";
+import {AssertionError} from "assert";
 import TestSuiteResults from "../Framework/TestSuiteResults";
-import { ResultType } from "../Framework/ResultType";
+import {ResultType} from "../Framework/ResultType";
 
 export default class ConsoleReporter implements ResultReporter {
 
-    constructor(private out: Output) { }
+    constructor(private out: Output) {
+    }
 
     runStarted(): void {
         this.out.writeLine('Starting xunit.ts...');
@@ -47,6 +48,11 @@ export default class ConsoleReporter implements ResultReporter {
     }
 
     suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
+        const passed = results.count(ResultType.Passed);
+        const total = results.total();
+        const time = results.time();
+        const color = passed == total ? colors.green : colors.red;
+        this.out.writeLine(`  ${color(`${passed} / ${total}`)} passed (${Math.round(time)} ms)`);
         this.out.writeLine();
     }
 

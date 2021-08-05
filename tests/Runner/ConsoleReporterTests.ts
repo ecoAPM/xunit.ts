@@ -139,16 +139,29 @@ export default class ConsoleReporterTests extends TestSuite {
     }
 
     @Test()
-    async OutputsOnSuiteCompleted() {
+    async OutputsTotalsOnSuiteCompleted() {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
+        let console = '';
+        Mockito.when(out.writeLine(Mockito.anyString())).
+            thenCall((line: string) => console += line + '\n')
+
+        const results = new TestSuiteResults();
+        results.addResult('test1', new TestResult(ResultType.Passed, 1.2));
+        results.addResult('test2', new TestResult(ResultType.Passed, 2.3));
+        results.addResult('test3', new TestResult(ResultType.Passed, 3.4));
+        results.addResult('test4', new TestResult(ResultType.Failed, 4.5));
+        results.addResult('test5', new TestResult(ResultType.Failed, 5.6));
+        results.addResult('test6', new TestResult(ResultType.Incomplete, 6.7));
+
         //act
-        reporter.suiteCompleted(new class X extends TestSuite { }, new TestSuiteResults());
+        reporter.suiteCompleted(new class X extends TestSuite { }, results);
 
         //assert
-        Mockito.verify(out.writeLine()).once();
+        this.assert.stringContains('3 / 6', console);
+        this.assert.stringContains('(24 ms)', console);
     }
 
     @Test()
