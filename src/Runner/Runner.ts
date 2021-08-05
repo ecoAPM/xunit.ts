@@ -2,7 +2,7 @@ import TestSuiteLoader from './TestSuiteLoader';
 import TestSuiteRunner from './TestSuiteRunner';
 import ResultReporter from "./ResultReporter";
 import TestSuiteResults from "../Framework/TestSuiteResults";
-import { TestResult } from '../Framework/TestResult';
+import { ResultType } from '../Framework/ResultType';
 
 export default class Runner {
 
@@ -23,6 +23,6 @@ export default class Runner {
 
     static allTestsPassed(results: TestSuiteResults[]): boolean {
         return results.filter(result => result.total() > 0).length > 0
-            && results.filter(result => result.count(TestResult.Passed) < result.total()).length === 0;
+            && results.filter(result => result.count(ResultType.Passed) < result.total()).length === 0;
     }
 }

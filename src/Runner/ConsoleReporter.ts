@@ -5,7 +5,7 @@ import TestName from "../Framework/TestName";
 import colors from "colors";
 import { AssertionError } from "assert";
 import TestSuiteResults from "../Framework/TestSuiteResults";
-import { TestResult } from "../Framework/TestResult";
+import { ResultType } from "../Framework/ResultType";
 
 export default class ConsoleReporter implements ResultReporter {
 
@@ -54,25 +54,25 @@ export default class ConsoleReporter implements ResultReporter {
             return;
         }
 
-        const sum = (result_type?: TestResult) => results
+        const sum = (result_type?: ResultType) => results
             .map((suite_result) => result_type !== undefined ? suite_result.count(result_type) : suite_result.total())
             .reduce((acc, current) => acc + current);
 
-        const result = (result_type?: TestResult, color: (string: string) => string = colors.white) => {
+        const result = (result_type?: ResultType, color: (string: string) => string = colors.white) => {
             const count = sum(result_type).toString();
             const pad = sum().toString().length;
             return color(count.padStart(pad));
         }
 
-        this.out.writeLine(`    Passed: ${result(TestResult.Passed, colors.green)}`);
+        this.out.writeLine(`    Passed: ${result(ResultType.Passed, colors.green)}`);
 
-        if (sum(TestResult.Failed))
-            this.out.writeLine(`    Failed: ${result(TestResult.Failed, colors.red)}`);
+        if (sum(ResultType.Failed))
+            this.out.writeLine(`    Failed: ${result(ResultType.Failed, colors.red)}`);
 
-        if (sum(TestResult.Incomplete))
-            this.out.writeLine(`Incomplete: ${result(TestResult.Incomplete, colors.yellow)}`);
+        if (sum(ResultType.Incomplete))
+            this.out.writeLine(`Incomplete: ${result(ResultType.Incomplete, colors.yellow)}`);
 
-        this.out.writeLine(`     Total: ${result(undefined, sum() === sum(TestResult.Passed) ? colors.green : undefined)}`);
+        this.out.writeLine(`     Total: ${result(undefined, sum() === sum(ResultType.Passed) ? colors.green : undefined)}`);
         this.out.writeLine();
     }
 }

@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 import ResultReporter from "../../src/Runner/ResultReporter";
 import TestRunner from "../../src/Runner/TestRunner";
 import Mockito from 'ts-mockito';
-import { TestResult } from "../../src/Framework/TestResult";
+import { ResultType } from "../../src/Framework/ResultType";
 
 export default class TestRunnerTests extends TestSuite {
     @Test()
@@ -15,7 +15,7 @@ export default class TestRunnerTests extends TestSuite {
         const result = await runner.runTest('inside reports test passed', { value: async () => { } }, new class X extends TestSuite { });
 
         //assert
-        this.assert.equal(TestResult.Passed, result);
+        this.assert.equal(ResultType.Passed, result);
     }
 
     @Test()
@@ -28,7 +28,7 @@ export default class TestRunnerTests extends TestSuite {
         const result = await runner.runTest('inside reports test failed', { value: async () => { throw new Error(); } }, new class X extends TestSuite { });
 
         //assert
-        this.assert.equal(TestResult.Failed, result);
+        this.assert.equal(ResultType.Failed, result);
     }
 
     @Test()
@@ -41,7 +41,7 @@ export default class TestRunnerTests extends TestSuite {
         const result = await runner.runTest('inside reports test incomplete', { }, new class X extends TestSuite { });
 
         //assert
-        this.assert.equal(TestResult.Incomplete, result);
+        this.assert.equal(ResultType.Incomplete, result);
     }
 
     @Test()

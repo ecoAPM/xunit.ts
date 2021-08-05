@@ -5,7 +5,7 @@ import Mockito from 'ts-mockito';
 import TestSuiteRunner from "../../src/Runner/TestSuiteRunner";
 import ResultReporter from "../../src/Runner/ResultReporter";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
-import { TestResult } from "../../src/Framework/TestResult";
+import { ResultType } from "../../src/Framework/ResultType";
 
 export default class RunnerTests extends TestSuite {
     @Test()
@@ -67,7 +67,7 @@ export default class RunnerTests extends TestSuite {
     async AllTestsPassedWhenNoResultsHaveLessPassedThanTotal() {
         //arrange
         const results = new TestSuiteResults();
-        results.addResult('test1', TestResult.Passed);
+        results.addResult('test1', ResultType.Passed);
 
         //act
         const all_passed = Runner.allTestsPassed([results]);
@@ -80,8 +80,8 @@ export default class RunnerTests extends TestSuite {
     async AllTestsDidNotPassWhenSomeResultsHaveLessPassedThanTotal() {
         //arrange
         const results = new TestSuiteResults();
-        results.addResult('test1', TestResult.Passed);
-        results.addResult('test2', TestResult.Failed);
+        results.addResult('test1', ResultType.Passed);
+        results.addResult('test2', ResultType.Failed);
 
         //act
         const all_passed = Runner.allTestsPassed([results]);

@@ -4,7 +4,7 @@ import Output from "../../src/Runner/Output";
 import ConsoleReporter from "../../src/Runner/ConsoleReporter";
 import { AssertionError } from "assert";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
-import { TestResult } from "../../src/Framework/TestResult";
+import { ResultType } from "../../src/Framework/ResultType";
 
 export default class ConsoleReporterTests extends TestSuite {
     @Test()
@@ -161,12 +161,12 @@ export default class ConsoleReporterTests extends TestSuite {
             thenCall((line: string) => console += line + '\n')
         
         const results = new TestSuiteResults();
-        results.addResult('test1', TestResult.Passed);
-        results.addResult('test2', TestResult.Passed);
-        results.addResult('test3', TestResult.Passed);
-        results.addResult('test4', TestResult.Failed);
-        results.addResult('test5', TestResult.Failed);
-        results.addResult('test6', TestResult.Incomplete);
+        results.addResult('test1', ResultType.Passed);
+        results.addResult('test2', ResultType.Passed);
+        results.addResult('test3', ResultType.Passed);
+        results.addResult('test4', ResultType.Failed);
+        results.addResult('test5', ResultType.Failed);
+        results.addResult('test6', ResultType.Incomplete);
 
         //act
         reporter.runCompleted([results]);

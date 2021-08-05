@@ -3,7 +3,7 @@ import TestSuiteRunner from "../../src/Runner/TestSuiteRunner";
 import TestRunner from "../../src/Runner/TestRunner";
 import Mockito from "ts-mockito";
 import ResultReporter from "../../src/Runner/ResultReporter";
-import { TestResult } from "../../src/Framework/TestResult";
+import { ResultType } from "../../src/Framework/ResultType";
 
 export default class TestSuiteRunnerTests extends TestSuite {
     @Test()
@@ -56,7 +56,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
     {
         //arrange
         const test_runner = Mockito.mock<TestRunner>();
-        Mockito.when(test_runner.runTest(Mockito.anything(), Mockito.anything(), Mockito.anything())).thenResolve(TestResult.Passed);
+        Mockito.when(test_runner.runTest(Mockito.anything(), Mockito.anything(), Mockito.anything())).thenResolve(ResultType.Passed);
         const reporter = Mockito.mock<ResultReporter>();
         const runner = new TestSuiteRunner(Mockito.instance(test_runner), [Mockito.instance(reporter)]);
 
@@ -64,6 +64,6 @@ export default class TestSuiteRunnerTests extends TestSuite {
         const results = await runner.runTests(new class X extends TestSuite {}, {'test1': {}, 'test2': {}});
 
         //assert
-        this.assert.equal(2, results.count(TestResult.Passed));
+        this.assert.equal(2, results.count(ResultType.Passed));
     }
 }

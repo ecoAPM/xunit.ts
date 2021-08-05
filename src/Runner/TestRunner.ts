@@ -1,6 +1,6 @@
 import TestInfo from '../Framework/TestInfo';
 import TestSuite from '../Framework/TestSuite';
-import { TestResult } from '../Framework/TestResult';
+import { ResultType } from '../Framework/ResultType';
 import ResultReporter from './ResultReporter';
 
 export default class TestRunner {
@@ -11,17 +11,17 @@ export default class TestRunner {
         this.reporters.forEach(r => r.testStarted(suite, name));
         if (info.value == null) {
             this.reporters.forEach(r => r.testIncomplete(suite, name));
-            return TestResult.Incomplete;
+            return ResultType.Incomplete;
         }
 
         try {
             await info.value.call(suite);
             this.reporters.forEach(r => r.testPassed(suite, name));
-            return TestResult.Passed;
+            return ResultType.Passed;
 
         } catch (error) {
             this.reporters.forEach(r => r.testFailed(suite, name, error));
-            return TestResult.Failed;
+            return ResultType.Failed;
         }
     }
 }
