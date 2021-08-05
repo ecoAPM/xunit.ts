@@ -6,6 +6,7 @@ import TestSuiteRunner from "../../src/Runner/TestSuiteRunner";
 import ResultReporter from "../../src/Runner/ResultReporter";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import { ResultType } from "../../src/Framework/ResultType";
+import TestResult from "../../src/Framework/TestResult";
 
 export default class RunnerTests extends TestSuite {
     @Test()
@@ -67,7 +68,7 @@ export default class RunnerTests extends TestSuite {
     async AllTestsPassedWhenNoResultsHaveLessPassedThanTotal() {
         //arrange
         const results = new TestSuiteResults();
-        results.addResult('test1', ResultType.Passed);
+        results.addResult('test1', new TestResult(ResultType.Passed, 0));
 
         //act
         const all_passed = Runner.allTestsPassed([results]);
@@ -80,8 +81,8 @@ export default class RunnerTests extends TestSuite {
     async AllTestsDidNotPassWhenSomeResultsHaveLessPassedThanTotal() {
         //arrange
         const results = new TestSuiteResults();
-        results.addResult('test1', ResultType.Passed);
-        results.addResult('test2', ResultType.Failed);
+        results.addResult('test1', new TestResult(ResultType.Passed, 0));
+        results.addResult('test2', new TestResult(ResultType.Failed, 0));
 
         //act
         const all_passed = Runner.allTestsPassed([results]);

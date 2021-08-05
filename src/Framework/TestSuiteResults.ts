@@ -1,10 +1,11 @@
 import { ResultType } from './ResultType';
+import TestResult from "./TestResult";
 
 export default class TestSuiteResults {
 
-    private results: Record<string, ResultType> = {};
+    private results: Record<string, TestResult> = {};
 
-    addResult(name: string, result: ResultType) {
+    addResult(name: string, result: TestResult) {
         this.results[name] = result;
     }
 
@@ -12,7 +13,7 @@ export default class TestSuiteResults {
         return Object.values(this.results).length;
     }
 
-    count(result: ResultType) {
-        return Object.values(this.results).filter((r) => r === result).length;
+    count(result_type: ResultType) {
+        return Object.values(this.results).filter((r) => r.type === result_type).length;
     }
 }

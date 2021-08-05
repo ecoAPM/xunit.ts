@@ -15,7 +15,7 @@ export default class TestRunnerTests extends TestSuite {
         const result = await runner.runTest('inside reports test passed', { value: async () => { } }, new class X extends TestSuite { });
 
         //assert
-        this.assert.equal(ResultType.Passed, result);
+        this.assert.equal(ResultType.Passed, result.type);
     }
 
     @Test()
@@ -28,7 +28,7 @@ export default class TestRunnerTests extends TestSuite {
         const result = await runner.runTest('inside reports test failed', { value: async () => { throw new Error(); } }, new class X extends TestSuite { });
 
         //assert
-        this.assert.equal(ResultType.Failed, result);
+        this.assert.equal(ResultType.Failed, result.type);
     }
 
     @Test()
@@ -41,7 +41,7 @@ export default class TestRunnerTests extends TestSuite {
         const result = await runner.runTest('inside reports test incomplete', { }, new class X extends TestSuite { });
 
         //assert
-        this.assert.equal(ResultType.Incomplete, result);
+        this.assert.equal(ResultType.Incomplete, result.type);
     }
 
     @Test()
