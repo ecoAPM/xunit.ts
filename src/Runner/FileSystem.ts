@@ -27,4 +27,8 @@ export default class FileSystem {
             ? match[1]
             : '';
     }
+
+    save(data: string, path: string) {
+        this.fs.write(path, data);
+    }
 }

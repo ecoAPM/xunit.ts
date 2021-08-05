@@ -73,4 +73,18 @@ export default class FileSystemTests extends TestSuite {
         //assert
         this.assert.equal('', extension);
     }
+
+    @Test()
+    async SaveWritesDataToFile() {
+        //arrange
+        const fs = Mockito.mock(AsyncFileSystemModule);
+        const mock = Mockito.instance(fs);
+        const file_system = new FileSystem(mock);
+
+        //act
+        file_system.save('testing, 123', 'test.txt');
+
+        //assert
+        Mockito.verify(fs.write('test.txt', 'testing, 123')).once();
+    }
 }

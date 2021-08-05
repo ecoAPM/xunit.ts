@@ -16,4 +16,8 @@ export default class AsyncFileSystemModule {
     async stats(path: string): Promise<any> {
         return await util.promisify(fs.lstat)(path);
     }
+        
+    async write(path: string, data: string): Promise<void> {
+        await util.promisify(fs.writeFile)(path, data);
+    }
 }
