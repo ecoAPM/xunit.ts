@@ -27,11 +27,11 @@ export default class TestRunner {
             const duration = TestRunner.msSince(start);
             if (error instanceof AssertionError) {
                 this.reporters.forEach(r => r.testFailed(suite, name, error, duration));
-                return new TestResult(ResultType.Failed, duration);
+                return new TestResult(ResultType.Failed, duration, error);
             }
 
             this.reporters.forEach(r => r.testErrored(suite, name, error, duration));
-            return new TestResult(ResultType.Error, duration);
+            return new TestResult(ResultType.Error, duration, error);
         }
     }
 
