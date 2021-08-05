@@ -1,23 +1,19 @@
-import fs from "fs";
-import path from "path";
-import util from "util";
+import AsyncFileSystemModule from "./AsyncFileSystemModule";
 
 export default class FileSystem {
 
-    private exists = util.promisify(fs.exists);
-    private find = util.promisify(fs.readdir);
-    private stats = util.promisify(fs.lstat);
+    constructor(private fs: AsyncFileSystemModule) { }
 
     async getFiles(dir: string): Promise<string[]> {
-        if (!await this.exists(dir))
+        if (!await this.fs.exists(dir))
             return [];
 
-        const contents = await this.find(dir);
+        const contents = await this.fs.find(dir);
         const files = [];
         for (let x = 0; x < contents.length; x++) {
             const item = contents[x];
-            const item_path = `${dir}${path.sep}${item}`;
-            files.push(...(await this.stats(item_path)).isDirectory()
+            const item_path = `${dir}${this.fs.slash}${item}`;
+            files.push(...(await this.fs.stats(item_path)).isDirectory()
                 ? await this.getFiles(item_path)
                 : [item_path]);
         }

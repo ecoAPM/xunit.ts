@@ -1,3 +1,4 @@
+import AsyncFileSystemModule from './Runner/AsyncFileSystemModule';
 import ConsoleReporter from './Runner/ConsoleReporter';
 import FileSystem from './Runner/FileSystem';
 import Output from './Runner/Output';
@@ -9,7 +10,8 @@ import TestSuiteRunner from './Runner/TestSuiteRunner';
 
 export default class Factory {
     static Runner() {
-        const file_system = new FileSystem();
+        const async_fs = new AsyncFileSystemModule();
+        const file_system = new FileSystem(async_fs);
         const loader = new TestSuiteLoader(file_system);
 
         const output = new Output(process.stdout);
