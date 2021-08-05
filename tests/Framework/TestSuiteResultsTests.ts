@@ -42,4 +42,23 @@ export default class TestSuiteResultsTests extends TestSuite {
         //assert
         this.assert.equal(6, total);
     }
+
+    @Test()
+    async CanGetTotalDuration()
+    {
+        //arrange
+        const results = new TestSuiteResults();
+        results.addResult('test1', new TestResult(ResultType.Passed, 1.2));
+        results.addResult('test2', new TestResult(ResultType.Passed, 2.3));
+        results.addResult('test3', new TestResult(ResultType.Passed, 3.4));
+        results.addResult('test4', new TestResult(ResultType.Failed, 4.5));
+        results.addResult('test5', new TestResult(ResultType.Failed, 5.6));
+        results.addResult('test6', new TestResult(ResultType.Incomplete, 6.7));
+
+        //act
+        const time = results.time();
+
+        //assert
+        this.assert.equal(23.7, time);
+    }
 }

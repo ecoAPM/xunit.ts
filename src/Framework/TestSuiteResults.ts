@@ -14,6 +14,10 @@ export default class TestSuiteResults {
     }
 
     count(result_type: ResultType) {
-        return Object.values(this.results).filter((r) => r.type === result_type).length;
+        return Object.values(this.results).filter(result => result.type === result_type).length;
+    }
+
+    time() {
+        return Object.values(this.results).reduce((sum, result) => sum + result.duration, 0);
     }
 }
