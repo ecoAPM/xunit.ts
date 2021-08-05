@@ -1,4 +1,5 @@
 import AsyncFileSystemModule from "./AsyncFileSystemModule";
+import path from "path";
 
 export default class FileSystem {
 
@@ -12,7 +13,7 @@ export default class FileSystem {
         const files = [];
         for (let x = 0; x < contents.length; x++) {
             const item = contents[x];
-            const item_path = `${dir}${this.fs.slash}${item}`;
+            const item_path = `${dir}${path.sep}${item}`;
             files.push(...(await this.fs.stats(item_path)).isDirectory()
                 ? await this.getFiles(item_path)
                 : [item_path]);
@@ -28,7 +29,7 @@ export default class FileSystem {
             : '';
     }
 
-    save(data: string, path: string) {
-        this.fs.write(path, data);
+    async save(data: string, path: string) {
+        await this.fs.write(path, data);
     }
 }

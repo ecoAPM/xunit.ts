@@ -2,6 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 import AsyncFileSystemModule from "../../src/Runner/AsyncFileSystemModule";
 import FileSystem from "../../src/Runner/FileSystem";
 import Mockito from 'ts-mockito';
+import path from "path";
 
 export default class FileSystemTests extends TestSuite {
 
@@ -9,19 +10,18 @@ export default class FileSystemTests extends TestSuite {
     async CanRecursivelyGetFiles() {
         //arrange
         const fs = Mockito.mock(AsyncFileSystemModule);
-        Mockito.when(fs.slash).thenReturn('/');
         Mockito.when(fs.exists(Mockito.anyString())).thenResolve(true);
         Mockito.when(fs.stats(Mockito.anyString())).thenResolve({ isDirectory: () => false });
-        Mockito.when(fs.find(Mockito.anyString())).thenResolve(['Test1.ts', 'Sub1/Test2.ts', 'Sub2/Test3.ts']);
+        Mockito.when(fs.find(Mockito.anyString())).thenResolve(['Test1.ts', `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts`]);
         const file_system = new FileSystem(Mockito.instance(fs));
 
         //act
         const files = await file_system.getFiles('tests');
 
         //assert
-        this.assert.contains(`tests/Test1.ts`, files);
-        this.assert.contains(`tests/Sub1/Test2.ts`, files);
-        this.assert.contains(`tests/Sub2/Test3.ts`, files);
+        this.assert.contains(`tests${path.sep}Test1.ts`, files);
+        this.assert.contains(`tests${path.sep}Sub1${path.sep}Test2.ts`, files);
+        this.assert.contains(`tests${path.sep}Sub2${path.sep}Test3.ts`, files);
     }
 
     @Test()

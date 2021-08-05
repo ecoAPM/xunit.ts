@@ -1,23 +1,24 @@
-import fs from "fs";
-import path from "path";
-import util from "util";
+import fs from "fs/promises";
 
 export default class AsyncFileSystemModule {
-    readonly slash = path.sep;
-
     async exists(path: string): Promise<boolean> {
-        return await util.promisify(fs.exists)(path);
+        try {
+            await fs.stat(path);
+            return true;
+        } catch (e) {
+            return false;
+        }
     }
 
     async find(path: string): Promise<string[]> {
-        return await util.promisify(fs.readdir)(path);
+        return await fs.readdir(path);
     }
 
     async stats(path: string): Promise<any> {
-        return await util.promisify(fs.lstat)(path);
+        return await fs.stat(path);
     }
-        
+
     async write(path: string, data: string): Promise<void> {
-        await util.promisify(fs.writeFile)(path, data);
+        await fs.writeFile(path, data);
     }
 }
