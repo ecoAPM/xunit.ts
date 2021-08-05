@@ -24,11 +24,13 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.write(`  ${colors.white('⋯')} ${test_name}`);
     }
 
-    testPassed(suite: TestSuite, test_name: string): void {
+    testPassed(suite: TestSuite, test_name: string, duration: number): void {
+        this.out.write(` (${Math.round(duration)} ms)`);
         this.out.overwrite(`  ${colors.green('✓')}\n`);
     }
 
-    testFailed(suite: TestSuite, test_name: string, error: Error): void {
+    testFailed(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+        this.out.write(` (${Math.round(duration)} ms)`);
         this.out.overwrite(`  ${colors.red('✘')}\n`);
         if (error instanceof AssertionError) {
             this.out.writeLine(`      ${error.message}`);
@@ -41,7 +43,7 @@ export default class ConsoleReporter implements ResultReporter {
     }
 
     testIncomplete(suite: TestSuite, test_name: string): void {
-        this.out.overwrite(`  ${colors.yellow('?')} ${test_name}\n`);
+        this.out.overwrite(`  ${colors.yellow('?')}\n`);
     }
 
     suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {

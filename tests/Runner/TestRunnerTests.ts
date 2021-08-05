@@ -67,7 +67,7 @@ export default class TestRunnerTests extends TestSuite {
         await runner.runTest('inside reports test passed', { value: async () => { } }, new class X extends TestSuite { });
 
         //assert
-        Mockito.verify(reporter.testPassed(Mockito.anything(), Mockito.anything())).once();
+        Mockito.verify(reporter.testPassed(Mockito.anything(), Mockito.anyString(), Mockito.anyNumber())).once();
     }
 
     @Test()
@@ -80,7 +80,7 @@ export default class TestRunnerTests extends TestSuite {
         await runner.runTest('inside reports test failed', { value: () => { throw new Error(); } }, new class X extends TestSuite { });
 
         //assert
-        Mockito.verify(reporter.testFailed(Mockito.anything(), Mockito.anything(), Mockito.anything())).once();
+        Mockito.verify(reporter.testFailed(Mockito.anything(), Mockito.anyString(), Mockito.anything(), Mockito.anyNumber())).once();
     }
 
     @Test()
@@ -93,6 +93,6 @@ export default class TestRunnerTests extends TestSuite {
         await runner.runTest('inside reports test incomplete', { }, new class X extends TestSuite { });
 
         //assert
-        Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anything())).once();
+        Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anyString())).once();
     }
 }

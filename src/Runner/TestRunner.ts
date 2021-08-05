@@ -15,14 +15,22 @@ export default class TestRunner {
             return new TestResult(ResultType.Incomplete, 0);
         }
 
+        const start = process.hrtime();
         try {
             await info.value.call(suite);
-            this.reporters.forEach(r => r.testPassed(suite, name));
-            return new TestResult(ResultType.Passed, 0);
+            const duration = TestRunner.msSince(start);
+            this.reporters.forEach(r => r.testPassed(suite, name, duration));
+            return new TestResult(ResultType.Passed, duration);
 
         } catch (error) {
-            this.reporters.forEach(r => r.testFailed(suite, name, error));
-            return new TestResult(ResultType.Failed, 0);
+            const duration = TestRunner.msSince(start);
+            this.reporters.forEach(r => r.testFailed(suite, name, error, duration));
+            return new TestResult(ResultType.Failed, duration);
         }
+    }
+
+    private static msSince(start: [number, number]) {
+        const duration = process.hrtime(start);
+        return duration[0] * 1_000 + duration[1] / 1_000_000;
     }
 }

@@ -69,7 +69,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testPassed(new class X extends TestSuite { }, 'unit test name');
+        reporter.testPassed(new class X extends TestSuite { }, 'unit test name', 0);
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
@@ -83,7 +83,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'));
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
 
         //assert
         const [result] = Mockito.capture(out.overwrite).first();
@@ -97,7 +97,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'));
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', new Error('unhandled exception'), 0);
 
         //assert
         const stack = Mockito.capture(out.writeLine).first();
@@ -109,10 +109,10 @@ export default class ConsoleReporterTests extends TestSuite {
         //arrange
         const out = Mockito.mock<Output>();
         const reporter = new ConsoleReporter(Mockito.instance(out));
-        const assert = new AssertionError({message: 'failed because reasons', expected: 123, actual: 234 });
+        const error = new AssertionError({message: 'failed because reasons', expected: 123, actual: 234 });
 
         //act
-        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', assert);
+        reporter.testFailed(new class X extends TestSuite { }, 'unit test name', error, 0);
 
         //assert
         const message = Mockito.capture(out.writeLine).first();
@@ -123,6 +123,19 @@ export default class ConsoleReporterTests extends TestSuite {
         this.assert.stringContains('123', expected[0] as string);
         this.assert.stringContains('Actual:', actual[0] as string);
         this.assert.stringContains('234', actual[0] as string);
+    }
+
+    @Test()
+    async OutputsDurationOnTestCompleted() {
+        //arrange
+        const out = Mockito.mock<Output>();
+        const reporter = new ConsoleReporter(Mockito.instance(out));
+
+        //act
+        reporter.testPassed(new class X extends TestSuite { }, 'unit test name', 4.56);
+
+        //assert
+        Mockito.verify(out.write(' (5 ms)')).once();
     }
 
     @Test()
