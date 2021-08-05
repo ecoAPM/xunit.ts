@@ -7,12 +7,18 @@
   "license": "MIT",
   "dependencies": {
     "colors": "1.4.0",
+    "command-line-args": "5.2.0",
+    "command-line-usage": "6.1.1",
     "lodash.isequal": "4.5.0",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "xml": "^1.0.1"
   },
   "devDependencies": {
+    "@types/command-line-args": "^5.0.1",
+    "@types/command-line-usage": "^5.0.2",
     "@types/lodash.isequal": "4.5.5",
     "@types/node": "16.4.12",
+    "@types/xml": "^1.0.6",
     "ts-mockito": "2.6.1"
   },
   "scripts": {
