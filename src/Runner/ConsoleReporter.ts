@@ -18,7 +18,7 @@ export default class ConsoleReporter implements ResultReporter {
     }
 
     suiteStarted(suite: TestSuite): void {
-        this.out.writeLine(`${TestName.toSentenceCase(suite.constructor.name)}`);
+        this.out.writeLine(TestName.toSentenceCase(suite.constructor.name));
     }
 
     testStarted(suite: TestSuite, test_name: string): void {

@@ -148,7 +148,7 @@ export default class ConsoleReporterTests extends TestSuite {
         Mockito.when(out.writeLine(Mockito.anyString())).
             thenCall((line: string) => console += line + '\n')
 
-        const results = new TestSuiteResults();
+        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
         results.addResult('test1', new TestResult(ResultType.Passed, 1.2));
         results.addResult('test2', new TestResult(ResultType.Passed, 2.3));
         results.addResult('test3', new TestResult(ResultType.Passed, 3.4));
@@ -187,7 +187,7 @@ export default class ConsoleReporterTests extends TestSuite {
         Mockito.when(out.writeLine(Mockito.anyString())).
             thenCall((line: string) => console += line + '\n')
         
-        const results = new TestSuiteResults();
+        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
         results.addResult('test1', new TestResult(ResultType.Passed, 0));
         results.addResult('test2', new TestResult(ResultType.Passed, 0));
         results.addResult('test3', new TestResult(ResultType.Passed, 0));

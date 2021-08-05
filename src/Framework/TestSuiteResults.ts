@@ -1,9 +1,12 @@
 import { ResultType } from './ResultType';
 import TestResult from "./TestResult";
+import TestSuite from "./TestSuite";
 
 export default class TestSuiteResults {
 
-    private results: Record<string, TestResult> = {};
+    readonly results: Record<string, TestResult> = {};
+    
+    constructor(readonly suite: TestSuite) { }
 
     addResult(name: string, result: TestResult) {
         this.results[name] = result;

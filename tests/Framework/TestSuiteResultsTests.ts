@@ -9,7 +9,7 @@ export default class TestSuiteResultsTests extends TestSuite {
     async CanGetPassedTests()
     {
         //arrange
-        const results = new TestSuiteResults();
+        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
         results.addResult('test1', new TestResult(ResultType.Passed, 0));
         results.addResult('test2', new TestResult(ResultType.Passed, 0));
         results.addResult('test3', new TestResult(ResultType.Passed, 0));
@@ -28,7 +28,7 @@ export default class TestSuiteResultsTests extends TestSuite {
     async CanGetAllTests()
     {
         //arrange
-        const results = new TestSuiteResults();
+        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
         results.addResult('test1', new TestResult(ResultType.Passed, 0));
         results.addResult('test2', new TestResult(ResultType.Passed, 0));
         results.addResult('test3', new TestResult(ResultType.Passed, 0));
@@ -47,7 +47,7 @@ export default class TestSuiteResultsTests extends TestSuite {
     async CanGetTotalDuration()
     {
         //arrange
-        const results = new TestSuiteResults();
+        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
         results.addResult('test1', new TestResult(ResultType.Passed, 1.2));
         results.addResult('test2', new TestResult(ResultType.Passed, 2.3));
         results.addResult('test3', new TestResult(ResultType.Passed, 3.4));
