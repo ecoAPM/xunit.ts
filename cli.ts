@@ -1,14 +1,8 @@
 #!/usr/bin/env node
 
-import Factory from './src/Factory';
-import Runner from './src/Runner/Runner';
+import process from 'process';
+import CLI from './src/CLI';
 
-Factory.Runner().runAll(process.argv[2] || 'tests')
-    .then((results) => {
-        process.exit(Runner.allTestsPassed(results) ? 0 : 1);
-    })
-    .catch((error: Error) => {
-        process.stderr.write(`An unhandled ${error.name} occurred: ${error.message}\n`);
-        process.stderr.write(error.stack?.toString() || '(no call stack)\n');
-        process.exit(1);
-    });
+new CLI(process)
+    .run()
+    .then(success => process.exit(success ? 0 : 1));
