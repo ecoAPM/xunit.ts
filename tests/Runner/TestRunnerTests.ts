@@ -3,7 +3,7 @@ import ResultReporter from "../../src/Runner/ResultReporter";
 import TestRunner from "../../src/Runner/TestRunner";
 import Mockito from 'ts-mockito';
 import { ResultType } from "../../src/Framework/ResultType";
-import {AssertionError} from "assert";
+import { AssertionError } from "assert";
 
 export default class TestRunnerTests extends TestSuite {
     @Test()
@@ -13,7 +13,7 @@ export default class TestRunnerTests extends TestSuite {
         const runner = new TestRunner([Mockito.instance(reporter)]);
 
         //act
-        const result = await runner.runTest('inside returns test passed', { value: async () => { } }, new class X extends TestSuite { });
+        const result = await runner.runTest('inside returns test passed', { value: async () => { await Promise.resolve(); } }, new class X extends TestSuite { });
 
         //assert
         this.assert.equal(ResultType.Passed, result.type);
@@ -52,7 +52,7 @@ export default class TestRunnerTests extends TestSuite {
         const runner = new TestRunner([Mockito.instance(reporter)]);
 
         //act
-        const result = await runner.runTest('inside returns test incomplete', { }, new class X extends TestSuite { });
+        const result = await runner.runTest('inside returns test incomplete', {}, new class X extends TestSuite { });
 
         //assert
         this.assert.equal(ResultType.Incomplete, result.type);
@@ -65,7 +65,7 @@ export default class TestRunnerTests extends TestSuite {
         const runner = new TestRunner([Mockito.instance(reporter)]);
 
         //act
-        await runner.runTest('inside reports test started', { value: async () => { } }, new class X extends TestSuite { });
+        await runner.runTest('inside reports test started', { value: async () => { await Promise.resolve(); } }, new class X extends TestSuite { });
 
         //assert
         Mockito.verify(reporter.testStarted(Mockito.anything(), Mockito.anything())).once();
@@ -78,7 +78,7 @@ export default class TestRunnerTests extends TestSuite {
         const runner = new TestRunner([Mockito.instance(reporter)]);
 
         //act
-        await runner.runTest('inside reports test passed', { value: async () => { } }, new class X extends TestSuite { });
+        await runner.runTest('inside reports test passed', { value: async () => { await Promise.resolve(); } }, new class X extends TestSuite { });
 
         //assert
         Mockito.verify(reporter.testPassed(Mockito.anything(), Mockito.anyString(), Mockito.anyNumber())).once();
@@ -117,7 +117,7 @@ export default class TestRunnerTests extends TestSuite {
         const runner = new TestRunner([Mockito.instance(reporter)]);
 
         //act
-        await runner.runTest('inside reports test incomplete', { }, new class X extends TestSuite { });
+        await runner.runTest('inside reports test incomplete', {}, new class X extends TestSuite { });
 
         //assert
         Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anyString())).once();
