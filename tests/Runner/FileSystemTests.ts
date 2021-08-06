@@ -1,18 +1,19 @@
-import { Test, TestSuite } from "../../xunit";
-import AsyncFileSystemModule from "../../src/Runner/AsyncFileSystemModule";
+import {Test, TestSuite} from "../../xunit";
 import FileSystem from "../../src/Runner/FileSystem";
 import Mockito from 'ts-mockito';
 import path from "path";
+import fs_promises from "fs/promises";
+import {Stats} from "fs";
 
 export default class FileSystemTests extends TestSuite {
 
     @Test()
     async CanRecursivelyGetFiles() {
         //arrange
-        const fs = Mockito.mock(AsyncFileSystemModule);
-        Mockito.when(fs.exists(Mockito.anyString())).thenResolve(true);
-        Mockito.when(fs.stats(Mockito.anyString())).thenResolve({ isDirectory: () => false });
-        Mockito.when(fs.find(Mockito.anyString())).thenResolve(['Test1.ts', `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts`]);
+        const fs = Mockito.spy(fs_promises);
+        const stats = Mockito.mock(Stats);
+        Mockito.when(fs.stat(Mockito.anyString())).thenResolve(Mockito.instance(stats));
+        Mockito.when(fs.readdir(Mockito.anyString())).thenResolve(['Test1.ts', `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts`]);
         const file_system = new FileSystem(Mockito.instance(fs));
 
         //act
@@ -27,8 +28,7 @@ export default class FileSystemTests extends TestSuite {
     @Test()
     async FilesAreEmptyWhenInvalidDirectory() {
         //arrange
-        const fs = Mockito.mock(AsyncFileSystemModule);
-        Mockito.when(fs.exists(Mockito.anyString())).thenResolve(false);
+        const fs: typeof fs_promises = Mockito.mock(fs_promises);
         const file_system = new FileSystem(Mockito.instance(fs));
 
         //act
@@ -77,14 +77,14 @@ export default class FileSystemTests extends TestSuite {
     @Test()
     async SaveWritesDataToFile() {
         //arrange
-        const fs = Mockito.mock(AsyncFileSystemModule);
-        const mock = Mockito.instance(fs);
-        const file_system = new FileSystem(mock);
+        const fs = Mockito.spy(fs_promises);
+        Mockito.when(fs.writeFile(Mockito.anyString(), Mockito.anyString())).thenResolve();
+        const file_system = new FileSystem(Mockito.instance(fs));
 
         //act
-        file_system.save('testing, 123', 'test.txt');
+        await file_system.save('testing, 123', 'test.txt');
 
         //assert
-        Mockito.verify(fs.write('test.txt', 'testing, 123')).once();
+        Mockito.verify(fs.writeFile('test.txt', 'testing, 123')).once();
     }
 }
