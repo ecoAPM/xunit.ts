@@ -9,7 +9,7 @@ import {ResultType} from "../Framework/ResultType";
 
 export default class ConsoleReporter implements ResultReporter {
 
-    constructor(private out: Output) {
+    constructor(private readonly out: Output) {
     }
 
     runStarted(): void {

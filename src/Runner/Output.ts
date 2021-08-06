@@ -2,7 +2,7 @@ import { WriteStream } from "tty";
 
 export default class Output {
 
-    constructor(private out: WriteStream) { }
+    constructor(private readonly out: WriteStream) { }
 
     write(data: string) {
         this.out.write(data);

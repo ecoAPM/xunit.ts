@@ -11,7 +11,7 @@ import TestResult from "../Framework/TestResult";
 export default class JUnitReporter implements ResultReporter {
     static readonly defaultFileName: string = 'junit.xml';
 
-    constructor(private file_system: FileSystem, private path: string) {
+    constructor(private readonly file_system: FileSystem, private readonly path: string) {
     }
 
     runStarted(): void {

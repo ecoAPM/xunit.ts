@@ -6,7 +6,7 @@ import { ResultType } from '../Framework/ResultType';
 
 export default class Runner {
 
-    constructor(private loader: TestSuiteLoader, private runner: TestSuiteRunner, private reporters: ResultReporter[]) { }
+    constructor(private readonly loader: TestSuiteLoader, private readonly runner: TestSuiteRunner, private readonly reporters: ResultReporter[]) { }
 
     async runAll(dir: string): Promise<TestSuiteResults[]> {
         await Promise.all(this.reporters.map(r => r.runStarted()));

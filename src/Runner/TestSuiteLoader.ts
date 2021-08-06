@@ -4,7 +4,7 @@ import path from 'path';
 
 export default class TestSuiteLoader {
 
-    constructor(private file_system: FileSystem) { }
+    constructor(private readonly file_system: FileSystem) { }
 
     async loadTestSuites(dir: string) {
         const files = (await this.file_system.getFiles(dir))

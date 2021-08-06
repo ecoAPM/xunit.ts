@@ -6,7 +6,7 @@ import TestRunner from './TestRunner';
 
 export default class TestSuiteRunner {
 
-    constructor(private runner: TestRunner, private reporters: ResultReporter[]) { }
+    constructor(private readonly runner: TestRunner, private readonly reporters: ResultReporter[]) { }
 
     async runSuite(suite: TestSuite) {
         await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
