@@ -9,7 +9,7 @@ export default class Runner {
     constructor(private loader: TestSuiteLoader, private runner: TestSuiteRunner, private reporters: ResultReporter[]) { }
 
     async runAll(dir: string): Promise<TestSuiteResults[]> {
-        this.reporters.forEach(r => r.runStarted());
+        await Promise.all(this.reporters.map(r => r.runStarted()));
         const results: TestSuiteResults[] = [];
         const suites = await this.loader.loadTestSuites(dir);
         for (let x = 0; x < suites.length; x++) {
@@ -17,7 +17,7 @@ export default class Runner {
             const result = await this.runner.runSuite(suite);
             results.push(result);
         }
-        this.reporters.forEach(r => r.runCompleted(results));
+        await Promise.all(this.reporters.map(r => r.runCompleted(results)));
         return results;
     }
 

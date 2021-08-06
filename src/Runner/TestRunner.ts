@@ -10,9 +10,9 @@ export default class TestRunner {
     constructor(private reporters: ResultReporter[]) { }
 
     async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
-        this.reporters.forEach(r => r.testStarted(suite, name));
+        await Promise.all(this.reporters.map(r => r.testStarted(suite, name)));
         if (info.value == null) {
-            this.reporters.forEach(r => r.testIncomplete(suite, name));
+            await Promise.all(this.reporters.map(r => r.testIncomplete(suite, name)));
             return new TestResult(ResultType.Incomplete, 0);
         }
 
@@ -20,17 +20,17 @@ export default class TestRunner {
         try {
             await info.value.call(suite);
             const duration = TestRunner.msSince(start);
-            this.reporters.forEach(r => r.testPassed(suite, name, duration));
+            await Promise.all(this.reporters.map(r => r.testPassed(suite, name, duration)));
             return new TestResult(ResultType.Passed, duration);
 
         } catch (error) {
             const duration = TestRunner.msSince(start);
             if (error instanceof AssertionError) {
-                this.reporters.forEach(r => r.testFailed(suite, name, error, duration));
+                await Promise.all(this.reporters.map(r => r.testFailed(suite, name, error, duration)));
                 return new TestResult(ResultType.Failed, duration, error);
             }
 
-            this.reporters.forEach(r => r.testErrored(suite, name, error, duration));
+            await Promise.all(this.reporters.map(r => r.testErrored(suite, name, error, duration)));
             return new TestResult(ResultType.Error, duration, error);
         }
     }

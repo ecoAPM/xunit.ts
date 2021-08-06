@@ -9,17 +9,17 @@ export default class TestSuiteRunner {
     constructor(private runner: TestRunner, private reporters: ResultReporter[]) { }
 
     async runSuite(suite: TestSuite) {
-        this.reporters.forEach(r => r.suiteStarted(suite));
+        await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
         const tests = suite.getTests();
         const results = await this.runTests(suite, tests);
-        this.reporters.forEach(r => r.suiteCompleted(suite, results));
+        await Promise.all(this.reporters.map(r => r.suiteCompleted(suite, results)));
         return results;
     }
 
     async runTests(suite: TestSuite, tests: Record<string, TestInfo>) {
         const results = new TestSuiteResults(suite);
         if (tests == null || Object.keys(tests).length == 0) {
-            this.reporters.forEach(r => r.testIncomplete(suite, '(no tests found)'));
+            await Promise.all(this.reporters.map(r => r.testIncomplete(suite, '(no tests found)')));
             return results;
         }
 
