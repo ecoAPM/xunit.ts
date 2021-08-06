@@ -1,6 +1,7 @@
-﻿import {Test, TestSuite} from "../../xunit";
+﻿import { Test, TestSuite } from "../../xunit";
 import AsyncFileSystemModule from "../../src/Runner/AsyncFileSystemModule";
 import fs from "fs/promises";
+import os from 'os';
 import path from "path";
 
 export default class AsyncFileSystemModuleTests extends TestSuite {
@@ -15,7 +16,7 @@ export default class AsyncFileSystemModuleTests extends TestSuite {
         //assert
         this.assert.true(exists);
     }
-    
+
     @Test()
     async ExistsReturnsFalseWhenFileDoesNotExist() {
         //arrange
@@ -27,7 +28,7 @@ export default class AsyncFileSystemModuleTests extends TestSuite {
         //assert
         this.assert.false(exists);
     }
-    
+
     @Test()
     async FindGetsFilesInDirectory() {
         //arrange
@@ -39,7 +40,7 @@ export default class AsyncFileSystemModuleTests extends TestSuite {
         //assert
         this.assert.notEmpty(files);
     }
-    
+
     @Test()
     async CanGetStatsForFile() {
         //arrange
@@ -51,22 +52,20 @@ export default class AsyncFileSystemModuleTests extends TestSuite {
         //assert
         this.assert.true(stats.isFile());
     }
-    
+
     @Test()
     async CanWriteFile() {
         //arrange
-        const dir = path.join(__dirname, 'files');
-        await fs.rm(dir, { force: true, recursive: true });
-        await fs.mkdir(dir)
-        const filename = dir + Math.random() + '.txt';
+        const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'xunit'));
+        const filename = path.join(dir, 'test.txt');
         const async_fs = new AsyncFileSystemModule();
 
         //act
-        await async_fs.write(filename, 'test data' + filename);
+        await async_fs.write(filename, 'test data for ' + filename);
 
         //assert
         const buffer = await fs.readFile(filename);
-        this.assert.stringContains('test data' + filename, buffer.toString());
+        this.assert.stringContains('test data for ' + filename, buffer.toString());
         await fs.rm(dir, { force: true, recursive: true });
     }
 }
