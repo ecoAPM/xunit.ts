@@ -13,7 +13,9 @@
 
 ### Requirements
 
-- Node.js 16 (older versions may work, but only the latest LTS is actively supported)
+- Node.js 16
+
+  (older versions may work, but only the latest LTS is actively supported)
 
 ### Installation
 `npm install --dev xunit.ts`
@@ -87,53 +89,179 @@ If you prefer, you can `import { Assert } from 'xunit.ts` and call e.g. `Assert.
 
 ### Basic
 
-`this.assert.true(expression);`
+```
+this.assert.true(expression);
+```
 
-`this.assert.false(expression);`
+Passes if `expression` evaluates to `true`
+
+Fails if `expression` does not evaluate to `true`
+
+```
+this.assert.false(expression);
+```
+
+Passes if `expression` evaluates to `false`
+
+Fails if `expression` does not evaluate to `false`
 
 ### Equality
 
-`this.assert.equal(expected, actual);`
+(uses `lodash.equal()` under the hood for strongly-typed, deep equality checks)
 
-`this.assert.notEqual(expected, actual);`
+```
+this.assert.equal(expected, actual);
+```
+
+Passes if `actual` and `expected` evaluate to equal values
+
+Fails if `actual` and `expected` do not evaluate to equal values
+
+```
+this.assert.notEqual(expected, actual);
+```
+
+Passes if `actual` and `expected` do not evaluate to equal values
+
+Fails if `actual` and `expected` evaluate to equal values
 
 ### Nullable
 
-`this.assert.null(expression);`
+```
+this.assert.null(expression);
+```
 
-`this.assert.notNull(expression);`
+Passes if `expression` evaluates to `null`
+
+Fails if `expression` does not evaluate to `null`
+
+```
+this.assert.notNull(expression);
+```
+
+Passes if `expression` does not evaluate to `null`
+
+Fails if `expression` evaluates to `null`
+
+```
+this.assert.undefined(expression);
+```
+
+Passes if `expression` evaluates to `undefined`
+
+Fails if `expression` does not evaluate to `undefined`
+
+```
+this.assert.defined(expression);
+```
+
+Passes if `expression` does not evaluate to `undefined`
+
+Fails if `expression` evaluates to `undefined`
 
 ### Arrays
 
-`this.assert.contains(needle, haystack);`
+```
+this.assert.contains(needle, haystack);
+```
 
-`this.assert.doesNotContain(needle, haystack);`
+Passes if array `haystack` contains an element with a value of `needle`
 
-`this.assert.empty(array);`
+Fails if array `haystack` does not contain an element with a value of `needle`
 
-`this.assert.notEmpty(array);`
+```
+this.assert.doesNotContain(needle, haystack);
+```
 
-`this.assert.count(expected, array);`
+Passes if array `haystack` does not contain an element with a value of `needle`
+
+Fails if array `haystack` contains an element with a value of `needle`
+
+```
+this.assert.empty(array);
+```
+
+Passes if `array` contains zero elements
+
+Fails if `array` contains any elements
+
+```
+this.assert.notEmpty(array);
+```
+
+Passes if `array` contains any elements
+
+Fails if `array` contains zero elements
+
+```
+this.assert.count(expected, array);
+```
+
+Passes if `array` contains `expected` number of elements
+
+Fails if `array` does not contain `expected` number of elements
 
 ### Strings
 
-`this.assert.stringContains(needle, haystack);`
+```
+this.assert.stringContains(needle, haystack);
+```
 
-`this.assert.stringContains(needle, haystack);`
+Passes if `needle` is a substring of `haystack`
+
+Fails if `needle` is not a substring of `haystack`
+
+```
+this.assert.stringDoesNotContain(needle, haystack);
+```
+
+Passes if `needle` is not a substring of `haystack`
+
+Fails if `needle` is a substring of `haystack`
 
 ### Exceptions
 
-`this.assert.throws(() => expression);`
+```
+this.assert.throws(() => expression);
+```
 
-`this.assert.doesNotThrow(() => expression);`
+Passes if `expression` throws an error/exception
+
+Fails if `expression` does not throw an error/exception
+
+```
+this.assert.doesNotThrow(() => expression);
+```
+
+Passes if `expression` does not throw an error/exception
+
+Fails if `expression` throws an error/exception
 
 ### Reflection
 
-`this.assert.instanceOf(type, object);`
+```
+this.assert.instanceOf(type, object);
+```
+
+Passes if `object`'s type matches `type`
+
+Fails if `object`'s type does not match `type` 
 
 ### Missing an assertion?
 
 Create an issue or submit a pull request!
 1. Add a new function to `src/Assertions`
-1. Add tests for both the positive and negative cases in `tests/Assertions`
-1. Add a field for the assertion to `src/Assertions/index.ts`
+2. Add tests for both the positive and negative cases in `tests/Assertions`
+3. Add a field for the assertion to `src/Assertions/index.ts`
+
+See [Contributing](#Contributing) section below for details
+
+## Contributing
+
+Please be sure to read and follow ecoAPM's [Contribution Guidelines](CONTRIBUTING.md) when submitting issues or pull requests.
+
+### Building / Testing
+
+- `npm run build` or `yarn build` will compile `xunit.ts` and its tests to the `dist` directory
+- `npm run test` or `yarn test` will run all unit tests in `dist/tests`
+- `npm run build && npm run test` or `yarn build && yarn test` to build and run tests in a single step
