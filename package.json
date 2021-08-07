@@ -1,6 +1,6 @@
 {
   "name": "xunit.ts",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "A unit testing framework for TypeScript, following standard xUnit patterns",
   "main": "dist/xunit.js",
   "author": "ecoAPM LLC",
