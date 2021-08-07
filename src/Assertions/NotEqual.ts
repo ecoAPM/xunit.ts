@@ -1,7 +1,7 @@
 import { AssertionError } from "assert";
 
 export default function NotEqual(expected: any, actual: any, message?: string) {
-    if(actual != expected)
+    if(actual !== expected)
     return;
 
     throw new AssertionError({

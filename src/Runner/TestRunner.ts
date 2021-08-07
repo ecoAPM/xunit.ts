@@ -11,7 +11,7 @@ export default class TestRunner {
 
     async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
         await Promise.all(this.reporters.map(r => r.testStarted(suite, name)));
-        if (info.value == null) {
+        if (info.value === undefined) {
             await Promise.all(this.reporters.map(r => r.testIncomplete(suite, name)));
             return new TestResult(ResultType.Incomplete, 0);
         }

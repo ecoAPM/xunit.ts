@@ -27,7 +27,7 @@ export default class FileSystem {
 
     static extension(file: string) {
         const match = file.match(/\.(\w+)$/);
-        return match != null && match.length > 1
+        return match !== undefined && match !== null && match.length > 1
             ? match[1]
             : '';
     }

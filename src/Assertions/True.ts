@@ -1,7 +1,7 @@
 import { AssertionError } from "assert";
 
 export default function True(value: any, message?: string) {
-    if(value == true)
+    if(value === true)
         return;
 
     throw new AssertionError({

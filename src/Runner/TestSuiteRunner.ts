@@ -18,7 +18,7 @@ export default class TestSuiteRunner {
 
     async runTests(suite: TestSuite, tests: Record<string, TestInfo>) {
         const results = new TestSuiteResults(suite);
-        if (tests == null || Object.keys(tests).length == 0) {
+        if (tests === undefined || tests === null || Object.keys(tests).length === 0) {
             await Promise.all(this.reporters.map(r => r.testIncomplete(suite, '(no tests found)')));
             return results;
         }

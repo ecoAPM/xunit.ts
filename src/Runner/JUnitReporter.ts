@@ -79,10 +79,10 @@ export default class JUnitReporter implements ResultReporter {
             }
         ];
 
-        if (result.type == ResultType.Failed)
+        if (result.type === ResultType.Failed)
             testcase.push(JUnitReporter.failure(result));
 
-        if (result.type == ResultType.Error)
+        if (result.type === ResultType.Error)
             testcase.push(JUnitReporter.error(result));
 
         return {

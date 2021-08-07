@@ -1,7 +1,7 @@
 import { AssertionError } from "assert";
 
 export default function NotNull(value: any, message?: string) {
-    if(value != null)
+    if(value !== null)
         return;
 
     throw new AssertionError({

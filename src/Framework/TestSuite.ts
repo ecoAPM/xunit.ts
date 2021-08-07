@@ -7,7 +7,7 @@ export default abstract class TestSuite {
     private tests: Record<string, TestInfo> = {};
 
     addTest(name: string, info: TestInfo) {
-        if (this.tests == null)
+        if (this.tests === undefined || this.tests === null)
             this.tests = {};
         this.tests[name] = info;
     }
