@@ -1,6 +1,9 @@
 import is_true from './True';
 import is_false from './False';
 
+import is_undefined from './Undefined';
+import is_defined from './Defined';
+
 import is_null from './Null';
 import not_null from './NotNull';
 
@@ -26,6 +29,9 @@ import does_not_throw from './DoesNotThrow';
 export default new class AssertionLibrary {
     true = is_true;
     false = is_false;
+
+    undefined = is_undefined;
+    defined = is_defined;
 
     null = is_null;
     notNull = not_null;
