@@ -6,7 +6,7 @@ import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import FileReporter from "../../src/Reporters/FileReporter";
 
 class StubReporter extends FileReporter {
-    runCompleted(results: TestSuiteResults[]): void {
+    runCompleted(results: Record<string, TestSuiteResults>): void {
         return;
     }
 }

@@ -6,15 +6,15 @@ export default class TestSuiteLoader {
 
     constructor(private readonly file_system: FileSystem) { }
 
-    async loadTestSuites(dir: string) {
+    async loadTestSuites(dir: string): Promise<Record<string, TestSuite>> {
         const files = (await this.file_system.getFiles(dir))
             .filter((file) => FileSystem.extension(file) === FileSystem.extension(__filename));
-        const suites = [];
+        const suites: Record<string, TestSuite> = {};
         for (let x = 0; x < files.length; x++) {
             const file = files[x];
             const suite = await TestSuiteLoader.loadTestSuite(file);
             if (suite !== undefined && suite !== null)
-                suites.push(suite);
+                suites[file] = suite;
         }
         return suites;
     }

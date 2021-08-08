@@ -5,7 +5,7 @@ import XMLReporter from "../../src/Reporters/XMLReporter";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 
 class StubReporter extends XMLReporter {
-    xml(results: TestSuiteResults[]): string {
+    xml(results: Record<string, TestSuiteResults>): string {
         return "";
     }
 }
@@ -18,7 +18,7 @@ export default class XMLReporterTests extends TestSuite {
         const reporter = new StubReporter(Mockito.instance(fs), 'test.xml');
 
         //act
-        await reporter.runCompleted([]);
+        await reporter.runCompleted({});
 
         //assert
         Mockito.verify(fs.save(Mockito.anyString(), Mockito.anyString())).once();

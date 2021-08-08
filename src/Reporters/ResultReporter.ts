@@ -11,5 +11,5 @@ export default interface ResultReporter {
     testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): void;
     testIncomplete(suite: TestSuite, test_name: string): void;
     suiteCompleted(suite: TestSuite, results: TestSuiteResults): void;
-    runCompleted(results: TestSuiteResults[]): void;
+    runCompleted(results: Record<string, TestSuiteResults>): void;
 }

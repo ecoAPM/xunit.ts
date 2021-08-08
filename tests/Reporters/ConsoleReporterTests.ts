@@ -171,7 +171,7 @@ export default class ConsoleReporterTests extends TestSuite {
         const reporter = new ConsoleReporter(Mockito.instance(out));
 
         //act
-        reporter.runCompleted([]);
+        reporter.runCompleted({});
 
         //assert
         Mockito.verify(out.writeLine('No tests found!')).once();
@@ -200,7 +200,7 @@ export default class ConsoleReporterTests extends TestSuite {
         results.addResult('test0', new TestResult(ResultType.Incomplete, 0));
 
         //act
-        reporter.runCompleted([results]);
+        reporter.runCompleted({test: results});
 
         //assert
         this.assert.stringContains('Passed', console);

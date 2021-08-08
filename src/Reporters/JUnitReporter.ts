@@ -8,9 +8,9 @@ import XMLReporter from "./XMLReporter";
 export default class JUnitReporter extends XMLReporter {
     static readonly defaultFileName: string = 'junit.xml';
 
-    xml(results: TestSuiteResults[]): string {
+    xml(results: Record<string, TestSuiteResults>): string {
         const data = {
-            testsuites: results.map((result, index) => JUnitReporter.testSuite(result, index))
+            testsuites: Object.values(results).map((result, index) => JUnitReporter.testSuite(result, index))
         };
         return xml(data, {indent: '  '});
     }
@@ -20,6 +20,7 @@ export default class JUnitReporter extends XMLReporter {
             testsuite: [
                 {
                     _attr: {
+                        id: id,
                         name: TestName.toSentenceCase(results.suite.constructor.name),
                         tests: results.total(),
                         failures: results.count(ResultType.Failed),

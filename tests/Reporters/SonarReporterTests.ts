@@ -22,7 +22,7 @@ export default class SonarReporterTests extends TestSuite {
 }
 
 const expected_start = `<testExecutions version="1">
-  <file path="TestClass1">
+  <file path="tests/TestClass1.ts">
     <testCase name="Test 1" duration="1">
     </testCase>
     <testCase name="Test 2" duration="2">
@@ -32,7 +32,7 @@ const expected_start = `<testExecutions version="1">
 const expected_middle = `)</failure>
     </testCase>
   </file>
-  <file path="TestClass2">
+  <file path="tests/TestClass2.ts">
     <testCase name="Test 3" duration="3">
       <skipped/>
     </testCase>

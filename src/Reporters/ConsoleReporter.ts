@@ -59,7 +59,8 @@ export default class ConsoleReporter implements ResultReporter {
         this.out.writeLine();
     }
 
-    runCompleted(results: TestSuiteResults[]): void {
+    runCompleted(suites: Record<string, TestSuiteResults>): void {
+        const results = Object.values(suites);
         if (!results.length) {
             this.out.writeLine('No tests found!');
             return;

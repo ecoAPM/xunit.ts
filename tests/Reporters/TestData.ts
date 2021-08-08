@@ -5,7 +5,7 @@ import {ResultType} from "../../src/Framework/ResultType";
 import {AssertionError} from "assert";
 
 export default class TestData {
-    static Results() {
+    static Results(): Record<string, TestSuiteResults> {
         const results1 = new TestSuiteResults(new class TestClass1 extends TestSuite {
         });
         results1.addResult("Test 1", new TestResult(ResultType.Passed, 1.2));
@@ -19,6 +19,10 @@ export default class TestData {
         });
         results2.addResult("Test 3", new TestResult(ResultType.Incomplete, 3.4));
         results2.addResult("Test 4", new TestResult(ResultType.Error, 4.5, new Error('unhandled exception')));
-        return [results1, results2];
+
+        return {
+            'dist/tests/TestClass1.js': results1,
+            'dist/tests/TestClass2.js': results2
+        };
     }
 }

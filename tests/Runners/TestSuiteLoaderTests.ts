@@ -95,7 +95,8 @@ export default class TestSuiteLoaderTests extends TestSuite {
         const suites = await loader.loadTestSuites('tests');
 
         //assert
-        this.assert.count(1, suites);
-        this.assert.equal('TestSuiteLoaderTests', suites[0].constructor.name);
+        const values = Object.values(suites);
+        this.assert.count(1, values);
+        this.assert.equal('TestSuiteLoaderTests', values[0].constructor.name);
     }
 }

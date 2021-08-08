@@ -33,5 +33,5 @@ export default abstract class FileReporter implements ResultReporter {
     suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
     }
 
-    abstract runCompleted(results: TestSuiteResults[]): void;
+    abstract runCompleted(results: Record<string, TestSuiteResults>): void;
 }

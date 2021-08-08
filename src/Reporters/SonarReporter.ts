@@ -7,7 +7,7 @@ import XMLReporter from "./XMLReporter";
 export default class SonarReporter extends XMLReporter {
     static readonly defaultFileName: string = 'sonar.xml';
 
-    xml(results: TestSuiteResults[]): string {
+    xml(results: Record<string, TestSuiteResults>): string {
         const data = {
             testExecutions: [
                 {
@@ -15,18 +15,19 @@ export default class SonarReporter extends XMLReporter {
                         version: 1
                     }
                 },
-                ...results.map((result, index) => SonarReporter.testSuite(result, index))
+                ...Object.keys(results)
+                    .map(file => SonarReporter.testSuite(results[file], file))
             ]
         };
         return xml(data, {indent: '  '});
     }
 
-    private static testSuite(results: TestSuiteResults, id: number) {
+    private static testSuite(results: TestSuiteResults, file: string) {
         return {
             file: [
                 {
                     _attr: {
-                        path: results.suite.constructor.name,
+                        path: file.replace(/^dist\//, '').replace(/\.js$/, '.ts'),
                     }
                 },
                 ...Object.keys(results.results)
