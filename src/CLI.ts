@@ -13,21 +13,21 @@ export default class CLI {
             alias: "d",
             type: String,
             defaultOption: true,
-            typeLabel: "directory (required)",
+            typeLabel: "<directory>",
             description: "The path where tests to run are located (-d/--dir flag optional)"
         },
         {
             name: "junit",
             alias: "j",
             type: String,
-            typeLabel: `filename (default: ${JUnitReporter.defaultFileName})`,
+            typeLabel: `[filename] (${JUnitReporter.defaultFileName})`,
             description: "Save results as JUnit-formatted XML"
         },
         {
             name: "sonar",
             alias: "s",
             type: String,
-            typeLabel: `filename (default: ${SonarReporter.defaultFileName})`,
+            typeLabel: `[filename] (${SonarReporter.defaultFileName})`,
             description: "Save results as SonarQube/SonarCloud-formatted XML"
         },
         {
@@ -51,8 +51,18 @@ export default class CLI {
         },
         {
             header: "Usage",
-            content: "npm run xunit dist/tests\n"
-                + "yarn xunit --junit results.xml --dir dist/tests --quiet"
+            content: [
+                "<npm run | yarn> xunit [-j|--junit [filename]] [-s|--sonar [filename]]",
+                "[-q|--quiet] [-d|--dir] <directory>"
+            ]
+        },
+        {
+            header: "Examples",
+            content: [
+                "npm run xunit dist/tests",
+                "yarn xunit --junit results.xml --dir dist/tests --quiet",
+                "yarn xunit -q -s -d dist/tests"
+            ]
         },
         {
             header: "Options",
