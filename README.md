@@ -18,12 +18,15 @@
   (older versions may work, but only the latest LTS is actively supported)
 
 ### Installation
+
 `npm install --dev xunit.ts`
 or
 `yarn add --dev xunit.ts`
 
 ### Configure your test project
+
 At a minimum, your `tsconfig.json` will require the following:
+
 ```json
 {
     "compilerOptions": {
@@ -34,10 +37,12 @@ At a minimum, your `tsconfig.json` will require the following:
 }
 ```
 
-If you're using `vite`, you'll need to set `xunit.ts` as an `external` in your build config file's `rollupOptions` for the tests to be detected.
+If you're using `rollup` or `vite`, you'll need to set `xunit.ts` as an `external` in your build config file (under `rollupOptions` in `vite`) for the tests to be detected.
 
 ### Create your first test
+
 `MyTestSuite.ts`
+
 ```ts
 import { Test, TestSuite } from 'xunit.ts';
 
@@ -50,6 +55,7 @@ export default class MyTestSuite extends TestSuite {
 ```
 
 ### Run your tests
+
 You'll need to compile your TypeScript tests into JavaScript using `tsc` or a bundler such as `rollup`, `parcel`, `vite`, etc. (these are the supported ones, feel free to add your favorite to the `compiler-tests` directory!)
 
 Then run:
@@ -68,7 +74,11 @@ You can also run `xunit.ts` from a script in your `package.json`:
 ```
 
 ### Output
+
+#### Console
+
 By default, `xunit.ts` will output test results to `stdout` so they can be captured by your terminal, or piped elsewhere:
+
 ```
 ~/example $ npm run test
 
@@ -80,6 +90,16 @@ My Test Suite
 
 ~/example $ _ 
 ```
+
+To prevent console output, pass the `--quiet` or `-q` flag.
+
+#### JUnit
+
+`xunit.ts` can produce a JUnit-formatted XML file, for consumption by other services, by passing the `--junit` or `-j` flag, followed by an optional filename.
+
+`yarn xunit dist/tests -j results.xml`
+
+If no filename is provided, results will be output to `junit.xml`.
 
 ## Assertions
 
@@ -260,8 +280,9 @@ See [Contributing](#Contributing) section below for details
 
 Please be sure to read and follow ecoAPM's [Contribution Guidelines](CONTRIBUTING.md) when submitting issues or pull requests.
 
-### Building / Testing
+### Building / Testing locally
 
-- `npm run build` or `yarn build` will compile `xunit.ts` and its tests to the `dist` directory
-- `npm run test` or `yarn test` will run all unit tests in `dist/tests`
-- `npm run build && npm run test` or `yarn build && yarn test` to build and run tests in a single step
+1. `npm install` or `yarn install` to download all dependencies
+1. `npm run build` or `yarn build` will compile `xunit.ts` and its tests to the `dist` directory
+1. `npm run test` or `yarn test` will run all unit tests in `dist/tests`
+1. `npm run build && npm run test` or `yarn build && yarn test` will build and run tests in a single step
