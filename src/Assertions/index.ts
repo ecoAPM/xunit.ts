@@ -21,6 +21,12 @@ import not_contains from './NotContains';
 import string_contains from './StringContains';
 import string_not_contains from './StringNotContains';
 
+import string_starts from './StringStartsWith';
+import string_not_starts from './StringNotStartsWith';
+
+import string_ends from './StringEndsWith';
+import string_not_ends from './StringNotEndsWith';
+
 import instance_of from './InstanceOf';
 
 import throws from './Throws';
@@ -49,6 +55,12 @@ export default new class AssertionLibrary {
 
     stringContains = string_contains;
     stringDoesNotContain = string_not_contains;
+
+    stringStartsWith = string_starts;
+    stringDoesNotStartWIth = string_not_starts;
+
+    stringEndsWith = string_ends;
+    stringDoesNotEndWith = string_not_ends;
 
     instanceOf = instance_of;
 

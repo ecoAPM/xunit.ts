@@ -109,6 +109,8 @@ If you prefer, you can `import { Assert } from 'xunit.ts` and call e.g. `Assert.
 
 ### Basic
 
+#### True
+
 ```
 this.assert.true(expression);
 ```
@@ -116,6 +118,8 @@ this.assert.true(expression);
 Passes if `expression` evaluates to `true`
 
 Fails if `expression` does not evaluate to `true`
+
+#### False
 
 ```
 this.assert.false(expression);
@@ -127,6 +131,8 @@ Fails if `expression` does not evaluate to `false`
 
 ### Equality
 
+#### Equal
+
 (uses `lodash.equal()` under the hood for strongly-typed, deep equality checks)
 
 ```
@@ -136,6 +142,8 @@ this.assert.equal(expected, actual);
 Passes if `actual` and `expected` evaluate to equal values
 
 Fails if `actual` and `expected` do not evaluate to equal values
+
+#### Not Equal
 
 ```
 this.assert.notEqual(expected, actual);
@@ -147,6 +155,8 @@ Fails if `actual` and `expected` evaluate to equal values
 
 ### Nullable
 
+#### Is Null
+
 ```
 this.assert.null(expression);
 ```
@@ -154,6 +164,8 @@ this.assert.null(expression);
 Passes if `expression` evaluates to `null`
 
 Fails if `expression` does not evaluate to `null`
+
+#### Not Null
 
 ```
 this.assert.notNull(expression);
@@ -163,6 +175,8 @@ Passes if `expression` does not evaluate to `null`
 
 Fails if `expression` evaluates to `null`
 
+#### Undefined
+
 ```
 this.assert.undefined(expression);
 ```
@@ -170,6 +184,8 @@ this.assert.undefined(expression);
 Passes if `expression` evaluates to `undefined`
 
 Fails if `expression` does not evaluate to `undefined`
+
+#### Not Undefined
 
 ```
 this.assert.defined(expression);
@@ -181,6 +197,8 @@ Fails if `expression` evaluates to `undefined`
 
 ### Arrays
 
+#### Contains
+
 ```
 this.assert.contains(needle, haystack);
 ```
@@ -188,6 +206,8 @@ this.assert.contains(needle, haystack);
 Passes if array `haystack` contains an element with a value of `needle`
 
 Fails if array `haystack` does not contain an element with a value of `needle`
+
+#### Does Not Contain
 
 ```
 this.assert.doesNotContain(needle, haystack);
@@ -197,6 +217,8 @@ Passes if array `haystack` does not contain an element with a value of `needle`
 
 Fails if array `haystack` contains an element with a value of `needle`
 
+#### Is Empty
+
 ```
 this.assert.empty(array);
 ```
@@ -205,6 +227,8 @@ Passes if `array` contains zero elements
 
 Fails if `array` contains any elements
 
+#### Is Not Empty
+
 ```
 this.assert.notEmpty(array);
 ```
@@ -212,6 +236,8 @@ this.assert.notEmpty(array);
 Passes if `array` contains any elements
 
 Fails if `array` contains zero elements
+
+#### Count / Length
 
 ```
 this.assert.count(expected, array);
@@ -223,6 +249,8 @@ Fails if `array` does not contain `expected` number of elements
 
 ### Strings
 
+#### Contains
+
 ```
 this.assert.stringContains(needle, haystack);
 ```
@@ -230,6 +258,8 @@ this.assert.stringContains(needle, haystack);
 Passes if `needle` is a substring of `haystack`
 
 Fails if `needle` is not a substring of `haystack`
+
+#### Does Not Contain
 
 ```
 this.assert.stringDoesNotContain(needle, haystack);
@@ -239,7 +269,49 @@ Passes if `needle` is not a substring of `haystack`
 
 Fails if `needle` is a substring of `haystack`
 
+#### Starts With
+
+```
+this.assert.stringStartsWith(needle, haystack);
+```
+
+Passes if the first characters of `haystack` match `needle`
+
+Fails if the first characters of `haystack` do not match `needle`
+
+#### Does Not Start With
+
+```
+this.assert.stringDoesNotStartWith(needle, haystack);
+```
+
+Passes if the first characters of `haystack` do not match `needle`
+
+Fails if the first characters of `haystack` match `needle`
+
+#### Ends With
+
+```
+this.assert.stringEndsWith(needle, haystack);
+```
+
+Passes if the final characters of `haystack` match `needle`
+
+Fails if the final characters of `haystack` do not match `needle`
+
+#### Does Not End With
+
+```
+this.assert.stringDoesNotEndWith(needle, haystack);
+```
+
+Passes if the final characters of `haystack` do not match `needle`
+
+Fails if the final characters of `haystack` match `needle`
+
 ### Exceptions
+
+#### Throws
 
 ```
 this.assert.throws(() => expression);
@@ -248,6 +320,8 @@ this.assert.throws(() => expression);
 Passes if `expression` throws an error/exception
 
 Fails if `expression` does not throw an error/exception
+
+#### Does Not Throw
 
 ```
 this.assert.doesNotThrow(() => expression);
@@ -258,6 +332,8 @@ Passes if `expression` does not throw an error/exception
 Fails if `expression` throws an error/exception
 
 ### Reflection
+
+#### Is Instance Of
 
 ```
 this.assert.instanceOf(type, object);
