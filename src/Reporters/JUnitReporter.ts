@@ -28,7 +28,8 @@ export default class JUnitReporter extends XMLReporter {
                         time: results.time() / 1_000
                     }
                 },
-                ...Object.keys(results.results).map(test_name => JUnitReporter.testCase(test_name, results.suite.constructor.name, results.results[test_name]))
+                ...Object.keys(results.results)
+                    .map(test_name => JUnitReporter.testCase(test_name, results.suite.constructor.name, results.results[test_name]))
             ]
         };
     }
@@ -43,6 +44,9 @@ export default class JUnitReporter extends XMLReporter {
                 }
             }
         ];
+
+        if (result.type === ResultType.Incomplete)
+            testcase.push({skipped: {}});
 
         if (result.type === ResultType.Failed)
             testcase.push(JUnitReporter.failure(result));
