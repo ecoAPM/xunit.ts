@@ -1,34 +1,18 @@
 ﻿import { Test, TestSuite } from "../../xunit";
-import TestSuiteResults from "../../src/Framework/TestSuiteResults";
-import { ResultType } from "../../src/Framework/ResultType";
-import TestResult from "../../src/Framework/TestResult";
-import { AssertionError } from "assert";
 import JUnitReporter from "../../src/Reporters/JUnitReporter";
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
+import TestData from "./TestData";
 
 export default class JUnitReporterTests extends TestSuite {
     @Test()
     async XMLMatches() {
         //arrange
-        const results1 = new TestSuiteResults(new class TestClass1 extends TestSuite { });
-        results1.addResult("Test 1", new TestResult(ResultType.Passed, 1.2));
-        const error = new AssertionError({
-            expected: 123,
-            actual: 234
-        });
-        results1.addResult("Test 2", new TestResult(ResultType.Failed, 2.3, error));
-
-        const results2 = new TestSuiteResults(new class TestClass2 extends TestSuite {
-        });
-        results2.addResult("Test 3", new TestResult(ResultType.Passed, 3.4));
-        results2.addResult("Test 4", new TestResult(ResultType.Error, 4.5, new Error('unhandled exception')));
-
         const fs = Mockito.mock(FileSystem);
         const reporter = new JUnitReporter(Mockito.instance(fs), 'test.xml');
 
         //act
-        const xml = reporter.xml([results1, results2]);
+        const xml = reporter.xml(TestData.Results());
 
         //assert
         this.assert.equal(expected, xml);
@@ -43,8 +27,9 @@ const expected = `<testsuites>
       <failure type="AssertionError" message="234 undefined 123"/>
     </testcase>
   </testsuite>
-  <testsuite name="Test Class2" tests="2" failures="0" errors="1" skipped="0" time="0.0079">
+  <testsuite name="Test Class2" tests="2" failures="0" errors="1" skipped="1" time="0.0079">
     <testcase name="Test 3" classname="TestClass2" time="0.0034">
+      <skipped/>
     </testcase>
     <testcase name="Test 4" classname="TestClass2" time="0.0045">
       <error type="Error" message="unhandled exception"/>
