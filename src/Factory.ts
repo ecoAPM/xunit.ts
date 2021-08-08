@@ -9,6 +9,7 @@ import TestRunner from './Runners/TestRunner';
 import TestSuiteLoader from './Runners/TestSuiteLoader';
 import TestSuiteRunner from './Runners/TestSuiteRunner';
 import fs from "fs/promises";
+import SonarReporter from "./Reporters/SonarReporter";
 
 export default class Factory {
     private static readonly file_system = new FileSystem(fs);
@@ -25,7 +26,8 @@ export default class Factory {
     static Reporters(args: Args.CommandLineOptions): ResultReporter[] {
         return [
             !args.quiet ? new ConsoleReporter(new Output(process.stdout)) : null,
-            args.junit !== undefined ? new JUnitReporter(this.file_system, args.report ?? JUnitReporter.defaultFileName) : null
+            args.junit !== undefined ? new JUnitReporter(this.file_system, args.junit ?? JUnitReporter.defaultFileName) : null,
+            args.sonar !== undefined ? new SonarReporter(this.file_system, args.sonar ?? SonarReporter.defaultFileName) : null
         ].filter(r => r !== null) as ResultReporter[];
     }
 }

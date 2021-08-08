@@ -101,6 +101,16 @@ To prevent console output, pass the `--quiet` or `-q` flag.
 
 If no filename is provided, results will be output to `junit.xml`.
 
+#### SonarQube / SonarCloud
+
+`xunit.ts` can produce a Sonar-formatted XML file, for consumption by SonarQube and/or SonarCloud, by passing the `--sonar` or `-s` flag, followed by an optional filename.
+
+`yarn xunit dist/tests -s results.xml`
+
+If no filename is provided, results will be output to `sonar.xml`.
+
+Note that this currently only works if built tests are output to the `dist` directory. 
+
 ## Assertions
 
 `xunit.ts` has a built-in assertion library, or you can use your favorite third-party one: anything that uses Node.js' `AssertionError` is supported.

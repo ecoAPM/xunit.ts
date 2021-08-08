@@ -4,6 +4,7 @@ import Process from "process";
 import Args from "command-line-args";
 import Factory from "./Factory";
 import Runner from "./Runners/Runner";
+import SonarReporter from "./Reporters/SonarReporter";
 
 export default class CLI {
     private static readonly options: Usage.OptionDefinition[] = [
@@ -20,19 +21,26 @@ export default class CLI {
             alias: "j",
             type: String,
             typeLabel: `filename (default: ${JUnitReporter.defaultFileName})`,
-            description: "Saves results as JUnit-formatted XML"
+            description: "Save results as JUnit-formatted XML"
         },
         {
-            name: "help",
-            alias: "h",
-            type: Boolean,
-            description: "Displays this help page"
+            name: "sonar",
+            alias: "s",
+            type: String,
+            typeLabel: `filename (default: ${SonarReporter.defaultFileName})`,
+            description: "Save results as SonarQube/SonarCloud-formatted XML"
         },
         {
             name: "quiet",
             alias: "q",
             type: Boolean,
             description: "Do not print test results to stdout"
+        },
+        {
+            name: "help",
+            alias: "h",
+            type: Boolean,
+            description: "Display this help page (and ignore all other options)"
         }
     ];
 
