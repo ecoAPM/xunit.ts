@@ -1,49 +1,14 @@
-import FileSystem from "../IO/FileSystem";
-import ResultReporter from './ResultReporter';
-import TestSuite from '../Framework/TestSuite';
 import TestSuiteResults from '../Framework/TestSuiteResults';
 import xml from 'xml';
 import TestName from "../Framework/TestName";
-import {AssertionError} from "assert";
 import {ResultType} from "../Framework/ResultType";
 import TestResult from "../Framework/TestResult";
+import XMLReporter from "./XMLReporter";
 
-export default class JUnitReporter implements ResultReporter {
+export default class JUnitReporter extends XMLReporter {
     static readonly defaultFileName: string = 'junit.xml';
 
-    constructor(private readonly file_system: FileSystem, private readonly path: string) {
-    }
-
-    runStarted(): void {
-    }
-
-    suiteStarted(suite: TestSuite): void {
-    }
-
-    testStarted(suite: TestSuite, test_name: string): void {
-    }
-
-    testPassed(suite: TestSuite, test_name: string, duration: number): void {
-    }
-
-    testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): void {
-    }
-
-    testErrored(suite: TestSuite, test_name: string, error: Error, duration: number) {
-    }
-
-    testIncomplete(suite: TestSuite, test_name: string): void {
-    }
-
-    suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
-    }
-
-    async runCompleted(results: TestSuiteResults[]): Promise<void> {
-        const xmlString = this.xml(results);
-        await this.file_system.save(xmlString, this.path);
-    }
-
-    xml(results: TestSuiteResults[]) {
+    xml(results: TestSuiteResults[]): string {
         const data = {
             testsuites: results.map((result, index) => JUnitReporter.testSuite(result, index))
         };
