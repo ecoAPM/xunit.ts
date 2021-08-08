@@ -10,7 +10,7 @@ export default class FileSystemTests extends TestSuite {
     @Test()
     async CanRecursivelyGetFiles() {
         //arrange
-        const fs = Mockito.spy(fs_promises);
+        const fs = Mockito.spy(Object.assign({}, fs_promises));
         const stats = Mockito.mock(Stats);
         Mockito.when(fs.stat(Mockito.anyString())).thenResolve(Mockito.instance(stats));
         Mockito.when(fs.readdir(Mockito.anyString())).thenResolve(['Test1.ts', `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts`]);
@@ -77,7 +77,7 @@ export default class FileSystemTests extends TestSuite {
     @Test()
     async SaveWritesDataToFile() {
         //arrange
-        const fs = Mockito.spy(fs_promises);
+        const fs = Mockito.spy(Object.assign({}, fs_promises));
         Mockito.when(fs.writeFile(Mockito.anyString(), Mockito.anyString())).thenResolve();
         const file_system = new FileSystem(Mockito.instance(fs));
 
