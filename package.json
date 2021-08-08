@@ -22,7 +22,8 @@
     "ts-mockito": "2.6.1"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "clean": "rm -rf dist",
+    "build": "tsc",
     "test": "node dist/cli.js dist/tests"
   },
   "bin": {
