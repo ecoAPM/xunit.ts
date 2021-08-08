@@ -1,4 +1,4 @@
-import FileSystem from "./FileSystem";
+import FileSystem from "../IO/FileSystem";
 import ResultReporter from './ResultReporter';
 import TestSuite from '../Framework/TestSuite';
 import TestSuiteResults from '../Framework/TestSuiteResults';

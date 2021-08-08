@@ -1,13 +1,13 @@
 import Args from 'command-line-args';
-import ConsoleReporter from './Runner/ConsoleReporter';
-import FileSystem from './Runner/FileSystem';
-import JUnitReporter from './Runner/JUnitReporter';
-import Output from './Runner/Output';
-import ResultReporter from './Runner/ResultReporter';
-import Runner from './Runner/Runner';
-import TestRunner from './Runner/TestRunner';
-import TestSuiteLoader from './Runner/TestSuiteLoader';
-import TestSuiteRunner from './Runner/TestSuiteRunner';
+import ConsoleReporter from './Reporters/ConsoleReporter';
+import FileSystem from './IO/FileSystem';
+import JUnitReporter from './Reporters/JUnitReporter';
+import Output from './IO/Output';
+import ResultReporter from './Reporters/ResultReporter';
+import Runner from './Runners/Runner';
+import TestRunner from './Runners/TestRunner';
+import TestSuiteLoader from './Runners/TestSuiteLoader';
+import TestSuiteRunner from './Runners/TestSuiteRunner';
 import fs from "fs/promises";
 
 export default class Factory {

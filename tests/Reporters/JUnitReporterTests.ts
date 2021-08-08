@@ -3,9 +3,9 @@ import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";
 import { AssertionError } from "assert";
-import JUnitReporter from "../../src/Runner/JUnitReporter";
+import JUnitReporter from "../../src/Reporters/JUnitReporter";
 import Mockito from "ts-mockito";
-import FileSystem from "../../src/Runner/FileSystem";
+import FileSystem from "../../src/IO/FileSystem";
 
 export default class JUnitReporterTests extends TestSuite {
     @Test()

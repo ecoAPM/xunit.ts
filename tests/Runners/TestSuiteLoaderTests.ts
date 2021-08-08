@@ -1,7 +1,7 @@
 import { Test, TestSuite } from "../../xunit";
-import TestSuiteLoader from "../../src/Runner/TestSuiteLoader";
+import TestSuiteLoader from "../../src/Runners/TestSuiteLoader";
 import Mockito from "ts-mockito";
-import FileSystem from "../../src/Runner/FileSystem";
+import FileSystem from "../../src/IO/FileSystem";
 import path from 'path';
 
 export default class TestSuiteLoaderTests extends TestSuite {
@@ -59,7 +59,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     @Test()
     async CanLoadTestSuite() {
         //arrange
-        const module = `dist${path.sep}tests${path.sep}Runner${path.sep}TestSuiteLoaderTests`;
+        const module = `dist${path.sep}tests${path.sep}Runners${path.sep}TestSuiteLoaderTests`;
 
         //act
         const suite = await TestSuiteLoader.loadTestSuite(module);
@@ -71,7 +71,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
     @Test()
     async NonTestSuiteReturnsNull() {
         //arrange
-        const module = `dist${path.sep}src${path.sep}Runner${path.sep}TestSuiteLoader`;
+        const module = `dist${path.sep}src${path.sep}Runners${path.sep}TestSuiteLoader`;
 
         //act
         const suite = await TestSuiteLoader.loadTestSuite(module);
@@ -85,9 +85,9 @@ export default class TestSuiteLoaderTests extends TestSuite {
         //arrange
         const file_system = Mockito.mock<FileSystem>();
         Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve([
-            `dist${path.sep}tests${path.sep}Runner${path.sep}TestSuiteLoaderTests.js`,
-            `dist${path.sep}tests${path.sep}Runner${path.sep}data.csv`,
-            `dist${path.sep}src${path.sep}Runner${path.sep}TestSuiteRunner.js`
+            `dist${path.sep}tests${path.sep}Runners${path.sep}TestSuiteLoaderTests.js`,
+            `dist${path.sep}tests${path.sep}Runners${path.sep}data.csv`,
+            `dist${path.sep}src${path.sep}Runners${path.sep}TestSuiteRunner.js`
         ]);
         const loader = new TestSuiteLoader(Mockito.instance(file_system));
 

@@ -1,6 +1,6 @@
 import { Test, TestSuite } from "../../xunit";
-import ResultReporter from "../../src/Runner/ResultReporter";
-import TestRunner from "../../src/Runner/TestRunner";
+import ResultReporter from "../../src/Reporters/ResultReporter";
+import TestRunner from "../../src/Runners/TestRunner";
 import Mockito from 'ts-mockito';
 import { ResultType } from "../../src/Framework/ResultType";
 import { AssertionError } from "assert";

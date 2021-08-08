@@ -1,5 +1,5 @@
 import {Test, TestSuite} from "../../xunit";
-import FileSystem from "../../src/Runner/FileSystem";
+import FileSystem from "../../src/IO/FileSystem";
 import Mockito from 'ts-mockito';
 import path from "path";
 import fs_promises from "fs/promises";

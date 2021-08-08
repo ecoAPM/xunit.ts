@@ -1,6 +1,6 @@
 import TestSuiteLoader from './TestSuiteLoader';
 import TestSuiteRunner from './TestSuiteRunner';
-import ResultReporter from "./ResultReporter";
+import ResultReporter from "../Reporters/ResultReporter";
 import TestSuiteResults from "../Framework/TestSuiteResults";
 import { ResultType } from '../Framework/ResultType';
 

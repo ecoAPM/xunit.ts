@@ -1,7 +1,7 @@
 import TestInfo from '../Framework/TestInfo';
 import TestSuite from '../Framework/TestSuite';
 import { ResultType } from '../Framework/ResultType';
-import ResultReporter from './ResultReporter';
+import ResultReporter from '../Reporters/ResultReporter';
 import TestResult from "../Framework/TestResult";
 import {AssertionError} from "assert";
 

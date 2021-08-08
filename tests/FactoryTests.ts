@@ -1,7 +1,7 @@
 ﻿import {Test, TestSuite} from "../xunit";
 import Factory from "../src/Factory";
-import ConsoleReporter from "../src/Runner/ConsoleReporter";
-import JUnitReporter from "../src/Runner/JUnitReporter";
+import ConsoleReporter from "../src/Reporters/ConsoleReporter";
+import JUnitReporter from "../src/Reporters/JUnitReporter";
 
 export default class FactoryTests extends TestSuite {
     @Test()

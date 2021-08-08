@@ -1,4 +1,4 @@
-import ResultReporter from './ResultReporter';
+import ResultReporter from '../Reporters/ResultReporter';
 import TestSuite from '../Framework/TestSuite';
 import TestSuiteResults from '../Framework/TestSuiteResults';
 import TestInfo from '../Framework/TestInfo';

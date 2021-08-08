@@ -1,8 +1,8 @@
 import { TestSuite, Test } from "../../xunit";
-import TestSuiteRunner from "../../src/Runner/TestSuiteRunner";
-import TestRunner from "../../src/Runner/TestRunner";
+import TestSuiteRunner from "../../src/Runners/TestSuiteRunner";
+import TestRunner from "../../src/Runners/TestRunner";
 import Mockito from "ts-mockito";
-import ResultReporter from "../../src/Runner/ResultReporter";
+import ResultReporter from "../../src/Reporters/ResultReporter";
 import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";
 

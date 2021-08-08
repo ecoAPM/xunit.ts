@@ -1,6 +1,6 @@
 import ResultReporter from "./ResultReporter";
 import TestSuite from "../Framework/TestSuite";
-import Output from "./Output";
+import Output from "../IO/Output";
 import TestName from "../Framework/TestName";
 import colors from "colors";
 import {AssertionError} from "assert";

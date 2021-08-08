@@ -1,5 +1,5 @@
 import TestSuite from '../Framework/TestSuite';
-import FileSystem from './FileSystem';
+import FileSystem from '../IO/FileSystem';
 import path from 'path';
 
 export default class TestSuiteLoader {

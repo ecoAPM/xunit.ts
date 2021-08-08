@@ -1,9 +1,9 @@
 import Usage from 'command-line-usage';
-import JUnitReporter from './Runner/JUnitReporter';
+import JUnitReporter from './Reporters/JUnitReporter';
 import Process from "process";
 import Args from "command-line-args";
 import Factory from "./Factory";
-import Runner from "./Runner/Runner";
+import Runner from "./Runners/Runner";
 
 export default class CLI {
     private static readonly options: Usage.OptionDefinition[] = [

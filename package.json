@@ -22,7 +22,7 @@
     "ts-mockito": "2.6.1"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "test": "node dist/cli.js dist/tests"
   },
   "bin": {
