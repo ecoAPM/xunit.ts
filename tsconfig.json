@@ -16,6 +16,7 @@
     "cli.ts"
   ],
   "include": [
+    "src/**/*.ts",
     "tests/**/*.ts"
   ],
   "exclude": [

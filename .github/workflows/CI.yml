@@ -87,7 +87,7 @@ jobs:
       run: yarn build
 
     - name: Get code coverage
-      run: c8 -r lcov yarn test
+      run: c8 -r lcov yarn test -s
       
     - name: SonarCloud Analysis
       uses: sonarsource/sonarcloud-github-action@master
