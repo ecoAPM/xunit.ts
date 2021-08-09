@@ -55,7 +55,8 @@ export default class ConsoleReporter implements ResultReporter {
         const total = results.total();
         const time = results.time();
         const color = passed === total ? colors.green : colors.red;
-        this.out.writeLine(`  ${color(`${passed} / ${total}`)} passed (${Math.round(time)} ms)`);
+        const fraction = `${passed} / ${total}`;
+        this.out.writeLine(`  ${color(fraction)} passed (${Math.round(time)} ms)`);
         this.out.writeLine();
     }
 
