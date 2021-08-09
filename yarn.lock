@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@types/command-line-args@^5.0.1":
+"@types/command-line-args@5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@types/command-line-args/-/command-line-args-5.0.1.tgz#8c283123bd9411168fa3cbdb6f5799c07d4af0b0"
   integrity sha512-+pAMlf+fHYWFDf4OvzEXPsVKLIahB66drrWXPxMe9IapFxjF5Ir+kFAR9qctKxZW4weuFL5ydm3V5yCGnJieew==
 
-"@types/command-line-usage@^5.0.2":
+"@types/command-line-usage@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@types/command-line-usage/-/command-line-usage-5.0.2.tgz#ba5e3f6ae5a2009d466679cc431b50635bf1a064"
   integrity sha512-n7RlEEJ+4x4TS7ZQddTmNSxP+zziEG0TNsMfiRIxcIVXt71ENJ9ojeXmGO3wPoTdn7pJcU2xc3CJYMktNT6DPg==
@@ -29,7 +29,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.13.tgz#7dfd9c14661edc65cccd43a29eb454174642370d"
   integrity sha512-bLL69sKtd25w7p1nvg9pigE4gtKVpGTPojBFLMkGHXuUgap2sLqQt2qUnqmVCDfzGUL0DRNZP+1prIZJbMeAXg==
 
-"@types/xml@^1.0.6":
+"@types/xml@1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/xml/-/xml-1.0.6.tgz#6e77fc0e4503efcd0b504cab7f70e3bc71ee82a7"
   integrity sha512-BCpp2oke88DwxJ/h748oLOQWdZ6k1Uv+aB9LZpyh/VhWqe4mE7X7ysNhF57cRPBs8/GyuUn1VRl+IlFdYsZPsA==
@@ -188,7 +188,7 @@ wordwrapjs@^4.0.0:
     reduce-flatten "^2.0.0"
     typical "^5.2.0"
 
-xml@^1.0.1:
+xml@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
   integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
