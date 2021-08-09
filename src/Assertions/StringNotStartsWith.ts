@@ -1,5 +1,18 @@
 import { AssertionError } from "assert";
 
+/**
+ * Asserts that a string does not begin with a given substring
+ * 
+ * @remarks
+ * 
+ * Passes if the first characters of `haystack` do not match `needle`
+ * 
+ * Fails if the first characters of `haystack` match `needle`
+ *
+ * @param needle the substring to find
+ * @param haystack the string to search
+ * @param message (optional) message to display on failure
+ */
 export default function StringNotStartsWith(needle: string, haystack: string|null, message?: string) {
     if(haystack === undefined || haystack === null || haystack.indexOf(needle) !== 0) {
         return;

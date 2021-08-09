@@ -4,7 +4,7 @@ import Empty from "../../src/Assertions/Empty";
 
 export default class EmptyTests extends TestSuite {
     @Test()
-    async ReturnsWhenTrueForArray() {
+    async ReturnsWhenTrue() {
         //arrange
         const value: string[] = [];
 
@@ -16,38 +16,9 @@ export default class EmptyTests extends TestSuite {
     }
 
     @Test()
-    async ThrowsWhenFalseForArray() {
+    async ThrowsWhenFalse() {
         //arrange
         const value = [123];
-
-        try {
-            //act
-            Empty(value);
-
-        }
-        catch (exception) {
-
-            //assert
-            this.assert.instanceOf(AssertionError, exception);
-        }
-    }
-
-    @Test()
-    async ReturnsWhenTrueForString() {
-        //arrange
-        const value = '';
-
-        //act
-        Empty(value);
-
-        //assert
-        this.assert.true(true);
-    }
-
-    @Test()
-    async ThrowsWhenFalseForString() {
-        //arrange
-        const value = '123';
 
         try {
             //act

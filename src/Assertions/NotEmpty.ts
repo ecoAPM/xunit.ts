@@ -1,13 +1,25 @@
 import { AssertionError } from "assert";
 
-export default function NotEmpty(value: any, message?: string) {
-    if(value.length > 0) {
+/**
+ * Asserts that an array is not empty
+ * 
+ * @remarks
+ * 
+ * Passes if `array` contains any elements
+ * 
+ * Fails if `array` contains zero elements
+ *
+ * @param array the array to check
+ * @param message (optional) message to display on failure
+ */
+export default function NotEmpty(array: any[], message?: string) {
+    if(array.length > 0) {
         return;
     }
 
     throw new AssertionError({
         message: message || 'Expected expression to be not empty, but expression was empty',
         expected: '(non-empty expression)',
-        actual: value
+        actual: array
     })
 }

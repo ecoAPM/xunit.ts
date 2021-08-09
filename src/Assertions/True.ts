@@ -1,13 +1,25 @@
 import { AssertionError } from "assert";
 
-export default function True(value: any, message?: string) {
-    if(value === true) {
+/**
+ * Asserts that a given expression evaluates to `true`
+ * 
+ * @remarks
+ * 
+ * Passes if `expression` evaluates to `true`
+ * 
+ * Fails if `expression` does not evaluate to `true`
+ * 
+ * @param expression the value to check
+ * @param message (optional) message to display on failure
+ */
+export default function True(expression: any, message?: string) {
+    if(expression === true) {
         return;
     }
 
     throw new AssertionError({
         message: message || 'Expected expression to be true, but expression is not true',
         expected: true,
-        actual: value
+        actual: expression
     });
 }

@@ -1,6 +1,12 @@
 import TestInfo from './TestInfo';
 import AssertionLibrary from '../Assertions';
 
+/**
+ * Defines a container of tests
+ * 
+ * @remarks
+ * Extend this class for `xunit.ts` load its tests
+ */
 export default abstract class TestSuite {
     assert = AssertionLibrary;
 
