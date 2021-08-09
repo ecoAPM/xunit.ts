@@ -46,18 +46,29 @@ export default class SonarReporter extends XMLReporter {
             }
         ];
 
-        if (result.type === ResultType.Incomplete)
-            testcase.push({skipped: {}});
+        const details = SonarReporter.details(result);
 
-        if (result.type === ResultType.Failed)
-            testcase.push(SonarReporter.failure(result));
-
-        if (result.type === ResultType.Error)
-            testcase.push(SonarReporter.error(result));
-
+        if (details !== null) {
+            testcase.push(details);
+        }
+        
+        
         return {
             testCase: testcase
         };
+    }
+
+    private static details(result: TestResult): object|null {
+        switch(result.type) {
+            case ResultType.Incomplete:
+                return {skipped: {}};
+            case ResultType.Failed:
+                return SonarReporter.failure(result);
+            case ResultType.Error:
+                return SonarReporter.error(result);
+            default:
+                return null;
+        }
     }
 
     private static failure(result: TestResult) {

@@ -23,7 +23,8 @@ export default class Output {
     }
 
     deleteLine() {
-        if (this.out.isTTY)
+        if (this.out.isTTY) {
             this.out.cursorTo(0);
+        }
     }
 }

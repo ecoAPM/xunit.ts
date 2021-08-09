@@ -78,15 +78,18 @@ export default class ConsoleReporter implements ResultReporter {
 
         this.out.writeLine(`    Passed: ${result(ResultType.Passed, colors.green)}`);
 
-        if (sum(ResultType.Failed))
+        if (sum(ResultType.Failed)) {
             this.out.writeLine(`    Failed: ${result(ResultType.Failed, colors.red)}`);
+        }
 
-        if (sum(ResultType.Error))
+        if (sum(ResultType.Error)) {
             this.out.writeLine(`     Error: ${result(ResultType.Error, colors.red)}`);
+        }
 
-        if (sum(ResultType.Incomplete))
+        if (sum(ResultType.Incomplete)) {
             this.out.writeLine(`Incomplete: ${result(ResultType.Incomplete, colors.yellow)}`);
-
+        }
+        
         this.out.writeLine(`     Total: ${result(undefined, sum() === sum(ResultType.Passed) ? colors.green : undefined)}`);
         this.out.writeLine();
     }

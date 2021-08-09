@@ -13,8 +13,9 @@ export default class TestSuiteLoader {
         for (let x = 0; x < files.length; x++) {
             const file = files[x];
             const suite = await TestSuiteLoader.loadTestSuite(file);
-            if (suite !== undefined && suite !== null)
+            if (suite !== undefined && suite !== null) {
                 suites[file] = suite;
+            }
         }
         return suites;
     }
@@ -22,8 +23,9 @@ export default class TestSuiteLoader {
     static async loadTestSuite(file: string) {
         const module_path = TestSuiteLoader.getModulePath(__dirname, file);
         const test_class = await import(module_path);
-        if (!(test_class.default.prototype instanceof TestSuite))
+        if (!(test_class.default.prototype instanceof TestSuite)) {
             return null;
+        }
 
         const tests = test_class.default.prototype.getTests();
         const suite: TestSuite = new test_class.default();

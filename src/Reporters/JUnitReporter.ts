@@ -46,18 +46,28 @@ export default class JUnitReporter extends XMLReporter {
             }
         ];
 
-        if (result.type === ResultType.Incomplete)
-            testcase.push({skipped: {}});
+        const details = JUnitReporter.details(result);
 
-        if (result.type === ResultType.Failed)
-            testcase.push(JUnitReporter.failure(result));
-
-        if (result.type === ResultType.Error)
-            testcase.push(JUnitReporter.error(result));
-
+        if (details !== null) {
+            testcase.push(details);
+        }
+        
         return {
             testcase: testcase
         };
+    }
+
+    private static details(result: TestResult): object|null {
+        switch(result.type) {
+            case ResultType.Incomplete:
+                return {skipped: {}};
+            case ResultType.Failed:
+                return JUnitReporter.failure(result);
+            case ResultType.Error:
+                return JUnitReporter.error(result);
+            default:
+                return null;
+        }
     }
 
     private static failure(result: TestResult) {
