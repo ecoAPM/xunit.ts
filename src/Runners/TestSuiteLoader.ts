@@ -10,8 +10,7 @@ export default class TestSuiteLoader {
         const files = (await this.file_system.getFiles(dir))
             .filter((file) => FileSystem.extension(file) === FileSystem.extension(__filename));
         const suites: Record<string, TestSuite> = {};
-        for (let x = 0; x < files.length; x++) {
-            const file = files[x];
+        for (const file of files) {
             const suite = await TestSuiteLoader.loadTestSuite(file);
             if (suite !== undefined && suite !== null) {
                 suites[file] = suite;

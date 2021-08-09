@@ -10,8 +10,7 @@ export default class FileSystem {
         try {
             const files = [];
             const contents = await this.fs.readdir(dir);
-            for (let x = 0; x < contents.length; x++) {
-                const item = contents[x];
+            for (const item of contents) {
                 const item_path = `${dir}${path.sep}${item}`;
                 const stats = await this.fs.stat(item_path);
                 files.push(...stats.isDirectory()
@@ -32,7 +31,7 @@ export default class FileSystem {
             : '';
     }
 
-    async save(data: string, path: string) {
-        await this.fs.writeFile(path, data);
+    async save(data: string, file_path: string) {
+        await this.fs.writeFile(file_path, data);
     }
 }

@@ -24,8 +24,7 @@ export default class TestSuiteRunner {
         }
 
         const test_names = Object.keys(tests);
-        for (let x = 0; x < test_names.length; x++) {
-            const name = test_names[x];
+        for (const name of test_names) {
             const result = await this.runner.runTest(name, tests[name], suite);
             results.addResult(name, result);
         }
