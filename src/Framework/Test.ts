@@ -8,8 +8,13 @@ import TestName from "./TestName";
  * @remarks
  * This instructs `xunit.ts` to run this method as part of its {@link TestSuite}
  *   
- * @param test_name (optional) the test's display name; if not set,
- *      a sentence case version of the method name will be used
+ * @param test_name (optional) the test's display name; if not set, a sentence case version of the method name will be used
+ * 
+ * @example
+ * ```
+ * @Test()
+ * async UnitTestName() { ... }
+ * ```
  */
 export default function Test(test_name?: string) {
     return function (suite: TestSuite, method_name: string, info: TestInfo) {

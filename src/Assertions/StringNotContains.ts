@@ -4,7 +4,6 @@ import { AssertionError } from "assert";
  * Asserts that a string does not contain a given substring
  * 
  * @remarks
- * 
  * Passes if `needle` is not a substring of `haystack`
  * 
  * Fails if `needle` is a substring of `haystack`
@@ -12,6 +11,9 @@ import { AssertionError } from "assert";
  * @param needle the substring to find
  * @param haystack the string to search
  * @param message (optional) message to display on failure
+ * 
+ * @example
+ * this.assert.stringDoesNotContain(needle, haystack);
  */
 export default function StringNotContains(needle: string, haystack: string|null, message?: string) {
     if(haystack === undefined || haystack === null || haystack.indexOf(needle) === -1) {

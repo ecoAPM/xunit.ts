@@ -4,7 +4,6 @@ import { AssertionError } from "assert";
  * Asserts that a string does not end with a given substring
  * 
  * @remarks
- * 
  * Passes if the final characters of `haystack` do not match `needle`
  * 
  * Fails if the final characters of `haystack` match `needle`
@@ -12,6 +11,9 @@ import { AssertionError } from "assert";
  * @param needle the substring to find
  * @param haystack the string to search
  * @param message (optional) message to display on failure
+ * 
+ * @example
+ * this.assert.stringDoesNotEndWith(needle, haystack);
  */
 export default function StringNotEndsWith(needle: string, haystack: string|null, message?: string) {
     if(haystack === undefined || haystack === null || haystack.indexOf(needle) !== haystack.length - needle.length) {

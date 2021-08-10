@@ -4,7 +4,6 @@ import { AssertionError } from "assert";
  * Asserts that a string begins with a given substring
  * 
  * @remarks
- * 
  * Passes if the first characters of `haystack` match `needle`
  * 
  * Fails if the first characters of `haystack` do not match `needle`
@@ -12,6 +11,9 @@ import { AssertionError } from "assert";
  * @param needle the substring to find
  * @param haystack the string to search
  * @param message (optional) message to display on failure
+ * 
+ * @example
+ * this.assert.stringStartsWith(needle, haystack);
  */
 export default function StringStartsWith(needle: string, haystack: string|null, message?: string) {
     if(haystack !== undefined && haystack !== null && haystack.indexOf(needle) === 0) {

@@ -4,13 +4,15 @@ import { AssertionError } from "assert";
  * Asserts that an expression throws an error/exception
  * 
  * @remarks
- * 
  * Passes if calling `expression` throws an error/exception
  * 
  * Fails if calling `expression` does not throw an error/exception
  *
  * @param expression the expression to run
  * @param message (optional) message to display on failure
+ * 
+ * @example
+ * this.assert.throws(() => expression);
  */
 export default function Throws(expression: () => any, message?: string) {
     try {

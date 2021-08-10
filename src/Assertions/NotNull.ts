@@ -4,13 +4,15 @@ import { AssertionError } from "assert";
  * Asserts that a value is not `null`
  * 
  * @remarks
- * 
  * Passes if `expression` does not evaluate to `null`
  * 
  * Fails if `expression` evaluates to `null`
  * 
  * @param expression the value to check
  * @param message (optional) message to display on failure
+ *
+ * @example
+ * this.assert.notNull(expression);
  */
 export default function NotNull(expression: any, message?: string) {
     if(expression !== null) {
