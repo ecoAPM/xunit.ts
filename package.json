@@ -14,17 +14,20 @@
     "xml": "1.0.1"
   },
   "devDependencies": {
+    "@microsoft/tsdoc": "0.13.2",
     "@types/command-line-args": "5.2.0",
     "@types/command-line-usage": "5.0.2",
     "@types/lodash.isequal": "4.5.5",
     "@types/node": "16.6.0",
     "@types/xml": "1.0.6",
-    "ts-mockito": "2.6.1"
+    "ts-mockito": "2.6.1",
+    "ts-node": "10.2.0"
   },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "tsc",
-    "test": "node dist/cli.js dist/tests"
+    "test": "node dist/cli.js dist/tests",
+    "tsdoc": "ts-node tsdoc.ts"
   },
   "bin": {
     "xunit": "dist/cli.js"
