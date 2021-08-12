@@ -109,3 +109,5 @@ bin/
 obj/
 .idea/
 .scannerwork
+/docs/_site
+.jekyll-cache

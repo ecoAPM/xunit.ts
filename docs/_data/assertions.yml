@@ -1,0 +1,42 @@
+- name: Basic
+  assertions:
+    - 'True'
+    - 'False'
+
+- name: Equality
+  assertions:
+    - Equal
+    - Not Equal
+
+- name: Nullable
+  assertions:
+    - Null
+    - Not Null
+    - Undefined
+    - Defined
+
+- name: Strings
+  assertions:
+    - String Contains
+    - String Starts With
+    - String Ends With
+    - String Does Not Contain
+    - String Does Not Start With
+    - String Does Not End With
+
+- name: Arrays
+  assertions:
+    - Count
+    - Empty
+    - Not Empty
+    - Contains
+    - Does Not Contain
+
+- name: Exceptions
+  assertions:
+    - Throws
+    - Does Not Throw
+
+- name: Reflection
+  assertions:
+    - Instance Of

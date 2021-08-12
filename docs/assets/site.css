@@ -1,0 +1,138 @@
+:root {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+aside {
+    background-color: #222;
+    color: #eee;
+    padding: 1rem;
+    white-space: nowrap;
+    min-height: calc(100vh - 2rem);
+}
+
+aside h1,
+aside h2 {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 300;
+    margin: 0;
+    display: inline-block;
+}
+
+aside h1 {
+    font-size: 36px;
+    margin-right: 0.5rem;
+}
+
+aside a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+aside a:hover,
+aside a:focus {
+    color: #fff;
+}
+aside a:active {
+    color: #ccc;
+}
+
+aside h1 a,
+aside h2 a {
+    color: #eee;
+}
+
+nav {
+    line-height: 2;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul ul {
+    padding-left: 1rem;
+}
+
+main {
+    width: 100%;
+    max-width: calc(100vw - 4rem);
+    background-color: #eee;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 4rem);
+}
+
+code, kbd {
+    background-color: #ddd;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+}
+
+pre code {
+    display: block;
+    overflow-x: auto;
+}
+
+kbd::before {
+    content: "$ ";
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 14px;
+}
+
+aside .toggle {
+    text-align: right;
+}
+
+aside .toggle button {
+    border: none;
+    background: transparent;
+    color: #ddd;
+    padding: 0;
+    font-size: 24px;
+    transform: rotate(-90deg) translateX(-0.5rem) translateY(-1.5rem);
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+aside:not(.off) .toggle button small {
+    display: none;
+}
+
+aside.off .toggle button {
+    position: fixed;
+    transform: rotate(90deg) translateX(-0.5rem) translateY(-1rem);
+}
+
+aside.off :not(:first-child) {
+    display: none;
+}
+
+small {
+    font-size: 50%;
+    display: inline-block;
+    margin-top: -1rem;
+}

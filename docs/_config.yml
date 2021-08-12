@@ -1,0 +1,11 @@
+baseurl: /xunit.ts
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: index
+      permalink: :basename/
+  - scope:
+      path: "Assertions"
+    values:
+      permalink: Assertions/:basename/
