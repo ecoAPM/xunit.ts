@@ -15,7 +15,7 @@ import { AssertionError } from "assert";
  * @example
  * this.assert.stringDoesNotEndWith(needle, haystack);
  */
-export default function StringNotEndsWith(needle: string, haystack: string|null, message?: string) {
+export default function StringDoesNotEndWith(needle: string, haystack: string|null, message?: string) {
     if(haystack === undefined || haystack === null || haystack.indexOf(needle) !== haystack.length - needle.length) {
         return;
     }

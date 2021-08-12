@@ -16,16 +16,16 @@ import not_empty from './NotEmpty';
 import count from './Count';
 
 import contains from './Contains';
-import not_contains from './NotContains';
+import not_contains from './DoesNotContain';
 
 import string_contains from './StringContains';
-import string_not_contains from './StringNotContains';
+import string_not_contains from './StringDoesNotContain';
 
 import string_starts from './StringStartsWith';
-import string_not_starts from './StringNotStartsWith';
+import string_not_starts from './StringDoesNotStartWith';
 
 import string_ends from './StringEndsWith';
-import string_not_ends from './StringNotEndsWith';
+import string_not_ends from './StringDoesNotEndWith';
 
 import instance_of from './InstanceOf';
 

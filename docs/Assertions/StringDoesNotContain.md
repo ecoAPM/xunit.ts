@@ -1,4 +1,4 @@
-## String Not Contains 
+## String Does Not Contain 
 
 Asserts that a string does not contain a given substring 
 

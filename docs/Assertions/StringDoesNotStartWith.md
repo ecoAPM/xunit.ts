@@ -1,4 +1,4 @@
-## String Not Starts With 
+## String Does Not Start With 
 
 Asserts that a string does not begin with a given substring 
 

@@ -1,16 +1,16 @@
 import { TestSuite, Test } from "../../xunit";
 import { AssertionError } from "assert";
-import StringNotStartsWith from "../../src/Assertions/StringNotStartsWith";
+import StringDoesNotContain from "../../src/Assertions/StringDoesNotContain";
 
-export default class StringNotStartsWithTests extends TestSuite {
+export default class StringDoesNotContainTests extends TestSuite {
     @Test()
     async ReturnsWhenTrue() {
         //arrange
-        const needle = 'his';
+        const needle = 'banana';
         const haystack = 'this is a string';
 
         //act
-        StringNotStartsWith(needle, haystack);
+        StringDoesNotContain(needle, haystack);
 
         //assert
         this.assert.true(true);
@@ -23,7 +23,7 @@ export default class StringNotStartsWithTests extends TestSuite {
         const haystack = null;
 
         //act
-        StringNotStartsWith(needle, haystack);
+        StringDoesNotContain(needle, haystack);
 
         //assert
         this.assert.true(true);
@@ -37,7 +37,7 @@ export default class StringNotStartsWithTests extends TestSuite {
 
         try {
             //act
-            StringNotStartsWith(needle, haystack);
+            StringDoesNotContain(needle, haystack);
 
         }
         catch (exception) {

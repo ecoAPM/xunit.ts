@@ -1,15 +1,15 @@
 import { TestSuite, Test } from "../../xunit";
 import { AssertionError } from "assert";
-import NotContains from "../../src/Assertions/NotContains";
+import DoesNotContain from "../../src/Assertions/DoesNotContain";
 
-export default class NotContainsTests extends TestSuite {
+export default class DpesNotContainTests extends TestSuite {
     @Test()
     async ReturnsWhenTrue() {
         //arrange
         const array = [123, 234];
 
         //act
-        NotContains(345, array);
+        DoesNotContain(345, array);
 
         //assert
         this.assert.true(true);
@@ -22,7 +22,7 @@ export default class NotContainsTests extends TestSuite {
 
         try {
             //act
-            NotContains(234, array);
+            DoesNotContain(234, array);
 
         }
         catch (exception) {

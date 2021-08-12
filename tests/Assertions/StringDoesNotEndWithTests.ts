@@ -1,8 +1,8 @@
 import { TestSuite, Test } from "../../xunit";
 import { AssertionError } from "assert";
-import StringNotEndsWith from "../../src/Assertions/StringNotEndsWith";
+import StringDoesNotEndWith from "../../src/Assertions/StringDoesNotEndWith";
 
-export default class StringNotEndsWithTests extends TestSuite {
+export default class StringDoesNotEndWithTests extends TestSuite {
     @Test()
     async ReturnsWhenTrue() {
         //arrange
@@ -10,7 +10,7 @@ export default class StringNotEndsWithTests extends TestSuite {
         const haystack = 'this is a string';
 
         //act
-        StringNotEndsWith(needle, haystack);
+        StringDoesNotEndWith(needle, haystack);
 
         //assert
         this.assert.true(true);
@@ -23,7 +23,7 @@ export default class StringNotEndsWithTests extends TestSuite {
         const haystack = null;
 
         //act
-        StringNotEndsWith(needle, haystack);
+        StringDoesNotEndWith(needle, haystack);
 
         //assert
         this.assert.true(true);
@@ -37,7 +37,7 @@ export default class StringNotEndsWithTests extends TestSuite {
 
         try {
             //act
-            StringNotEndsWith(needle, haystack);
+            StringDoesNotEndWith(needle, haystack);
 
         }
         catch (exception) {
