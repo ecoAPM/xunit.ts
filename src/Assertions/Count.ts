@@ -15,7 +15,7 @@ import { AssertionError } from "assert";
  * @example
  * this.assert.count(expected, array);
  */
-export default function Count(expected: number, array: any[], message?: string) {
+export default function Count(expected: number, array: ReadonlyArray<any>, message?: string) {
     if(array.length === expected) {
         return;
     }

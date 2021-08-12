@@ -15,7 +15,7 @@ import { AssertionError } from "assert";
  * @example
  * this.assert.contains(needle, haystack);
  */
-export default function Contains<T>(needle: T, haystack: T[], message?: string) {
+export default function Contains<T>(needle: T, haystack: ReadonlyArray<T>, message?: string) {
     if(haystack.includes(needle)) {
         return;
     }

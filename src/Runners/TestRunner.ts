@@ -7,7 +7,7 @@ import {AssertionError} from "assert";
 
 export default class TestRunner {
 
-    constructor(private readonly reporters: ResultReporter[]) { }
+    constructor(private readonly reporters: ReadonlyArray<ResultReporter>) { }
 
     async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
         await Promise.all(this.reporters.map(r => r.testStarted(suite, name)));

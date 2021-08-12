@@ -14,7 +14,7 @@ import { AssertionError } from "assert";
  * @example
  * this.assert.empty(array);
  */
-export default function Empty(array: any[], message?: string) {
+export default function Empty(array: ReadonlyArray<any>, message?: string) {
     if(array.length === 0) {
         return;
     }
