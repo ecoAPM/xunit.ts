@@ -1,7 +1,10 @@
 **/.cache/
 **/.github/
 **/.idea/
+**/.scannerwork/
 **/.vscode/
+**/compiler-tests/
+**/coverage/
+**/docs/
 **/node_modules/
 **/tests/
-**/compiler-tests/
