@@ -3,6 +3,7 @@ import xml from 'xml';
 import {ResultType} from "../Framework/ResultType";
 import TestResult from "../Framework/TestResult";
 import XMLReporter from "./XMLReporter";
+import path from "path";
 
 export default class SonarReporter extends XMLReporter {
     static readonly defaultFileName: string = 'sonar.xml';
@@ -27,7 +28,7 @@ export default class SonarReporter extends XMLReporter {
             file: [
                 {
                     _attr: {
-                        path: file.replace(/^dist\//, '').replace(/\.js$/, '.ts'),
+                        path: file.substr(file.split(path.sep)[0].length + 1).replace(/\.js$/, '.ts'),
                     }
                 },
                 ...Object.keys(results.results)
