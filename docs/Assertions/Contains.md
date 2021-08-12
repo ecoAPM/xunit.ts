@@ -1,4 +1,8 @@
-## Contains 
+---
+title: Contains 
+---
+
+## Assertion: Contains 
 
 Asserts that an array contains a given element 
 

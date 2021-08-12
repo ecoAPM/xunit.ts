@@ -1,4 +1,8 @@
-## Defined 
+---
+title: Defined 
+---
+
+## Assertion: Defined 
 
 Asserts that a value is defined (any value other than `undefined`) 
 

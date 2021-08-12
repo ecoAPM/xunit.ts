@@ -1,4 +1,8 @@
-## String Does Not End With 
+---
+title: String Does Not End With 
+---
+
+## Assertion: String Does Not End With 
 
 Asserts that a string does not end with a given substring 
 

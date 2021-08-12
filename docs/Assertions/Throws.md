@@ -1,4 +1,8 @@
-## Throws 
+---
+title: Throws 
+---
+
+## Assertion: Throws 
 
 Asserts that an expression throws an error/exception 
 

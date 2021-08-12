@@ -1,4 +1,8 @@
-## Does Not Throw 
+---
+title: Does Not Throw 
+---
+
+## Assertion: Does Not Throw 
 
 Asserts that an expression does not throw an error/exception 
 

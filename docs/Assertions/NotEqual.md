@@ -1,4 +1,8 @@
-## Not Equal 
+---
+title: Not Equal 
+---
+
+## Assertion: Not Equal 
 
 Asserts that two values are not equal 
 

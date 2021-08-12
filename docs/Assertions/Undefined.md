@@ -1,4 +1,8 @@
-## Undefined 
+---
+title: Undefined 
+---
+
+## Assertion: Undefined 
 
 Asserts that a given value is equal to `undefined` 
 

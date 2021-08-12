@@ -1,4 +1,8 @@
-## String Does Not Contain 
+---
+title: String Does Not Contain 
+---
+
+## Assertion: String Does Not Contain 
 
 Asserts that a string does not contain a given substring 
 

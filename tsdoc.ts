@@ -1,4 +1,4 @@
-﻿import FileSystem from "./src/IO/FileSystem";
+import FileSystem from "./src/IO/FileSystem";
 import fs_promises from "fs/promises";
 import {DocExcerpt, DocNode, TSDocParser} from "@microsoft/tsdoc";
 import TestName from "./src/Framework/TestName";
@@ -44,7 +44,10 @@ async function run(): Promise<void> {
                 const title = TestName.toSentenceCase(filename?.split('.')[0] ?? '');
                 const example = renderDocNodes(tsdoc.customBlocks.filter(b => b.blockTag.tagName == '@example')[0]?.content.nodes ?? []);
                 const remarks = renderDocNodes(tsdoc.remarksBlock?.content.nodes ?? []);
-                const md = `## ${title} \n\n`
+                const md = `---\n`
+                    + `title: ${title} \n`
+                    + `---\n\n`
+                    + `## Assertion: ${title} \n\n`
                     + `${summary} \n\n`
                     + '### Example \n\n'
                     + '```ts \n'

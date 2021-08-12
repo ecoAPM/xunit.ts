@@ -1,4 +1,8 @@
-## String Ends With 
+---
+title: String Ends With 
+---
+
+## Assertion: String Ends With 
 
 Asserts that a string ends with a given substring 
 

@@ -1,4 +1,8 @@
-## Equal 
+---
+title: Equal 
+---
+
+## Assertion: Equal 
 
 Asserts that two values are equal 
 

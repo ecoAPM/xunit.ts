@@ -1,4 +1,8 @@
-## Instance Of 
+---
+title: Instance Of 
+---
+
+## Assertion: Instance Of 
 
 Asserts that a value is an instance of a certain type 
 

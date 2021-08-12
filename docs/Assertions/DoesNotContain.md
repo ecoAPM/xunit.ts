@@ -1,4 +1,8 @@
-## Does Not Contain 
+---
+title: Does Not Contain 
+---
+
+## Assertion: Does Not Contain 
 
 Asserts that an array does not contain a given element 
 

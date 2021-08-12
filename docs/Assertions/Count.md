@@ -1,4 +1,8 @@
-## Count 
+---
+title: Count 
+---
+
+## Assertion: Count 
 
 Asserts that an array contains a certain number of elements 
 

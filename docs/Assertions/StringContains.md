@@ -1,4 +1,8 @@
-## String Contains 
+---
+title: String Contains 
+---
+
+## Assertion: String Contains 
 
 Asserts that a string contains a given substring 
 
