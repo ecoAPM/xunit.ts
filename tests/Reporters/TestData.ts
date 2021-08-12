@@ -3,6 +3,7 @@ import {TestSuite} from "../../xunit";
 import TestResult from "../../src/Framework/TestResult";
 import {ResultType} from "../../src/Framework/ResultType";
 import {AssertionError} from "assert";
+import path from "path";
 
 export default class TestData {
     static Results(): Record<string, TestSuiteResults> {
@@ -20,9 +21,9 @@ export default class TestData {
         results2.addResult("Test 3", new TestResult(ResultType.Incomplete, 3.4));
         results2.addResult("Test 4", new TestResult(ResultType.Error, 4.5, new Error('unhandled exception')));
 
-        return {
-            'dist/tests/TestClass1.js': results1,
-            'dist/tests/TestClass2.js': results2
-        };
+        const results: Record<string, TestSuiteResults> = {};
+        results[`dist${path.sep}tests${path.sep}TestClass1.js`] = results1;
+        results[`dist${path.sep}tests${path.sep}TestClass2.js`] = results2;
+        return results;
     }
 }

@@ -3,6 +3,7 @@ import SonarReporter from "../../src/Reporters/SonarReporter";
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
 import TestData from "./TestData";
+import path from "path";
 
 export default class SonarReporterTests extends TestSuite {
     @Test()
@@ -22,7 +23,7 @@ export default class SonarReporterTests extends TestSuite {
 }
 
 const expected_start = `<testExecutions version="1">
-  <file path="tests/TestClass1.ts">
+  <file path="tests${path.sep}TestClass1.ts">
     <testCase name="Test 1" duration="1">
     </testCase>
     <testCase name="Test 2" duration="2">
@@ -32,7 +33,7 @@ const expected_start = `<testExecutions version="1">
 const expected_middle = `)</failure>
     </testCase>
   </file>
-  <file path="tests/TestClass2.ts">
+  <file path="tests${path.sep}TestClass2.ts">
     <testCase name="Test 3" duration="3">
       <skipped/>
     </testCase>

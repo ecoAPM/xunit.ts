@@ -109,7 +109,7 @@ If no filename is provided, results will be output to `junit.xml`.
 
 If no filename is provided, results will be output to `sonar.xml`.
 
-Note that this currently only works if built tests are output to the `dist` directory. 
+Note that this currently only works if built tests are output to a directory parallel to their source: e.g. `tests` to `dist/tests`. 
 
 ## Assertions
 
