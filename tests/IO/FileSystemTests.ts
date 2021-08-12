@@ -28,7 +28,7 @@ export default class FileSystemTests extends TestSuite {
     @Test()
     async FilesAreEmptyWhenInvalidDirectory() {
         //arrange
-        const fs: typeof fs_promises = Mockito.mock(fs_promises);
+        const fs = Mockito.spy(Object.assign({}, fs_promises));
         const file_system = new FileSystem(Mockito.instance(fs));
 
         //act

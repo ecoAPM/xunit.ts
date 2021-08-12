@@ -3,6 +3,7 @@ import Factory from "../src/Factory";
 import ConsoleReporter from "../src/Reporters/ConsoleReporter";
 import JUnitReporter from "../src/Reporters/JUnitReporter";
 import SonarReporter from "../src/Reporters/SonarReporter";
+import Generator from "../src/TSDoc/Generator";
 
 export default class FactoryTests extends TestSuite {
     @Test()
@@ -54,5 +55,14 @@ export default class FactoryTests extends TestSuite {
         //assert
         this.assert.count(1, reporters);
         this.assert.instanceOf(SonarReporter, reporters[0]);
+    }
+    
+    @Test()
+    async CanCreateTSDocGenerator() {
+        //act
+        const generator = Factory.TSDocGenerator();
+        
+        //assert
+        this.assert.instanceOf(Generator, generator);
     }
 }
