@@ -13,11 +13,13 @@
   },
   "files": [
     "xunit.ts",
-    "cli.ts"
+    "cli.ts",
+    "tsdoc.ts"
   ],
   "include": [
     "src/**/*.ts",
-    "tests/**/*.ts"
+    "tests/**/*.ts",
+    "TSDoc/**/*.ts"
   ],
   "exclude": [
     "node_modules",
