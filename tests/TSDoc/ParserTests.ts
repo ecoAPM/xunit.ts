@@ -1,5 +1,5 @@
 ﻿import {Test, TestSuite} from "../../xunit";
-import Parser from "../../src/TSDoc/Parser";
+import Parser from "../../TSDoc/Parser";
 import {
     DocComment,
     DocExcerpt,

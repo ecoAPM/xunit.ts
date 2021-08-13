@@ -1,4 +1,4 @@
-import Factory from "./src/Factory";
+import Factory from "./TSDoc/Factory";
 import path from "path";
 
 Factory.TSDocGenerator()

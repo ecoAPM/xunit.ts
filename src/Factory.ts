@@ -10,9 +10,6 @@ import TestSuiteLoader from './Runners/TestSuiteLoader';
 import TestSuiteRunner from './Runners/TestSuiteRunner';
 import fs from "fs/promises";
 import SonarReporter from "./Reporters/SonarReporter";
-import Parser from "./TSDoc/Parser";
-import {TSDocParser} from "@microsoft/tsdoc";
-import Generator from "./TSDoc/Generator";
 
 export default class Factory {
     private static readonly file_system = new FileSystem(fs);
@@ -33,10 +30,4 @@ export default class Factory {
             args.sonar !== undefined ? new SonarReporter(this.file_system, args.sonar ?? SonarReporter.defaultFileName) : null
         ].filter(r => r !== null) as ResultReporter[];
     }
-    
-    static TSDocGenerator() {
-        const parser = new Parser(new TSDocParser());
-        return new Generator(this.file_system, fs, parser);
-    }
-
 }
