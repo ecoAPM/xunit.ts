@@ -4,6 +4,8 @@
   "description": "A unit testing framework for TypeScript, following standard xUnit patterns",
   "main": "dist/xunit.js",
   "author": "ecoAPM LLC",
+  "homepage": "https://github.com/ecoAPM/xunit.ts",
+  "bugs": "https://github.com/ecoAPM/xunit.ts/issues",
   "license": "MIT",
   "dependencies": {
     "colors": "1.4.0",
