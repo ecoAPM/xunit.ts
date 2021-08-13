@@ -1,63 +1,66 @@
+<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>
-        {% if page.title %}
-        {{page.title}} &mdash;
-        {% endif %}
-        xunit.ts Documentation
-    </title>
-    
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
-    <link rel="stylesheet" href="{{'/assets/noto.css' | relative_url }}"/>
-    <link rel="stylesheet" href="{{'/assets/site.css' | relative_url }}"/>
-    <link rel="icon" href="{{'/assets/logo.png' | relative_url}}"/>
-</head>
+    <head>
+        <title>
+            {% if page.title %}
+            {{page.title}} &mdash;
+            {% endif %}
+            xunit.ts Documentation
+        </title>
 
-<body>
-<aside>
-    <div class="toggle">
-        <button title="Toggle Navigation" onclick="return toggleNav();">
-            ⏏
-            <small>Toggle Navigation</small>
-        </button>
-    </div>
-    <h1>
-        <a href="{{'/' | relative_url}}">
-            xunit.ts
-        </a>
-    </h1>
-    <h2>
-        <a href="https://ecoAPM.com" target="_blank">
-            by ecoAPM
-        </a>
-    </h2>
-    {% include navigation.html %}
-    <footer>
-        <a href="https://github.com/ecoAPM/xunit.ts">
-            Source Code on GitHub
-        </a>
-    </footer>
-</aside>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-<main>
-    {{content}}
-</main>
+        <link rel="stylesheet" href="{{'/assets/noto.css' | relative_url }}" />
+        <link rel="stylesheet" href="{{'/assets/site.css' | relative_url }}" />
+        <link rel="icon" href="{{'/assets/logo.png' | relative_url}}" />
+    </head>
 
-<script>
-    function toggleNav() {
-        const aside = document.querySelector('aside');
-        aside.className = aside.className === 'off' ? '' : 'off';
-    }
+    <body>
+        <main>
+            <aside>
+                <div class="toggle">
+                    <button title="Toggle Navigation" onclick="return toggleNav();">
+                        ⌅
+                        <small>Toggle Navigation</small>
+                    </button>
+                </div>
+                <h1>
+                    <a href="{{'/' | relative_url}}">
+                        xunit.ts
+                    </a>
+                </h1>
+                <h3>
+                    <a href="https://ecoAPM.com" target="_blank">
+                        by ecoAPM
+                    </a>
+                </h3>
+                {% include navigation.html %}
+                <footer>
+                    <a href="https://github.com/ecoAPM/xunit.ts">
+                        Source Code on GitHub
+                    </a>
+                </footer>
+            </aside>
 
-    document.body.onload = function checkMobile() {
-        if(document.body.clientWidth < 640) {
-            toggleNav();
-        }
-    }
-</script>
-</body>
+            <article>
+                {{content}}
+            </article>
+            </main>
+
+            <script>
+                function toggleNav() {
+                    const aside = document.querySelector('aside');
+                    aside.className = aside.className === 'off' ? '' : 'off';
+                }
+
+                document.body.onload = function checkMobile() {
+                    if (document.body.clientWidth < 640) {
+                        toggleNav();
+                    }
+                }
+            </script>
+    </body>
 
 </html>
