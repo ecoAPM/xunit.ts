@@ -1,5 +1,5 @@
 ﻿import {Test, TestSuite} from "../../xunit";
-import Markdown from "../../src/TSDoc/Markdown";
+import Markdown from "../../TSDoc/Markdown";
 
 export default class MarkdownTests extends TestSuite {
     @Test()

@@ -1,9 +1,9 @@
 ﻿import {Test, TestSuite} from "../../xunit";
-import Generator from "../../src/TSDoc/Generator";
+import Generator from "../../TSDoc/Generator";
 import FileSystem from "../../src/IO/FileSystem";
 import Mockito from "ts-mockito";
 import FSPromises from "fs/promises";
-import Parser from "../../src/TSDoc/Parser";
+import Parser from "../../TSDoc/Parser";
 import {TSDocParser} from "@microsoft/tsdoc";
 import path from "path";
 
