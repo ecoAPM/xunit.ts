@@ -12,11 +12,11 @@ import fs from "fs/promises";
 import SonarReporter from "./Reporters/SonarReporter";
 
 export default class Factory {
-    private static readonly file_system = new FileSystem(fs);
+    static readonly file_system = new FileSystem(fs);
 
     static Runner(args: Args.CommandLineOptions) {
-        const loader = new TestSuiteLoader(this.file_system);
-        const reporters = this.Reporters(args);
+        const loader = new TestSuiteLoader(Factory.file_system);
+        const reporters = Factory.Reporters(args);
         const test_runner = new TestRunner(reporters);
         const test_suite_runner = new TestSuiteRunner(test_runner, reporters);
 
@@ -26,8 +26,8 @@ export default class Factory {
     static Reporters(args: Args.CommandLineOptions): ReadonlyArray<ResultReporter> {
         return [
             !args.quiet ? new ConsoleReporter(new Output(process.stdout)) : null,
-            args.junit !== undefined ? new JUnitReporter(this.file_system, args.junit ?? JUnitReporter.defaultFileName) : null,
-            args.sonar !== undefined ? new SonarReporter(this.file_system, args.sonar ?? SonarReporter.defaultFileName) : null
+            args.junit !== undefined ? new JUnitReporter(Factory.file_system, args.junit ?? JUnitReporter.defaultFileName) : null,
+            args.sonar !== undefined ? new SonarReporter(Factory.file_system, args.sonar ?? SonarReporter.defaultFileName) : null
         ].filter(r => r !== null) as ResultReporter[];
     }
 }
