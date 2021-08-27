@@ -2,7 +2,6 @@ import Usage from 'command-line-usage';
 import JUnitReporter from './Reporters/JUnitReporter';
 import Process from "process";
 import Args from "command-line-args";
-import Factory from "./Factory";
 import Runner from "./Runners/Runner";
 import SonarReporter from "./Reporters/SonarReporter";
 
@@ -72,7 +71,7 @@ export default class CLI {
 
     private static readonly usage = Usage(CLI.sections);
 
-    constructor(private readonly process: typeof Process) {
+    constructor(private readonly runnerFactory: (args: Args.CommandLineOptions) => Runner, private readonly process: typeof Process) {
     }
 
     async run(): Promise<boolean> {
@@ -84,14 +83,16 @@ export default class CLI {
             return true;
         }
 
-        const runner = Factory.Runner(args);
+        const runner = this.runnerFactory(args);
 
         try {
             const results = await runner.runAll(args.dir);
             return Runner.allTestsPassed(results);
         } catch (error) {
-            this.process.stderr.write(`An unhandled ${error.name} occurred: ${error.message}\n`);
-            this.process.stderr.write(error.stack?.toString() || '(no call stack)\n');
+            if (error instanceof Error) {
+                this.process.stderr.write(`An unhandled ${error.name} occurred: ${error.message}\n`);
+                this.process.stderr.write(error.stack?.toString() || '(no call stack)\n');
+            }
             return false;
         }
     }

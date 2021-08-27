@@ -25,13 +25,14 @@ export default class TestRunner {
 
         } catch (error) {
             const duration = TestRunner.msSince(start);
-            if (error instanceof AssertionError) {
-                await Promise.all(this.reporters.map(r => r.testFailed(suite, name, error, duration)));
-                return new TestResult(ResultType.Failed, duration, error);
+            const typedError = error as Error;
+            if (typedError instanceof AssertionError) {
+                await Promise.all(this.reporters.map(r => r.testFailed(suite, name, typedError, duration)));
+                return new TestResult(ResultType.Failed, duration, typedError);
             }
 
-            await Promise.all(this.reporters.map(r => r.testErrored(suite, name, error, duration)));
-            return new TestResult(ResultType.Error, duration, error);
+            await Promise.all(this.reporters.map(r => r.testErrored(suite, name, typedError, duration)));
+            return new TestResult(ResultType.Error, duration, typedError);
         }
     }
 

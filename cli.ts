@@ -2,7 +2,8 @@
 
 import process from 'process';
 import CLI from './src/CLI';
+import Factory from './src/Factory';
 
-new CLI(process)
+new CLI(Factory.Runner, process)
     .run()
     .then(success => process.exit(success ? 0 : 1));
