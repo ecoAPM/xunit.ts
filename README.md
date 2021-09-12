@@ -1,7 +1,7 @@
 # xunit.ts
 ### A TypeScript unit testing framework, following standard xUnit patterns
 
-[![npm version](https://badge.fury.io/js/xunit.ts.svg)](https://npmjs.com/package/xunit.ts)
+[![npm version](https://img.shields.io/npm/v/xunit.ts?logo=npm&label=Install)](https://npmjs.com/package/xunit.ts)
 [![CI status](https://github.com/ecoAPM/xunit.ts/workflows/CI/badge.svg)](https://github.com/ecoAPM/xunit.ts/actions)
 [![Code Coverage](https://sonarcloud.io/api/project_badges/measure?project=ecoAPM_xunit.ts&metric=coverage)](https://sonarcloud.io/dashboard?id=ecoAPM_xunit.ts)
 
