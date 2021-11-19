@@ -40,7 +40,6 @@ aside h3 {
     font-family: "Noto Sans", sans-serif;
     font-weight: 300;
     margin: 0;
-    display: inline-block;
 }
 
 aside h1 {
@@ -63,6 +62,11 @@ aside a:active {
 aside h1 a,
 aside h2 a {
     color: #eee;
+}
+
+aside img {
+    max-width: 200px;
+
 }
 
 nav {

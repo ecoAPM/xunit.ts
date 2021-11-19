@@ -30,7 +30,7 @@
     "clean": "rm -rf dist",
     "build": "tsc",
     "test": "node dist/cli.js dist/tests",
-    "tsdoc": "cp -r node_modules/notosans/noto.css node_modules/notosans/dist docs/assets &&  ts-node tsdoc.ts"
+    "tsdoc": "cp -r node_modules/notosans/* docs/assets &&  ts-node tsdoc.ts"
   },
   "bin": {
     "xunit": "dist/cli.js"

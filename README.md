@@ -1,3 +1,4 @@
+![xunit.ts logo](docs/assets/logo.png)
 # xunit.ts
 ### A TypeScript unit testing framework, following standard xUnit patterns
 
