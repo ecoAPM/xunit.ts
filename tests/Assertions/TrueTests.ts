@@ -23,7 +23,7 @@ export default class TrueTests extends TestSuite {
         try {
             //act
             True(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

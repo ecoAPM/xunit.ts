@@ -25,7 +25,7 @@ export default class StringStartsWithTests extends TestSuite {
         try {
             //act
             StringStartsWith(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 
@@ -43,7 +43,7 @@ export default class StringStartsWithTests extends TestSuite {
         try {
             //act
             StringStartsWith(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

@@ -38,7 +38,7 @@ export default class StringDoesNotContainTests extends TestSuite {
         try {
             //act
             StringDoesNotContain(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

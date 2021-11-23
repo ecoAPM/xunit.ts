@@ -23,7 +23,7 @@ export default class EmptyTests extends TestSuite {
         try {
             //act
             Empty(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

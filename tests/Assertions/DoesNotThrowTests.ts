@@ -23,7 +23,7 @@ export default class DoesNotThrowTests extends TestSuite {
         try {
             //act
             DoesNotThrow(expression);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

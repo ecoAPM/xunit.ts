@@ -25,7 +25,7 @@ export default class StringContainsTests extends TestSuite {
         try {
             //act
             StringContains(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 
@@ -43,7 +43,7 @@ export default class StringContainsTests extends TestSuite {
         try {
             //act
             StringContains(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

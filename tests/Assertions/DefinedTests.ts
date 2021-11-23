@@ -23,7 +23,7 @@ export default class DefinedTests extends TestSuite {
         try {
             //act
             Defined(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

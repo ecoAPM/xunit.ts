@@ -23,7 +23,7 @@ export default class InstanceOfTests extends TestSuite {
         try {
             //act
             InstanceOf(TestSuite, value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

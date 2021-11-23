@@ -14,7 +14,7 @@ export default class FalseTests extends TestSuite {
         //assert
         this.assert.true(true);
     }
-    
+
     @Test()
     async ThrowsWhenFalse() {
         //arrange
@@ -23,7 +23,7 @@ export default class FalseTests extends TestSuite {
         try {
             //act
             False(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

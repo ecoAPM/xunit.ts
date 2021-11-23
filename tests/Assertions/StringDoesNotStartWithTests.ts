@@ -38,7 +38,7 @@ export default class StringDoesNotStartWithTests extends TestSuite {
         try {
             //act
             StringDoesNotStartWith(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

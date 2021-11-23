@@ -23,7 +23,7 @@ export default class ThrowsTests extends TestSuite {
         try {
             //act
             Throws(expression);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

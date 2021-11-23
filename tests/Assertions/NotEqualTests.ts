@@ -25,7 +25,7 @@ export default class NotEqualTests extends TestSuite {
         try {
             //act
             NotEqual(value1, value2);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

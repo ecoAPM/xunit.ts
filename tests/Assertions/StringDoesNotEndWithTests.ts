@@ -38,12 +38,25 @@ export default class StringDoesNotEndWithTests extends TestSuite {
         try {
             //act
             StringDoesNotEndWith(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 
             //assert
             this.assert.instanceOf(AssertionError, exception);
         }
+    }
+
+    @Test()
+    async TrueWhenNotFoundAndLengthsMatchEndCheck() {
+        //arrange
+        const needle = 'abc';
+        const haystack = 'de';
+
+        //act
+        StringDoesNotEndWith(needle, haystack);
+
+        //assert
+        this.assert.true(true);
     }
 }

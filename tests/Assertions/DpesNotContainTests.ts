@@ -23,7 +23,7 @@ export default class DpesNotContainTests extends TestSuite {
         try {
             //act
             DoesNotContain(234, array);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

@@ -25,7 +25,7 @@ export default class EqualTests extends TestSuite {
         try {
             //act
             Equal(value1, value2);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

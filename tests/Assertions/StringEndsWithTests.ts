@@ -25,7 +25,7 @@ export default class StringEndsWithTests extends TestSuite {
         try {
             //act
             StringEndsWith(needle, haystack);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 
@@ -43,7 +43,25 @@ export default class StringEndsWithTests extends TestSuite {
         try {
             //act
             StringEndsWith(needle, haystack);
+            throw new Error("Assertion failed");
+        }
+        catch (exception) {
 
+            //assert
+            this.assert.instanceOf(AssertionError, exception);
+        }
+    }
+
+    @Test()
+    async FalseWhenNotFoundAndLengthsMatchEndCheck() {
+        //arrange
+        const needle = 'abc';
+        const haystack = 'de';
+
+        try {
+            //act
+            StringEndsWith(needle, haystack);
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

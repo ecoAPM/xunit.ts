@@ -23,7 +23,7 @@ export default class NullTests extends TestSuite {
         try {
             //act
             Null(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

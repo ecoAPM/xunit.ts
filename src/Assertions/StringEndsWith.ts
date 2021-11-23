@@ -15,8 +15,10 @@ import { AssertionError } from "assert";
  * @example
  * this.assert.stringEndsWith(needle, haystack);
  */
-export default function StringEndsWith(needle: string, haystack: string|null, message?: string) {
-    if(haystack !== undefined && haystack !== null && haystack.indexOf(needle) === haystack.length - needle.length) {
+export default function StringEndsWith(needle: string, haystack: string | null, message?: string) {
+    if (haystack !== undefined && haystack !== null
+        && haystack.indexOf(needle) > -1
+        && haystack.indexOf(needle) === haystack.length - needle.length) {
         return;
     }
 

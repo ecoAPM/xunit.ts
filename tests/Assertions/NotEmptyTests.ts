@@ -23,7 +23,7 @@ export default class NotEmptyTests extends TestSuite {
         try {
             //act
             NotEmpty(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

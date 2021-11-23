@@ -23,7 +23,7 @@ export default class ContainsTests extends TestSuite {
         try {
             //act
             Contains(345, array);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

@@ -23,7 +23,7 @@ export default class UndefinedTests extends TestSuite {
         try {
             //act
             Undefined(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

@@ -23,7 +23,7 @@ export default class CountTests extends TestSuite {
         try {
             //act
             Count(3, array);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 

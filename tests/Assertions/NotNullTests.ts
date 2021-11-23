@@ -23,7 +23,7 @@ export default class NotNullTests extends TestSuite {
         try {
             //act
             NotNull(value);
-
+            throw new Error("Assertion failed");
         }
         catch (exception) {
 
