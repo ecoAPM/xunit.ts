@@ -15,20 +15,37 @@ export default class InstanceOfTests extends TestSuite {
         this.assert.true(true);
     }
 
-    @Test()
-    async ThrowsWhenFalse() {
-        //arrange
-        const value = new class X { };
+	@Test()
+	async ThrowsWhenFalse() {
+		//arrange
+		const value = new class X { };
 
-        try {
-            //act
-            InstanceOf(TestSuite, value);
-            throw new Error("Assertion failed");
-        }
-        catch (exception) {
+		try {
+			//act
+			InstanceOf(TestSuite, value);
+			throw new Error("Assertion failed");
+		}
+		catch (exception) {
 
-            //assert
-            this.assert.instanceOf(AssertionError, exception);
-        }
-    }
+			//assert
+			this.assert.instanceOf(AssertionError, exception);
+		}
+	}
+
+	@Test()
+	async ExpectedValueIsTypeName() {
+		//arrange
+		const value = new class X { };
+
+		try {
+			//act
+			InstanceOf(TestSuite, value);
+			throw new Error("Assertion failed");
+		}
+		catch (exception) {
+
+			//assert
+			this.assert.equal(TestSuite.name, (exception as AssertionError).expected);
+		}
+	}
 }
