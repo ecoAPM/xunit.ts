@@ -93,7 +93,9 @@ export default class CLI {
         const runner = this.runnerFactory(args);
 
         try {
-            const results = await runner.runAll(args.dir);
+            const results = args.filter
+                ? await runner.runSelected(args.dir, args.filter)
+                : await runner.runAll(args.dir);
             return Runner.allTestsPassed(results);
         } catch (error) {
             if (error instanceof Error) {

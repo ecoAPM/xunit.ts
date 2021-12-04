@@ -3,15 +3,26 @@ import TestSuite from '../Framework/TestSuite';
 import TestSuiteResults from '../Framework/TestSuiteResults';
 import TestInfo from '../Framework/TestInfo';
 import TestRunner from './TestRunner';
+import TestName from '../Framework/TestName';
 
 export default class TestSuiteRunner {
 
     constructor(private readonly runner: TestRunner, private readonly reporters: ReadonlyArray<ResultReporter>) { }
 
-    async runSuite(suite: TestSuite) {
+    async runSuite(suite: TestSuite, testName?: string) {
         await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
         const tests = suite.getTests();
-        const results = await this.runTests(suite, tests);
+        let filteredTests = tests;
+        if (testName) {
+            filteredTests = Object.entries(tests)
+                .reduce((acc, [name, test]) => {
+                    if (name === TestName.toSentenceCase(testName)) {
+                        acc[name] = test;
+                    }
+                    return acc;
+                }, {} as Record<string, TestInfo>)
+        }
+        const results = await this.runTests(suite, filteredTests);
         await Promise.all(this.reporters.map(r => r.suiteCompleted(suite, results)));
         return results;
     }

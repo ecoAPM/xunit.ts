@@ -2,7 +2,8 @@ import TestSuiteLoader from './TestSuiteLoader';
 import TestSuiteRunner from './TestSuiteRunner';
 import ResultReporter from "../Reporters/ResultReporter";
 import TestSuiteResults from "../Framework/TestSuiteResults";
-import {ResultType} from '../Framework/ResultType';
+import { ResultType } from '../Framework/ResultType';
+import TestSuite from '../Framework/TestSuite';
 
 export default class Runner {
 
@@ -11,11 +12,22 @@ export default class Runner {
 
     async runAll(dir: string): Promise<Record<string, TestSuiteResults>> {
         await Promise.all(this.reporters.map(r => r.runStarted()));
-        const results: Record<string, TestSuiteResults> = {};
         const suites = await this.loader.loadTestSuites(dir);
+        return await this.runAndReportTestSuites(suites);
+    }
+
+    async runSelected(dir: string, filter: string): Promise<Record<string, TestSuiteResults>> {
+        await Promise.all(this.reporters.map(r => r.runStarted()));
+        const suites = await this.loader.loadSelectedTestSuites(dir, filter);
+        const [, testName] = filter.split(".")
+        return await this.runAndReportTestSuites(suites, testName);
+    }
+
+    private async runAndReportTestSuites(suites: Record<string, TestSuite>, filter?: string) {
+        const results: Record<string, TestSuiteResults> = {};
         for (const file of Object.keys(suites)) {
             const suite = suites[file];
-            results[file] = await this.runner.runSuite(suite);
+            results[file] = await this.runner.runSuite(suite, filter)
         }
         await Promise.all(this.reporters.map(r => r.runCompleted(results)));
         return results;
