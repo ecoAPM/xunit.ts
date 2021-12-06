@@ -1,158 +1,159 @@
 :root {
-    font-family: sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 main {
-    display: flex;
-    align-items: stretch;
-    min-height: 100vh;
+	display: flex;
+	align-items: stretch;
+	min-height: 100vh;
 }
 
 h1 {
-    font-size: 2rem;
+	font-size: 2rem;
 }
 
 h2 {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h3 {
-    font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
 aside {
-    background-color: #222;
-    color: #eee;
-    padding: 1rem;
-    white-space: nowrap;
+	background-color: #222;
+	color: #eee;
+	padding: 1rem;
+	white-space: nowrap;
 }
 
 aside h1,
 aside h2,
 aside h3 {
-    font-family: "Noto Sans", sans-serif;
-    font-weight: 300;
-    margin: 0;
+	font-family: "Noto Sans", sans-serif;
+	font-weight: 300;
+	margin: 0;
 }
 
 aside h1 {
-    margin-right: 0.5rem;
+	margin-right: 0.5rem;
 }
 
 aside a {
-    color: #ddd;
-    text-decoration: none;
+	color: #ddd;
+	text-decoration: none;
 }
 
 aside a:hover,
 aside a:focus {
-    color: #fff;
+	color: #fff;
 }
+
 aside a:active {
-    color: #ccc;
+	color: #ccc;
 }
 
 aside h1 a,
 aside h2 a {
-    color: #eee;
+	color: #eee;
 }
 
 aside img {
-    max-width: 200px;
+	max-width: 200px;
 
 }
 
 nav {
-    line-height: 2;
+	line-height: 2;
 }
 
 nav ul {
-    list-style: none;
-    padding-left: 0;
+	list-style: none;
+	padding-left: 0;
 }
 
 ul ul {
-    padding-left: 1rem;
+	padding-left: 1rem;
 }
 
 article {
-    width: 100%;
-    max-width: calc(100vw - 4rem);
-    background-color: #eee;
-    padding: 1rem;
+	width: 100%;
+	max-width: calc(100vw - 4rem);
+	background-color: #eee;
+	padding: 1rem;
 }
 
 code, kbd {
-    background-color: #ddd;
-    border-radius: 0.25rem;
-    padding: 0.25rem;
-    margin: 0.25rem;
+	background-color: #ddd;
+	border-radius: 0.25rem;
+	padding: 0.25rem;
+	margin: 0.25rem;
 }
 
 pre code {
-    display: block;
-    overflow-x: auto;
+	display: block;
+	overflow-x: auto;
 }
 
 kbd::before {
-    content: "$ ";
+	content: "$ ";
 }
 
 table {
-    border-spacing: 0;
-    border-collapse: collapse;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 th, td {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
 }
 
 footer {
-    margin-top: 2rem;
-    font-size: 14px;
+	margin-top: 2rem;
+	font-size: 14px;
 }
 
 aside .toggle {
-    text-align: right;
-    height: 0;
+	text-align: right;
+	height: 0;
 }
 
 aside .toggle button {
-    border: none;
-    background: transparent;
-    color: #ddd;
-    font-family: "Noto Sans", sans-serif;
-    padding: 0;
-    font-size: 24px;
-    transform: rotate(-90deg) translateX(-0.75rem) translateY(-1.5rem);
-    cursor: pointer;
-    height: 0;
-    width: 0;
+	border: none;
+	background: transparent;
+	color: #ddd;
+	font-family: "Noto Sans", sans-serif;
+	padding: 0;
+	font-size: 24px;
+	transform: rotate(-90deg) translateX(-0.75rem) translateY(-1.5rem);
+	cursor: pointer;
+	height: 0;
+	width: 0;
 }
 
 aside:not(.off) .toggle button small {
-    display: none;
+	display: none;
 }
 
 aside.off .toggle button {
-    position: fixed;
-    transform: rotate(90deg) translateX(-0.5rem) translateY(-1rem);
+	position: fixed;
+	transform: rotate(90deg) translateX(-0.5rem) translateY(-1rem);
 }
 
 aside.off :not(:first-child) {
-    display: none;
+	display: none;
 }
 
 small {
-    font-size: 50%;
-    display: inline-block;
-    margin-top: -1rem;
+	font-size: 50%;
+	display: inline-block;
+	margin-top: -1rem;
 }

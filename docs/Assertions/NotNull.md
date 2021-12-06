@@ -1,26 +1,26 @@
 ---
-title: Not Null 
+title: Not Null
 ---
 
-## Assertion: Not Null 
+## Assertion: Not Null
 
-Asserts that a value is not `null` 
+Asserts that a value is not `null`
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.notNull(expression);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if `expression` does not evaluate to `null`
 
-Fails if `expression` evaluates to `null` 
+Fails if `expression` evaluates to `null`
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

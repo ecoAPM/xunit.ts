@@ -1,31 +1,32 @@
-import { TestSuite, Test } from "../../xunit";
+import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "assert";
 import InstanceOf from "../../src/Assertions/InstanceOf";
 
 export default class InstanceOfTests extends TestSuite {
-    @Test()
-    async ReturnsWhenTrue() {
-        //arrange
-        const value = new class X extends TestSuite { };
+	@Test()
+	async ReturnsWhenTrue() {
+		//arrange
+		const value = new class X extends TestSuite {
+		};
 
-        //act
-        InstanceOf(TestSuite, value);
+		//act
+		InstanceOf(TestSuite, value);
 
-        //assert
-        this.assert.true(true);
-    }
+		//assert
+		this.assert.true(true);
+	}
 
 	@Test()
 	async ThrowsWhenFalse() {
 		//arrange
-		const value = new class X { };
+		const value = new class X {
+		};
 
 		try {
 			//act
 			InstanceOf(TestSuite, value);
 			throw new Error("Assertion failed");
-		}
-		catch (exception) {
+		} catch (exception) {
 
 			//assert
 			this.assert.instanceOf(AssertionError, exception);
@@ -35,14 +36,14 @@ export default class InstanceOfTests extends TestSuite {
 	@Test()
 	async ExpectedValueIsTypeName() {
 		//arrange
-		const value = new class X { };
+		const value = new class X {
+		};
 
 		try {
 			//act
 			InstanceOf(TestSuite, value);
 			throw new Error("Assertion failed");
-		}
-		catch (exception) {
+		} catch (exception) {
 
 			//assert
 			this.assert.equal(TestSuite.name, (exception as AssertionError).expected);

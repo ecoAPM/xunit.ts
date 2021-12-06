@@ -1,27 +1,27 @@
 ---
-title: Not Equal 
+title: Not Equal
 ---
 
-## Assertion: Not Equal 
+## Assertion: Not Equal
 
-Asserts that two values are not equal 
+Asserts that two values are not equal
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.notEqual(expected, actual);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if `actual` and `expected` do not evaluate to equal values
 
-Fails if `actual` and `expected` evaluate to equal values 
+Fails if `actual` and `expected` evaluate to equal values
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `expected` | the expected value |
 | `actual` | the actual value |
 | `message` | (optional) message to display on failure |

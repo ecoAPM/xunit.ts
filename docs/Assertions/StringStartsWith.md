@@ -1,27 +1,27 @@
 ---
-title: String Starts With 
+title: String Starts With
 ---
 
-## Assertion: String Starts With 
+## Assertion: String Starts With
 
-Asserts that a string begins with a given substring 
+Asserts that a string begins with a given substring
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.stringStartsWith(needle, haystack);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if the first characters of `haystack` match `needle`
 
-Fails if the first characters of `haystack` do not match `needle` 
+Fails if the first characters of `haystack` do not match `needle`
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `needle` | the substring to find |
 | `haystack` | the string to search |
 | `message` | (optional) message to display on failure |

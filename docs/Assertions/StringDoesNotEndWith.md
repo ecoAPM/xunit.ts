@@ -1,27 +1,27 @@
 ---
-title: String Does Not End With 
+title: String Does Not End With
 ---
 
-## Assertion: String Does Not End With 
+## Assertion: String Does Not End With
 
-Asserts that a string does not end with a given substring 
+Asserts that a string does not end with a given substring
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.stringDoesNotEndWith(needle, haystack);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if the final characters of `haystack` do not match `needle`
 
-Fails if the final characters of `haystack` match `needle` 
+Fails if the final characters of `haystack` match `needle`
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `needle` | the substring to find |
 | `haystack` | the string to search |
 | `message` | (optional) message to display on failure |

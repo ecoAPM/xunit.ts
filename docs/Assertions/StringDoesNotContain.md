@@ -1,27 +1,27 @@
 ---
-title: String Does Not Contain 
+title: String Does Not Contain
 ---
 
-## Assertion: String Does Not Contain 
+## Assertion: String Does Not Contain
 
-Asserts that a string does not contain a given substring 
+Asserts that a string does not contain a given substring
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.stringDoesNotContain(needle, haystack);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if `needle` is not a substring of `haystack`
 
-Fails if `needle` is a substring of `haystack` 
+Fails if `needle` is a substring of `haystack`
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `needle` | the substring to find |
 | `haystack` | the string to search |
 | `message` | (optional) message to display on failure |

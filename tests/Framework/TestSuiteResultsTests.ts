@@ -5,60 +5,60 @@ import TestResult from "../../src/Framework/TestResult";
 
 export default class TestSuiteResultsTests extends TestSuite {
 
-    @Test()
-    async CanGetPassedTests()
-    {
-        //arrange
-        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
-        results.addResult('test1', new TestResult(ResultType.Passed, 0));
-        results.addResult('test2', new TestResult(ResultType.Passed, 0));
-        results.addResult('test3', new TestResult(ResultType.Passed, 0));
-        results.addResult('test4', new TestResult(ResultType.Failed, 0));
-        results.addResult('test5', new TestResult(ResultType.Failed, 0));
-        results.addResult('test6', new TestResult(ResultType.Incomplete, 0));
+	@Test()
+	async CanGetPassedTests() {
+		//arrange
+		const results = new TestSuiteResults(new class TestSuiteName extends TestSuite {
+		});
+		results.addResult("test1", new TestResult(ResultType.Passed, 0));
+		results.addResult("test2", new TestResult(ResultType.Passed, 0));
+		results.addResult("test3", new TestResult(ResultType.Passed, 0));
+		results.addResult("test4", new TestResult(ResultType.Failed, 0));
+		results.addResult("test5", new TestResult(ResultType.Failed, 0));
+		results.addResult("test6", new TestResult(ResultType.Incomplete, 0));
 
-        //act
-        const passed = results.count(ResultType.Passed);
+		//act
+		const passed = results.count(ResultType.Passed);
 
-        //assert
-        this.assert.equal(3, passed);
-    }
+		//assert
+		this.assert.equal(3, passed);
+	}
 
-    @Test()
-    async CanGetAllTests()
-    {
-        //arrange
-        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
-        results.addResult('test1', new TestResult(ResultType.Passed, 0));
-        results.addResult('test2', new TestResult(ResultType.Passed, 0));
-        results.addResult('test3', new TestResult(ResultType.Passed, 0));
-        results.addResult('test4', new TestResult(ResultType.Failed, 0));
-        results.addResult('test5', new TestResult(ResultType.Failed, 0));
-        results.addResult('test6', new TestResult(ResultType.Incomplete, 0));
+	@Test()
+	async CanGetAllTests() {
+		//arrange
+		const results = new TestSuiteResults(new class TestSuiteName extends TestSuite {
+		});
+		results.addResult("test1", new TestResult(ResultType.Passed, 0));
+		results.addResult("test2", new TestResult(ResultType.Passed, 0));
+		results.addResult("test3", new TestResult(ResultType.Passed, 0));
+		results.addResult("test4", new TestResult(ResultType.Failed, 0));
+		results.addResult("test5", new TestResult(ResultType.Failed, 0));
+		results.addResult("test6", new TestResult(ResultType.Incomplete, 0));
 
-        //act
-        const total = results.total();
+		//act
+		const total = results.total();
 
-        //assert
-        this.assert.equal(6, total);
-    }
+		//assert
+		this.assert.equal(6, total);
+	}
 
-    @Test()
-    async CanGetTotalDuration()
-    {
-        //arrange
-        const results = new TestSuiteResults(new class TestSuiteName extends TestSuite { });
-        results.addResult('test1', new TestResult(ResultType.Passed, 1.2));
-        results.addResult('test2', new TestResult(ResultType.Passed, 2.3));
-        results.addResult('test3', new TestResult(ResultType.Passed, 3.4));
-        results.addResult('test4', new TestResult(ResultType.Failed, 4.5));
-        results.addResult('test5', new TestResult(ResultType.Failed, 5.6));
-        results.addResult('test6', new TestResult(ResultType.Incomplete, 6.7));
+	@Test()
+	async CanGetTotalDuration() {
+		//arrange
+		const results = new TestSuiteResults(new class TestSuiteName extends TestSuite {
+		});
+		results.addResult("test1", new TestResult(ResultType.Passed, 1.2));
+		results.addResult("test2", new TestResult(ResultType.Passed, 2.3));
+		results.addResult("test3", new TestResult(ResultType.Passed, 3.4));
+		results.addResult("test4", new TestResult(ResultType.Failed, 4.5));
+		results.addResult("test5", new TestResult(ResultType.Failed, 5.6));
+		results.addResult("test6", new TestResult(ResultType.Incomplete, 6.7));
 
-        //act
-        const time = results.time();
+		//act
+		const time = results.time();
 
-        //assert
-        this.assert.equal(23.7, time);
-    }
+		//assert
+		this.assert.equal(23.7, time);
+	}
 }

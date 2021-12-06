@@ -1,33 +1,33 @@
-import Args from 'command-line-args';
-import ConsoleReporter from './Reporters/ConsoleReporter';
-import FileSystem from './IO/FileSystem';
-import JUnitReporter from './Reporters/JUnitReporter';
-import Output from './IO/Output';
-import ResultReporter from './Reporters/ResultReporter';
-import Runner from './Runners/Runner';
-import TestRunner from './Runners/TestRunner';
-import TestSuiteLoader from './Runners/TestSuiteLoader';
-import TestSuiteRunner from './Runners/TestSuiteRunner';
+import Args from "command-line-args";
+import ConsoleReporter from "./Reporters/ConsoleReporter";
+import FileSystem from "./IO/FileSystem";
+import JUnitReporter from "./Reporters/JUnitReporter";
+import Output from "./IO/Output";
+import ResultReporter from "./Reporters/ResultReporter";
+import Runner from "./Runners/Runner";
+import TestRunner from "./Runners/TestRunner";
+import TestSuiteLoader from "./Runners/TestSuiteLoader";
+import TestSuiteRunner from "./Runners/TestSuiteRunner";
 import fs from "fs/promises";
 import SonarReporter from "./Reporters/SonarReporter";
 
 export default class Factory {
-    static readonly file_system = new FileSystem(fs);
+	static readonly file_system = new FileSystem(fs);
 
-    static Runner(args: Args.CommandLineOptions) {
-        const loader = new TestSuiteLoader(Factory.file_system);
-        const reporters = Factory.Reporters(args);
-        const test_runner = new TestRunner(reporters);
-        const test_suite_runner = new TestSuiteRunner(test_runner, reporters);
+	static Runner(args: Args.CommandLineOptions) {
+		const loader = new TestSuiteLoader(Factory.file_system);
+		const reporters = Factory.Reporters(args);
+		const test_runner = new TestRunner(reporters);
+		const test_suite_runner = new TestSuiteRunner(test_runner, reporters);
 
-        return new Runner(loader, test_suite_runner, reporters);
-    }
+		return new Runner(loader, test_suite_runner, reporters);
+	}
 
-    static Reporters(args: Args.CommandLineOptions): ReadonlyArray<ResultReporter> {
-        return [
-            !args.quiet ? new ConsoleReporter(new Output(process.stdout)) : null,
-            args.junit !== undefined ? new JUnitReporter(Factory.file_system, args.junit ?? JUnitReporter.defaultFileName) : null,
-            args.sonar !== undefined ? new SonarReporter(Factory.file_system, args.sonar ?? SonarReporter.defaultFileName) : null
-        ].filter(r => r !== null) as ResultReporter[];
-    }
+	static Reporters(args: Args.CommandLineOptions): ReadonlyArray<ResultReporter> {
+		return [
+			!args.quiet ? new ConsoleReporter(new Output(process.stdout)) : null,
+			args.junit !== undefined ? new JUnitReporter(Factory.file_system, args.junit ?? JUnitReporter.defaultFileName) : null,
+			args.sonar !== undefined ? new SonarReporter(Factory.file_system, args.sonar ?? SonarReporter.defaultFileName) : null
+		].filter(r => r !== null) as ResultReporter[];
+	}
 }
