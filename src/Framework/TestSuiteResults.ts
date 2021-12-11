@@ -1,26 +1,27 @@
-import { ResultType } from './ResultType';
+import { ResultType } from "./ResultType";
 import TestResult from "./TestResult";
 import TestSuite from "./TestSuite";
 
 export default class TestSuiteResults {
 
-    readonly results: Record<string, TestResult> = {};
-    
-    constructor(readonly suite: TestSuite) { }
+	readonly results: Record<string, TestResult> = {};
 
-    addResult(name: string, result: TestResult) {
-        this.results[name] = result;
-    }
+	constructor(readonly suite: TestSuite) {
+	}
 
-    total() {
-        return Object.values(this.results).length;
-    }
+	addResult(name: string, result: TestResult) {
+		this.results[name] = result;
+	}
 
-    count(result_type: ResultType) {
-        return Object.values(this.results).filter(result => result.type === result_type).length;
-    }
+	total() {
+		return Object.values(this.results).length;
+	}
 
-    time() {
-        return Object.values(this.results).reduce((sum, result) => sum + result.duration, 0);
-    }
+	count(result_type: ResultType) {
+		return Object.values(this.results).filter(result => result.type === result_type).length;
+	}
+
+	time() {
+		return Object.values(this.results).reduce((sum, result) => sum + result.duration, 0);
+	}
 }

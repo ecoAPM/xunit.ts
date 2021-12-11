@@ -15,7 +15,7 @@ import { AssertionError } from "assert";
  * @example
  * this.assert.instanceOf(type, object);
  */
-export default function InstanceOf<T>(type: any, expression: any, message?: string) {
+export default function InstanceOf(type: any, expression: any, message?: string) {
 	if (expression instanceof type) {
 		return;
 	}
@@ -24,5 +24,5 @@ export default function InstanceOf<T>(type: any, expression: any, message?: stri
 		message: message || `Expected expression of type, but was ${typeof expression}`,
 		expected: type.name,
 		actual: typeof expression
-	})
+	});
 }

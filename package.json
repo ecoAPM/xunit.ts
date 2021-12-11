@@ -1,38 +1,41 @@
 {
-  "name": "xunit.ts",
-  "version": "1.0.2",
-  "description": "A unit testing framework for TypeScript, following standard xUnit patterns",
-  "main": "dist/xunit.js",
-  "author": "ecoAPM LLC",
-  "homepage": "https://github.com/ecoAPM/xunit.ts",
-  "bugs": "https://github.com/ecoAPM/xunit.ts/issues",
-  "license": "MIT",
-  "dependencies": {
-    "colors": "1.4.0",
-    "command-line-args": "5.2.0",
-    "command-line-usage": "6.1.1",
-    "lodash.isequal": "4.5.0",
-    "typescript": "4.5.2",
-    "xml": "1.0.1"
-  },
-  "devDependencies": {
-    "@microsoft/tsdoc": "0.13.2",
-    "@types/command-line-args": "5.2.0",
-    "@types/command-line-usage": "5.0.2",
-    "@types/lodash.isequal": "4.5.5",
-    "@types/node": "16.11.11",
-    "@types/xml": "1.0.6",
-    "notosans": "5.0.0",
-    "ts-mockito": "2.6.1",
-    "ts-node": "10.4.0"
-  },
-  "scripts": {
-    "clean": "rm -rf dist",
-    "build": "tsc",
-    "test": "node dist/cli.js dist/tests",
-    "tsdoc": "cp -r node_modules/notosans/* docs/assets &&  ts-node tsdoc.ts"
-  },
-  "bin": {
-    "xunit": "dist/cli.js"
-  }
+	"name": "xunit.ts",
+	"version": "1.0.2",
+	"description": "A unit testing framework for TypeScript, following standard xUnit patterns",
+	"main": "dist/xunit.js",
+	"author": "ecoAPM LLC",
+	"homepage": "https://github.com/ecoAPM/xunit.ts",
+	"bugs": "https://github.com/ecoAPM/xunit.ts/issues",
+	"license": "MIT",
+	"dependencies": {
+		"colors": "1.4.0",
+		"command-line-args": "5.2.0",
+		"command-line-usage": "6.1.1",
+		"lodash.isequal": "4.5.0",
+		"typescript": "4.5.3",
+		"xml": "1.0.1"
+	},
+	"devDependencies": {
+		"@microsoft/tsdoc": "0.13.2",
+		"@types/command-line-args": "5.2.0",
+		"@types/command-line-usage": "5.0.2",
+		"@types/lodash.isequal": "4.5.5",
+		"@types/node": "16.11.12",
+		"@types/xml": "1.0.6",
+		"@typescript-eslint/eslint-plugin": "5.6.0",
+		"@typescript-eslint/parser": "5.6.0",
+		"eslint": "8.4.1",
+		"notosans": "5.0.0",
+		"ts-mockito": "2.6.1",
+		"ts-node": "10.4.0"
+	},
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "tsc",
+		"test": "node dist/cli.js dist/tests",
+		"tsdoc": "cp -r node_modules/notosans/* docs/assets && ts-node tsdoc.ts"
+	},
+	"bin": {
+		"xunit": "dist/cli.js"
+	}
 }

@@ -1,13 +1,14 @@
-import ResultReporter from '../Reporters/ResultReporter';
-import TestSuite from '../Framework/TestSuite';
-import TestSuiteResults from '../Framework/TestSuiteResults';
-import TestInfo from '../Framework/TestInfo';
-import TestRunner from './TestRunner';
-import TestName from '../Framework/TestName';
+import ResultReporter from "../Reporters/ResultReporter";
+import TestSuite from "../Framework/TestSuite";
+import TestSuiteResults from "../Framework/TestSuiteResults";
+import TestInfo from "../Framework/TestInfo";
+import TestRunner from "./TestRunner";
+import TestName from "../Framework/TestName";
 
 export default class TestSuiteRunner {
 
-    constructor(private readonly runner: TestRunner, private readonly reporters: ReadonlyArray<ResultReporter>) { }
+    constructor(private readonly runner: TestRunner, private readonly reporters: ReadonlyArray<ResultReporter>) {
+    }
 
     async runSuite(suite: TestSuite) {
         await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));

@@ -1,34 +1,33 @@
-import { TestSuite, Test } from "../../xunit";
+import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "assert";
 import Undefined from "../../src/Assertions/Undefined";
 
 export default class UndefinedTests extends TestSuite {
-    @Test()
-    async ReturnsWhenTrue() {
-        //arrange
-        const value = undefined;
+	@Test()
+	async ReturnsWhenTrue() {
+		//arrange
+		const value = undefined;
 
-        //act
-        Undefined(value);
+		//act
+		Undefined(value);
 
-        //assert
-        this.assert.true(true);
-    }
+		//assert
+		this.assert.true(true);
+	}
 
-    @Test()
-    async ThrowsWhenFalse() {
-        //arrange
-        const value = null;
+	@Test()
+	async ThrowsWhenFalse() {
+		//arrange
+		const value = null;
 
-        try {
-            //act
-            Undefined(value);
-            throw new Error("Assertion failed");
-        }
-        catch (exception) {
+		try {
+			//act
+			Undefined(value);
+			throw new Error("Assertion failed");
+		} catch (exception) {
 
-            //assert
-            this.assert.instanceOf(AssertionError, exception);
-        }
-    }
+			//assert
+			this.assert.instanceOf(AssertionError, exception);
+		}
+	}
 }

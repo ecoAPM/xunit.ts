@@ -1,5 +1,5 @@
-import Usage from 'command-line-usage';
-import JUnitReporter from './Reporters/JUnitReporter';
+import Usage from "command-line-usage";
+import JUnitReporter from "./Reporters/JUnitReporter";
 import Process from "process";
 import Args from "command-line-args";
 import Runner from "./Runners/Runner";
@@ -82,11 +82,11 @@ export default class CLI {
     }
 
     async run(): Promise<boolean> {
-        const args = Args(CLI.options, {argv: this.process.argv});
+        const args = Args(CLI.options, { argv: this.process.argv });
 
         if (args.help) {
             this.process.stdout.write(CLI.usage);
-            this.process.stdout.write('\n');
+            this.process.stdout.write("\n");
             return true;
         }
 
@@ -100,7 +100,7 @@ export default class CLI {
         } catch (error) {
             if (error instanceof Error) {
                 this.process.stderr.write(`An unhandled ${error.name} occurred: ${error.message}\n`);
-                this.process.stderr.write(error.stack?.toString() || '(no call stack)\n');
+                this.process.stderr.write(error.stack?.toString() || "(no call stack)\n");
             }
             return false;
         }

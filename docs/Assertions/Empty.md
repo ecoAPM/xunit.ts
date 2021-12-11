@@ -1,26 +1,26 @@
 ---
-title: Empty 
+title: Empty
 ---
 
-## Assertion: Empty 
+## Assertion: Empty
 
-Asserts that an array is empty 
+Asserts that an array is empty
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.empty(array);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if `array` contains zero elements
 
-Fails if `array` contains any elements 
+Fails if `array` contains any elements
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `array` | the array to check |
 | `message` | (optional) message to display on failure |

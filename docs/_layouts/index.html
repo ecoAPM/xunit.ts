@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>
-            {% if page.title %}
-            {{page.title}} &mdash;
-            {% endif %}
-            xunit.ts Documentation
-        </title>
+<head>
+	<title>
+		{% if page.title %}
+		{{page.title}} &mdash;
+		{% endif %}
+		xunit.ts Documentation
+	</title>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
 
-        <link rel="stylesheet" href="{{'/assets/noto.css' | relative_url }}" />
-        <link rel="stylesheet" href="{{'/assets/site.css' | relative_url }}" />
-        <link rel="icon" href="{{'/assets/icon.png' | relative_url}}" />
-    </head>
+	<link href="{{'/assets/noto.css' | relative_url }}" rel="stylesheet"/>
+	<link href="{{'/assets/site.css' | relative_url }}" rel="stylesheet"/>
+	<link href="{{'/assets/icon.png' | relative_url}}" rel="icon"/>
+</head>
 
-    <body>
-        <main>
-            <aside>
-                <div class="toggle">
-                    <button title="Toggle Navigation" onclick="return toggleNav();">
-                        ⌅
-                        <small>Toggle Navigation</small>
-                    </button>
-                </div>
-                <h1>
-                    <a href="{{'/' | relative_url}}">
-                        <img src="{{'/assets/logo-black.png' | relative_url}}">
-                    </a>
-                </h1>
-                <h3>
-                    <a href="https://ecoAPM.com" target="_blank">
-                        by ecoAPM
-                    </a>
-                </h3>
-                {% include navigation.html %}
-                <footer>
-                    <a href="https://github.com/ecoAPM/xunit.ts">
-                        Source Code on GitHub
-                    </a>
-                </footer>
-            </aside>
+<body>
+<main>
+	<aside>
+		<div class="toggle">
+			<button onclick="return toggleNav();" title="Toggle Navigation">
+				⌅
+				<small>Toggle Navigation</small>
+			</button>
+		</div>
+		<h1>
+			<a href="{{'/' | relative_url}}">
+				<img src="{{'/assets/logo-black.png' | relative_url}}">
+			</a>
+		</h1>
+		<h3>
+			<a href="https://ecoAPM.com" target="_blank">
+				by ecoAPM
+			</a>
+		</h3>
+		{% include navigation.html %}
+		<footer>
+			<a href="https://github.com/ecoAPM/xunit.ts">
+				Source Code on GitHub
+			</a>
+		</footer>
+	</aside>
 
-            <article>
-                {{content}}
-            </article>
-            </main>
+	<article>
+		{{content}}
+	</article>
+</main>
 
-            <script>
-                function toggleNav() {
-                    const aside = document.querySelector('aside');
-                    aside.className = aside.className === 'off' ? '' : 'off';
-                }
+<script>
+	function toggleNav() {
+		const aside = document.querySelector("aside");
+		aside.className = aside.className === "off" ? "" : "off";
+	}
 
-                document.body.onload = function checkMobile() {
-                    if (document.body.clientWidth < 640) {
-                        toggleNav();
-                    }
-                }
-            </script>
-    </body>
+	document.body.onload = function checkMobile() {
+		if (document.body.clientWidth < 640) {
+			toggleNav();
+		}
+	};
+</script>
+</body>
 
 </html>

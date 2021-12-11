@@ -1,26 +1,26 @@
 ---
-title: Undefined 
+title: Undefined
 ---
 
-## Assertion: Undefined 
+## Assertion: Undefined
 
-Asserts that a given value is equal to `undefined` 
+Asserts that a given value is equal to `undefined`
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.undefined(expression);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if `expression` evaluates to `undefined`
 
-Fails if `expression` does not evaluate to `undefined` 
+Fails if `expression` does not evaluate to `undefined`
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

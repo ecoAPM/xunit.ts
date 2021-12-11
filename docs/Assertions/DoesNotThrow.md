@@ -1,26 +1,26 @@
 ---
-title: Does Not Throw 
+title: Does Not Throw
 ---
 
-## Assertion: Does Not Throw 
+## Assertion: Does Not Throw
 
-Asserts that an expression does not throw an error/exception 
+Asserts that an expression does not throw an error/exception
 
-### Example 
+### Example
 
-```ts 
+```ts
 this.assert.doesNotThrow(() => expression);
-``` 
+```
 
-### Conditions 
+### Conditions
 
 Passes if calling `expression` does not throw an error/exception
 
-Fails if calling `expression` throws an error/exception 
+Fails if calling `expression` throws an error/exception
 
-### Parameters 
+### Parameters
 
-| Name | Description | 
-|---|---| 
+| Name | Description |
+|---|---|
 | `expression` | the expression to run |
 | `message` | (optional) message to display on failure |

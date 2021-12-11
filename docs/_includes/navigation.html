@@ -1,34 +1,34 @@
 <nav>
-    <ul>
-        <li>
-            <a href="{{'/' | relative_url }}">
-                Getting Started
-            </a>
-        </li>
-        <li>
-            <a href="{{'/output' | relative_url }}">
-                Output Options
-            </a>
-        </li>
-        <li>
-            <i>Assertions</i>
-            <ul>
-                {% for category in site.data.assertions %}
-                <li>
-                    <i>{{ category.name }}</i>
-                    <ul>
-                        {% for assertion in category.assertions %}
-                        <li>
-                            <a href="{{'/Assertions' | relative_url}}/{{ assertion  | replace: ' ' ''}}">
-                                {{ assertion }}
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                {% endfor %}
-            </ul>
-        </li>
+	<ul>
+		<li>
+			<a href="{{'/' | relative_url }}">
+				Getting Started
+			</a>
+		</li>
+		<li>
+			<a href="{{'/output' | relative_url }}">
+				Output Options
+			</a>
+		</li>
+		<li>
+			<i>Assertions</i>
+			<ul>
+				{% for category in site.data.assertions %}
+				<li>
+					<i>{{ category.name }}</i>
+					<ul>
+						{% for assertion in category.assertions %}
+						<li>
+							<a href="{{'/Assertions' | relative_url}}/{{ assertion  | replace: ' ' ''}}">
+								{{ assertion }}
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
 
-    </ul>
+	</ul>
 </nav>

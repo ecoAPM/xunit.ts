@@ -1,9 +1,16 @@
-import fs_promises from 'fs/promises';
+import fs_promises from "fs/promises";
 import path from "path";
 
 export default class FileSystem {
 
     constructor(private readonly fs: typeof fs_promises) {
+    }
+
+    static extension(file: string) {
+        const match = file.match(/\.(\w+)$/);
+        return match !== undefined && match !== null && match.length > 1
+            ? match[1]
+            : "";
     }
 
     async getFiles(dir: string): Promise<string[]> {
@@ -21,13 +28,6 @@ export default class FileSystem {
         } catch (e) {
             return [];
         }
-    }
-
-    static extension(file: string) {
-        const match = file.match(/\.(\w+)$/);
-        return match !== undefined && match !== null && match.length > 1
-            ? match[1]
-            : '';
     }
 
     async save(data: string, file_path: string) {
