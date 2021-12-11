@@ -45,8 +45,8 @@ export default class CLI {
             name: "filter",
             alias: "f",
             type: String,
-            typeLabel: "[filename]",
-            description: "Run a single test by its fully qualified name (SuiteName.TestName)"
+            typeLabel: "[SuiteName.TestName]",
+            description: "Run a single test by its fully qualified name"
         }
     ];
 
