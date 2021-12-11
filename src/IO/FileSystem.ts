@@ -23,12 +23,6 @@ export default class FileSystem {
         }
     }
 
-    static fileName(filePath: string) {
-        const file = filePath.substring(filePath.lastIndexOf(path.sep) + 1)
-        const extension = FileSystem.extension(file);
-        return file.substring(0, file.lastIndexOf(extension) - 1)
-    }
-
     static extension(file: string) {
         const match = file.match(/\.(\w+)$/);
         return match !== undefined && match !== null && match.length > 1
