@@ -22,16 +22,12 @@ export default class TestSuiteLoader {
     async loadSelectedTestSuites(dir: string, filter: string): Promise<Record<string, TestSuite>> {
         const files = (await this.file_system.getFiles(dir))
             .filter((file) => FileSystem.extension(file) === FileSystem.extension(__filename));
+        const [selectedSuite] = filter.split('.');
         const suites: Record<string, TestSuite> = {};
         for (const file of files) {
-            const [, relativePathToSuite] = file.split(dir + path.sep);
-            const suiteName = FileSystem.fileName(relativePathToSuite);
-            console.log(relativePathToSuite, suiteName);
-            if (!suiteName || !filter.startsWith(suiteName)) {
-                continue;
-            }
             const suite = await TestSuiteLoader.loadTestSuite(file);
-            if (suite !== undefined && suite !== null) {
+            const suiteName = suite?.constructor.name;
+            if (suite !== undefined && suite !== null && suiteName === selectedSuite) {
                 suites[file] = suite;
             }
         }
