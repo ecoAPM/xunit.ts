@@ -27,7 +27,9 @@ export default class Runner {
         const results: Record<string, TestSuiteResults> = {};
         for (const file of Object.keys(suites)) {
             const suite = suites[file];
-            results[file] = await this.runner.runSuite(suite, filter)
+            results[file] = await (
+                filter ? this.runner.runTestFromSuite(suite, filter) : this.runner.runSuite(suite)
+            );
         }
         await Promise.all(this.reporters.map(r => r.runCompleted(results)));
         return results;

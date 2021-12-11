@@ -9,19 +9,24 @@ export default class TestSuiteRunner {
 
     constructor(private readonly runner: TestRunner, private readonly reporters: ReadonlyArray<ResultReporter>) { }
 
-    async runSuite(suite: TestSuite, testName?: string) {
+    async runSuite(suite: TestSuite) {
         await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
         const tests = suite.getTests();
-        let filteredTests = tests;
-        if (testName) {
-            filteredTests = Object.entries(tests)
-                .reduce((acc, [name, test]) => {
-                    if (name === TestName.toSentenceCase(testName)) {
-                        acc[name] = test;
-                    }
-                    return acc;
-                }, {} as Record<string, TestInfo>)
-        }
+        const results = await this.runTests(suite, tests);
+        await Promise.all(this.reporters.map(r => r.suiteCompleted(suite, results)));
+        return results;
+    }
+
+    async runTestFromSuite(suite: TestSuite, testName: string) {
+        await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
+        const tests = suite.getTests();
+        const filteredTests = Object.entries(tests)
+            .reduce((acc, [name, test]) => {
+                if (name === TestName.toSentenceCase(testName)) {
+                    acc[name] = test;
+                }
+                return acc;
+            }, {} as Record<string, TestInfo>);
         const results = await this.runTests(suite, filteredTests);
         await Promise.all(this.reporters.map(r => r.suiteCompleted(suite, results)));
         return results;
