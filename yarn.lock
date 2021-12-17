@@ -121,10 +121,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.0.tgz#62797cee3b8b497f6547503b2312254d4fe3c2bb"
   integrity sha512-eMhwJXc931Ihh4tkU+Y7GiLzT/y/DBNpNtr4yU9O2w3SYBsr9NaOPhQlLKRmoWtI54uNwuo0IOUFQjVOTZYRvw==
 
-"@types/xml@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@types/xml/-/xml-1.0.6.tgz"
-  integrity sha512-BCpp2oke88DwxJ/h748oLOQWdZ6k1Uv+aB9LZpyh/VhWqe4mE7X7ysNhF57cRPBs8/GyuUn1VRl+IlFdYsZPsA==
+"@types/xml@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@types/xml/-/xml-1.0.7.tgz#8280ea77692ae224f841ed7cbdb8d57a89eabec2"
+  integrity sha512-K1zUVaIJqyutuLRzQtdinw/yeriIYGLY8QCHMU9o3/BGgopl5XIivbjHuSBf1ZdwVqkPjkdeXIHaACFCqh0Xug==
   dependencies:
     "@types/node" "*"
 
