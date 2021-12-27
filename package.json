@@ -1,6 +1,6 @@
 {
 	"name": "xunit.ts",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A unit testing framework for TypeScript, following standard xUnit patterns",
 	"main": "dist/xunit.js",
 	"author": "ecoAPM LLC",
@@ -12,7 +12,6 @@
 		"command-line-args": "5.2.0",
 		"command-line-usage": "6.1.1",
 		"lodash.isequal": "4.5.0",
-		"typescript": "4.5.4",
 		"xml": "1.0.1"
 	},
 	"devDependencies": {
@@ -27,7 +26,11 @@
 		"eslint": "8.5.0",
 		"notosans": "5.0.0",
 		"ts-mockito": "2.6.1",
-		"ts-node": "10.4.0"
+		"ts-node": "10.4.0",
+		"typescript": "4.5.4"
+	},
+	"peerDependencies": {
+		"typescript": "^4.0.0"
 	},
 	"scripts": {
 		"clean": "rm -rf dist",
