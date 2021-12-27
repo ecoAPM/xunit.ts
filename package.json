@@ -9,7 +9,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"colors": "1.4.0",
-		"command-line-args": "5.2.0",
+		"command-line-args": "5.2.1",
 		"command-line-usage": "6.1.1",
 		"lodash.isequal": "4.5.0",
 		"xml": "1.0.1"
@@ -19,15 +19,15 @@
 		"@types/command-line-args": "5.2.0",
 		"@types/command-line-usage": "5.0.2",
 		"@types/lodash.isequal": "4.5.5",
-		"@types/node": "17.0.4",
-		"@types/xml": "1.0.7",
-		"@typescript-eslint/eslint-plugin": "5.8.0",
-		"@typescript-eslint/parser": "5.8.0",
-		"eslint": "8.5.0",
+		"@types/node": "17.0.13",
+		"@types/xml": "1.0.8",
+		"@typescript-eslint/eslint-plugin": "5.10.1",
+		"@typescript-eslint/parser": "5.10.1",
+		"eslint": "8.8.0",
 		"notosans": "5.0.0",
 		"ts-mockito": "2.6.1",
 		"ts-node": "10.4.0",
-		"typescript": "4.5.4"
+		"typescript": "4.5.5"
 	},
 	"peerDependencies": {
 		"typescript": "^4.0.0"
