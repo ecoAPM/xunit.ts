@@ -23,7 +23,7 @@
 		"@types/xml": "1.0.7",
 		"@typescript-eslint/eslint-plugin": "5.8.1",
 		"@typescript-eslint/parser": "5.8.1",
-		"eslint": "8.5.0",
+		"eslint": "8.6.0",
 		"notosans": "5.0.0",
 		"ts-mockito": "2.6.1",
 		"ts-node": "10.4.0",
