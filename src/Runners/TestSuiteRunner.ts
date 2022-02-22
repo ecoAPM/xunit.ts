@@ -9,9 +9,9 @@ export default class TestSuiteRunner {
 	constructor(private readonly runner: TestRunner, private readonly reporters: ReadonlyArray<ResultReporter>) {
 	}
 
-	async runSuite(suite: TestSuite) {
+	async runSuite(suite: TestSuite, filters: RegExp[]) {
 		await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
-		const tests = suite.getTests();
+		const tests = suite.getTests(filters);
 		const results = await this.runTests(suite, tests);
 		await Promise.all(this.reporters.map(r => r.suiteCompleted(suite, results)));
 		return results;

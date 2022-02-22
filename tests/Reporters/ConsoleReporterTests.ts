@@ -18,32 +18,38 @@ export default class ConsoleReporterTests extends TestSuite {
 		reporter.runStarted();
 
 		//assert
+		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.verify(out.writeLine()).once();
 	}
 
 	@Test()
 	async OutputsSuiteNameOnStart() {
 		//arrange
+		const test_suite = new class TestSuiteName extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.suiteStarted(new class TestSuiteName extends TestSuite {
-		});
+		reporter.suiteStarted(test_suite);
 
 		//assert
+		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.verify(out.writeLine("Test Suite Name")).once();
 	}
 
 	@Test()
 	async OutputsTestNameOnStart() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testStarted(new class X extends TestSuite {
-		}, "unit test name");
+		reporter.testStarted(test_suite, "unit test name");
 
 		//assert
 		const [ output ] = Mockito.capture(out.write).first();
@@ -51,14 +57,16 @@ export default class ConsoleReporterTests extends TestSuite {
 	}
 
 	@Test()
-	async OutputsQuestionMarkOnImcomplete() {
+	async OutputsQuestionMarkOnIncomplete() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testIncomplete(new class X extends TestSuite {
-		}, "unit test name");
+		reporter.testIncomplete(test_suite, "unit test name");
 
 		//assert
 		const [ result ] = Mockito.capture(out.overwrite).first();
@@ -68,12 +76,14 @@ export default class ConsoleReporterTests extends TestSuite {
 	@Test()
 	async OutputsCheckmarkOnPass() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testPassed(new class X extends TestSuite {
-		}, "unit test name", 0);
+		reporter.testPassed(test_suite, "unit test name", 0);
 
 		//assert
 		const [ result ] = Mockito.capture(out.overwrite).first();
@@ -83,12 +93,14 @@ export default class ConsoleReporterTests extends TestSuite {
 	@Test()
 	async OutputsXOnFailure() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testFailed(new class X extends TestSuite {
-		}, "unit test name", new AssertionError({}), 0);
+		reporter.testFailed(test_suite, "unit test name", new AssertionError({}), 0);
 
 		//assert
 		const [ result ] = Mockito.capture(out.overwrite).first();
@@ -98,12 +110,14 @@ export default class ConsoleReporterTests extends TestSuite {
 	@Test()
 	async OutputsStackOnError() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testErrored(new class X extends TestSuite {
-		}, "unit test name", new Error("unhandled exception"), 0);
+		reporter.testErrored(test_suite, "unit test name", new Error("unhandled exception"), 0);
 
 		//assert
 		const stack = Mockito.capture(out.writeLine).first();
@@ -113,13 +127,15 @@ export default class ConsoleReporterTests extends TestSuite {
 	@Test()
 	async OutputsAssertionDiff() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 		const error = new AssertionError({ message: "failed because reasons", expected: 123, actual: 234 });
 
 		//act
-		reporter.testFailed(new class X extends TestSuite {
-		}, "unit test name", error, 0);
+		reporter.testFailed(test_suite, "unit test name", error, 0);
 
 		//assert
 		const message = Mockito.capture(out.writeLine).first();
@@ -135,28 +151,34 @@ export default class ConsoleReporterTests extends TestSuite {
 	@Test()
 	async OutputsDurationOnTestCompleted() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testPassed(new class X extends TestSuite {
-		}, "unit test name", 4.56);
+		reporter.testPassed(test_suite, "unit test name", 4.56);
 
 		//assert
+		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.verify(out.write(" (5 ms)")).once();
 	}
 
 	@Test()
 	async OutputsTotalsOnSuiteCompleted() {
 		//arrange
+		const test_suite = new class X extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		let console = "";
+		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.when(out.writeLine(Mockito.anyString())).thenCall((line: string) => console += line + "\n");
 
-		const results = new TestSuiteResults(new class TestSuiteName extends TestSuite {
-		});
+		const results = new TestSuiteResults(test_suite);
 		results.addResult("test1", new TestResult(ResultType.Passed, 1.2));
 		results.addResult("test2", new TestResult(ResultType.Passed, 2.3));
 		results.addResult("test3", new TestResult(ResultType.Passed, 3.4));
@@ -165,8 +187,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		results.addResult("test6", new TestResult(ResultType.Incomplete, 6.7));
 
 		//act
-		reporter.suiteCompleted(new class X extends TestSuite {
-		}, results);
+		reporter.suiteCompleted(test_suite, results);
 
 		//assert
 		this.assert.stringContains("3 / 6", console);
@@ -183,20 +204,24 @@ export default class ConsoleReporterTests extends TestSuite {
 		reporter.runCompleted({});
 
 		//assert
+		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.verify(out.writeLine("No tests found!")).once();
 	}
 
 	@Test()
 	async OutputsResultTotals() {
 		//arrange
+		const test_suite = new class TestSuiteName extends TestSuite {
+		};
+
 		const out = Mockito.mock<Output>();
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		let console = "";
+		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.when(out.writeLine(Mockito.anyString())).thenCall((line: string) => console += line + "\n");
 
-		const results = new TestSuiteResults(new class TestSuiteName extends TestSuite {
-		});
+		const results = new TestSuiteResults(test_suite);
 		results.addResult("test1", new TestResult(ResultType.Passed, 0));
 		results.addResult("test2", new TestResult(ResultType.Passed, 0));
 		results.addResult("test3", new TestResult(ResultType.Passed, 0));

@@ -15,13 +15,13 @@ export default class Runner {
 			&& tests_with_results.filter(result => result.count(ResultType.Passed) < result.total()).length === 0;
 	}
 
-	async runAll(dir: string): Promise<Record<string, TestSuiteResults>> {
+	async runAll(dir: string, filters: RegExp[]): Promise<Record<string, TestSuiteResults>> {
 		await Promise.all(this.reporters.map(r => r.runStarted()));
 		const results: Record<string, TestSuiteResults> = {};
-		const suites = await this.loader.loadTestSuites(dir);
+		const suites = await this.loader.loadTestSuites(dir, filters);
 		for (const file of Object.keys(suites)) {
 			const suite = suites[file];
-			results[file] = await this.runner.runSuite(suite);
+			results[file] = await this.runner.runSuite(suite, filters);
 		}
 		await Promise.all(this.reporters.map(r => r.runCompleted(results)));
 		return results;

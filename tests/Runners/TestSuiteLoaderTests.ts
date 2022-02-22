@@ -62,7 +62,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 		const module = `dist${path.sep}tests${path.sep}Runners${path.sep}TestSuiteLoaderTests`;
 
 		//act
-		const suite = await TestSuiteLoader.loadTestSuite(module);
+		const suite = await TestSuiteLoader.loadTestSuite(module, []);
 
 		//assert
 		this.assert.instanceOf(TestSuite, suite);
@@ -74,7 +74,19 @@ export default class TestSuiteLoaderTests extends TestSuite {
 		const module = `dist${path.sep}src${path.sep}Runners${path.sep}TestSuiteLoader`;
 
 		//act
-		const suite = await TestSuiteLoader.loadTestSuite(module);
+		const suite = await TestSuiteLoader.loadTestSuite(module, []);
+
+		//assert
+		this.assert.null(suite);
+	}
+
+	@Test()
+	async TestSuiteWithNoFilteredTestsReturnsNull() {
+		//arrange
+		const module = `dist${path.sep}tests${path.sep}Runners${path.sep}TestSuiteLoaderTests`;
+
+		//act
+		const suite = await TestSuiteLoader.loadTestSuite(module, [new RegExp("nonexistentTest")]);
 
 		//assert
 		this.assert.null(suite);
@@ -92,7 +104,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 		const loader = new TestSuiteLoader(Mockito.instance(file_system));
 
 		//act
-		const suites = await loader.loadTestSuites("tests");
+		const suites = await loader.loadTestSuites("tests", []);
 
 		//assert
 		const values = Object.values(suites);

@@ -16,6 +16,14 @@ export default class CLI {
 			description: "The path where tests to run are located (-d/--dir flag optional)"
 		},
 		{
+			name: "filter",
+			alias: "f",
+			type: String,
+			multiple: true,
+			typeLabel: "<regex>",
+			description: "A regular expression to filter against TestSuiteName.TestMethodName()"
+		},
+		{
 			name: "junit",
 			alias: "j",
 			type: String,
@@ -33,7 +41,7 @@ export default class CLI {
 			name: "quiet",
 			alias: "q",
 			type: Boolean,
-			description: "Do not print test results to stdout"
+			description: "Do not print individual test results to stdout"
 		},
 		{
 			name: "help",
@@ -51,8 +59,8 @@ export default class CLI {
 		{
 			header: "Usage",
 			content: [
-				"<npm run | yarn> xunit [-j|--junit [filename]] [-s|--sonar [filename]]",
-				"[-q|--quiet] [-d|--dir] <directory>"
+				"<npm run | yarn> xunit [-d|--dir] <directory>",
+				"[-q|--quiet] [-j|--junit [filename]] [-s|--sonar [filename]] [-f|--filter regex]"
 			]
 		},
 		{
@@ -60,7 +68,9 @@ export default class CLI {
 			content: [
 				"npm run xunit dist/tests",
 				"yarn xunit --junit results.xml --dir dist/tests --quiet",
-				"yarn xunit -q -s -d dist/tests"
+				"yarn xunit -q -s -d dist/tests",
+				"yarn xunit dist/tests --filter MyTestSuite",
+				"yarn xunit dist/tests -f MyTestSuite.JustOneTest",
 			]
 		},
 		{
@@ -75,7 +85,7 @@ export default class CLI {
 	}
 
 	async run(): Promise<boolean> {
-		const args = Args(CLI.options, { argv: this.process.argv });
+		const args = Args(CLI.options, {argv: this.process.argv});
 
 		if (args.help) {
 			this.process.stdout.write(CLI.usage);
@@ -86,7 +96,8 @@ export default class CLI {
 		const runner = this.runnerFactory(args);
 
 		try {
-			const results = await runner.runAll(args.dir);
+			const filters = args.filter ?? [];
+			const results = await runner.runAll(args.dir, filters.map((f: string) => new RegExp(f)));
 			return Runner.allTestsPassed(results);
 		} catch (error) {
 			if (error instanceof Error) {

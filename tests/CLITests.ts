@@ -50,7 +50,7 @@ export default class CLITests extends TestSuite {
 		Mockito.when(process.stderr).thenReturn(Mockito.instance(err));
 		Mockito.when(process.argv).thenReturn([ "dist/tests" ]);
 		const runner = Mockito.mock(Runner);
-		Mockito.when(runner.runAll(Mockito.anyString())).thenReject(new Error("unit test"));
+		Mockito.when(runner.runAll(Mockito.anyString(), Mockito.anything())).thenReject(new Error("unit test"));
 		const cli = new CLI(() => Mockito.instance(runner), Mockito.instance(process));
 
 		//act

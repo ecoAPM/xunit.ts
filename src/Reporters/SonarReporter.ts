@@ -13,7 +13,7 @@ export default class SonarReporter extends XMLReporter {
 			file: [
 				{
 					_attr: {
-						path: file.substr(file.split(path.sep)[0].length + 1).replace(/\.js$/, ".ts"),
+						path: file.substring(file.split(path.sep)[0].length + 1).replace(/\.js$/, ".ts"),
 					}
 				},
 				...Object.keys(results.results)

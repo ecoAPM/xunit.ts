@@ -4,7 +4,7 @@ export default class CompilerTests extends TestSuite {
 	@Test()
 	async TestsAreFound() {
 		//act
-		const tests = this.getTests();
+		const tests = this.getTests([]);
 
 		//assert
 		this.assert.count(1, Object.values(tests));

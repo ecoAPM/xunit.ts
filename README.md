@@ -85,6 +85,10 @@ You can also run `xunit.ts` from a script in your `package.json`:
 }
 ```
 
+#### Filtering tests
+
+The `xunit` command can take one or more `--filter` flags (`-f` alias) followed by a regular expression to match `TestSuiteName.TestMethodName`. See the [full documentation](https://ecoAPM.github.io/xunit.ts) for more details.
+
 ## Output
 
 ### Console
@@ -100,10 +104,10 @@ My Test Suite
     Passed: 1
      Total: 1
 
-~/example $ _ 
+~/example $ _
 ```
 
-See the [full documentation](https://ecoAPM.github.io/xunit.ts) for a list of all available output options.
+Results can also be output in JUnit and Sonar XML formats, for import into other systems. See the [full documentation](https://ecoAPM.github.io/xunit.ts) for a list of all available output options.
 
 ## Assertions
 

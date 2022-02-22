@@ -37,7 +37,7 @@ export default class Generator {
 		const md = Generator.getMarkdown(filename, doc);
 
 		if (md !== null) {
-			const out = path.join(out_path, file.substr(base.length + 1)).replace(/\.ts$/, ".md");
+			const out = path.join(out_path, file.substring(base.length + 1)).replace(/\.ts$/, ".md");
 			await this.fs_promises.mkdir(path.join(out_path, dir), { recursive: true });
 			await this.fs_promises.writeFile(out, md);
 		}

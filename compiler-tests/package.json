@@ -15,6 +15,7 @@
 		"parcel": "parcel build *.ts -d dist/parcel -t node --no-minify --log-level 2 && xunit dist/parcel",
 		"rollup": "rollup -c && xunit dist/rollup",
 		"typescript": "tsc && xunit dist/typescript",
-		"vite": "vite build . && xunit dist/vite"
+		"vite": "vite build . && xunit dist/vite",
+	  	"all": "yarn typescript && yarn vite && yarn rollup && yarn parcel"
 	}
 }

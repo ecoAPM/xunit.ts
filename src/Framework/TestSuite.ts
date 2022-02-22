@@ -26,7 +26,18 @@ export default abstract class TestSuite {
 		this.tests = tests;
 	}
 
-	getTests() {
-		return this.tests;
+	getTests(filters: RegExp[]) {
+		return filters.length > 0
+			? this.filteredTests(filters)
+			: this.tests;
+	}
+
+	filteredTests(filters: RegExp[]) {
+		const filtered: Record<string, TestInfo> = {};
+		const keys = Object.keys(this.tests).filter(k => filters.map(f => f.test(`${this.constructor.name}.${this.tests[k].value?.name}`)).filter(m => m).length > 0);
+		keys.forEach(k => {
+			return filtered[k] = this.tests[k];
+		});
+		return filtered;
 	}
 }

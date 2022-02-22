@@ -27,8 +27,7 @@ At a minimum, your `tsconfig.json` will require the following:
 ```json
 {
   "compilerOptions": {
-	"target": "ES5",
-	//or "ES6"
+	"target": "ES5", //or "ES6"
 	"module": "CommonJS",
 	"experimentalDecorators": true
   }
@@ -77,3 +76,16 @@ You can also run `xunit.ts` from a script in your `package.json`:
   }
 }
 ```
+
+### Filtering tests
+
+If you don't want to run your entire test suite, you can pass one or more `--filter` flags to the `xunit` command.
+
+Filters are regular expressions that will match against the string `{TestSuiteName}.{TestMethodName}`.
+
+Using our example above, of a test suite named `MyTestSuite` with a test method named `MyFirstTest`, we could use any of the following filters to include that test in our test run:
+
+- `MyTestSuite`
+- `MyFirstTest`
+- `MyTestSuite.MyFirstTest`
+- `^MyTestSuite\.MyFirstTest$`
