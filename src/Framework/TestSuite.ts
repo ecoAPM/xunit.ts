@@ -36,7 +36,7 @@ export default abstract class TestSuite {
 		const filtered: Record<string, TestInfo> = {};
 		const keys = Object.keys(this.tests).filter(k => filters.map(f => f.test(`${this.constructor.name}.${this.tests[k].value?.name}`)).filter(m => m).length > 0);
 		keys.forEach(k => {
-			return filtered[k] = this.tests[k];
+			filtered[k] = this.tests[k];
 		});
 		return filtered;
 	}
