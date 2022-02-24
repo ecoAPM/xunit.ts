@@ -1,7 +1,6 @@
-import Factory from "../../TSDoc/Factory";
-import TestSuite from "../../src/Framework/TestSuite";
-import { Test } from "../../xunit";
-import Generator from "../../TSDoc/Generator";
+import Factory from "../src/Factory";
+import { Test, TestSuite } from "xunit.ts";
+import Generator from "../src/Generator";
 
 export default class FactoryTests extends TestSuite {
 	@Test()

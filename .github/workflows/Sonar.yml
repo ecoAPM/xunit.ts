@@ -19,16 +19,31 @@ jobs:
 
     - name: Install c8
       run: yarn global add c8
-    
+
     - name: Install dependencies
       run: yarn
-    
-    - name: Build
-      run: yarn build
+      working-directory: core
 
-    - name: Get code coverage
+    - name: Build core
+      run: yarn build
+      working-directory: core
+
+    - name: Get core code coverage
       run: c8 -r lcov yarn test -s
-      
+      working-directory: core
+
+    - name: Install documentation dependencies
+      run: yarn
+      working-directory: tsdoc
+
+    - name: Build documentation
+      run: yarn build
+      working-directory: tsdoc
+
+    - name: Get documentation code coverage
+      run: c8 -r lcov yarn test -s
+      working-directory: tsdoc
+
     - name: SonarCloud Analysis
       uses: sonarsource/sonarcloud-github-action@master
       env:

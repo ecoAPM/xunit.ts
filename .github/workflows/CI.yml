@@ -8,20 +8,55 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
+
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
-    
-    - name: Install dependencies
+
+    - name: Install core dependencies
       run: yarn
-      
-    - name: Build
+      working-directory: core
+
+    - name: Build core
       run: yarn build
-    
-    - name: Run tests
+      working-directory: core
+
+    - name: Run core tests
       run: yarn test
+      working-directory: core
+
+  Documentation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+
+    - name: Install core dependencies
+      run: yarn
+      working-directory: core
+
+    - name: Build core
+      run: yarn build
+      working-directory: core
+
+    - name: Install documentation dependencies
+      run: yarn
+      working-directory: tsdoc
+
+    - name: Build documentation
+      run: yarn build
+      working-directory: tsdoc
+
+    - name: Run documentation tests
+      run: yarn test
+      working-directory: tsdoc
 
   Compiler-Tests:
     runs-on: ubuntu-latest
@@ -29,18 +64,20 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
+
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
-    
-    - name: Install dependencies
+
+    - name: Install core dependencies
       run: yarn
-    
-    - name: Build
+      working-directory: core
+
+    - name: Build core
       run: yarn build
-    
+      working-directory: core
+
     - name: Install compiler test dependencies
       run: yarn
       working-directory: compiler-tests

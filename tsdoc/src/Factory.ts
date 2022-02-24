@@ -1,4 +1,4 @@
-import FileSystem from "../src/IO/FileSystem";
+import FileSystem from "../../core/src/IO/FileSystem";
 import fs_promises from "fs/promises";
 import Parser from "./Parser";
 import { TSDocParser } from "@microsoft/tsdoc";

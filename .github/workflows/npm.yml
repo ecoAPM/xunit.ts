@@ -18,15 +18,19 @@ jobs:
 
       - name: Install dependencies
         run: yarn
+        working-directory: core
 
       - name: Build
         run: yarn build
+        working-directory: core
 
       - name: Test
         run: yarn test
+        working-directory: core
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
         with:
+          package: core/package.json
           token: ${{ secrets.NPM_TOKEN }}
           check-version: false

@@ -1,8 +1,8 @@
-﻿import FileSystem from "../src/IO/FileSystem";
+﻿import FileSystem from "../../core/src/IO/FileSystem";
 import FSPromises from "fs/promises";
 import Parser from "./Parser";
 import path from "path";
-import TestName from "../src/Framework/TestName";
+import TestName from "../../core/src/Framework/TestName";
 import Markdown from "./Markdown";
 import { DocComment } from "@microsoft/tsdoc";
 

@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "ES2015",
 		"module": "CommonJS",
-		"outDir": "./dist/",
+		"outDir": "dist/",
 		"strict": true,
 		"sourceMap": true,
 		"declaration": true,
@@ -13,16 +13,13 @@
 	},
 	"files": [
 		"xunit.ts",
-		"cli.ts",
-		"tsdoc.ts"
+		"cli.ts"
 	],
 	"include": [
-		"src/**/*.ts",
-		"tests/**/*.ts",
-		"TSDoc/**/*.ts"
+		"**/*.ts"
 	],
 	"exclude": [
-		"node_modules",
-		"dist"
+		"dist",
+		"node_modules"
 	]
 }

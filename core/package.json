@@ -1,6 +1,6 @@
 {
 	"name": "xunit.ts",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "A unit testing framework for TypeScript, following standard xUnit patterns",
 	"main": "dist/xunit.js",
 	"author": "ecoAPM LLC",
@@ -15,7 +15,6 @@
 		"xml": "1.0.1"
 	},
 	"devDependencies": {
-		"@microsoft/tsdoc": "0.13.2",
 		"@types/command-line-args": "5.2.0",
 		"@types/command-line-usage": "5.0.2",
 		"@types/lodash.isequal": "4.5.5",
@@ -24,9 +23,7 @@
 		"@typescript-eslint/eslint-plugin": "5.12.1",
 		"@typescript-eslint/parser": "5.12.1",
 		"eslint": "8.9.0",
-		"notosans": "5.0.0",
 		"ts-mockito": "2.6.1",
-		"ts-node": "10.5.0",
 		"typescript": "4.5.5"
 	},
 	"peerDependencies": {
@@ -35,9 +32,7 @@
 	"scripts": {
 		"clean": "rm -rf dist",
 		"build": "tsc",
-		"test": "node dist/cli.js dist/tests",
-		"xunit": "ts-node cli.ts",
-		"tsdoc": "cp -r node_modules/notosans/* docs/assets && ts-node tsdoc.ts"
+		"test": "node dist/cli.js dist/tests"
 	},
 	"bin": {
 		"xunit": "dist/cli.js"

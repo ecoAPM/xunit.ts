@@ -3,10 +3,6 @@
 **/.idea/
 **/.scannerwork/
 **/.vscode/
-**/compiler-tests/
 **/coverage/
-**/docs/
 **/node_modules/
 **/tests/
-**/TSDoc*
-**/tsdoc*
