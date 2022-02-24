@@ -18,7 +18,7 @@ permalink: /
 
 or
 
-<kbd>~$ yarn add --dev xunit.ts<kbd>
+<kbd>yarn add --dev xunit.ts</kbd>
 
 ### Configure your test project
 
