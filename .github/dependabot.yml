@@ -2,11 +2,16 @@ version: 2
 updates:
 
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/core"
     schedule:
       interval: "daily"
       
   - package-ecosystem: "npm"
-    directory: "compiler-tests"
+    directory: "/compiler-tests"
+    schedule:
+      interval: "daily"
+      
+  - package-ecosystem: "npm"
+    directory: "tsdoc"
     schedule:
       interval: "daily"
