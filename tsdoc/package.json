@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"private": true,
 	"devDependencies": {
-		"@microsoft/tsdoc": "0.13.2",
+		"@microsoft/tsdoc": "0.14.1",
 		"@types/node": "17.0.21",
 		"notosans": "5.0.0",
 		"ts-mockito": "^2.6.1",
