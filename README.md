@@ -37,7 +37,7 @@ At a minimum, your `tsconfig.json` will require the following:
 ```json
 {
     "compilerOptions": {
-        "target": "ES5", //or "ES6"
+        "target": "ES2015", //or "ES6"
         "module": "CommonJS",
         "experimentalDecorators": true
     }
