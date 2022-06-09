@@ -3,22 +3,18 @@ import FileSystem from "../IO/FileSystem";
 import path from "path";
 
 export default class TestSuiteLoader {
-
 	constructor(private readonly file_system: FileSystem) {
 	}
 
 	static async loadTestSuite(file: string, filters: RegExp[]) {
 		const module_path = TestSuiteLoader.getModulePath(__dirname, file);
 		const test_class = await import(module_path);
-
-		// The test suite must be the default export of the imported module
 		if (!(test_class.default?.prototype instanceof TestSuite)) {
 			return null;
 		}
 
-		// The prototype can still be an abstract class, which means getTest() will return undefined
-		const tests = test_class.default.prototype.getTests(filters);
-		if (!tests || Object.keys(tests).length === 0) {
+		const tests = test_class.default?.prototype.getTests(filters);
+		if (tests === undefined || Object.keys(tests).length === 0) {
 			return null;
 		}
 
