@@ -123,6 +123,7 @@ Please be sure to read and follow ecoAPM's [Contribution Guidelines](CONTRIBUTIN
 
 ### Building / Testing locally
 
+From the `core` directory:
 1. `npm install` or `yarn install` to download all dependencies
 2. `npm run build` or `yarn build` will compile `xunit.ts` and its tests to the `dist` directory
 3. `npm run test` or `yarn test` will run all unit tests in `dist/tests`
@@ -131,6 +132,6 @@ Please be sure to read and follow ecoAPM's [Contribution Guidelines](CONTRIBUTIN
 ### Missing an assertion?
 
 Create an issue or submit a pull request!
-1. Add a new function to `src/Assertions`
-2. Add tests for both the positive and negative cases in `tests/Assertions`
-3. Add a field for the assertion to `src/Assertions/index.ts`
+1. Add a new function to `core/src/Assertions`
+2. Add tests for both the positive and negative cases in `core/tests/Assertions`
+3. Add a field for the assertion to `core/src/Assertions/index.ts`
