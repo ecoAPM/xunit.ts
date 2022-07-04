@@ -28,7 +28,7 @@ const expected_start = `<testExecutions version="1">
 		</testCase>
 		<testCase name="Test 2" duration="2">
 			<failure message="234 undefined 123">AssertionError [ERR_ASSERTION]: 234 undefined 123
-    at new AssertionError (node:internal/assert/assertion_error:`;
+    at new AssertionError (`;
 
 const expected_middle = `)</failure>
 		</testCase>
@@ -39,7 +39,7 @@ const expected_middle = `)</failure>
 		</testCase>
 		<testCase name="Test 4" duration="5">
 			<error message="unhandled exception">Error: unhandled exception
-    at Function.Results (`;
+    at `;
 
 const expected_end = `</error>
 		</testCase>

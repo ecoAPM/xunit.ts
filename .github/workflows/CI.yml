@@ -4,6 +4,9 @@ on: [ push, pull_request ]
 jobs:
   Build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [14, 16, 18]
 
     steps:
     - name: Checkout code
@@ -12,7 +15,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 16.x
+        node-version: ${{ matrix.version }}
 
     - name: Install core dependencies
       run: yarn
@@ -36,7 +39,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 16.x
+        node-version: 18
 
     - name: Install core dependencies
       run: yarn
@@ -60,6 +63,9 @@ jobs:
 
   Compiler-Tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [14, 16, 18]
 
     steps:
     - name: Checkout code
@@ -68,7 +74,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 16.x
+        node-version: ${{ matrix.version }}
 
     - name: Install core dependencies
       run: yarn
