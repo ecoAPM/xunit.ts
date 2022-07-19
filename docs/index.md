@@ -8,9 +8,16 @@ permalink: /
 
 ### Requirements
 
-- Node.js 16
+- Node.js 14, 16, 18
 
-  (older versions may work, but only the latest LTS is actively supported)
+  (other versions may work, but only the latest minor release for each LTS version is actively supported)
+
+- A supported TypeScript compiler
+	- TypeScript 4
+	- Vite 2
+	- Rollup 2
+	- Parcel 1
+	- Webpack 5
 
 ### Installation
 
@@ -34,8 +41,7 @@ At a minimum, your `tsconfig.json` will require the following:
 }
 ```
 
-If you're using `rollup` or `vite`, you'll need to set `xunit.ts` as an `external` in your build config file (
-under `rollupOptions` in `vite`) for the tests to be detected.
+If you're using a bundler, you'll need to declare `xunit.ts` as an `external` in your build config file for the tests to be detected.  See the [officially-supported configurations](https://github.com/ecoAPM/xunit.ts/tree/main/compiler-tests) in the `compiler-tests` directory of the source code for detailed examples.
 
 ### Create your first test
 
@@ -54,8 +60,7 @@ export default class MyTestSuite extends TestSuite {
 
 ### Run your tests
 
-You'll need to compile your TypeScript tests into JavaScript using `tsc` or a bundler such as `rollup`, `parcel`, `vite`
-, etc. (these are the supported ones, feel free to add a test case for your favorite to the `compiler-tests` directory!)
+You'll first need to compile your TypeScript tests into JavaScript using `tsc` or the supported bundler of your choice.
 
 Then run:
 
