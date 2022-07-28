@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"private": true,
 	"devDependencies": {
-		"@rollup/plugin-typescript": "8.3.3",
+		"@rollup/plugin-typescript": "8.3.4",
 		"parcel-bundler": "1.12.5",
 		"rollup": "2.77.2",
 		"tslib": "2.4.0",
