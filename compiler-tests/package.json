@@ -4,10 +4,15 @@
 	"description": "Compiler integration tests for xunit.ts",
 	"license": "MIT",
 	"private": true,
+	"engines": {
+		"node": ">= 14"
+	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "11.0.0",
 		"@types/node": "18.14.6",
-		"parcel-bundler": "1.12.5",
+		"assert": "2.0.0",
+		"parcel": "2.8.3",
+		"process": "0.11.10",
 		"rollup": "3.18.0",
 		"ts-loader": "9.4.2",
 		"tslib": "2.5.0",
@@ -19,11 +24,11 @@
 	},
 	"scripts": {
 		"clean": "rm -rf dist",
-		"parcel": "parcel build *.ts -d dist/parcel -t node --no-minify --log-level 2 && xunit dist/parcel",
+		"parcel": "parcel build *.ts --dist-dir dist/parcel --no-optimize --no-scope-hoist --log-level error && xunit dist/parcel",
 		"rollup": "rollup -c --bundleConfigAsCjs && xunit dist/rollup",
 		"typescript": "tsc && xunit dist/typescript",
 		"vite": "vite build . && xunit dist/vite",
 		"webpack": "webpack && xunit dist/webpack",
-	  	"all": "yarn typescript && yarn vite && yarn rollup && yarn parcel && yarn webpack"
+		"all": "yarn typescript && yarn vite && yarn rollup && yarn parcel && yarn webpack"
 	}
 }
