@@ -2507,10 +2507,10 @@ v8-compile-cache@^2.0.0:
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
 
-vite@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.0.tgz#d4e6eafbc034f3faf0ab376bd5b76ac15775eb99"
-  integrity sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==
+vite@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.1.tgz#6c2eb337b0dfd80a9ded5922163b94949d7fc254"
+  integrity sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==
   dependencies:
     esbuild "^0.17.5"
     postcss "^8.4.21"
