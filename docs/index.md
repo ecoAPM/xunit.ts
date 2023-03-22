@@ -10,14 +10,14 @@ permalink: /
 
 - Node.js 14, 16, 18
 
-  (other versions may work, but only the latest minor release for each LTS version is actively supported)
+  (other versions may work, but only the latest minor release for each active LTS version is supported)
 
 - A supported TypeScript compiler
-	- TypeScript 4
-	- Vite 2
-	- Rollup 2
-	- Parcel 1
-	- Webpack 5
+	- TypeScript (v4, v5)
+	- Vite (v2, v3, v4)
+	- Rollup (v2, v3)
+	- Parcel (v1, v2)
+	- Webpack (v5)
 
 ### Installation
 

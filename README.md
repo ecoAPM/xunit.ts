@@ -23,11 +23,11 @@ Detailed documentation is available at https://ecoAPM.github.io/xunit.ts
   (other versions may work, but only the latest minor release for each active LTS version is supported)
 
 - A supported TypeScript compiler
-  - TypeScript v4
-  - Vite v4
-  - Rollup v3
-  - Parcel v2
-  - Webpack v5
+  - TypeScript (v4, v5)
+  - Vite (v2, v3, v4)
+  - Rollup (v2, v3)
+  - Parcel (v1, v2)
+  - Webpack (v5)
 
 ### Installation
 
