@@ -88,18 +88,10 @@ jobs:
       run: yarn
       working-directory: compiler-tests
 
-    - name: Run typescript tests
-      run: yarn typescript
+    - name: Run compiler tests
+      run: yarn all
       working-directory: compiler-tests
 
-    - name: Run parcel tests
-      run: yarn parcel
-      working-directory: compiler-tests
-
-    - name: Run rollup tests
-      run: yarn rollup
-      working-directory: compiler-tests
-
-    - name: Run vite tests
-      run: yarn vite
+    - name: Run legacy tests
+      run: yarn legacy-all
       working-directory: compiler-tests
