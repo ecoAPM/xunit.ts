@@ -16,11 +16,12 @@
 		"rollup": "3.20.0",
 		"ts-loader": "9.4.2",
 		"tslib": "2.5.0",
-		"typescript": "4.9.5",
+		"typescript": "5.0.2",
 		"vite": "4.2.1",
 		"webpack": "5.76.3",
 		"webpack-cli": "5.0.1",
-		"xunit.ts": "file:../core"
+		"xunit.ts": "file:../core",
+		"legacy-typescript4": "npm:typescript@4.9.5"
 	},
 	"scripts": {
 		"clean": "rm -rf dist",
@@ -29,6 +30,7 @@
 		"typescript": "tsc && xunit dist/typescript",
 		"vite": "vite build . && xunit dist/vite",
 		"webpack": "webpack && xunit dist/webpack",
-		"all": "yarn typescript && yarn vite && yarn rollup && yarn parcel && yarn webpack"
+		"all": "yarn typescript && yarn vite && yarn rollup && yarn parcel && yarn webpack",
+		"legacy-typescript4": "node_modules/legacy-typescript4/bin/tsc --outDir dist/legacy-typescript4 && xunit dist/legacy-typescript4"
 	}
 }
