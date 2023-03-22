@@ -24,6 +24,7 @@
 		"legacy-parcel1": "npm:parcel-bundler@1.12.5",
 		"legacy-rollup2": "npm:rollup@2.79.1",
 		"legacy-typescript4": "npm:typescript@4.9.5",
+		"legacy-vite2": "npm:vite@2.9.15",
 		"legacy-vite3": "npm:vite@3.2.5"
 	},
 	"scripts": {
@@ -37,7 +38,8 @@
 		"legacy-parcel1": "node_modules/legacy-parcel1/bin/cli.js build *.ts -d dist/legacy-parcel1 -t node --no-minify --log-level 2 && xunit dist/legacy-parcel1",
 		"legacy-rollup2": "node_modules/legacy-rollup2/dist/bin/rollup -c rollup2.config.js && xunit dist/legacy-rollup2",
 		"legacy-typescript4": "node_modules/legacy-typescript4/bin/tsc --outDir dist/legacy-typescript4 && xunit dist/legacy-typescript4",
+		"legacy-vite2": "node_modules/legacy-vite2/bin/vite.js build . --outDir dist/legacy-vite2 && xunit dist/legacy-vite2",
 		"legacy-vite3": "node_modules/legacy-vite3/bin/vite.js build . --outDir dist/legacy-vite3 && xunit dist/legacy-vite3",
-		"legacy-all": "yarn legacy-typescript4 && yarn legacy-vite3 && yarn legacy-rollup2 && yarn legacy-parcel1"
+		"legacy-all": "yarn legacy-typescript4 && yarn legacy-vite3 && yarn legacy-vite2 && yarn legacy-rollup2 && yarn legacy-parcel1"
 	}
 }
