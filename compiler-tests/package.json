@@ -21,6 +21,7 @@
 		"webpack": "5.76.3",
 		"webpack-cli": "5.0.1",
 		"xunit.ts": "file:../core",
+		"legacy-parcel1": "npm:parcel-bundler@1.12.5",
 		"legacy-typescript4": "npm:typescript@4.9.5"
 	},
 	"scripts": {
@@ -31,6 +32,8 @@
 		"vite": "vite build . && xunit dist/vite",
 		"webpack": "webpack && xunit dist/webpack",
 		"all": "yarn typescript && yarn vite && yarn rollup && yarn parcel && yarn webpack",
-		"legacy-typescript4": "node_modules/legacy-typescript4/bin/tsc --outDir dist/legacy-typescript4 && xunit dist/legacy-typescript4"
+		"legacy-parcel1": "node_modules/legacy-parcel1/bin/cli.js build *.ts -d dist/legacy-parcel1 -t node --no-minify --log-level 2 && xunit dist/legacy-parcel1",
+		"legacy-typescript4": "node_modules/legacy-typescript4/bin/tsc --outDir dist/legacy-typescript4 && xunit dist/legacy-typescript4",
+		"legacy-all": "yarn legacy-typescript4 && yarn legacy-parcel1"
 	}
 }
