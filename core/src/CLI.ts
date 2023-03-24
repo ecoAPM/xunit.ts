@@ -2,6 +2,7 @@ import Usage from "command-line-usage";
 import JUnitReporter from "./Reporters/JUnitReporter";
 import Process from "process";
 import Args from "command-line-args";
+import SafeRegex from "lodash.escaperegexp";
 import Runner from "./Runners/Runner";
 import SonarReporter from "./Reporters/SonarReporter";
 
@@ -85,7 +86,7 @@ export default class CLI {
 	}
 
 	async run(): Promise<boolean> {
-		const args = Args(CLI.options, {argv: this.process.argv});
+		const args = Args(CLI.options, { argv: this.process.argv });
 
 		if (args.help) {
 			this.process.stdout.write(CLI.usage);
@@ -97,7 +98,7 @@ export default class CLI {
 
 		try {
 			const filters = args.filter ?? [];
-			const results = await runner.runAll(args.dir, filters.map((f: string) => new RegExp(f)));
+			const results = await runner.runAll(args.dir, filters.map(SafeRegex));
 			return Runner.allTestsPassed(results);
 		} catch (error) {
 			if (error instanceof Error) {
