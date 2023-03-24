@@ -4,6 +4,9 @@
 	"description": "Documentation generator for xunit.ts",
 	"license": "MIT",
 	"private": true,
+	"engines": {
+		"node": ">= 14"
+	},
 	"devDependencies": {
 		"@microsoft/tsdoc": "0.14.2",
 		"@types/node": "18.15.5",

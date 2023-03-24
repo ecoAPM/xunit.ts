@@ -7,6 +7,9 @@
 	"homepage": "https://github.com/ecoAPM/xunit.ts",
 	"bugs": "https://github.com/ecoAPM/xunit.ts/issues",
 	"license": "MIT",
+	"engines": {
+		"node": ">= 14"
+	},
 	"dependencies": {
 		"colors": "1.4.0",
 		"command-line-args": "5.2.1",
