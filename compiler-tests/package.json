@@ -13,7 +13,7 @@
 		"assert": "2.0.0",
 		"parcel": "2.8.3",
 		"process": "0.11.10",
-		"rollup": "3.20.4",
+		"rollup": "3.20.6",
 		"ts-loader": "9.4.2",
 		"tslib": "2.5.0",
 		"typescript": "5.0.4",
