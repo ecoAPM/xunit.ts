@@ -18,7 +18,7 @@ Detailed documentation is available at https://ecoAPM.github.io/xunit.ts
 
 ### Requirements
 
-- Node.js 14, 16, 18
+- Node.js 14, 16, 18, 20
 
   (other versions may work, but only the latest minor release for each active LTS version is supported)
 
