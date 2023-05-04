@@ -6,8 +6,10 @@ export default class FileSystem {
 	constructor(private readonly fs: typeof fs_promises) {
 	}
 
+	private static matchExtension: RegExp = new RegExp(/\.(\w+)$/);
+
 	static extension(file: string) {
-		const match = file.match(/\.(\w+)$/);
+		const match = this.matchExtension.exec(file);
 		return match !== undefined && match !== null && match.length > 1
 			? match[1]
 			: "";
