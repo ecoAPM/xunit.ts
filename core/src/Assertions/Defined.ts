@@ -20,7 +20,7 @@ export default function Defined(expression: any, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to be defined, but expression is undefined",
+		message: message ?? "Expected expression to be defined, but expression is undefined",
 		expected: "(not undefined expression)",
 		actual: expression
 	});

@@ -20,7 +20,7 @@ export default function DoesNotThrow(expression: () => any, message?: string) {
 		return;
 	} catch (exception) {
 		throw new AssertionError({
-			message: message || "Expected expression to not throw exception, but expression did throw exception",
+			message: message ?? "Expected expression to not throw exception, but expression did throw exception",
 			expected: "(no exception)",
 			actual: exception
 		});

@@ -20,7 +20,7 @@ export default function NotEmpty(array: ReadonlyArray<any>, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to be not empty, but expression was empty",
+		message: message ?? "Expected expression to be not empty, but expression was empty",
 		expected: "(non-empty expression)",
 		actual: array
 	});

@@ -103,7 +103,7 @@ export default class CLI {
 		} catch (error) {
 			if (error instanceof Error) {
 				this.process.stderr.write(`An unhandled ${error.name} occurred: ${error.message}\n`);
-				this.process.stderr.write(error.stack?.toString() || "(no call stack)\n");
+				this.process.stderr.write(error.stack?.toString() ?? "(no call stack)\n");
 			}
 			return false;
 		}

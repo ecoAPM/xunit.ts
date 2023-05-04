@@ -20,7 +20,7 @@ export default function Null(expression: any, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to be null, but expression is not null",
+		message: message ?? "Expected expression to be null, but expression is not null",
 		expected: null,
 		actual: expression
 	});

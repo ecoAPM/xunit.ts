@@ -21,7 +21,7 @@ export default function StringDoesNotContain(needle: string, haystack: string | 
 	}
 
 	throw new AssertionError({
-		message: message || "Expected string not containing expression, but string did contain expression",
+		message: message ?? "Expected string not containing expression, but string did contain expression",
 		expected: needle,
 		actual: haystack
 	});

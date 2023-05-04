@@ -21,7 +21,7 @@ export default function DoesNotContain<T>(needle: T, haystack: ReadonlyArray<T>,
 	}
 
 	throw new AssertionError({
-		message: message || "Expected array not containing expression, but array contained expression",
+		message: message ?? "Expected array not containing expression, but array contained expression",
 		expected: needle,
 		actual: haystack
 	});

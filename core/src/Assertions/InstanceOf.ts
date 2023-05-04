@@ -21,7 +21,7 @@ export default function InstanceOf(type: any, expression: any, message?: string)
 	}
 
 	throw new AssertionError({
-		message: message || `Expected expression of type, but was ${typeof expression}`,
+		message: message ?? `Expected expression of type, but was ${typeof expression}`,
 		expected: type.name,
 		actual: typeof expression
 	});

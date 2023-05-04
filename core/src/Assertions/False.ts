@@ -20,7 +20,7 @@ export default function False(expression: any, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to be false, but expression is not false",
+		message: message ?? "Expected expression to be false, but expression is not false",
 		expected: false,
 		actual: expression
 	});

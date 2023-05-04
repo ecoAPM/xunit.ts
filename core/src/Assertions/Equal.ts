@@ -22,7 +22,7 @@ export default function Equal(expected: any, actual: any, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expressions to be equal, but expressions are not equal",
+		message: message ?? "Expected expressions to be equal, but expressions are not equal",
 		expected: expected,
 		actual: actual,
 	});

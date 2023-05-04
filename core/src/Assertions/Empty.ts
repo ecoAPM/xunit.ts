@@ -20,7 +20,7 @@ export default function Empty(array: ReadonlyArray<any>, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to be empty, but expression was not empty",
+		message: message ?? "Expected expression to be empty, but expression was not empty",
 		expected: [],
 		actual: array
 	});

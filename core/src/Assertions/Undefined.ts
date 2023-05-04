@@ -20,7 +20,7 @@ export default function Undefined(expression: any, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to be undefined, but expression is not undefined",
+		message: message ?? "Expected expression to be undefined, but expression is not undefined",
 		expected: undefined,
 		actual: expression
 	});

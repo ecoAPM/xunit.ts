@@ -23,7 +23,7 @@ export default function StringDoesNotEndWith(needle: string, haystack: string | 
 	}
 
 	throw new AssertionError({
-		message: message || "Expected string containing expression, but string did not contain expression",
+		message: message ?? "Expected string containing expression, but string did not contain expression",
 		expected: needle,
 		actual: haystack
 	});

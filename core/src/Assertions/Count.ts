@@ -21,7 +21,7 @@ export default function Count(expected: number, array: ReadonlyArray<any>, messa
 	}
 
 	throw new AssertionError({
-		message: message || `Expected array with ${expected} elements, but array had ${array.length} elements`,
+		message: message ?? `Expected array with ${expected} elements, but array had ${array.length} elements`,
 		expected: expected,
 		actual: array.length
 	});

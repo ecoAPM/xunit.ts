@@ -22,6 +22,6 @@ export default function Throws(expression: () => any, message?: string) {
 	}
 
 	throw new AssertionError({
-		message: message || "Expected expression to throw exception, but expression did not throw exception"
+		message: message ?? "Expected expression to throw exception, but expression did not throw exception"
 	});
 }
