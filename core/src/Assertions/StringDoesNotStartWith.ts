@@ -16,7 +16,7 @@ import { AssertionError } from "assert";
  * this.assert.stringDoesNotStartWith(needle, haystack);
  */
 export default function StringDoesNotStartWith(needle: string, haystack: string | null, message?: string) {
-	if (haystack === undefined || haystack === null || haystack.indexOf(needle) !== 0) {
+	if (haystack === undefined || haystack === null || !haystack.startsWith(needle)) {
 		return;
 	}
 
