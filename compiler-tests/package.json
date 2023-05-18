@@ -17,7 +17,7 @@
 		"ts-loader": "9.4.2",
 		"tslib": "2.5.0",
 		"typescript": "5.0.4",
-		"vite": "4.3.7",
+		"vite": "4.3.8",
 		"webpack": "5.83.1",
 		"webpack-cli": "5.1.1",
 		"xunit.ts": "file:../core",
