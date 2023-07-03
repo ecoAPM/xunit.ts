@@ -145,7 +145,7 @@ aside:not(.off) .toggle button small {
 
 aside.off .toggle button {
 	position: fixed;
-	transform: rotate(90deg) translateX(-0.5rem) translateY(-1rem);
+	transform: rotate(90deg) translateX(-0.5rem) translateY(-1.25rem);
 }
 
 aside.off :not(:first-child) {
