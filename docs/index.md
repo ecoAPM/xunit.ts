@@ -13,11 +13,21 @@ permalink: /
   (other versions may work, but only the latest minor release for each active LTS version is supported)
 
 - A supported TypeScript compiler
-	- TypeScript (v4, v5)
-	- Vite (v2, v3, v4)
-	- Rollup (v2, v3)
-	- Parcel (v1, v2)
-	- Webpack (v5)
+  - TypeScript (v4, v5)
+  - Vite (v2, v3, v4)
+  - Rollup (v2, v3)
+  - Parcel (v1, v2)
+  - Webpack (v5)
+
+Note that 1.4.0 is the last release that will support legacy versions of the above; v2.0 (expected Q3 2023) will support:
+  - Node.js 18+
+  - TypeScript 5+
+  - Vite 4+
+  - Rollup 3+
+  - Parcel 2+
+  - Webpack 5+
+
+Ongoing gommercial support for legacy versions is available for [Corporate, Premier, and Title Sponsors](https://github.com/sponsors/ecoAPM).
 
 ### Installation
 
@@ -33,11 +43,11 @@ At a minimum, your `tsconfig.json` will require the following:
 
 ```json
 {
-  "compilerOptions": {
-	"target": "ES2015", //or "ES6"
-	"module": "CommonJS",
-	"experimentalDecorators": true
-  }
+	"compilerOptions": {
+		"target": "ES2015", //or "ES6"
+		"module": "CommonJS",
+		"experimentalDecorators": true
+	}
 }
 ```
 
@@ -76,9 +86,9 @@ You can also run `xunit.ts` from a script in your `package.json`:
 
 ```json
 {
-  "scripts": {
-	"test": "tsc --outDir compiled_tests_dir && xunit compiled_tests_dir"
-  }
+	"scripts": {
+		"test": "tsc --outDir compiled_tests_dir && xunit compiled_tests_dir"
+	}
 }
 ```
 

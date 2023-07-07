@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [14, 16, 18, 20]
+        version: [18, 20]
 
     steps:
     - name: Checkout code
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [14, 16, 18, 20]
+        version: [18, 20]
 
     steps:
     - name: Checkout code
@@ -90,8 +90,4 @@ jobs:
 
     - name: Run compiler tests
       run: yarn all
-      working-directory: compiler-tests
-
-    - name: Run legacy tests
-      run: yarn legacy-all
       working-directory: compiler-tests
