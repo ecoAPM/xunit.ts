@@ -29,6 +29,16 @@ Detailed documentation is available at https://ecoAPM.github.io/xunit.ts
   - Parcel (v1, v2)
   - Webpack (v5)
 
+Note that 1.4.0 is the last release that will support legacy versions of the above; v2.0 (expected Q3 2023) will support:
+  - Node.js 18+
+  - TypeScript 5+
+  - Vite 4+
+  - Rollup 3+
+  - Parcel 2+
+  - Webpack 5+
+
+Commercial support for legacy versions is available for Corporate, Premier, and Title Sponsors.
+
 ### Installation
 
 `npm install --dev xunit.ts`
@@ -43,11 +53,11 @@ At a minimum, your `tsconfig.json` will require the following:
 
 ```json
 {
-    "compilerOptions": {
-        "target": "ES2015", //or "ES6"
-        "module": "CommonJS",
-        "experimentalDecorators": true
-    }
+	"compilerOptions": {
+		"target": "ES2015", //or "ES6"
+		"module": "CommonJS",
+		"experimentalDecorators": true
+	}
 }
 ```
 
@@ -61,10 +71,10 @@ If you're using a bundler, you'll need to declare `xunit.ts` as an `external` in
 import { Test, TestSuite } from 'xunit.ts';
 
 export default class MyTestSuite extends TestSuite {
-    @Test()
-    async MyFirstTest() {
-        this.assert.equal(2, 1 + 1);
-    }
+	@Test()
+	async MyFirstTest() {
+		this.assert.equal(2, 1 + 1);
+	}
 }
 ```
 
@@ -86,9 +96,9 @@ You can also run `xunit.ts` from a script in your `package.json`:
 
 ```json
 {
-    "scripts": {
-        "test": "tsc --outDir compiled_tests_dir && xunit compiled_tests_dir"
-    }
+	"scripts": {
+		"test": "tsc --outDir compiled_tests_dir && xunit compiled_tests_dir"
+	}
 }
 ```
 

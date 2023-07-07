@@ -1,6 +1,6 @@
 {
 	"name": "xunit.ts",
-	"version": "1.4.0",
+	"version": "2.0.0",
 	"description": "A unit testing framework for TypeScript, following standard xUnit patterns",
 	"main": "dist/xunit.js",
 	"author": "ecoAPM LLC",
@@ -8,7 +8,7 @@
 	"bugs": "https://github.com/ecoAPM/xunit.ts/issues",
 	"license": "MIT",
 	"engines": {
-		"node": ">= 14"
+		"node": ">= 18"
 	},
 	"dependencies": {
 		"colors": "1.4.0",
