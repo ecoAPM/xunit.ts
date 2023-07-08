@@ -17,10 +17,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@fontsource/noto-sans@5.0.4":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-5.0.4.tgz#41e0fc782c2a2670442d83ab0ffb6b237e7f1247"
-  integrity sha512-UFOkapwBv5MXfWT4Yralf3X+dyeqcHipp4stQ1hPzY4SgmZ/rnvJDmYiskAVHyucL52Kv/RHVCRJzrqYTE1e8g==
+"@fontsource/noto-sans@5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-5.0.5.tgz#8efc718f05f99ee35d93cb351a916274955fd6cc"
+  integrity sha512-B2dxfFq1CTw2BeajXxL+1J7W6/W8vbH3N+c4vAAVrSTwMnKT2/5lWFFHPYqCJeQTJR8RYSuunTfTY2OiV9yCBg==
 
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.0.7"
@@ -65,10 +65,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
   integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
 
-"@types/node@20.4.0":
-  version "20.4.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.0.tgz#01d637d1891e419bc85763b46f42809cd2d5addb"
-  integrity sha512-jfT7iTf/4kOQ9S7CHV9BIyRaQqHu67mOjsIQBC3BKZvzvUB6zLxEwJ6sBE3ozcvP8kF6Uk5PXN0Q+c0dfhGX0g==
+"@types/node@20.4.5":
+  version "20.4.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.5.tgz#9dc0a5cb1ccce4f7a731660935ab70b9c00a5d69"
+  integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
 
 acorn-walk@^8.1.1:
   version "8.2.0"
@@ -288,7 +288,7 @@ xml@1.0.1:
   integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
 
 "xunit.ts@file:../core":
-  version "1.4.0"
+  version "2.0.0"
   dependencies:
     colors "1.4.0"
     command-line-args "5.2.1"
