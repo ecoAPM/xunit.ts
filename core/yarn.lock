@@ -131,10 +131,10 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.13.tgz#da4bfd73f49bd541d28920ab0e2bf0ee80f71c91"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
 
-"@types/xml@1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@types/xml/-/xml-1.0.8.tgz#97c0692b29943fd26bc3da0ea155e26bba017536"
-  integrity sha512-IptEZBtDwSPayCP8FmbordhAdjdxsif4zH29xTbBRacZeCHFHZp8OxyG1/CrS8AS0MziJUPTGWCTKbYtvHGYPg==
+"@types/xml@1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@types/xml/-/xml-1.0.9.tgz#f3688ecbcc8e5a58d0deca789aaa6c351106bbb7"
+  integrity sha512-Wo71d7qF1TPcjbg251MS4m4MeK8F8/+ND2t6qTnwoK+jVmD9k9nGN1g9ocu4pRzLSjKMkbnowb88FFPnt+6Wiw==
   dependencies:
     "@types/node" "*"
 
