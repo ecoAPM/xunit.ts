@@ -19,7 +19,7 @@
 		"xml": "1.0.1"
 	},
 	"devDependencies": {
-		"@types/command-line-args": "5.2.0",
+		"@types/command-line-args": "5.2.1",
 		"@types/command-line-usage": "5.0.2",
 		"@types/lodash.escaperegexp": "4.1.7",
 		"@types/lodash.isequal": "4.5.6",
