@@ -17,10 +17,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@fontsource/noto-sans@5.0.13":
-  version "5.0.13"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-5.0.13.tgz#5f194a379b3dce4cbfd5d5186f86a199b6fe5420"
-  integrity sha512-uHOOzAkdigZ12ntmqLP+mnmEwbDbiWUwJRJSZSWrWHpIgvjnHb15zQB/55kDE6veDs7qNvtbg6zyKZxuTjf6Iw==
+"@fontsource/noto-sans@5.0.14":
+  version "5.0.14"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-5.0.14.tgz#ab778ffd32768884c3fe51e62341853486392452"
+  integrity sha512-QflfsuealuNEo6sSZEVD1srBc3+AbU8ZPmYKZflMwDn0YeKFgbO7assCHC83w2e2yatbI0zWcNjjpavuAYVlJQ==
 
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.0.7"
