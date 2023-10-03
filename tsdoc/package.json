@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {
 		"@microsoft/tsdoc": "0.14.2",
-		"@types/node": "20.8.0",
+		"@types/node": "20.8.2",
 		"@fontsource/noto-sans": "5.0.13",
 		"ts-mockito": "2.6.1",
 		"ts-node": "10.9.1",
