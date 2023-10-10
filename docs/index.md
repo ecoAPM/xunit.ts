@@ -10,20 +10,20 @@ permalink: /
 
 - Node.js 14, 16, 18, 20
 
-  (other versions may work, but only the latest minor release for each active LTS version is supported)
+  (other versions may work, but only the latest minor release for each current/active/maintenance LTS version is supported)
 
 - A supported TypeScript compiler
   - TypeScript (v4, v5)
   - Vite (v2, v3, v4)
-  - Rollup (v2, v3)
+  - Rollup (v2, v3, v4)
   - Parcel (v1, v2)
   - Webpack (v5)
 
-Note that 1.4.0 is the last release that will support legacy versions of the above; v2.0 (expected Q3 2023) will support:
+Note that 1.4.0 is the last release that will support legacy versions of the above; v2.0 (expected Q4 2023) will support:
   - Node.js 18+
   - TypeScript 5+
   - Vite 4+
-  - Rollup 3+
+  - Rollup 4+
   - Parcel 2+
   - Webpack 5+
 
