@@ -20,7 +20,7 @@
 	},
 	"devDependencies": {
 		"@types/command-line-args": "5.2.2",
-		"@types/command-line-usage": "5.0.3",
+		"@types/command-line-usage": "5.0.4",
 		"@types/lodash.escaperegexp": "4.1.8",
 		"@types/lodash.isequal": "4.5.7",
 		"@types/node": "20.8.10",
