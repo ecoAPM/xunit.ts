@@ -27,7 +27,7 @@
 		"@types/xml": "1.0.11",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
 		"@typescript-eslint/parser": "5.62.0",
-		"eslint": "8.53.0",
+		"eslint": "8.54.0",
 		"ts-mockito": "2.6.1",
 		"typescript": "5.2.2"
 	},
