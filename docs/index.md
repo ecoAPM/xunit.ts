@@ -14,7 +14,7 @@ permalink: /
 
 - A supported TypeScript compiler
   - TypeScript (v4, v5)
-  - Vite (v2, v3, v4)
+  - Vite (v2, v3, v4, v5)
   - Rollup (v2, v3, v4)
   - Parcel (v1, v2)
   - Webpack (v5)
@@ -22,7 +22,7 @@ permalink: /
 Note that 1.4.0 is the last release that will support legacy versions of the above; v2.0 (expected Q4 2023) will support:
   - Node.js 18+
   - TypeScript 5+
-  - Vite 4+
+  - Vite 5+
   - Rollup 4+
   - Parcel 2+
   - Webpack 5+
