@@ -10,9 +10,9 @@
 	"devDependencies": {
 		"@microsoft/tsdoc": "0.14.2",
 		"@types/node": "20.8.8",
-		"@fontsource/noto-sans": "5.0.17",
+		"@fontsource/noto-sans": "5.0.21",
 		"ts-mockito": "2.6.1",
-		"ts-node": "10.9.1",
+		"ts-node": "10.9.2",
 		"typescript": "5.2.2",
 		"xunit.ts": "file:../core"
 	},
