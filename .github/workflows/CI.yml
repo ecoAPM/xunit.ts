@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [18, 20]
+        version: [18, 20, 22]
 
     steps:
     - name: Checkout code
@@ -39,7 +39,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20
+        node-version: 22
 
     - name: Install core dependencies
       run: yarn
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [18, 20]
+        version: [18, 20, 22]
 
     steps:
     - name: Checkout code
