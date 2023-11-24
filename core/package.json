@@ -23,7 +23,7 @@
 		"@types/command-line-usage": "5.0.4",
 		"@types/lodash.escaperegexp": "4.1.9",
 		"@types/lodash.isequal": "4.5.8",
-		"@types/node": "20.9.4",
+		"@types/node": "20.10.0",
 		"@types/xml": "1.0.11",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
 		"@typescript-eslint/parser": "5.62.0",
