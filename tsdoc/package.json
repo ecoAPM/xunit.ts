@@ -12,7 +12,7 @@
 		"@types/node": "20.8.8",
 		"@fontsource/noto-sans": "5.0.18",
 		"ts-mockito": "2.6.1",
-		"ts-node": "10.9.1",
+		"ts-node": "10.9.2",
 		"typescript": "5.2.2",
 		"xunit.ts": "file:../core"
 	},
