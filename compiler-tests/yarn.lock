@@ -2733,10 +2733,10 @@ utility-types@^3.10.0:
   resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
   integrity sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 
-vite@5.2.11:
-  version "5.2.11"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.2.11.tgz#726ec05555431735853417c3c0bfb36003ca0cbd"
-  integrity sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==
+vite@5.2.12:
+  version "5.2.12"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.2.12.tgz#3536c93c58ba18edea4915a2ac573e6537409d97"
+  integrity sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==
   dependencies:
     esbuild "^0.20.1"
     postcss "^8.4.38"
