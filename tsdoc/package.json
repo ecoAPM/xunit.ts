@@ -8,7 +8,7 @@
 		"node": ">= 18"
 	},
 	"devDependencies": {
-		"@microsoft/tsdoc": "0.15.0",
+		"@microsoft/tsdoc": "0.15.1",
 		"@types/node": "22.7.5",
 		"@fontsource/noto-sans": "5.1.0",
 		"ts-mockito": "2.6.1",
