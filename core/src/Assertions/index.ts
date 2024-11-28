@@ -27,6 +27,9 @@ import string_not_starts from "./StringDoesNotStartWith";
 import string_ends from "./StringEndsWith";
 import string_not_ends from "./StringDoesNotEndWith";
 
+import string_matches from "./StringMatches";
+import string_not_matches from "./StringDoesNotMatch";
+
 import instance_of from "./InstanceOf";
 
 import throws from "./Throws";
@@ -61,6 +64,9 @@ export default new class AssertionLibrary {
 
 	stringEndsWith = string_ends;
 	stringDoesNotEndWith = string_not_ends;
+
+	stringMatches = string_matches;
+	stringDoesNotMatch = string_not_matches;
 
 	instanceOf = instance_of;
 
