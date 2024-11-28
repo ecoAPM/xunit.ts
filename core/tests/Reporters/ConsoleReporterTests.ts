@@ -237,15 +237,10 @@ export default class ConsoleReporterTests extends TestSuite {
 		reporter.runCompleted({ test: results });
 
 		//assert
-		this.assert.stringContains("Passed", console);
-		this.assert.stringContains("4", console);
-		this.assert.stringContains("Failed", console);
-		this.assert.stringContains("3", console);
-		this.assert.stringContains("Error", console);
-		this.assert.stringContains("2", console);
-		this.assert.stringContains("Incomplete", console);
-		this.assert.stringContains("1", console);
-		this.assert.stringContains("Total", console);
-		this.assert.stringContains("10", console);
+		this.assert.stringMatches(/Passed:.+4/, console);
+		this.assert.stringMatches(/Failed:.+3/, console);
+		this.assert.stringMatches(/Error:.+2/, console);
+		this.assert.stringMatches(/Incomplete:.+1/, console);
+		this.assert.stringMatches(/Total:.+10/, console);
 	}
 }
