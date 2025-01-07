@@ -26,7 +26,7 @@
 		"@types/node": "22.10.5",
 		"@types/xml": "1.0.11",
 		"@typescript-eslint/eslint-plugin": "8.19.1",
-		"@typescript-eslint/parser": "8.19.0",
+		"@typescript-eslint/parser": "8.19.1",
 		"eslint": "9.17.0",
 		"ts-mockito": "2.6.1",
 		"typescript": "5.7.2"
