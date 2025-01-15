@@ -1,26 +1,26 @@
 ---
-title: True
+title: True 
 ---
 
-## Assertion: True
+## Assertion: True 
 
-Asserts that a given expression evaluates to `true`
+Asserts that a given expression evaluates to `true` 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.true(expression);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if `expression` evaluates to `true`
 
-Fails if `expression` does not evaluate to `true`
+Fails if `expression` does not evaluate to `true` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

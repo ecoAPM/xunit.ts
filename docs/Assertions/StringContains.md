@@ -1,27 +1,27 @@
 ---
-title: String Contains
+title: String Contains 
 ---
 
-## Assertion: String Contains
+## Assertion: String Contains 
 
-Asserts that a string contains a given substring
+Asserts that a string contains a given substring 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.stringContains(needle, haystack);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if `needle` is a substring of `haystack`
 
-Fails if `needle` is not a substring of `haystack`
+Fails if `needle` is not a substring of `haystack` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `needle` | the substring to find |
 | `haystack` | the string to search |
 | `message` | (optional) message to display on failure |

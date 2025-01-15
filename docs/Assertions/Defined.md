@@ -1,26 +1,26 @@
 ---
-title: Defined
+title: Defined 
 ---
 
-## Assertion: Defined
+## Assertion: Defined 
 
-Asserts that a value is defined (any value other than `undefined`)
+Asserts that a value is defined (any value other than `undefined`) 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.defined(expression);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if `expression` does not evaluate to `undefined`
 
-Fails if `expression` evaluates to `undefined`
+Fails if `expression` evaluates to `undefined` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

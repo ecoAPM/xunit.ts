@@ -1,26 +1,26 @@
 ---
-title: Null
+title: Null 
 ---
 
-## Assertion: Null
+## Assertion: Null 
 
-Asserts that a value is `null`
+Asserts that a value is `null` 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.null(expression);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if `expression` evaluates to `null`
 
-Fails if `expression` does not evaluate to `null`
+Fails if `expression` does not evaluate to `null` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

@@ -1,27 +1,27 @@
 ---
-title: Instance Of
+title: Instance Of 
 ---
 
-## Assertion: Instance Of
+## Assertion: Instance Of 
 
-Asserts that a value is an instance of a certain type
+Asserts that a value is an instance of a certain type 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.instanceOf(type, object);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if `object`'s type matches `type`
 
-Fails if `object`'s type does not match `type`
+Fails if `object`'s type does not match `type` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `type` | the expected type of the value |
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

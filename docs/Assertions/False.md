@@ -1,26 +1,26 @@
 ---
-title: False
+title: False 
 ---
 
-## Assertion: False
+## Assertion: False 
 
-Asserts that a given value is equal to `false`
+Asserts that a given value is equal to `false` 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.false(expression);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if `expression` evaluates to `false`
 
-Fails if `expression` does not evaluate to `false`
+Fails if `expression` does not evaluate to `false` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `expression` | the value to check |
 | `message` | (optional) message to display on failure |

@@ -1,26 +1,26 @@
 ---
-title: Throws
+title: Throws 
 ---
 
-## Assertion: Throws
+## Assertion: Throws 
 
-Asserts that an expression throws an error/exception
+Asserts that an expression throws an error/exception 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.throws(() => expression);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if calling `expression` throws an error/exception
 
-Fails if calling `expression` does not throw an error/exception
+Fails if calling `expression` does not throw an error/exception 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `expression` | the expression to run |
 | `message` | (optional) message to display on failure |

@@ -10,7 +10,7 @@
 
 - name: Nullable
   assertions:
-    - Null
+    - 'Null'
     - Not Null
     - Undefined
     - Defined
@@ -18,11 +18,13 @@
 - name: Strings
   assertions:
     - String Contains
-    - String Starts With
-    - String Ends With
     - String Does Not Contain
+    - String Starts With
     - String Does Not Start With
+    - String Ends With
     - String Does Not End With
+    - String Matches
+    - String Does Not Match
 
 - name: Arrays
   assertions:

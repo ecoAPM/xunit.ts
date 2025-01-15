@@ -1,27 +1,27 @@
 ---
-title: String Does Not Start With
+title: String Does Not Start With 
 ---
 
-## Assertion: String Does Not Start With
+## Assertion: String Does Not Start With 
 
-Asserts that a string does not begin with a given substring
+Asserts that a string does not begin with a given substring 
 
-### Example
+### Example 
 
-```ts
+```ts 
 this.assert.stringDoesNotStartWith(needle, haystack);
-```
+``` 
 
-### Conditions
+### Conditions 
 
 Passes if the first characters of `haystack` do not match `needle`
 
-Fails if the first characters of `haystack` match `needle`
+Fails if the first characters of `haystack` match `needle` 
 
-### Parameters
+### Parameters 
 
-| Name | Description |
-|---|---|
+| Name | Description | 
+|---|---| 
 | `needle` | the substring to find |
 | `haystack` | the string to search |
 | `message` | (optional) message to display on failure |
