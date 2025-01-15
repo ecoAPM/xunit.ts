@@ -124,6 +124,19 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
+	async CanFilterClassWithNoTests() {
+		//arrange
+		const suite = new class TestSuiteName extends TestSuite {
+		};
+
+		//act
+		const tests = suite.getTests([new RegExp("TestSuiteName.testA1")]);
+
+		//assert
+		this.assert.empty(Object.keys(tests));
+	}
+
+	@Test()
 	async CanSetTestsToRun() {
 		//arrange
 		const suite = new class X extends TestSuite {
