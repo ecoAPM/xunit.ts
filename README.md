@@ -18,19 +18,11 @@ Detailed documentation is available at https://ecoAPM.github.io/xunit.ts
 
 ### Requirements
 
-- Node.js 14+
+- Node.js 18+
 
   (other versions may work, but only the latest minor release for each current/active/maintenance LTS version is supported)
 
 - A supported TypeScript compiler
-  - TypeScript (v4, v5)
-  - Vite (v2, v3, v4, v5, v6)
-  - Rollup (v2, v3, v4)
-  - Parcel (v1, v2)
-  - Webpack (v5)
-
-Note that 1.4.0 is the last release that will support legacy versions of the above; v2.0 (expected Q1 2025) will support:
-  - Node.js 18+
   - TypeScript 5+
   - Vite 6+
   - Rollup 4+
