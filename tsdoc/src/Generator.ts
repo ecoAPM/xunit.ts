@@ -4,7 +4,8 @@ import Parser from "./Parser";
 import path from "path";
 import TestName from "../../core/src/Framework/TestName";
 import Markdown from "./Markdown";
-import { DocComment } from "@microsoft/tsdoc";
+import {DocComment} from "@microsoft/tsdoc";
+import {realpathSync} from "node:fs";
 
 export default class Generator {
 	constructor(private readonly fs: FileSystem, private readonly fs_promises: typeof FSPromises, private readonly parser: Parser) {
@@ -33,12 +34,14 @@ export default class Generator {
 		const code = await this.fs_promises.readFile(file);
 		const doc = await this.parser.findDoc(code.toString());
 
-		const [ base, dir, filename ] = file.split(path.sep);
+		const parts = file.split(path.sep);
+		const dir = parts[parts.length - 2];
+		const filename = parts[parts.length - 1];
 		const md = Generator.getMarkdown(filename, doc);
 
 		if (md !== null) {
-			const out = path.join(out_path, file.substring(base.length + 1)).replace(/\.ts$/, ".md");
-			await this.fs_promises.mkdir(path.join(out_path, dir), { recursive: true });
+			const out = path.join(out_path, dir, filename.replace(/\.ts$/, ".md"));
+			await this.fs_promises.mkdir(path.join(out_path, dir), {recursive: true});
 			await this.fs_promises.writeFile(out, md);
 		}
 	}
