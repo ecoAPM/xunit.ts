@@ -8,17 +8,17 @@
 		"node": ">= 18"
 	},
 	"devDependencies": {
-		"@rollup/plugin-typescript": "12.1.2",
+		"@rollup/plugin-typescript": "12.1.4",
 		"@types/node": "22.7.5",
 		"assert": "2.1.0",
-		"parcel": "2.14.4",
+		"parcel": "2.15.4",
 		"process": "0.11.10",
-		"rollup": "4.40.0",
+		"rollup": "4.46.2",
 		"ts-loader": "9.5.2",
 		"tslib": "2.8.1",
 		"typescript": "5.6.3",
-		"vite": "6.3.3",
-		"webpack": "5.99.7",
+		"vite": "6.3.5",
+		"webpack": "5.101.2",
 		"webpack-cli": "6.0.1",
 		"xunit.ts": "file:../core"
 	},
