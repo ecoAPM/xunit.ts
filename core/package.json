@@ -25,7 +25,7 @@
 		"@types/lodash.isequal": "4.5.8",
 		"@types/node": "24.0.14",
 		"@types/xml": "1.0.11",
-		"@typescript-eslint/eslint-plugin": "8.36.0",
+		"@typescript-eslint/eslint-plugin": "8.37.0",
 		"@typescript-eslint/parser": "8.37.0",
 		"eslint": "9.31.0",
 		"ts-mockito": "2.6.1",
