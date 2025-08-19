@@ -9,10 +9,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@fontsource/noto-sans@5.2.7":
-  version "5.2.7"
-  resolved "https://registry.npmjs.org/@fontsource/noto-sans/-/noto-sans-5.2.7.tgz"
-  integrity sha512-mTpMSMft6Nb+ZSF4DSiJVYnLzKCRjHNFieZ/swuxSDQK+v1hjUeDTBxLHKUdfmC+ZPg6TUEWw4oRq2ltnDbSjQ==
+"@fontsource/noto-sans@5.2.10":
+  version "5.2.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-5.2.10.tgz#74476071b53fda1554ac009b98f18d763d0f7135"
+  integrity sha512-J58RVfS/C0Z2VBF+PoU260Tx8cdRGYuS+e3yQe4hYaIYDl0sEVn5CzlLo5zVRvQD0HaIUTV8AZMfqR7rtdEpqQ==
 
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.1.2"
@@ -32,10 +32,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@microsoft/tsdoc@0.15.1":
-  version "0.15.1"
-  resolved "https://registry.npmjs.org/@microsoft/tsdoc/-/tsdoc-0.15.1.tgz"
-  integrity sha512-4aErSrCR/On/e5G2hDP0wjooqDdauzEbIq8hIkIe5pXV0rtWJZvdCEKL0ykZxex+IxIwBp0eGeV48hQN07dXtw==
+"@microsoft/tsdoc@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.16.0.tgz#2249090633e04063176863a050c8f0808d2b6d2b"
+  integrity sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.11"
@@ -262,7 +262,7 @@ xml@1.0.1:
   integrity sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==
 
 "xunit.ts@file:../core":
-  version "2.0.0"
+  version "3.0.0"
   dependencies:
     colors "1.4.0"
     command-line-args "6.0.1"
