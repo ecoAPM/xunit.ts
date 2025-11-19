@@ -13,11 +13,11 @@
 		"assert": "2.1.0",
 		"parcel": "2.16.1",
 		"process": "0.11.10",
-		"rollup": "4.53.2",
+		"rollup": "4.53.3",
 		"ts-loader": "9.5.4",
 		"tslib": "2.8.1",
 		"typescript": "5.6.3",
-		"vite": "7.2.2",
+		"vite": "7.2.4",
 		"webpack": "5.103.0",
 		"webpack-cli": "6.0.1",
 		"xunit.ts": "file:../core"
