@@ -69,7 +69,7 @@ export default class ConsoleReporter implements ResultReporter {
 		}
 
 		const sum = (result_type?: ResultType) => results
-			.map((suite_result) => result_type !== undefined ? suite_result.count(result_type) : suite_result.total())
+			.map((suite_result) => result_type === undefined ? suite_result.total() : suite_result.count(result_type))
 			.reduce((acc, current) => acc + current, 0);
 
 		const result = (result_type?: ResultType, color: (string: string) => string = colors.white) => {
