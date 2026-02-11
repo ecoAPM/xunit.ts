@@ -3,6 +3,9 @@
 		"target": "ES2015",
 		"module": "CommonJS",
 		"outDir": "dist/",
+		"lib": [
+			"ES2024"
+		],
 		"strict": true,
 		"sourceMap": true,
 		"declaration": true,

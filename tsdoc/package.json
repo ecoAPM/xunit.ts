@@ -9,11 +9,11 @@
 	},
 	"devDependencies": {
 		"@microsoft/tsdoc": "0.16.0",
-		"@types/node": "22.7.5",
+		"@types/node": "25.2.3",
 		"@fontsource/noto-sans": "5.2.10",
 		"ts-mockito": "2.6.1",
 		"ts-node": "10.9.2",
-		"typescript": "5.6.3",
+		"typescript": "5.9.3",
 		"xunit.ts": "file:../core"
 	},
 	"scripts": {
