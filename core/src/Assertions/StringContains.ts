@@ -16,7 +16,7 @@ import { AssertionError } from "node:assert";
  * this.assert.stringContains(needle, haystack);
  */
 export default function StringContains(needle: string, haystack: string | null, message?: string) {
-	if (haystack !== undefined && haystack !== null && haystack.includes(needle)) {
+	if (haystack?.includes(needle)) {
 		return;
 	}
 
