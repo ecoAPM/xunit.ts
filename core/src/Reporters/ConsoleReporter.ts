@@ -3,7 +3,7 @@ import TestSuite from "../Framework/TestSuite";
 import Output from "../IO/Output";
 import TestName from "../Framework/TestName";
 import colors from "colors";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import TestSuiteResults from "../Framework/TestSuiteResults";
 import { ResultType } from "../Framework/ResultType";
 

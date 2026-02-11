@@ -1,8 +1,8 @@
 ﻿import { Test, TestSuite } from "../xunit";
 import Mockito from "ts-mockito";
-import Process from "process";
+import Process from "node:process";
 import CLI from "../src/CLI";
-import { WriteStream } from "tty";
+import { WriteStream } from "node:tty";
 import Runner from "../src/Runners/Runner";
 
 export default class CLITests extends TestSuite {

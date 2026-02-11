@@ -3,7 +3,7 @@ import SonarReporter from "../../src/Reporters/SonarReporter";
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
 import TestData from "./TestData";
-import path from "path";
+import path from "node:path";
 
 export default class SonarReporterTests extends TestSuite {
 	@Test()

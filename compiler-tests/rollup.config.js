@@ -1,6 +1,6 @@
 import typescript from "@rollup/plugin-typescript";
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 
 const files = fs.readdirSync(__dirname)
 	.filter(file => file.match("\\.ts$"))

@@ -1,5 +1,5 @@
 import { Test, TestSuite } from "../../xunit";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import Defined from "../../src/Assertions/Defined";
 
 export default class DefinedTests extends TestSuite {

@@ -1,4 +1,4 @@
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 
 /**
  * Asserts that a string does not contain a given substring

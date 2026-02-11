@@ -1,7 +1,7 @@
 ﻿import ResultReporter from "./ResultReporter";
 import TestSuiteResults from "../Framework/TestSuiteResults";
 import TestSuite from "../Framework/TestSuite";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import FileSystem from "../IO/FileSystem";
 
 export default abstract class FileReporter implements ResultReporter {

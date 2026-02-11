@@ -1,4 +1,4 @@
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 
 /**
  * Asserts that an array does not contain a given element

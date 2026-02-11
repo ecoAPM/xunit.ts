@@ -3,7 +3,7 @@ import TestSuite from "../Framework/TestSuite";
 import { ResultType } from "../Framework/ResultType";
 import ResultReporter from "../Reporters/ResultReporter";
 import TestResult from "../Framework/TestResult";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 
 export default class TestRunner {
 

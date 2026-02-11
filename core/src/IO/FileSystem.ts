@@ -1,5 +1,5 @@
-import fs_promises from "fs/promises";
-import path from "path";
+import fs_promises from "node:fs/promises";
+import path from "node:path";
 
 export default class FileSystem {
 

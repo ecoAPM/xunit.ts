@@ -1,5 +1,5 @@
 import FileSystem from "../../core/src/IO/FileSystem";
-import fs_promises from "fs/promises";
+import fs_promises from "node:fs/promises";
 import Parser from "./Parser";
 import { TSDocParser } from "@microsoft/tsdoc";
 import Generator from "./Generator";

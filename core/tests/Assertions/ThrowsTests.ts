@@ -1,5 +1,5 @@
 import { Test, TestSuite } from "../../xunit";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import Throws from "../../src/Assertions/Throws";
 
 export default class ThrowsTests extends TestSuite {

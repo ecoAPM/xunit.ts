@@ -1,4 +1,4 @@
-import { WriteStream } from "tty";
+import { WriteStream } from "node:tty";
 
 export default class Output {
 

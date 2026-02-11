@@ -2,10 +2,10 @@
 import Generator from "../src/Generator";
 import FileSystem from "../../core/src/IO/FileSystem";
 import Mockito from "ts-mockito";
-import FSPromises from "fs/promises";
+import FSPromises from "node:fs/promises";
 import Parser from "../src/Parser";
 import { TSDocParser } from "@microsoft/tsdoc";
-import path from "path";
+import path from "node:path";
 
 export default class GeneratorTests extends TestSuite {
 	@Test()

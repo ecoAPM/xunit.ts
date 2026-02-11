@@ -1,4 +1,4 @@
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 
 /**
  * Asserts that a string begins with a given substring

@@ -3,7 +3,7 @@ import xml from "xml";
 import { ResultType } from "../Framework/ResultType";
 import TestResult from "../Framework/TestResult";
 import XMLReporter from "./XMLReporter";
-import path from "path";
+import path from "node:path";
 
 export default class SonarReporter extends XMLReporter {
 	static readonly defaultFileName: string = "sonar.xml";

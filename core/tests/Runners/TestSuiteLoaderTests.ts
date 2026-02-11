@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 import TestSuiteLoader from "../../src/Runners/TestSuiteLoader";
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
-import path from "path";
+import path from "node:path";
 
 export default class TestSuiteLoaderTests extends TestSuite {
 

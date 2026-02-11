@@ -1,6 +1,6 @@
 import { Test, TestSuite } from "../../xunit";
 import Mockito from "ts-mockito";
-import { WriteStream } from "tty";
+import { WriteStream } from "node:tty";
 import Output from "../../src/IO/Output";
 
 export default class OutputTests extends TestSuite {

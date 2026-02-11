@@ -3,7 +3,7 @@ import ResultReporter from "../../src/Reporters/ResultReporter";
 import TestRunner from "../../src/Runners/TestRunner";
 import Mockito from "ts-mockito";
 import { ResultType } from "../../src/Framework/ResultType";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 
 export default class TestRunnerTests extends TestSuite {
 	@Test()

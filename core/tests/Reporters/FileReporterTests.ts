@@ -1,7 +1,7 @@
 import { Test, TestSuite } from "../../xunit";
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import FileReporter from "../../src/Reporters/FileReporter";
 

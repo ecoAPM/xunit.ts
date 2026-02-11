@@ -1,5 +1,5 @@
 import { Test, TestSuite } from "../../xunit";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import StringDoesNotStartWith from "../../src/Assertions/StringDoesNotStartWith";
 
 export default class StringDoesNotStartWithTests extends TestSuite {

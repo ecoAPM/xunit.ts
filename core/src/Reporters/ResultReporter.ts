@@ -1,5 +1,5 @@
 import TestSuite from "../Framework/TestSuite";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import TestSuiteResults from "../Framework/TestSuiteResults";
 
 export default interface ResultReporter {

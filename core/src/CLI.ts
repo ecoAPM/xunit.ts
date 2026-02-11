@@ -1,6 +1,6 @@
 import Usage from "command-line-usage";
 import JUnitReporter from "./Reporters/JUnitReporter";
-import Process from "process";
+import Process from "node:process";
 import Args from "command-line-args";
 import SafeRegex from "lodash.escaperegexp";
 import Runner from "./Runners/Runner";

@@ -1,6 +1,6 @@
 import { Test, TestSuite } from "../../xunit";
 import Count from "../../src/Assertions/Count";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 
 export default class CountTests extends TestSuite {
 	@Test()

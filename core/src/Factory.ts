@@ -8,7 +8,7 @@ import Runner from "./Runners/Runner";
 import TestRunner from "./Runners/TestRunner";
 import TestSuiteLoader from "./Runners/TestSuiteLoader";
 import TestSuiteRunner from "./Runners/TestSuiteRunner";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 import SonarReporter from "./Reporters/SonarReporter";
 
 export default class Factory {

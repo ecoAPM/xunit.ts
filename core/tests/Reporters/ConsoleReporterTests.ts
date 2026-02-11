@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 import Mockito from "ts-mockito";
 import Output from "../../src/IO/Output";
 import ConsoleReporter from "../../src/Reporters/ConsoleReporter";
-import { AssertionError } from "assert";
+import { AssertionError } from "node:assert";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";

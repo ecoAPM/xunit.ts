@@ -1,5 +1,5 @@
 import Factory from "./src/Factory";
-import path from "path";
+import path from "node:path";
 import {realpath, realpathSync} from "node:fs";
 
 Factory.TSDocGenerator()
