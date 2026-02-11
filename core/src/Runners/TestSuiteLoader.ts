@@ -35,7 +35,7 @@ export default class TestSuiteLoader {
 	}
 
 	static isFromNodeModules(dir: string) {
-		return dir.indexOf("node_modules") !== -1;
+		return dir.includes("node_modules");
 	}
 
 	async loadTestSuites(dir: string, filters: RegExp[]): Promise<Record<string, TestSuite>> {

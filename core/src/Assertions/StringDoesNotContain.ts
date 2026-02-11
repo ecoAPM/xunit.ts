@@ -16,7 +16,7 @@ import { AssertionError } from "node:assert";
  * this.assert.stringDoesNotContain(needle, haystack);
  */
 export default function StringDoesNotContain(needle: string, haystack: string | null, message?: string) {
-	if (haystack === undefined || haystack === null || haystack.indexOf(needle) === -1) {
+	if (haystack === undefined || haystack === null || !haystack.includes(needle)) {
 		return;
 	}
 

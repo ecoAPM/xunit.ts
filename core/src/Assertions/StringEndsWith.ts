@@ -17,7 +17,7 @@ import { AssertionError } from "node:assert";
  */
 export default function StringEndsWith(needle: string, haystack: string | null, message?: string) {
 	if (haystack !== undefined && haystack !== null
-		&& haystack.indexOf(needle) > -1
+		&& haystack.includes(needle)
 		&& haystack.indexOf(needle) === haystack.length - needle.length) {
 		return;
 	}
