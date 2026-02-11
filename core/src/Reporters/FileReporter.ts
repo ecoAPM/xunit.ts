@@ -9,37 +9,37 @@ export default abstract class FileReporter implements ResultReporter {
 	constructor(protected readonly file_system: FileSystem, protected readonly path: string) {
 	}
 
-	runStarted(): void {
+	async runStarted(): Promise<void> {
 		return;
 	}
 
-	suiteStarted(suite: TestSuite): void {
+	async suiteStarted(suite: TestSuite): Promise<void> {
 		return;
 	}
 
-	testStarted(suite: TestSuite, test_name: string): void {
+	async testStarted(suite: TestSuite, test_name: string): Promise<void> {
 		return;
 	}
 
-	testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+	async testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): Promise<void> {
 		return;
 	}
 
-	testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): void {
+	async testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): Promise<void> {
 		return;
 	}
 
-	testIncomplete(suite: TestSuite, test_name: string): void {
+	async testIncomplete(suite: TestSuite, test_name: string): Promise<void> {
 		return;
 	}
 
-	testPassed(suite: TestSuite, test_name: string, duration: number): void {
+	async testPassed(suite: TestSuite, test_name: string, duration: number): Promise<void> {
 		return;
 	}
 
-	suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
+	async suiteCompleted(suite: TestSuite, results: TestSuiteResults): Promise<void> {
 		return;
 	}
 
-	abstract runCompleted(results: Record<string, TestSuiteResults>): void;
+	abstract runCompleted(results: Record<string, TestSuiteResults>): Promise<void>;
 }

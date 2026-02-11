@@ -12,25 +12,25 @@ export default class ConsoleReporter implements ResultReporter {
 	constructor(private readonly out: Output) {
 	}
 
-	runStarted(): void {
+	async runStarted(): Promise<void> {
 		this.out.writeLine("Starting xunit.ts...");
 		this.out.writeLine();
 	}
 
-	suiteStarted(suite: TestSuite): void {
+	async suiteStarted(suite: TestSuite): Promise<void> {
 		this.out.writeLine(TestName.toSentenceCase(suite.constructor.name));
 	}
 
-	testStarted(suite: TestSuite, test_name: string): void {
+	async testStarted(suite: TestSuite, test_name: string): Promise<void> {
 		this.out.write(`  ${colors.white("⋯")} ${test_name}`);
 	}
 
-	testPassed(suite: TestSuite, test_name: string, duration: number): void {
+	async testPassed(suite: TestSuite, test_name: string, duration: number): Promise<void> {
 		this.out.write(` (${Math.round(duration)} ms)`);
 		this.out.overwrite(`  ${colors.green("✓")}\n`);
 	}
 
-	testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): void {
+	async testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): Promise<void> {
 		this.out.write(` (${Math.round(duration)} ms)`);
 		this.out.overwrite(`  ${colors.red("✘")}\n`);
 		this.out.writeLine(`      ${error.message}`);
@@ -39,7 +39,7 @@ export default class ConsoleReporter implements ResultReporter {
 		this.out.writeLine();
 	}
 
-	testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): void {
+	async testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): Promise<void> {
 		this.out.write(` (${Math.round(duration)} ms)`);
 		this.out.overwrite(`  ${colors.red("✘")}\n`);
 		this.out.writeLine(`  ${error.stack}`);
@@ -47,11 +47,11 @@ export default class ConsoleReporter implements ResultReporter {
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	testIncomplete(suite: TestSuite, test_name: string): void {
+	async testIncomplete(suite: TestSuite, test_name: string): Promise<void> {
 		this.out.overwrite(`  ${colors.yellow("?")}\n`);
 	}
 
-	suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
+	async suiteCompleted(suite: TestSuite, results: TestSuiteResults): Promise<void> {
 		const passed = results.count(ResultType.Passed);
 		const total = results.total();
 		const time = results.time();
@@ -61,7 +61,7 @@ export default class ConsoleReporter implements ResultReporter {
 		this.out.writeLine();
 	}
 
-	runCompleted(suites: Record<string, TestSuiteResults>): void {
+	async runCompleted(suites: Record<string, TestSuiteResults>): Promise<void> {
 		const results = Object.values(suites);
 		if (!results.length) {
 			this.out.writeLine("No tests found!");
