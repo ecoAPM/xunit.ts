@@ -6,88 +6,94 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [20, 22, 24]
+        version: [ 20, 22, 24 ]
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.version }}
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
 
-    - name: Install core dependencies
-      run: yarn
-      working-directory: core
+      - name: Install core dependencies
+        run: yarn
+        working-directory: core
 
-    - name: Build core
-      run: yarn build
-      working-directory: core
+      - name: Build core
+        run: yarn build
+        working-directory: core
 
-    - name: Run core tests
-      run: yarn test
-      working-directory: core
+      - name: Run core tests
+        run: yarn test
+        working-directory: core
 
   Documentation:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-    - name: Install core dependencies
-      run: yarn
-      working-directory: core
+      - name: Install core dependencies
+        run: yarn
+        working-directory: core
 
-    - name: Build core
-      run: yarn build
-      working-directory: core
+      - name: Build core
+        run: yarn build
+        working-directory: core
 
-    - name: Install documentation dependencies
-      run: yarn
-      working-directory: tsdoc
+      - name: Install documentation dependencies
+        run: yarn
+        working-directory: tsdoc
 
-    - name: Build documentation
-      run: yarn build
-      working-directory: tsdoc
+      - name: Build documentation
+        run: yarn build
+        working-directory: tsdoc
 
-    - name: Run documentation tests
-      run: yarn test
-      working-directory: tsdoc
+      - name: Run documentation tests
+        run: yarn test
+        working-directory: tsdoc
 
   Compiler-Tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [20, 22, 24]
+        version: [ 20, 22, 24 ]
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.version }}
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
 
-    - name: Install core dependencies
-      run: yarn
-      working-directory: core
+      - name: Install core dependencies
+        run: yarn
+        working-directory: core
 
-    - name: Build core
-      run: yarn build
-      working-directory: core
+      - name: Build core
+        run: yarn build
+        working-directory: core
 
-    - name: Install compiler test dependencies
-      run: yarn
-      working-directory: compiler-tests
+      - name: Install compiler test dependencies
+        run: yarn
+        working-directory: compiler-tests
 
-    - name: Run compiler tests
-      run: yarn all
-      working-directory: compiler-tests
+      - name: Run compiler tests
+        run: yarn all
+        working-directory: compiler-tests
