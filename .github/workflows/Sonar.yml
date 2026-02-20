@@ -7,45 +7,46 @@ jobs:
     if: github.actor != 'dependabot[bot]'
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 24
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
-    - name: Install c8
-      run: yarn global add c8
+      - name: Install c8
+        run: yarn global add c8
 
-    - name: Install dependencies
-      run: yarn
-      working-directory: core
+      - name: Install dependencies
+        run: yarn
+        working-directory: core
 
-    - name: Build core
-      run: yarn build
-      working-directory: core
+      - name: Build core
+        run: yarn build
+        working-directory: core
 
-    - name: Get core code coverage
-      run: c8 -r lcov yarn test -s
-      working-directory: core
+      - name: Get core code coverage
+        run: c8 -r lcov yarn test -s
+        working-directory: core
 
-    - name: Install documentation dependencies
-      run: yarn
-      working-directory: tsdoc
+      - name: Install documentation dependencies
+        run: yarn
+        working-directory: tsdoc
 
-    - name: Build documentation
-      run: yarn build
-      working-directory: tsdoc
+      - name: Build documentation
+        run: yarn build
+        working-directory: tsdoc
 
-    - name: Get documentation code coverage
-      run: c8 -r lcov yarn test -s
-      working-directory: tsdoc
+      - name: Get documentation code coverage
+        run: c8 -r lcov yarn test -s
+        working-directory: tsdoc
 
-    - name: SonarCloud Analysis
-      uses: SonarSource/sonarqube-scan-action@v7.0.0
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: SonarCloud Analysis
+        uses: SonarSource/sonarqube-scan-action@v7.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
