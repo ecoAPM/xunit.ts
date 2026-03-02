@@ -318,15 +318,15 @@ command-line-args@6.0.1:
     lodash.camelcase "^4.3.0"
     typical "^7.2.0"
 
-command-line-usage@7.0.3:
-  version "7.0.3"
-  resolved "https://registry.npmjs.org/command-line-usage/-/command-line-usage-7.0.3.tgz"
-  integrity sha512-PqMLy5+YGwhMh1wS04mVG44oqDsgyLRSKJBdOo1bnYhMKBW65gZF1dRp2OZRhiTjgUHljy99qkO7bsctLaw35Q==
+command-line-usage@7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/command-line-usage/-/command-line-usage-7.0.4.tgz#759449bac39c5410e23513f1f78551b669df1514"
+  integrity sha512-85UdvzTNx/+s5CkSgBm/0hzP80RFHAa7PsfeADE5ezZF3uHz3/Tqj9gIKGT9PTtpycc3Ua64T0oVulGfKxzfqg==
   dependencies:
     array-back "^6.2.2"
     chalk-template "^0.4.0"
-    table-layout "^4.1.0"
-    typical "^7.1.1"
+    table-layout "^4.1.1"
+    typical "^7.3.0"
 
 cross-spawn@^7.0.6:
   version "7.0.6"
@@ -689,9 +689,9 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-table-layout@^4.1.0:
+table-layout@^4.1.1:
   version "4.1.1"
-  resolved "https://registry.npmjs.org/table-layout/-/table-layout-4.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/table-layout/-/table-layout-4.1.1.tgz#0f72965de1a5c0c1419c9ba21cae4e73a2f73a42"
   integrity sha512-iK5/YhZxq5GO5z8wb0bY1317uDF3Zjpha0QFFLA8/trAoiLbQD0HUbMesEaxyzUgDxi2QlcbM8IvqOlEjgoXBA==
   dependencies:
     array-back "^6.2.2"
@@ -729,10 +729,10 @@ typescript@5.9.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
-typical@^7.1.1, typical@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/typical/-/typical-7.2.0.tgz"
-  integrity sha512-W1+HdVRUl8fS3MZ9ogD51GOb46xMmhAZzR0WPw5jcgIZQJVvkddYzAl4YTU6g5w33Y1iRQLdIi2/1jhi2RNL0g==
+typical@^7.2.0, typical@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/typical/-/typical-7.3.0.tgz#930376be344228709f134613911fa22aa09617a4"
+  integrity sha512-ya4mg/30vm+DOWfBg4YK3j2WD6TWtRkCbasOJr40CseYENzCUby/7rIvXA99JGsQHeNxLbnXdyLLxKSv3tauFw==
 
 undici-types@~7.18.0:
   version "7.18.2"
