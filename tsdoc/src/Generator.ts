@@ -5,7 +5,6 @@ import path from "node:path";
 import TestName from "../../core/src/Framework/TestName";
 import Markdown from "./Markdown";
 import {DocComment} from "@microsoft/tsdoc";
-import {realpathSync} from "node:fs";
 
 export default class Generator {
 	constructor(private readonly fs: FileSystem, private readonly fs_promises: typeof FSPromises, private readonly parser: Parser) {
