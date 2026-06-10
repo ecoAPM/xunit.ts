@@ -14,7 +14,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.defined(expression);
  */
-export default function Defined(expression: any, message?: string) {
+export default function Defined(expression: unknown, message?: string) {
 	if (expression !== undefined) {
 		return;
 	}

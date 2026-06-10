@@ -15,7 +15,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.runStarted();
+		await reporter.runStarted();
 
 		//assert
 		// noinspection JSVoidFunctionReturnValueUsed
@@ -32,7 +32,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.suiteStarted(test_suite);
+		await reporter.suiteStarted(test_suite);
 
 		//assert
 		// noinspection JSVoidFunctionReturnValueUsed
@@ -49,7 +49,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testStarted(test_suite, "unit test name");
+		await reporter.testStarted(test_suite, "unit test name");
 
 		//assert
 		const [ output ] = Mockito.capture(out.write).first();
@@ -66,7 +66,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testIncomplete(test_suite, "unit test name");
+		await reporter.testIncomplete(test_suite, "unit test name");
 
 		//assert
 		const [ result ] = Mockito.capture(out.overwrite).first();
@@ -83,7 +83,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testPassed(test_suite, "unit test name", 0);
+		await reporter.testPassed(test_suite, "unit test name", 0);
 
 		//assert
 		const [ result ] = Mockito.capture(out.overwrite).first();
@@ -100,7 +100,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testFailed(test_suite, "unit test name", new AssertionError({}), 0);
+		await reporter.testFailed(test_suite, "unit test name", new AssertionError({}), 0);
 
 		//assert
 		const [ result ] = Mockito.capture(out.overwrite).first();
@@ -117,11 +117,11 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testErrored(test_suite, "unit test name", new Error("unhandled exception"), 0);
+		await reporter.testErrored(test_suite, "unit test name", new Error("unhandled exception"), 0);
 
 		//assert
 		const stack = Mockito.capture(out.writeLine).first();
-		this.assert.stringContains("unhandled exception", stack[0] as string);
+		this.assert.stringContains("unhandled exception", stack[0] ?? "");
 	}
 
 	@Test()
@@ -135,17 +135,17 @@ export default class ConsoleReporterTests extends TestSuite {
 		const error = new AssertionError({ message: "failed because reasons", expected: 123, actual: 234 });
 
 		//act
-		reporter.testFailed(test_suite, "unit test name", error, 0);
+		await reporter.testFailed(test_suite, "unit test name", error, 0);
 
 		//assert
 		const message = Mockito.capture(out.writeLine).first();
 		const expected = Mockito.capture(out.writeLine).second();
 		const actual = Mockito.capture(out.writeLine).third();
-		this.assert.stringContains("failed because reasons", message[0] as string);
-		this.assert.stringContains("Expected:", expected[0] as string);
-		this.assert.stringContains("123", expected[0] as string);
-		this.assert.stringContains("Actual:", actual[0] as string);
-		this.assert.stringContains("234", actual[0] as string);
+		this.assert.stringContains("failed because reasons", message[0] ?? "");
+		this.assert.stringContains("Expected:", expected[0] ?? "");
+		this.assert.stringContains("123", expected[0] ?? "");
+		this.assert.stringContains("Actual:", actual[0] ?? "");
+		this.assert.stringContains("234", actual[0] ?? "");
 	}
 
 	@Test()
@@ -158,7 +158,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.testPassed(test_suite, "unit test name", 4.56);
+		await reporter.testPassed(test_suite, "unit test name", 4.56);
 
 		//assert
 		// noinspection JSVoidFunctionReturnValueUsed
@@ -187,7 +187,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		results.addResult("test6", new TestResult(ResultType.Incomplete, 6.7));
 
 		//act
-		reporter.suiteCompleted(test_suite, results);
+		await reporter.suiteCompleted(test_suite, results);
 
 		//assert
 		this.assert.stringContains("3 / 6", console);
@@ -201,7 +201,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		const reporter = new ConsoleReporter(Mockito.instance(out));
 
 		//act
-		reporter.runCompleted({});
+		await reporter.runCompleted({});
 
 		//assert
 		// noinspection JSVoidFunctionReturnValueUsed
@@ -234,7 +234,7 @@ export default class ConsoleReporterTests extends TestSuite {
 		results.addResult("test0", new TestResult(ResultType.Incomplete, 0));
 
 		//act
-		reporter.runCompleted({ test: results });
+		await reporter.runCompleted({test: results});
 
 		//assert
 		this.assert.stringMatches(/Passed:.+4/, console);

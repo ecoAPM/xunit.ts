@@ -27,7 +27,7 @@ export default class FileSystem {
 					: [ item_path ]);
 			}
 			return files;
-		} catch (e) {
+		} catch {
 			return [];
 		}
 	}

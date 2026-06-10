@@ -14,10 +14,10 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.throws(() => expression);
  */
-export default function Throws(expression: () => any, message?: string) {
+export default function Throws(expression: () => unknown, message?: string) {
 	try {
 		expression();
-	} catch (exception) {
+	} catch {
 		return;
 	}
 

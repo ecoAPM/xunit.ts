@@ -14,7 +14,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.null(expression);
  */
-export default function Null(expression: any, message?: string) {
+export default function Null(expression: unknown, message?: string) {
 	if (expression === null) {
 		return;
 	}

@@ -14,7 +14,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.false(expression);
  */
-export default function False(expression: any, message?: string) {
+export default function False(expression: unknown, message?: string) {
 	if (expression === false) {
 		return;
 	}

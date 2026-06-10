@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import ResultReporter from "./ResultReporter";
 import TestSuite from "../Framework/TestSuite";
 import Output from "../IO/Output";
@@ -46,7 +47,6 @@ export default class ConsoleReporter implements ResultReporter {
 		this.out.writeLine();
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	async testIncomplete(suite: TestSuite, test_name: string): Promise<void> {
 		this.out.overwrite(`  ${colors.yellow("?")}\n`);
 	}

@@ -23,7 +23,7 @@ export default class Factory {
 		return new Runner(loader, test_suite_runner, reporters);
 	}
 
-	static Reporters(args: Args.CommandLineOptions): ReadonlyArray<ResultReporter> {
+	static Reporters(args: Args.CommandLineOptions): readonly ResultReporter[] {
 		return [
 			args.quiet ? null : new ConsoleReporter(new Output(process.stdout)),
 			args.junit === undefined ? null : new JUnitReporter(Factory.file_system, args.junit ?? JUnitReporter.defaultFileName),

@@ -7,7 +7,7 @@ import { AssertionError } from "node:assert";
 
 export default class TestRunner {
 
-	constructor(private readonly reporters: ReadonlyArray<ResultReporter>) {
+	constructor(private readonly reporters: readonly ResultReporter[]) {
 	}
 
 	private static msSince(start: [ number, number ]) {

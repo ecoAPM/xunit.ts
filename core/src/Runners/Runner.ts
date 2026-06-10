@@ -6,7 +6,7 @@ import { ResultType } from "../Framework/ResultType";
 
 export default class Runner {
 
-	constructor(private readonly loader: TestSuiteLoader, private readonly runner: TestSuiteRunner, private readonly reporters: ReadonlyArray<ResultReporter>) {
+	constructor(private readonly loader: TestSuiteLoader, private readonly runner: TestSuiteRunner, private readonly reporters: readonly ResultReporter[]) {
 	}
 
 	static allTestsPassed(results: Record<string, TestSuiteResults>): boolean {
