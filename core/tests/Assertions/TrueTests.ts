@@ -4,7 +4,7 @@ import True from "../../src/Assertions/True";
 
 export default class TrueTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = true;
 
@@ -16,7 +16,7 @@ export default class TrueTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = false;
 

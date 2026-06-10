@@ -4,7 +4,7 @@ import StringDoesNotStartWith from "../../src/Assertions/StringDoesNotStartWith"
 
 export default class StringDoesNotStartWithTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const needle = "his";
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringDoesNotStartWithTests extends TestSuite {
 	}
 
 	@Test()
-	async TrueWhenHaystackIsNull() {
+	TrueWhenHaystackIsNull() {
 		//arrange
 		const needle = "banana";
 		const haystack = null;

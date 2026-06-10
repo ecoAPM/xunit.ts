@@ -70,7 +70,7 @@ export default class RunnerTests extends TestSuite {
 	}
 
 	@Test()
-	async AllTestsPassedWhenNoResultsHaveLessPassedThanTotal() {
+	AllTestsPassedWhenNoResultsHaveLessPassedThanTotal() {
 		//arrange
 		const test_suite = new class TestSuiteName extends TestSuite {
 		};
@@ -86,7 +86,7 @@ export default class RunnerTests extends TestSuite {
 	}
 
 	@Test()
-	async AllTestsDidNotPassWhenSomeResultsHaveLessPassedThanTotal() {
+	AllTestsDidNotPassWhenSomeResultsHaveLessPassedThanTotal() {
 		//arrange
 		const test_suite = new class TestSuiteName extends TestSuite {
 		};
@@ -103,7 +103,7 @@ export default class RunnerTests extends TestSuite {
 	}
 
 	@Test()
-	async AllTestsDidNotPassWhenNoTestsRun() {
+	AllTestsDidNotPassWhenNoTestsRun() {
 		//arrange
 		const test_suite = new class TestSuiteName extends TestSuite {
 		};

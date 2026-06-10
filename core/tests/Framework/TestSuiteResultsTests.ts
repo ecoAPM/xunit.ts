@@ -6,7 +6,7 @@ import TestResult from "../../src/Framework/TestResult";
 export default class TestSuiteResultsTests extends TestSuite {
 
 	@Test()
-	async CanGetPassedTests() {
+	CanGetPassedTests() {
 		//arrange
 		const test_suite = new class TestSuiteName extends TestSuite {
 		};
@@ -27,7 +27,7 @@ export default class TestSuiteResultsTests extends TestSuite {
 	}
 
 	@Test()
-	async CanGetAllTests() {
+	CanGetAllTests() {
 		//arrange
 		const test_suite = new class TestSuiteName extends TestSuite {
 		};
@@ -48,7 +48,7 @@ export default class TestSuiteResultsTests extends TestSuite {
 	}
 
 	@Test()
-	async CanGetTotalDuration() {
+	CanGetTotalDuration() {
 		//arrange
 		const test_suite = new class TestSuiteName extends TestSuite {
 		};

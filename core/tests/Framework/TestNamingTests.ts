@@ -3,7 +3,7 @@ import TestName from "../../src/Framework/TestName";
 
 export default class TestNamingTests extends TestSuite {
 	@Test()
-	async CanConvertTitleCaseToWords() {
+	CanConvertTitleCaseToWords() {
 		//arrange
 		const title_case = "TheseAreWords";
 
@@ -15,7 +15,7 @@ export default class TestNamingTests extends TestSuite {
 	}
 
 	@Test()
-	async CanConvertSnakeCaseToWords() {
+	CanConvertSnakeCaseToWords() {
 		//arrange
 		const title_case = "_this_is_a_snake";
 

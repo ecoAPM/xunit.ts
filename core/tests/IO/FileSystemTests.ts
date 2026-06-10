@@ -39,7 +39,7 @@ export default class FileSystemTests extends TestSuite {
 	}
 
 	@Test()
-	async CanGetExtensionFromFilename() {
+	CanGetExtensionFromFilename() {
 		//arrange
 		const filename = "test.txt";
 
@@ -51,7 +51,7 @@ export default class FileSystemTests extends TestSuite {
 	}
 
 	@Test()
-	async CanGetExtensionForFilenameWithMultiplePeriods() {
+	CanGetExtensionForFilenameWithMultiplePeriods() {
 		//arrange
 		const filename = "test_file.final.v2.txt";
 
@@ -63,7 +63,7 @@ export default class FileSystemTests extends TestSuite {
 	}
 
 	@Test()
-	async ExtensionIsEmptyForFilesWithoutExtension() {
+	ExtensionIsEmptyForFilesWithoutExtension() {
 		//arrange
 		const filename = "test_file";
 

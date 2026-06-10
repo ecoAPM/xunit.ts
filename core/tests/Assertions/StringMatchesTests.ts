@@ -4,7 +4,7 @@ import StringMatches from "../../src/Assertions/StringMatches";
 
 export default class StringContainsTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const regex = /^this/;
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringContainsTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const regex = /banana/;
 		const haystack = "this is a string";

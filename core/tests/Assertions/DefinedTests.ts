@@ -4,7 +4,7 @@ import Defined from "../../src/Assertions/Defined";
 
 export default class DefinedTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = null;
 
@@ -16,7 +16,7 @@ export default class DefinedTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = undefined;
 

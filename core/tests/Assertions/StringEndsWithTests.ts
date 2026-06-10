@@ -4,7 +4,7 @@ import StringEndsWith from "../../src/Assertions/StringEndsWith";
 
 export default class StringEndsWithTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const needle = "ring";
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringEndsWithTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const needle = "a str";
 		const haystack = "this is a string";

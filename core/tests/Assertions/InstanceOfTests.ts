@@ -4,7 +4,7 @@ import InstanceOf from "../../src/Assertions/InstanceOf";
 
 export default class InstanceOfTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = new class X extends TestSuite {
 		};
@@ -17,7 +17,7 @@ export default class InstanceOfTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = new class X {
 		};
@@ -34,7 +34,7 @@ export default class InstanceOfTests extends TestSuite {
 	}
 
 	@Test()
-	async ExpectedValueIsTypeName() {
+	ExpectedValueIsTypeName() {
 		//arrange
 		const value = new class X {
 		};

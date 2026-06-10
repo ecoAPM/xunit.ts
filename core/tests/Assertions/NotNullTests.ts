@@ -4,7 +4,7 @@ import NotNull from "../../src/Assertions/NotNull";
 
 export default class NotNullTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = "not null";
 
@@ -16,7 +16,7 @@ export default class NotNullTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = null;
 

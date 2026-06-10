@@ -4,7 +4,7 @@ import Throws from "../../src/Assertions/Throws";
 
 export default class ThrowsTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const expression = () => {
 			throw new Error();
@@ -18,7 +18,7 @@ export default class ThrowsTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const expression = () => 5;
 

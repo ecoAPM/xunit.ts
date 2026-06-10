@@ -4,7 +4,7 @@ import { AssertionError } from "node:assert";
 
 export default class NotEqualTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value1 = 123;
 		const value2 = 234;
@@ -17,7 +17,7 @@ export default class NotEqualTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value1 = 123;
 		const value2 = 123;

@@ -4,7 +4,7 @@ import StringDoesNotMatch from "../../src/Assertions/StringDoesNotMatch";
 
 export default class StringDoesNotContainTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const regex = /banana/;
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringDoesNotContainTests extends TestSuite {
 	}
 
 	@Test()
-	async TrueWhenHaystackIsNull() {
+	TrueWhenHaystackIsNull() {
 		//arrange
 		const regex = /banana/;
 		const haystack = null;
