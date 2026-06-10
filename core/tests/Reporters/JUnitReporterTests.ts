@@ -6,7 +6,7 @@ import TestData from "./TestData";
 
 export default class JUnitReporterTests extends TestSuite {
 	@Test()
-	async XMLMatches() {
+	XMLMatches() {
 		//arrange
 		const fs = Mockito.mock(FileSystem);
 		const reporter = new JUnitReporter(Mockito.instance(fs), "test.xml");

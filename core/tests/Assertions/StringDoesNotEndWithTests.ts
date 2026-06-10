@@ -4,7 +4,7 @@ import StringDoesNotEndWith from "../../src/Assertions/StringDoesNotEndWith";
 
 export default class StringDoesNotEndWithTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const needle = "a str";
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringDoesNotEndWithTests extends TestSuite {
 	}
 
 	@Test()
-	async TrueWhenHaystackIsNull() {
+	TrueWhenHaystackIsNull() {
 		//arrange
 		const needle = "banana";
 		const haystack = null;

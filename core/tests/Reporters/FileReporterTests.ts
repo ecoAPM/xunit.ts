@@ -21,14 +21,14 @@ export default class FileReporterTests extends TestSuite {
 		};
 
 		//act
-		reporter.runStarted();
-		reporter.suiteStarted(suite);
-		reporter.testStarted(suite, "test 1");
-		reporter.testIncomplete(suite, "test 1");
-		reporter.testPassed(suite, "test 1", 0);
-		reporter.testFailed(suite, "test 1", new AssertionError({}), 0);
-		reporter.testErrored(suite, "test 1", new Error(), 0);
-		reporter.suiteCompleted(suite, new TestSuiteResults(suite));
+		await reporter.runStarted();
+		await reporter.suiteStarted(suite);
+		await reporter.testStarted(suite, "test 1");
+		await reporter.testIncomplete(suite, "test 1");
+		await reporter.testPassed(suite, "test 1", 0);
+		await reporter.testFailed(suite, "test 1", new AssertionError({}), 0);
+		await reporter.testErrored(suite, "test 1", new Error(), 0);
+		await reporter.suiteCompleted(suite, new TestSuiteResults(suite));
 
 		//assert
 		Mockito.verify(fs.save(Mockito.anyString(), Mockito.anyString())).never();

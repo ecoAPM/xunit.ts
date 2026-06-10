@@ -4,7 +4,7 @@ import DoesNotContain from "../../src/Assertions/DoesNotContain";
 
 export default class DpesNotContainTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const array = [ 123, 234 ];
 
@@ -16,7 +16,7 @@ export default class DpesNotContainTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const array = [ 123, 234 ];
 

@@ -4,7 +4,7 @@ import Empty from "../../src/Assertions/Empty";
 
 export default class EmptyTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value: string[] = [];
 
@@ -16,7 +16,7 @@ export default class EmptyTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = [ 123 ];
 

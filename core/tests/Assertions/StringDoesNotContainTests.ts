@@ -4,7 +4,7 @@ import StringDoesNotContain from "../../src/Assertions/StringDoesNotContain";
 
 export default class StringDoesNotContainTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const needle = "banana";
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringDoesNotContainTests extends TestSuite {
 	}
 
 	@Test()
-	async TrueWhenHaystackIsNull() {
+	TrueWhenHaystackIsNull() {
 		//arrange
 		const needle = "banana";
 		const haystack = null;

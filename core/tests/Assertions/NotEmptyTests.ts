@@ -4,7 +4,7 @@ import NotEmpty from "../../src/Assertions/NotEmpty";
 
 export default class NotEmptyTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = [ 123 ];
 
@@ -16,7 +16,7 @@ export default class NotEmptyTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value: string[] = [];
 

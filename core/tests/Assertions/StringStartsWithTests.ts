@@ -4,7 +4,7 @@ import StringStartsWith from "../../src/Assertions/StringStartsWith";
 
 export default class StringStartsWithTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const needle = "this";
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringStartsWithTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const needle = "his";
 		const haystack = "this is a string";

@@ -7,7 +7,7 @@ import path from "node:path";
 export default class TestSuiteLoaderTests extends TestSuite {
 
 	@Test()
-	async IsFromNodeModulesWhenDirContainsNodeModules() {
+	IsFromNodeModulesWhenDirContainsNodeModules() {
 		//arrange
 		const dir = "/a/b/node_modules/x";
 
@@ -19,7 +19,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 	}
 
 	@Test()
-	async IsNotFromNodeModulesWhenDirDoesNotContainNodeModules() {
+	IsNotFromNodeModulesWhenDirDoesNotContainNodeModules() {
 		//arrange
 		const dir = "/a/b/c";
 
@@ -31,7 +31,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 	}
 
 	@Test()
-	async CanGetModulePathFromNodeModules() {
+	CanGetModulePathFromNodeModules() {
 		//arrange
 		const current_dir = "node_modules";
 		const filename = "test.js";
@@ -44,7 +44,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 	}
 
 	@Test()
-	async CanGetModulePathFromSource() {
+	CanGetModulePathFromSource() {
 		//arrange
 		const current_dir = ".";
 		const filename = "test.ts";

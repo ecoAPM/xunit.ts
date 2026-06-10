@@ -4,7 +4,7 @@ import Contains from "../../src/Assertions/Contains";
 
 export default class ContainsTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const array = [ 123, 234 ];
 
@@ -16,7 +16,7 @@ export default class ContainsTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const array = [ 123, 234 ];
 

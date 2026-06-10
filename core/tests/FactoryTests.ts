@@ -6,7 +6,7 @@ import SonarReporter from "../src/Reporters/SonarReporter";
 
 export default class FactoryTests extends TestSuite {
 	@Test()
-	async ReportsOnlyToConsoleByDefault() {
+	ReportsOnlyToConsoleByDefault() {
 		//arrange
 		const args = {};
 
@@ -19,7 +19,7 @@ export default class FactoryTests extends TestSuite {
 	}
 
 	@Test()
-	async QuietModeDoesNotReportToConsole() {
+	QuietModeDoesNotReportToConsole() {
 		//arrange
 		const args = { quiet: true };
 
@@ -31,7 +31,7 @@ export default class FactoryTests extends TestSuite {
 	}
 
 	@Test()
-	async CanReportToJUnitFile() {
+	CanReportToJUnitFile() {
 		//arrange
 		const args = { quiet: true, junit: true };
 
@@ -44,7 +44,7 @@ export default class FactoryTests extends TestSuite {
 	}
 
 	@Test()
-	async CanReportToSonarFile() {
+	CanReportToSonarFile() {
 		//arrange
 		const args = { quiet: true, sonar: true };
 

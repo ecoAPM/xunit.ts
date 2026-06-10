@@ -64,7 +64,7 @@ import { Test, TestSuite } from 'xunit.ts';
 
 export default class MyTestSuite extends TestSuite {
 	@Test()
-	async MyFirstTest() {
+	MyFirstTest() {
 		this.assert.equal(2, 1 + 1);
 	}
 }

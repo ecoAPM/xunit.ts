@@ -4,7 +4,7 @@ import Undefined from "../../src/Assertions/Undefined";
 
 export default class UndefinedTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = undefined;
 
@@ -16,7 +16,7 @@ export default class UndefinedTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = null;
 

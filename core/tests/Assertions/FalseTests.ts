@@ -4,7 +4,7 @@ import False from "../../src/Assertions/False";
 
 export default class FalseTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const value = false;
 
@@ -16,7 +16,7 @@ export default class FalseTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const value = true;
 

@@ -1,4 +1,4 @@
-import TestInfo from "../Framework/TestInfo";
+import TestInfo, {AsyncTestInfo, SyncTestInfo} from "../Framework/TestInfo";
 import TestSuite from "../Framework/TestSuite";
 import { ResultType } from "../Framework/ResultType";
 import ResultReporter from "../Reporters/ResultReporter";
@@ -15,6 +15,9 @@ export default class TestRunner {
 		return duration[0] * 1_000 + duration[1] / 1_000_000;
 	}
 
+	private static isSyncTest = (test: TestInfo): test is SyncTestInfo => test !== null;
+	private static isAsyncTest = (test: TestInfo): test is AsyncTestInfo => test !== null;
+
 	async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
 		await Promise.all(this.reporters.map(r => r.testStarted(suite, name)));
 		if (info.value === undefined) {
@@ -24,7 +27,11 @@ export default class TestRunner {
 
 		const start = process.hrtime();
 		try {
-			await info.value.call(suite);
+			if (TestRunner.isAsyncTest(info))
+				await info.value.call(suite);
+			else if (TestRunner.isSyncTest(info))
+				info.value.call(suite);
+
 			const duration = TestRunner.msSince(start);
 			await Promise.all(this.reporters.map(r => r.testPassed(suite, name, duration)));
 			return new TestResult(ResultType.Passed, duration);

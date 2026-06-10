@@ -4,7 +4,7 @@ import StringContains from "../../src/Assertions/StringContains";
 
 export default class StringContainsTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const needle = "this";
 		const haystack = "this is a string";
@@ -17,7 +17,7 @@ export default class StringContainsTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const needle = "banana";
 		const haystack = "this is a string";

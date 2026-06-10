@@ -4,7 +4,7 @@ import DoesNotThrow from "../../src/Assertions/DoesNotThrow";
 
 export default class DoesNotThrowTests extends TestSuite {
 	@Test()
-	async ReturnsWhenTrue() {
+	ReturnsWhenTrue() {
 		//arrange
 		const expression = () => 5;
 
@@ -16,7 +16,7 @@ export default class DoesNotThrowTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const expression = () => {
 			throw new Error();

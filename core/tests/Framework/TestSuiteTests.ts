@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 
 export default class TestSuiteTests extends TestSuite {
 	@Test()
-	async CanAddTestsToRun() {
+	CanAddTestsToRun() {
 		//arrange
 		const suite = new class X extends TestSuite {
 		};
@@ -17,14 +17,14 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async CanFilterByClassName() {
+	CanFilterByClassName() {
 		//arrange
 		const suite = new class TestSuiteName extends TestSuite {
 		};
 
 		suite.addTest("new test 1", {
-			value: async function newTest1() {
-				return Promise.resolve();
+			value: function newTest1() {
+				return;
 			}
 		});
 		suite.addTest("new test 2", {
@@ -41,14 +41,14 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async CanFilterByTestName() {
+	CanFilterByTestName() {
 		//arrange
 		const suite = new class TestSuiteName extends TestSuite {
 		};
 
 		suite.addTest("test A1", {
-			value: async function testA1() {
-				return Promise.resolve();
+			value: function testA1() {
+				return;
 			}
 		});
 		suite.addTest("test A1B", {
@@ -65,14 +65,14 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async CanFilterByPartialTestName() {
+	CanFilterByPartialTestName() {
 		//arrange
 		const suite = new class TestSuiteName extends TestSuite {
 		};
 
 		suite.addTest("test A1", {
-			value: async function testA1() {
-				return Promise.resolve();
+			value: function testA1() {
+				return;
 			}
 		});
 		suite.addTest("test A2", {
@@ -82,8 +82,8 @@ export default class TestSuiteTests extends TestSuite {
 		});
 
 		suite.addTest("test B1", {
-			value: async function testB1() {
-				return Promise.resolve();
+			value: function testB1() {
+				return;
 			}
 		});
 		suite.addTest("test B2", {
@@ -100,14 +100,14 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async CanFilterByFullName() {
+	CanFilterByFullName() {
 		//arrange
 		const suite = new class TestSuiteName extends TestSuite {
 		};
 
 		suite.addTest("test A1", {
-			value: async function testA1() {
-				return Promise.resolve();
+			value: function testA1() {
+				return;
 			}
 		});
 		suite.addTest("test A2", {
@@ -124,7 +124,7 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async CanFilterClassWithNoTests() {
+	CanFilterClassWithNoTests() {
 		//arrange
 		const suite = new class TestSuiteName extends TestSuite {
 		};
@@ -137,7 +137,7 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async CanSetTestsToRun() {
+	CanSetTestsToRun() {
 		//arrange
 		const suite = new class X extends TestSuite {
 		};
@@ -152,7 +152,7 @@ export default class TestSuiteTests extends TestSuite {
 	}
 
 	@Test()
-	async HasAssertionsBuiltIn() {
+	HasAssertionsBuiltIn() {
 		//arrange
 		const suite = new class X extends TestSuite {
 		};
