@@ -16,7 +16,7 @@ import equal from "lodash.isequal";
  * @example
  * this.assert.notEqual(expected, actual);
  */
-export default function NotEqual(expected: any, actual: any, message?: string) {
+export default function NotEqual(expected: unknown, actual: unknown, message?: string) {
 	if (!equal(actual, expected)) {
 		return;
 	}

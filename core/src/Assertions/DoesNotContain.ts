@@ -15,7 +15,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.doesNotContain(needle, haystack);
  */
-export default function DoesNotContain<T>(needle: T, haystack: ReadonlyArray<T>, message?: string) {
+export default function DoesNotContain<T>(needle: T, haystack: readonly T[], message?: string) {
 	if (!haystack.includes(needle)) {
 		return;
 	}

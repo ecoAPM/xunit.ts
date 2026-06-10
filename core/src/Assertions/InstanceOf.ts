@@ -15,7 +15,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.instanceOf(type, object);
  */
-export default function InstanceOf(type: any, expression: any, message?: string) {
+export default function InstanceOf(type: Function, expression: unknown, message?: string) {
 	if (expression instanceof type) {
 		return;
 	}

@@ -1,11 +1,12 @@
-﻿import ResultReporter from "./ResultReporter";
+﻿/* eslint-disable @typescript-eslint/no-unused-vars */
+import ResultReporter from "./ResultReporter";
 import TestSuiteResults from "../Framework/TestSuiteResults";
 import TestSuite from "../Framework/TestSuite";
 import { AssertionError } from "node:assert";
 import FileSystem from "../IO/FileSystem";
 
 export default abstract class FileReporter implements ResultReporter {
-	/* eslint-disable @typescript-eslint/no-unused-vars */
+
 	constructor(protected readonly file_system: FileSystem, protected readonly path: string) {
 	}
 

@@ -14,7 +14,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.notEmpty(array);
  */
-export default function NotEmpty(array: ReadonlyArray<any>, message?: string) {
+export default function NotEmpty(array: readonly unknown[], message?: string) {
 	if (array.length > 0) {
 		return;
 	}

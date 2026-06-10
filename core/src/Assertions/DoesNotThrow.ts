@@ -14,7 +14,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.doesNotThrow(() => expression);
  */
-export default function DoesNotThrow(expression: () => any, message?: string) {
+export default function DoesNotThrow(expression: () => unknown, message?: string) {
 	try {
 		expression();
 		return;

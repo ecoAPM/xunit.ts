@@ -6,7 +6,7 @@ import TestRunner from "./TestRunner";
 
 export default class TestSuiteRunner {
 
-	constructor(private readonly runner: TestRunner, private readonly reporters: ReadonlyArray<ResultReporter>) {
+	constructor(private readonly runner: TestRunner, private readonly reporters: readonly ResultReporter[]) {
 	}
 
 	async runSuite(suite: TestSuite, filters: RegExp[]) {

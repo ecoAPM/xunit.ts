@@ -20,4 +20,4 @@ export default interface ResultReporter {
 	suiteCompleted(suite: TestSuite, results: TestSuiteResults): Promise<void>;
 
 	runCompleted(results: Record<string, TestSuiteResults>): Promise<void>;
-}
+};

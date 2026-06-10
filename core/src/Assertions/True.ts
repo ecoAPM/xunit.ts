@@ -14,7 +14,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.true(expression);
  */
-export default function True(expression: any, message?: string) {
+export default function True(expression: unknown, message?: string) {
 	if (expression === true) {
 		return;
 	}

@@ -16,7 +16,7 @@ import equal from "lodash.isequal";
  * @example
  * this.assert.equal(expected, actual);
  */
-export default function Equal(expected: any, actual: any, message?: string) {
+export default function Equal(expected: unknown, actual: unknown, message?: string) {
 	if (equal(actual, expected)) {
 		return;
 	}
