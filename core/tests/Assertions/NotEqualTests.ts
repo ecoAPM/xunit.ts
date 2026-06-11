@@ -1,6 +1,7 @@
-import { Test, TestSuite } from "../../xunit";
-import NotEqual from "../../src/Assertions/NotEqual";
 import { AssertionError } from "node:assert";
+
+import NotEqual from "../../src/Assertions/NotEqual";
+import { Test, TestSuite } from "../../xunit";
 
 export default class NotEqualTests extends TestSuite {
 	@Test()

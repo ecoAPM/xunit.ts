@@ -1,8 +1,9 @@
-import TestSuiteResults from "../Framework/TestSuiteResults";
 import xml from "xml";
-import TestName from "../Framework/TestName";
+
 import { ResultType } from "../Framework/ResultType";
+import TestName from "../Framework/TestName";
 import TestResult from "../Framework/TestResult";
+import TestSuiteResults from "../Framework/TestSuiteResults";
 import XMLReporter from "./XMLReporter";
 
 export default class JUnitReporter extends XMLReporter {

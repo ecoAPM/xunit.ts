@@ -1,9 +1,11 @@
-import { Test, TestSuite } from "../../xunit";
+import { AssertionError } from "node:assert";
+
+import Mockito from "ts-mockito";
+
+import { ResultType } from "../../src/Framework/ResultType";
 import ResultReporter from "../../src/Reporters/ResultReporter";
 import TestRunner from "../../src/Runners/TestRunner";
-import Mockito from "ts-mockito";
-import { ResultType } from "../../src/Framework/ResultType";
-import { AssertionError } from "node:assert";
+import { Test, TestSuite } from "../../xunit";
 import { any } from "../NonTests/MockHelpers";
 
 export default class TestRunnerTests extends TestSuite {

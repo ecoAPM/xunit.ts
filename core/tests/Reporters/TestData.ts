@@ -1,9 +1,10 @@
-﻿import TestSuiteResults from "../../src/Framework/TestSuiteResults";
-import { TestSuite } from "../../xunit";
-import TestResult from "../../src/Framework/TestResult";
-import { ResultType } from "../../src/Framework/ResultType";
-import { AssertionError } from "node:assert";
+﻿import { AssertionError } from "node:assert";
 import path from "node:path";
+
+import { ResultType } from "../../src/Framework/ResultType";
+import TestResult from "../../src/Framework/TestResult";
+import TestSuiteResults from "../../src/Framework/TestSuiteResults";
+import { TestSuite } from "../../xunit";
 
 export default class TestData {
 	static Results(): Record<string, TestSuiteResults> {

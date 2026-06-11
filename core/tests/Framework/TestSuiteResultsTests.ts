@@ -1,7 +1,7 @@
-import { Test, TestSuite } from "../../xunit";
-import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";
+import TestSuiteResults from "../../src/Framework/TestSuiteResults";
+import { Test, TestSuite } from "../../xunit";
 
 export default class TestSuiteResultsTests extends TestSuite {
 

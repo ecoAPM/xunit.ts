@@ -1,15 +1,17 @@
+import fs from "node:fs/promises";
+
 import Args from "command-line-args";
-import ConsoleReporter from "./Reporters/ConsoleReporter";
+
 import FileSystem from "./IO/FileSystem";
-import JUnitReporter from "./Reporters/JUnitReporter";
 import Output from "./IO/Output";
+import ConsoleReporter from "./Reporters/ConsoleReporter";
+import JUnitReporter from "./Reporters/JUnitReporter";
 import ResultReporter from "./Reporters/ResultReporter";
+import SonarReporter from "./Reporters/SonarReporter";
 import Runner from "./Runners/Runner";
 import TestRunner from "./Runners/TestRunner";
 import TestSuiteLoader from "./Runners/TestSuiteLoader";
 import TestSuiteRunner from "./Runners/TestSuiteRunner";
-import fs from "node:fs/promises";
-import SonarReporter from "./Reporters/SonarReporter";
 
 export default class Factory {
 	static readonly file_system = new FileSystem(fs);

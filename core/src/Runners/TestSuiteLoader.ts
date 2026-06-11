@@ -1,6 +1,7 @@
+import path from "node:path";
+
 import TestSuite from "../Framework/TestSuite";
 import FileSystem from "../IO/FileSystem";
-import path from "node:path";
 
 export default class TestSuiteLoader {
 	constructor(private readonly file_system: FileSystem) {

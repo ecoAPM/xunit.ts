@@ -1,7 +1,8 @@
-﻿import { Test, TestSuite } from "../../xunit";
-import Mockito from "ts-mockito";
+﻿import Mockito from "ts-mockito";
+
 import FileSystem from "../../src/IO/FileSystem";
 import XMLReporter from "../../src/Reporters/XMLReporter";
+import { Test, TestSuite } from "../../xunit";
 import { any } from "../NonTests/MockHelpers";
 
 class StubReporter extends XMLReporter {

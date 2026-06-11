@@ -1,5 +1,5 @@
-import TestInfo from "./TestInfo";
 import AssertionLibrary from "../Assertions";
+import TestInfo from "./TestInfo";
 
 /**
  * Defines a container of tests

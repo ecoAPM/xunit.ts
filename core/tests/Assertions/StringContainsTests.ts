@@ -1,6 +1,7 @@
-import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "node:assert";
+
 import StringContains from "../../src/Assertions/StringContains";
+import { Test, TestSuite } from "../../xunit";
 
 export default class StringContainsTests extends TestSuite {
 	@Test()

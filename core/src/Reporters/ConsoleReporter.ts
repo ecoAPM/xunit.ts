@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import ResultReporter from "./ResultReporter";
-import TestSuite from "../Framework/TestSuite";
-import Output from "../IO/Output";
-import TestName from "../Framework/TestName";
-import colors from "colors";
 import { AssertionError } from "node:assert";
-import TestSuiteResults from "../Framework/TestSuiteResults";
+
+import colors from "colors";
+
 import { ResultType } from "../Framework/ResultType";
+import TestName from "../Framework/TestName";
+import TestSuite from "../Framework/TestSuite";
+import TestSuiteResults from "../Framework/TestSuiteResults";
+import Output from "../IO/Output";
+import ResultReporter from "./ResultReporter";
 
 export default class ConsoleReporter implements ResultReporter {
 

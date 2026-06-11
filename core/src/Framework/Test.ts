@@ -1,6 +1,6 @@
-import TestSuite from "./TestSuite";
 import TestInfo from "./TestInfo";
 import TestName from "./TestName";
+import TestSuite from "./TestSuite";
 
 /**
  * Annotates a test method within a {@link TestSuite}

@@ -1,9 +1,10 @@
-import TestInfo, { AsyncTestInfo, SyncTestInfo } from "../Framework/TestInfo";
-import TestSuite from "../Framework/TestSuite";
-import { ResultType } from "../Framework/ResultType";
-import ResultReporter from "../Reporters/ResultReporter";
-import TestResult from "../Framework/TestResult";
 import { AssertionError } from "node:assert";
+
+import { ResultType } from "../Framework/ResultType";
+import TestInfo, { AsyncTestInfo, SyncTestInfo } from "../Framework/TestInfo";
+import TestResult from "../Framework/TestResult";
+import TestSuite from "../Framework/TestSuite";
+import ResultReporter from "../Reporters/ResultReporter";
 
 export default class TestRunner {
 

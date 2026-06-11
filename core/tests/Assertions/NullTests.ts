@@ -1,6 +1,7 @@
-import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "node:assert";
+
 import Null from "../../src/Assertions/Null";
+import { Test, TestSuite } from "../../xunit";
 
 export default class NullTests extends TestSuite {
 	@Test()

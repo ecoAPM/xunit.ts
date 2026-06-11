@@ -1,10 +1,12 @@
-import Usage from "command-line-usage";
-import JUnitReporter from "./Reporters/JUnitReporter";
 import Process from "node:process";
+
 import Args from "command-line-args";
+import Usage from "command-line-usage";
 import SafeRegex from "lodash.escaperegexp";
-import Runner from "./Runners/Runner";
+
+import JUnitReporter from "./Reporters/JUnitReporter";
 import SonarReporter from "./Reporters/SonarReporter";
+import Runner from "./Runners/Runner";
 
 export default class CLI {
 	private static readonly options: Usage.OptionDefinition[] = [

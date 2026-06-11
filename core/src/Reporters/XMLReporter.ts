@@ -1,5 +1,5 @@
-﻿import FileReporter from "./FileReporter";
-import TestSuiteResults from "../Framework/TestSuiteResults";
+﻿import TestSuiteResults from "../Framework/TestSuiteResults";
+import FileReporter from "./FileReporter";
 
 export default abstract class XMLReporter extends FileReporter {
 	async runCompleted(results: Record<string, TestSuiteResults>): Promise<void> {

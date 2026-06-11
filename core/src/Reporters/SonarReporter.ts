@@ -1,9 +1,11 @@
-import TestSuiteResults from "../Framework/TestSuiteResults";
+import path from "node:path";
+
 import xml from "xml";
+
 import { ResultType } from "../Framework/ResultType";
 import TestResult from "../Framework/TestResult";
+import TestSuiteResults from "../Framework/TestSuiteResults";
 import XMLReporter from "./XMLReporter";
-import path from "node:path";
 
 export default class SonarReporter extends XMLReporter {
 	static readonly defaultFileName: string = "sonar.xml";

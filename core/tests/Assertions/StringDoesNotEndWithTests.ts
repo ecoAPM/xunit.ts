@@ -1,6 +1,7 @@
-import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "node:assert";
+
 import StringDoesNotEndWith from "../../src/Assertions/StringDoesNotEndWith";
+import { Test, TestSuite } from "../../xunit";
 
 export default class StringDoesNotEndWithTests extends TestSuite {
 	@Test()

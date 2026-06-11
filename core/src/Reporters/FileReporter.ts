@@ -1,9 +1,10 @@
 ﻿/* eslint-disable @typescript-eslint/no-unused-vars */
-import ResultReporter from "./ResultReporter";
-import TestSuiteResults from "../Framework/TestSuiteResults";
-import TestSuite from "../Framework/TestSuite";
 import { AssertionError } from "node:assert";
+
+import TestSuite from "../Framework/TestSuite";
+import TestSuiteResults from "../Framework/TestSuiteResults";
 import FileSystem from "../IO/FileSystem";
+import ResultReporter from "./ResultReporter";
 
 export default abstract class FileReporter implements ResultReporter {
 

@@ -1,7 +1,8 @@
-﻿import { Test, TestSuite } from "../../xunit";
-import JUnitReporter from "../../src/Reporters/JUnitReporter";
-import Mockito from "ts-mockito";
+﻿import Mockito from "ts-mockito";
+
 import FileSystem from "../../src/IO/FileSystem";
+import JUnitReporter from "../../src/Reporters/JUnitReporter";
+import { Test, TestSuite } from "../../xunit";
 import TestData from "./TestData";
 
 export default class JUnitReporterTests extends TestSuite {

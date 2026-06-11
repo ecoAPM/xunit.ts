@@ -1,9 +1,11 @@
-﻿import { Test, TestSuite } from "../../xunit";
-import SonarReporter from "../../src/Reporters/SonarReporter";
+﻿import path from "node:path";
+
 import Mockito from "ts-mockito";
+
 import FileSystem from "../../src/IO/FileSystem";
+import SonarReporter from "../../src/Reporters/SonarReporter";
+import { Test, TestSuite } from "../../xunit";
 import TestData from "./TestData";
-import path from "node:path";
 
 export default class SonarReporterTests extends TestSuite {
 	@Test()

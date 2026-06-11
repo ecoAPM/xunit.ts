@@ -1,12 +1,13 @@
-import { Test, TestSuite } from "../../xunit";
-import Runner from "../../src/Runners/Runner";
-import TestSuiteLoader from "../../src/Runners/TestSuiteLoader";
 import Mockito from "ts-mockito";
-import TestSuiteRunner from "../../src/Runners/TestSuiteRunner";
-import ResultReporter from "../../src/Reporters/ResultReporter";
-import TestSuiteResults from "../../src/Framework/TestSuiteResults";
+
 import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";
+import TestSuiteResults from "../../src/Framework/TestSuiteResults";
+import ResultReporter from "../../src/Reporters/ResultReporter";
+import Runner from "../../src/Runners/Runner";
+import TestSuiteLoader from "../../src/Runners/TestSuiteLoader";
+import TestSuiteRunner from "../../src/Runners/TestSuiteRunner";
+import { Test, TestSuite } from "../../xunit";
 import { any } from "../NonTests/MockHelpers";
 
 export default class RunnerTests extends TestSuite {

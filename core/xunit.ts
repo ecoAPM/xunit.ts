@@ -1,9 +1,8 @@
+import Assert from "./src/Assertions";
 import Test from "./src/Framework/Test";
 import TestSuite from "./src/Framework/TestSuite";
-import Assert from "./src/Assertions";
 
 export {
+	Assert,
 	Test,
-	TestSuite,
-	Assert
-};
+	TestSuite };

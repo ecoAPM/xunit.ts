@@ -1,9 +1,11 @@
-import { Test, TestSuite } from "../../xunit";
-import FileSystem from "../../src/IO/FileSystem";
-import Mockito from "ts-mockito";
-import path from "node:path";
-import fs_promises from "node:fs/promises";
 import { Stats } from "node:fs";
+import fs_promises from "node:fs/promises";
+import path from "node:path";
+
+import Mockito from "ts-mockito";
+
+import FileSystem from "../../src/IO/FileSystem";
+import { Test, TestSuite } from "../../xunit";
 import { any } from "../NonTests/MockHelpers";
 
 export default class FileSystemTests extends TestSuite {

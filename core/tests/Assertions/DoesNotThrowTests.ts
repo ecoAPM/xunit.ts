@@ -1,6 +1,7 @@
-import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "node:assert";
+
 import DoesNotThrow from "../../src/Assertions/DoesNotThrow";
+import { Test, TestSuite } from "../../xunit";
 
 export default class DoesNotThrowTests extends TestSuite {
 	@Test()

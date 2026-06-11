@@ -1,9 +1,11 @@
-import { Test, TestSuite } from "../../xunit";
-import Mockito from "ts-mockito";
-import FileSystem from "../../src/IO/FileSystem";
 import { AssertionError } from "node:assert";
+
+import Mockito from "ts-mockito";
+
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
+import FileSystem from "../../src/IO/FileSystem";
 import FileReporter from "../../src/Reporters/FileReporter";
+import { Test, TestSuite } from "../../xunit";
 import { any } from "../NonTests/MockHelpers";
 
 class StubReporter extends FileReporter {
