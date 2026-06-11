@@ -13,7 +13,7 @@ import AssertionLibrary from "../Assertions";
 export default abstract class TestSuite {
 	assert = AssertionLibrary;
 
-	private tests: Record<string, TestInfo> = {};
+	private tests?: Record<string, TestInfo> = {};
 
 	addTest(name: string, info: TestInfo) {
 		this.tests ??= {};
@@ -31,15 +31,16 @@ export default abstract class TestSuite {
 	}
 
 	filteredTests(filters: RegExp[]) {
-		if (!this.tests)
+		const tests = this.tests;
+		if (tests === undefined)
 			return {};
 
-		const keys = Object.keys(this.tests)
-			.filter(k => filters.map(f => f.test(`${this.constructor.name}.${this.tests[k].value?.name}`)).some(Boolean));
+		const keys = Object.keys(tests)
+			.filter(k => filters.map(f => f.test(`${this.constructor.name}.${tests[k].value?.name}`)).some(Boolean));
 
 		const filtered: Record<string, TestInfo> = {};
 		keys.forEach(k => {
-			filtered[k] = this.tests[k];
+			filtered[k] = tests[k];
 		});
 
 		return filtered;

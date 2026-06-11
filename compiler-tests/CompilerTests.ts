@@ -7,6 +7,6 @@ export default class CompilerTests extends TestSuite {
 		const tests = this.getTests([]);
 
 		//assert
-		this.assert.count(1, Object.keys(tests));
+		this.assert.count(1, Object.keys(tests ?? {}));
 	}
 }

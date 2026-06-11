@@ -10,7 +10,7 @@ export default class TestSuiteTests extends TestSuite {
 		//act
 		suite.addTest("new test 1", {});
 		suite.addTest("new test 2", {});
-		const tests = suite.getTests([]);
+		const tests = suite.getTests([]) ?? {};
 
 		//assert
 		this.assert.count(2, Object.keys(tests));
@@ -37,7 +37,7 @@ export default class TestSuiteTests extends TestSuite {
 		const tests = suite.getTests([new RegExp("TestSuiteName")]);
 
 		//assert
-		this.assert.count(2, Object.keys(tests));
+		this.assert.count(2, Object.keys(tests ?? {}));
 	}
 
 	@Test()
@@ -61,7 +61,7 @@ export default class TestSuiteTests extends TestSuite {
 		const tests = suite.getTests([new RegExp("testA1$")]);
 
 		//assert
-		this.assert.count(1, Object.keys(tests));
+		this.assert.count(1, Object.keys(tests ?? {}));
 	}
 
 	@Test()
@@ -96,7 +96,7 @@ export default class TestSuiteTests extends TestSuite {
 		const tests = suite.getTests([new RegExp("tB")]);
 
 		//assert
-		this.assert.count(2, Object.keys(tests));
+		this.assert.count(2, Object.keys(tests ?? {}));
 	}
 
 	@Test()
@@ -120,7 +120,7 @@ export default class TestSuiteTests extends TestSuite {
 		const tests = suite.getTests([new RegExp("TestSuiteName.testA1")]);
 
 		//assert
-		this.assert.count(1, Object.keys(tests));
+		this.assert.count(1, Object.keys(tests ?? {}));
 	}
 
 	@Test()
@@ -133,7 +133,7 @@ export default class TestSuiteTests extends TestSuite {
 		const tests = suite.getTests([new RegExp("TestSuiteName.testA1")]);
 
 		//assert
-		this.assert.empty(Object.keys(tests));
+		this.assert.empty(Object.keys(tests ?? {}));
 	}
 
 	@Test()
@@ -148,7 +148,7 @@ export default class TestSuiteTests extends TestSuite {
 		const tests_to_run = suite.getTests([]);
 
 		//assert
-		this.assert.count(2, Object.keys(tests_to_run));
+		this.assert.count(2, Object.keys(tests_to_run ?? {}));
 	}
 
 	@Test()
