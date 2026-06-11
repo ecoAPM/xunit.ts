@@ -8,12 +8,12 @@ permalink: /
 
 ### Requirements
 
-- Node.js 20+
+- Node.js 24+
 
-  (other versions may work, but only the latest minor release for each current/active/maintenance LTS version is supported)
+  (other versions may work, but only the latest minor release for each current/active LTS version is supported)
 
 - A supported TypeScript compiler
-  - TypeScript 5+
+  - TypeScript 6+
   - Vite 6+
   - Rollup 4+
   - Parcel 2+

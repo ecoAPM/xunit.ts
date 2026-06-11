@@ -8,7 +8,7 @@
 	"bugs": "https://github.com/ecoAPM/xunit.ts/issues",
 	"license": "MIT",
 	"engines": {
-		"node": ">= 20"
+		"node": ">= 24"
 	},
 	"dependencies": {
 		"colors": "1.4.0",
