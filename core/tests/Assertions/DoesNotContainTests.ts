@@ -2,7 +2,7 @@ import { Test, TestSuite } from "../../xunit";
 import { AssertionError } from "node:assert";
 import DoesNotContain from "../../src/Assertions/DoesNotContain";
 
-export default class DpesNotContainTests extends TestSuite {
+export default class DoesNotContainTests extends TestSuite {
 	@Test()
 	ReturnsWhenTrue() {
 		//arrange
