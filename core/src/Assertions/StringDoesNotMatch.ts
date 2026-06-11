@@ -15,7 +15,7 @@ import { AssertionError } from "node:assert";
  * @example
  * this.assert.stringDoesNotMatch(regex, haystack);
  */
-export default function StringDoesNotMatch(regex: RegExp, haystack: string | null, message?: string) {
+export default function StringDoesNotMatch(regex: RegExp, haystack?: string | null, message?: string) {
 	if (haystack === undefined || haystack === null || !regex.test(haystack)) {
 		return;
 	}
