@@ -30,7 +30,7 @@ export default class StringDoesNotEndWithTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const needle = "ring";
 		const haystack = "this is a string";
@@ -47,7 +47,7 @@ export default class StringDoesNotEndWithTests extends TestSuite {
 	}
 
 	@Test()
-	async TrueWhenNotFoundAndLengthsMatchEndCheck() {
+	TrueWhenNotFoundAndLengthsMatchEndCheck() {
 		//arrange
 		const needle = "abc";
 		const haystack = "de";

@@ -30,7 +30,7 @@ export default class StringDoesNotStartWithTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const needle = "this";
 		const haystack = "this is a string";

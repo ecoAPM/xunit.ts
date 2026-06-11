@@ -30,7 +30,7 @@ export default class StringDoesNotContainTests extends TestSuite {
 	}
 
 	@Test()
-	async ThrowsWhenFalse() {
+	ThrowsWhenFalse() {
 		//arrange
 		const regex = /^this/;
 		const haystack = "this is a string";

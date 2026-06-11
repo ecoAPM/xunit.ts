@@ -34,7 +34,7 @@ export default class StringContainsTests extends TestSuite {
 	}
 
 	@Test()
-	async FalseWhenHaystackIsNull() {
+	FalseWhenHaystackIsNull() {
 		//arrange
 		const needle = "banana";
 		const haystack = null;

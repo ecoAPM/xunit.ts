@@ -34,7 +34,7 @@ export default class StringEndsWithTests extends TestSuite {
 	}
 
 	@Test()
-	async FalseWhenHaystackIsNull() {
+	FalseWhenHaystackIsNull() {
 		//arrange
 		const needle = "banana";
 		const haystack = null;
@@ -51,7 +51,7 @@ export default class StringEndsWithTests extends TestSuite {
 	}
 
 	@Test()
-	async FalseWhenNotFoundAndLengthsMatchEndCheck() {
+	FalseWhenNotFoundAndLengthsMatchEndCheck() {
 		//arrange
 		const needle = "abc";
 		const haystack = "de";
