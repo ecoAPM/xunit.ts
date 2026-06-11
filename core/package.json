@@ -5,6 +5,7 @@
 	"main": "dist/xunit.js",
 	"author": "ecoAPM LLC",
 	"homepage": "https://github.com/ecoAPM/xunit.ts",
+	"repository": "https://github.com/ecoAPM/xunit.ts",
 	"bugs": "https://github.com/ecoAPM/xunit.ts/issues",
 	"license": "MIT",
 	"engines": {
