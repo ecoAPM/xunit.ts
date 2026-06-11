@@ -2,6 +2,7 @@
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
 import XMLReporter from "../../src/Reporters/XMLReporter";
+import { any } from "../NonTests/MockHelpers";
 
 class StubReporter extends XMLReporter {
 	xml(): string {
@@ -20,6 +21,6 @@ export default class XMLReporterTests extends TestSuite {
 		await reporter.runCompleted({});
 
 		//assert
-		Mockito.verify(fs.save(Mockito.anyString(), Mockito.anyString())).once();
+		Mockito.verify(fs.save(any(), any())).once();
 	}
 }

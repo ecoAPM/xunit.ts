@@ -4,6 +4,7 @@ import Mockito from "ts-mockito";
 import path from "node:path";
 import fs_promises from "node:fs/promises";
 import { Stats } from "node:fs";
+import { any } from "../NonTests/MockHelpers";
 
 export default class FileSystemTests extends TestSuite {
 
@@ -12,8 +13,8 @@ export default class FileSystemTests extends TestSuite {
 		//arrange
 		const fs = Mockito.spy(Object.assign({}, fs_promises));
 		const stats = Mockito.mock(Stats);
-		Mockito.when(fs.stat(Mockito.anyString())).thenResolve(Mockito.instance(stats));
-		Mockito.when(fs.readdir(Mockito.anyString())).thenResolve([ "Test1.ts", `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts` ]);
+		Mockito.when(fs.stat(any())).thenResolve(Mockito.instance(stats));
+		Mockito.when(fs.readdir(any())).thenResolve(["Test1.ts", `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts`]);
 		const file_system = new FileSystem(Mockito.instance(fs));
 
 		//act
@@ -78,7 +79,7 @@ export default class FileSystemTests extends TestSuite {
 	async SaveWritesDataToFile() {
 		//arrange
 		const fs = Mockito.spy(Object.assign({}, fs_promises));
-		Mockito.when(fs.writeFile(Mockito.anyString(), Mockito.anyString())).thenResolve();
+		Mockito.when(fs.writeFile(any(), any())).thenResolve();
 		const file_system = new FileSystem(Mockito.instance(fs));
 
 		//act

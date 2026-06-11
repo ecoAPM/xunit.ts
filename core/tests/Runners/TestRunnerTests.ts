@@ -4,6 +4,7 @@ import TestRunner from "../../src/Runners/TestRunner";
 import Mockito from "ts-mockito";
 import { ResultType } from "../../src/Framework/ResultType";
 import { AssertionError } from "node:assert";
+import { any } from "../NonTests/MockHelpers";
 
 export default class TestRunnerTests extends TestSuite {
 	@Test()
@@ -32,7 +33,7 @@ export default class TestRunnerTests extends TestSuite {
 
 		//act
 		const result = await runner.runTest("inside returns test failed", {
-			value: async () => {
+			value: () => {
 				throw new AssertionError({});
 			}
 		}, new class X extends TestSuite {
@@ -50,7 +51,7 @@ export default class TestRunnerTests extends TestSuite {
 
 		//act
 		const result = await runner.runTest("inside returns test errored", {
-			value: async () => {
+			value: () => {
 				throw new Error();
 			}
 		}, new class X extends TestSuite {
@@ -89,7 +90,7 @@ export default class TestRunnerTests extends TestSuite {
 		});
 
 		//assert
-		Mockito.verify(reporter.testStarted(Mockito.anything(), Mockito.anything())).once();
+		Mockito.verify(reporter.testStarted(any(), any())).once();
 	}
 
 	@Test()
@@ -107,7 +108,7 @@ export default class TestRunnerTests extends TestSuite {
 		});
 
 		//assert
-		Mockito.verify(reporter.testPassed(Mockito.anything(), Mockito.anyString(), Mockito.anyNumber())).once();
+		Mockito.verify(reporter.testPassed(any(), any(), any())).once();
 	}
 
 	@Test()
@@ -125,7 +126,7 @@ export default class TestRunnerTests extends TestSuite {
 		});
 
 		//assert
-		Mockito.verify(reporter.testFailed(Mockito.anything(), Mockito.anyString(), Mockito.anything(), Mockito.anyNumber())).once();
+		Mockito.verify(reporter.testFailed(any(), any(), any(), any())).once();
 	}
 
 	@Test()
@@ -143,7 +144,7 @@ export default class TestRunnerTests extends TestSuite {
 		});
 
 		//assert
-		Mockito.verify(reporter.testErrored(Mockito.anything(), Mockito.anyString(), Mockito.anything(), Mockito.anyNumber())).once();
+		Mockito.verify(reporter.testErrored(any(), any(), any(), any())).once();
 	}
 
 	@Test()
@@ -157,6 +158,6 @@ export default class TestRunnerTests extends TestSuite {
 		});
 
 		//assert
-		Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anyString())).once();
+		Mockito.verify(reporter.testIncomplete(any(), any())).once();
 	}
 }

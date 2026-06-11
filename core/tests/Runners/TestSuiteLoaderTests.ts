@@ -3,6 +3,7 @@ import TestSuiteLoader from "../../src/Runners/TestSuiteLoader";
 import Mockito from "ts-mockito";
 import FileSystem from "../../src/IO/FileSystem";
 import path from "node:path";
+import { any } from "../NonTests/MockHelpers";
 
 export default class TestSuiteLoaderTests extends TestSuite {
 
@@ -96,7 +97,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 	async LoadTestSuitesFiltersNonTests() {
 		//arrange
 		const file_system = Mockito.mock<FileSystem>();
-		Mockito.when(file_system.getFiles(Mockito.anyString())).thenResolve([
+		Mockito.when(file_system.getFiles(any())).thenResolve([
 			`dist${path.sep}tests${path.sep}Runners${path.sep}TestSuiteLoaderTests.js`,
 			`dist${path.sep}tests${path.sep}Runners${path.sep}data.csv`,
 			`dist${path.sep}src${path.sep}Runners${path.sep}TestSuiteRunner.js`

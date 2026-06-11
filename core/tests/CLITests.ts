@@ -4,6 +4,7 @@ import Process from "node:process";
 import CLI from "../src/CLI";
 import { WriteStream } from "node:tty";
 import Runner from "../src/Runners/Runner";
+import { any } from "./NonTests/MockHelpers";
 
 export default class CLITests extends TestSuite {
 	@Test()
@@ -16,7 +17,7 @@ export default class CLITests extends TestSuite {
 		const process = Mockito.spy(Object.assign({}, Process));
 		const out = Mockito.mock(StdOut);
 		let console = "";
-		Mockito.when(out.write(Mockito.anyString())).thenCall(line => console += line + "\n");
+		Mockito.when(out.write(any())).thenCall((line: string) => console += line + "\n");
 		Mockito.when(process.stdout).thenReturn(Mockito.instance(out));
 		Mockito.when(process.argv).thenReturn([ "-h" ]);
 		const runner = Mockito.mock(Runner);
@@ -44,13 +45,13 @@ export default class CLITests extends TestSuite {
 		const out = Mockito.mock(StdOut);
 		const err = Mockito.mock(StdErr);
 		let console = "";
-		Mockito.when(out.write(Mockito.anyString())).thenCall(line => console += line + "\n");
-		Mockito.when(err.write(Mockito.anyString())).thenCall(line => console += line + "\n");
+		Mockito.when(out.write(any())).thenCall((line: string) => console += line + "\n");
+		Mockito.when(err.write(any())).thenCall((line: string) => console += line + "\n");
 		Mockito.when(process.stdout).thenReturn(Mockito.instance(out));
 		Mockito.when(process.stderr).thenReturn(Mockito.instance(err));
 		Mockito.when(process.argv).thenReturn([ "dist/tests" ]);
 		const runner = Mockito.mock(Runner);
-		Mockito.when(runner.runAll(Mockito.anyString(), Mockito.anything())).thenReject(new Error("unit test"));
+		Mockito.when(runner.runAll(any(), any())).thenReject(new Error("unit test"));
 		const cli = new CLI(() => Mockito.instance(runner), Mockito.instance(process));
 
 		//act

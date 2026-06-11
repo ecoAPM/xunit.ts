@@ -1,10 +1,11 @@
-import {Test, TestSuite} from "../../xunit";
+import { Test, TestSuite } from "../../xunit";
 import TestSuiteRunner from "../../src/Runners/TestSuiteRunner";
 import TestRunner from "../../src/Runners/TestRunner";
 import Mockito from "ts-mockito";
 import ResultReporter from "../../src/Reporters/ResultReporter";
-import {ResultType} from "../../src/Framework/ResultType";
+import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";
+import { any } from "../NonTests/MockHelpers";
 
 export default class TestSuiteRunnerTests extends TestSuite {
 	@Test()
@@ -21,8 +22,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
 		await runner.runSuite(test_suite, []);
 
 		//assert
-		// noinspection JSVoidFunctionReturnValueUsed
-		Mockito.verify(reporter.suiteStarted(Mockito.anything())).once();
+		Mockito.verify(reporter.suiteStarted(any())).once();
 	}
 
 	@Test()
@@ -39,8 +39,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
 		await runner.runSuite(test_suite, []);
 
 		//assert
-		// noinspection JSVoidFunctionReturnValueUsed
-		Mockito.verify(reporter.suiteCompleted(Mockito.anything(), Mockito.anything())).once();
+		Mockito.verify(reporter.suiteCompleted(any(), any())).once();
 	}
 
 	@Test()
@@ -57,8 +56,7 @@ export default class TestSuiteRunnerTests extends TestSuite {
 		await runner.runTests(test_suite, {});
 
 		//assert
-		// noinspection JSVoidFunctionReturnValueUsed
-		Mockito.verify(reporter.testIncomplete(Mockito.anything(), Mockito.anything())).once();
+		Mockito.verify(reporter.testIncomplete(any(), any())).once();
 	}
 
 	@Test()
@@ -68,12 +66,12 @@ export default class TestSuiteRunnerTests extends TestSuite {
 		};
 
 		const test_runner = Mockito.mock<TestRunner>();
-		Mockito.when(test_runner.runTest(Mockito.anything(), Mockito.anything(), Mockito.anything())).thenResolve(new TestResult(ResultType.Passed, 0));
+		Mockito.when(test_runner.runTest(any(), any(), any())).thenResolve(new TestResult(ResultType.Passed, 0));
 		const reporter = Mockito.mock<ResultReporter>();
 		const runner = new TestSuiteRunner(Mockito.instance(test_runner), [Mockito.instance(reporter)]);
 
 		//act
-		const results = await runner.runTests(test_suite, {"test1": {}, "test2": {}});
+		const results = await runner.runTests(test_suite, { "test1": {}, "test2": {} });
 
 		//assert
 		this.assert.equal(2, results.count(ResultType.Passed));

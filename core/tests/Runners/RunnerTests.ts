@@ -7,13 +7,14 @@ import ResultReporter from "../../src/Reporters/ResultReporter";
 import TestSuiteResults from "../../src/Framework/TestSuiteResults";
 import { ResultType } from "../../src/Framework/ResultType";
 import TestResult from "../../src/Framework/TestResult";
+import { any } from "../NonTests/MockHelpers";
 
 export default class RunnerTests extends TestSuite {
 	@Test()
 	async ReportsRunStarted() {
 		//arrange
 		const loader = Mockito.mock<TestSuiteLoader>();
-		Mockito.when(loader.loadTestSuites(Mockito.anyString(), Mockito.anything())).thenResolve({});
+		Mockito.when(loader.loadTestSuites(any(), any())).thenResolve({});
 
 		const suite_runner = Mockito.mock<TestSuiteRunner>();
 		const reporter = Mockito.mock<ResultReporter>();
@@ -23,7 +24,6 @@ export default class RunnerTests extends TestSuite {
 		await runner.runAll("tests", []);
 
 		//assert
-		// noinspection JSVoidFunctionReturnValueUsed
 		Mockito.verify(reporter.runStarted()).once();
 	}
 
@@ -31,7 +31,7 @@ export default class RunnerTests extends TestSuite {
 	async ReportsRunCompleted() {
 		//arrange
 		const loader = Mockito.mock<TestSuiteLoader>();
-		Mockito.when(loader.loadTestSuites(Mockito.anyString(), Mockito.anything())).thenResolve({});
+		Mockito.when(loader.loadTestSuites(any(), any())).thenResolve({});
 
 		const suite_runner = Mockito.mock<TestSuiteRunner>();
 		const reporter = Mockito.mock<ResultReporter>();
@@ -41,7 +41,7 @@ export default class RunnerTests extends TestSuite {
 		await runner.runAll("tests", []);
 
 		//assert
-		Mockito.verify(reporter.runCompleted(Mockito.anything()));
+		Mockito.verify(reporter.runCompleted(any()));
 	}
 
 	@Test()
@@ -51,13 +51,13 @@ export default class RunnerTests extends TestSuite {
 		};
 
 		const loader = Mockito.mock<TestSuiteLoader>();
-		Mockito.when(loader.loadTestSuites(Mockito.anyString(), Mockito.anything())).thenResolve({
+		Mockito.when(loader.loadTestSuites(any(), any())).thenResolve({
 			suite1: test_suite_stub,
 			suite2: test_suite_stub
 		});
 
 		const suite_runner = Mockito.mock<TestSuiteRunner>();
-		Mockito.when(suite_runner.runSuite(Mockito.anything(), Mockito.anything())).thenResolve(new TestSuiteResults(test_suite_stub));
+		Mockito.when(suite_runner.runSuite(any(), any())).thenResolve(new TestSuiteResults(test_suite_stub));
 
 		const reporter = Mockito.mock<ResultReporter>();
 		const runner = new Runner(Mockito.instance(loader), Mockito.instance(suite_runner), [ Mockito.instance(reporter) ]);
