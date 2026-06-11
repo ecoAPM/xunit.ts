@@ -84,7 +84,7 @@ You can also run `xunit.ts` from a script in your `package.json`:
 }
 ```
 
-### Filtering tests
+#### Filtering tests
 
 If you don't want to run your entire test suite, you can pass one or more `--filter` flags to the `xunit` command.
 
@@ -96,3 +96,26 @@ Using our example above, of a test suite named `MyTestSuite` with a test method 
 - `MyFirstTest`
 - `MyTestSuite.MyFirstTest`
 - `^MyTestSuite\.MyFirstTest$`
+
+### Asynchronous tests
+
+Async tests can live side-by-side with your synchronous tests!
+
+`MyTestSuite.ts`:
+
+```ts
+import { Test, TestSuite } from 'xunit.ts';
+
+export default class MyTestSuite extends TestSuite {
+	@Test()
+	SyncTest() {
+		this.assert.equal(2, 1 + 1);
+	}
+
+	@Test()
+	async AsyncTest() {
+		const hardMath = await Promise.resolve(1 + 1);
+		this.assert.equal(2, hardMath);
+	}
+}
+```

@@ -98,6 +98,29 @@ You can also run `xunit.ts` from a script in your `package.json`:
 
 The `xunit` command can take one or more `--filter` flags (`-f` alias) followed by a regular expression to match `TestSuiteName.TestMethodName`. See the [full documentation](https://ecoAPM.github.io/xunit.ts) for more details.
 
+### Asynchronous tests
+
+Async tests can live side-by-side with your synchronous tests!
+
+`MyTestSuite.ts`:
+
+```ts
+import { Test, TestSuite } from 'xunit.ts';
+
+export default class MyTestSuite extends TestSuite {
+	@Test()
+	SyncTest() {
+		this.assert.equal(2, 1 + 1);
+	}
+
+	@Test()
+	async AsyncTest() {
+		const hardMath = await Promise.resolve(1 + 1);
+		this.assert.equal(2, hardMath);
+	}
+}
+```
+
 ## Output
 
 ### Console
