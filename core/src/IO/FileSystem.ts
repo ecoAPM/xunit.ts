@@ -10,7 +10,7 @@ export default class FileSystem {
 
 	static extension(file: string) {
 		const match = this.matchExtension.exec(file);
-		return match !== undefined && match !== null && match.length > 1
+		return match && match.length > 1
 			? match[1]
 			: "";
 	}

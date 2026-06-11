@@ -26,8 +26,8 @@ export default class Factory {
 	static Reporters(args: Args.CommandLineOptions): readonly ResultReporter[] {
 		return [
 			args.quiet ? null : new ConsoleReporter(new Output(process.stdout)),
-			args.junit === undefined ? null : new JUnitReporter(Factory.file_system, args.junit ?? JUnitReporter.defaultFileName),
-			args.sonar === undefined ? null : new SonarReporter(Factory.file_system, args.sonar ?? SonarReporter.defaultFileName)
-		].filter(r => r !== null) as ResultReporter[];
+			args.junit === undefined ? null : new JUnitReporter(Factory.file_system, args.junit as string | undefined ?? JUnitReporter.defaultFileName),
+			args.sonar === undefined ? null : new SonarReporter(Factory.file_system, args.sonar as string | undefined ?? SonarReporter.defaultFileName)
+		].filter(r => r !== null);
 	}
 }

@@ -8,17 +8,23 @@ export default class TestSuiteLoader {
 
 	static async loadTestSuite(file: string, filters: RegExp[]) {
 		const module_path = TestSuiteLoader.getModulePath(__dirname, file);
-		const test_class = await import(module_path);
-		if (!(test_class.default?.prototype instanceof TestSuite)) {
+		const test_class = await import(module_path) as { default?: new () => TestSuite };
+		const constructor = test_class.default;
+		if (!constructor) {
 			return null;
 		}
 
-		const tests = test_class.default?.prototype.getTests(filters);
+		const prototype = constructor.prototype as TestSuite;
+		if (!(prototype instanceof TestSuite)) {
+			return null;
+		}
+
+		const tests = prototype.getTests(filters);
 		if (tests === undefined || Object.keys(tests).length === 0) {
 			return null;
 		}
 
-		const suite: TestSuite = new test_class.default();
+		const suite = new constructor();
 		suite.setTests(tests);
 		return suite;
 	}
@@ -46,7 +52,7 @@ export default class TestSuiteLoader {
 
 		for (const file of files) {
 			const suite = await TestSuiteLoader.loadTestSuite(file, filters);
-			if (suite !== undefined && suite !== null) {
+			if (suite !== null) {
 				suites[file] = suite;
 			}
 		}

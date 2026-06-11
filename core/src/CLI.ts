@@ -97,9 +97,10 @@ export default class CLI {
 		const runner = this.runnerFactory(args);
 
 		try {
-			const filters: string[] = args.filter ?? [];
+			const argFilter = args.filter as string[] | undefined;
+			const filters: string[] = argFilter ?? [];
 			const regexFilters = filters.map((f: string) => new RegExp(SafeRegex(f)));
-			const results = await runner.runAll(args.dir, regexFilters);
+			const results = await runner.runAll(args.dir as string, regexFilters);
 			return Runner.allTestsPassed(results);
 		} catch (error) {
 			if (error instanceof Error) {
