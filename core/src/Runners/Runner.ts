@@ -16,7 +16,7 @@ export default class Runner {
 	}
 
 	async runAll(dir: string, filters: RegExp[]): Promise<Record<string, TestSuiteResults>> {
-		await Promise.all(this.reporters.map(r => r.runStarted()));
+		this.reporters.map(r => r.runStarted());
 		const results: Record<string, TestSuiteResults> = {};
 		const suites = await this.loader.loadTestSuites(dir, filters);
 		for (const file of Object.keys(suites)) {

@@ -10,35 +10,35 @@ export default abstract class FileReporter implements ResultReporter {
 	constructor(protected readonly file_system: FileSystem, protected readonly path: string) {
 	}
 
-	async runStarted(): Promise<void> {
+	runStarted(): void {
 		return;
 	}
 
-	async suiteStarted(suite: TestSuite): Promise<void> {
+	suiteStarted(suite: TestSuite): void {
 		return;
 	}
 
-	async testStarted(suite: TestSuite, test_name: string): Promise<void> {
+	testStarted(suite: TestSuite, test_name: string): void {
 		return;
 	}
 
-	async testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): Promise<void> {
+	testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): void {
 		return;
 	}
 
-	async testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): Promise<void> {
+	testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): void {
 		return;
 	}
 
-	async testIncomplete(suite: TestSuite, test_name: string): Promise<void> {
+	testIncomplete(suite: TestSuite, test_name: string): void {
 		return;
 	}
 
-	async testPassed(suite: TestSuite, test_name: string, duration: number): Promise<void> {
+	testPassed(suite: TestSuite, test_name: string, duration: number): void {
 		return;
 	}
 
-	async suiteCompleted(suite: TestSuite, results: TestSuiteResults): Promise<void> {
+	suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
 		return;
 	}
 

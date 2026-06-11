@@ -10,17 +10,17 @@ export default class TestSuiteRunner {
 	}
 
 	async runSuite(suite: TestSuite, filters: RegExp[]) {
-		await Promise.all(this.reporters.map(r => r.suiteStarted(suite)));
+		this.reporters.map(r => r.suiteStarted(suite));
 		const tests = suite.getTests(filters);
 		const results = await this.runTests(suite, tests);
-		await Promise.all(this.reporters.map(r => r.suiteCompleted(suite, results)));
+		this.reporters.map(r => r.suiteCompleted(suite, results));
 		return results;
 	}
 
-	async runTests(suite: TestSuite, tests: Record<string, TestInfo>) {
+	async runTests(suite: TestSuite, tests?: Record<string, TestInfo> | null) {
 		const results = new TestSuiteResults(suite);
 		if (tests === undefined || tests === null || Object.keys(tests).length === 0) {
-			await Promise.all(this.reporters.map(r => r.testIncomplete(suite, "(no tests found)")));
+			this.reporters.map(r => r.testIncomplete(suite, "(no tests found)"));
 			return results;
 		}
 

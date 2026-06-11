@@ -13,25 +13,25 @@ export default class ConsoleReporter implements ResultReporter {
 	constructor(private readonly out: Output) {
 	}
 
-	async runStarted(): Promise<void> {
+	runStarted(): void {
 		this.out.writeLine("Starting xunit.ts...");
 		this.out.writeLine();
 	}
 
-	async suiteStarted(suite: TestSuite): Promise<void> {
+	suiteStarted(suite: TestSuite): void {
 		this.out.writeLine(TestName.toSentenceCase(suite.constructor.name));
 	}
 
-	async testStarted(suite: TestSuite, test_name: string): Promise<void> {
+	testStarted(suite: TestSuite, test_name: string): void {
 		this.out.write(`  ${colors.white("⋯")} ${test_name}`);
 	}
 
-	async testPassed(suite: TestSuite, test_name: string, duration: number): Promise<void> {
+	testPassed(suite: TestSuite, test_name: string, duration: number): void {
 		this.out.write(` (${Math.round(duration)} ms)`);
 		this.out.overwrite(`  ${colors.green("✓")}\n`);
 	}
 
-	async testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): Promise<void> {
+	testFailed(suite: TestSuite, test_name: string, error: AssertionError, duration: number): void {
 		this.out.write(` (${Math.round(duration)} ms)`);
 		this.out.overwrite(`  ${colors.red("✘")}\n`);
 		this.out.writeLine(`      ${error.message}`);
@@ -40,18 +40,18 @@ export default class ConsoleReporter implements ResultReporter {
 		this.out.writeLine();
 	}
 
-	async testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): Promise<void> {
+	testErrored(suite: TestSuite, test_name: string, error: Error, duration: number): void {
 		this.out.write(` (${Math.round(duration)} ms)`);
 		this.out.overwrite(`  ${colors.red("✘")}\n`);
-		this.out.writeLine(`  ${error.stack}`);
+		this.out.writeLine(`  ${error.stack ?? ""}`);
 		this.out.writeLine();
 	}
 
-	async testIncomplete(suite: TestSuite, test_name: string): Promise<void> {
+	testIncomplete(suite: TestSuite, test_name: string): void {
 		this.out.overwrite(`  ${colors.yellow("?")}\n`);
 	}
 
-	async suiteCompleted(suite: TestSuite, results: TestSuiteResults): Promise<void> {
+	suiteCompleted(suite: TestSuite, results: TestSuiteResults): void {
 		const passed = results.count(ResultType.Passed);
 		const total = results.total();
 		const time = results.time();
@@ -65,7 +65,7 @@ export default class ConsoleReporter implements ResultReporter {
 		const results = Object.values(suites);
 		if (!results.length) {
 			this.out.writeLine("No tests found!");
-			return;
+			return Promise.resolve();
 		}
 
 		const sum = (result_type?: ResultType) => results
