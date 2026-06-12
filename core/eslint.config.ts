@@ -4,14 +4,16 @@ import { defineConfig } from "eslint/config";
 import sort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
 
-export default defineConfig([
+export default defineConfig(
 	{
 		ignores: ["dist"]
 	},
 	{
 		languageOptions: {
-			parser: tseslint.parser,
-			parserOptions: { projectService: true }
+			parserOptions: {
+				parser: tseslint.parser,
+				projectService: true
+			}
 		},
 		plugins: {
 			"@stylistic": stylistic,
@@ -37,8 +39,9 @@ export default defineConfig([
 
 			"@typescript-eslint/no-confusing-void-expression": "off",
 			"@typescript-eslint/no-extraneous-class": "off",
+			"@typescript-eslint/no-inferrable-types": "off",
 			"@typescript-eslint/no-unsafe-function-type": "off",
 			"@typescript-eslint/restrict-template-expressions": "off"
 		}
 	}
-]);
+);
