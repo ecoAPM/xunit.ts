@@ -29,7 +29,7 @@
 		"@types/node": "26.1.1",
 		"@types/xml": "1.0.11",
 		"eslint": "10.7.0",
-		"eslint-plugin-simple-import-sort": "13.0.0",
+		"eslint-plugin-simple-import-sort": "14.0.0",
 		"jiti": "2.7.0",
 		"ts-mockito": "2.6.1",
 		"typescript": "6.0.3",
