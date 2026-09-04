@@ -22,28 +22,32 @@ jobs:
         run: yarn global add c8
 
       - name: Install dependencies
-        run: yarn
         working-directory: core
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build core
-        run: yarn build
         working-directory: core
+        run: yarn build
 
       - name: Get core code coverage
-        run: c8 -r lcov yarn test -s
         working-directory: core
+        run: c8 -r lcov yarn test -s
 
       - name: Install documentation dependencies
-        run: yarn
         working-directory: tsdoc
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build documentation
-        run: yarn build
         working-directory: tsdoc
+        run: yarn build
 
       - name: Get documentation code coverage
-        run: c8 -r lcov yarn test -s
         working-directory: tsdoc
+        run: c8 -r lcov yarn test -s
 
       - name: SonarCloud Analysis
         uses: SonarSource/sonarqube-scan-action@v7.0.0

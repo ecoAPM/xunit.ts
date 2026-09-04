@@ -20,16 +20,18 @@ jobs:
           node-version: ${{ matrix.version }}
 
       - name: Install core dependencies
-        run: yarn
         working-directory: core
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build core
-        run: yarn build
         working-directory: core
+        run: yarn build
 
       - name: Run core tests
-        run: yarn test
         working-directory: core
+        run: yarn test
 
   Documentation:
     runs-on: ubuntu-latest
@@ -46,24 +48,28 @@ jobs:
           node-version: 24
 
       - name: Install core dependencies
-        run: yarn
         working-directory: core
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build core
-        run: yarn build
         working-directory: core
+        run: yarn build
 
       - name: Install documentation dependencies
-        run: yarn
         working-directory: tsdoc
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build documentation
-        run: yarn build
         working-directory: tsdoc
+        run: yarn build
 
       - name: Run documentation tests
-        run: yarn test
         working-directory: tsdoc
+        run: yarn test
 
   Compiler-Tests:
     runs-on: ubuntu-latest
@@ -83,16 +89,20 @@ jobs:
           node-version: ${{ matrix.version }}
 
       - name: Install core dependencies
-        run: yarn
         working-directory: core
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build core
-        run: yarn build
         working-directory: core
+        run: yarn build
 
       - name: Install compiler test dependencies
-        run: yarn
         working-directory: compiler-tests
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Run compiler tests
         run: yarn all

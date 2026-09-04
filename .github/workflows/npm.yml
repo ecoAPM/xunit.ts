@@ -25,7 +25,9 @@ jobs:
 
       - name: Install dependencies
         working-directory: core
-        run: yarn
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Build
         working-directory: core
@@ -37,7 +39,9 @@ jobs:
 
       - name: Install compiler test dependencies
         working-directory: compiler-tests
-        run: yarn
+        run: yarn install
+        env:
+          YARN_ENABLE_SCRIPTS: false
 
       - name: Run compiler tests
         working-directory: compiler-tests
