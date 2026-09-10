@@ -16,8 +16,8 @@ export default class TestRunner {
 		return duration[0] * 1_000 + duration[1] / 1_000_000;
 	}
 
-	private static isSyncTest = (test?: TestInfo): test is SyncTestInfo|undefined => test !== undefined;
-	private static isAsyncTest = (test?: TestInfo): test is AsyncTestInfo|undefined => test !== undefined;
+	private static readonly isSyncTest = (test?: TestInfo): test is SyncTestInfo|undefined => test !== undefined;
+	private static readonly isAsyncTest = (test?: TestInfo): test is AsyncTestInfo|undefined => test !== undefined;
 
 	async runTest(name: string, info: TestInfo, suite: TestSuite): Promise<TestResult> {
 		this.reporters.map(r => r.testStarted(suite, name));

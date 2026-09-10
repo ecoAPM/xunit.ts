@@ -67,7 +67,7 @@ export default class ConsoleReporter implements ResultReporter {
 		const results = Object.values(suites);
 		if (!results.length) {
 			this.out.writeLine("No tests found!");
-			return Promise.resolve();
+			return await Promise.resolve();
 		}
 
 		const sum = (result_type?: ResultType) => results
