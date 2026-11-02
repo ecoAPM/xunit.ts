@@ -16,7 +16,7 @@
 		"typescript": "6.0.3",
 		"vite": "8.3.5",
 		"webpack": "5.112.2",
-		"webpack-cli": "7.2.3",
+		"webpack-cli": "7.3.0",
 		"xunit.ts": "file:../core"
 	},
 	"scripts": {
