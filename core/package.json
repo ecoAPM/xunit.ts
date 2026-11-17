@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "10.0.1",
-		"@stylistic/eslint-plugin": "5.10.0",
+		"@stylistic/eslint-plugin": "6.0.0",
 		"@types/command-line-args": "5.2.3",
 		"@types/command-line-usage": "5.0.4",
 		"@types/lodash.escaperegexp": "4.1.9",
