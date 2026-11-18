@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "12.3.1",
-		"@types/node": "25.9.3",
+		"@types/node": "26.6.6",
 		"parcel": "2.16.4",
 		"rollup": "4.68.3",
 		"ts-loader": "9.6.2",
