@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: core
-        run: yarn install
+        run: yarn install --frozen-lockfile
         env:
           YARN_ENABLE_SCRIPTS: false
 
@@ -37,7 +37,7 @@ jobs:
 
       - name: Install documentation dependencies
         working-directory: tsdoc
-        run: yarn install
+        run: yarn install --frozen-lockfile
         env:
           YARN_ENABLE_SCRIPTS: false
 
