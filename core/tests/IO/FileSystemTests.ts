@@ -16,7 +16,7 @@ export default class FileSystemTests extends TestSuite {
 		const fs = Mockito.spy(Object.assign({}, fs_promises));
 		const stats = Mockito.mock(Stats);
 		Mockito.when(fs.stat(any())).thenResolve(Mockito.instance(stats));
-		Mockito.when(fs.readdir(any())).thenResolve(["Test1.ts", `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts`]);
+		Mockito.when(fs.readdir(any())).thenResolve([ "Test1.ts", `Sub1${path.sep}Test2.ts`, `Sub2${path.sep}Test3.ts` ]);
 		const file_system = new FileSystem(Mockito.instance(fs));
 
 		//act

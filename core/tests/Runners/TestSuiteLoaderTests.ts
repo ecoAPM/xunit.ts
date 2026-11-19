@@ -89,7 +89,7 @@ export default class TestSuiteLoaderTests extends TestSuite {
 		const module = `dist${path.sep}tests${path.sep}Runners${path.sep}TestSuiteLoaderTests`;
 
 		//act
-		const suite = await TestSuiteLoader.loadTestSuite(module, [new RegExp("nonexistentTest")]);
+		const suite = await TestSuiteLoader.loadTestSuite(module, [ new RegExp("nonexistentTest") ]);
 
 		//assert
 		this.assert.null(suite);
